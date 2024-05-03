@@ -1,0 +1,185 @@
+﻿@using AyodhyaYatra_Web.Models.Masters;
+@{
+    ViewBag.Title = "PAC Notice";
+    Layout = "~/Views/Shared/_PACLayout.cshtml";
+}
+
+<link href="~/Content/css/design1.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="card">
+                <header class="card-header" style="text-align: center; color: #fd7e14; font-weight:400">
+                    <strong>Cyber Security and Preventive Action Cell (CSPAC) Details</strong>
+                </header>
+                <!--<div style="padding-top:5px;padding-bottom:5px;padding-left:450px;">
+                    <a href="/PAC/CreatePdf" target="_blank" class="btn btn-success" style="float: right; margin-right: 3%;">Print</a>-->
+                    @*<input type="button" id="btnPrint" value="Print" class="btn btn-success" style="float:left;width:100px" />*@
+                    <!--&nbsp;&nbsp;
+                </div>-->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="table-responsive" style="overflow:auto!important;">
+                            <table class="table table-bordered" id="tablePACDoc"></table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<!--main content end-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var tablePACDoc = $("#tablePACDoc").DataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "ordering": false,
+            "pageLength": 10,
+            "scrollX": true,
+            "scrollY": "250px",
+            "scrollCollapse": true,
+            "className": 'dt-body-nowrap',
+            "PaginationType": 'full_numbers',
+            "ajax": {
+                "url": "/PAC/GetAllPAC",
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": null, "name": "srNumber", "autoWidth": true, "title": "Sr. No" },
+                { "data": "RecruitementType", "name": "RecruitementType", "autoWidth": true, "title": "Recruitement Type" },
+                { "data": "PACNumber", "name": "PACNumber", "autoWidth": true, "title": "CSPAC Number" },
+                /*  { "data": "State_Name", "name": "State_Name", "autoWidth": true, "title": "State" },*/
+                { "data": "Zone_Name", "name": "Zone_Name", "autoWidth": true, "title": "Zone" },
+                { "data": "Range_Name", "name": "Range_Name", "autoWidth": true, "title": "Range" },
+                { "data": "District_Name", "name": "District_Name", "autoWidth": true, "title": "District" },
+                { "data": "PS_Name", "name": "PS_Name", "autoWidth": true, "title": "Police Station" },
+                { "data": "AccusedName", "name": "AccusedName", "autoWidth": true, "title": "Accused Name" },
+                { "data": "ExamineCenterName", "name": "ExamineCenterName", "autoWidth": true, "title": "Examine Center" },
+                { "data": "Solver_Name", "name": "Solver_Name", "autoWidth": true, "title": "Solver Name" },
+
+                { "data": "FIRNo", "name": "FIRNo", "autoWidth": true, "title": "FIR No" },
+                {
+                    "title": "FIR Date",
+                    "render": function (data, type, full, meta) {
+                        return '<span>' + formatDate(full.FIRDate) + '</span>';
+                    }
+                },
+                { "data": "Address", "name": "Address", "autoWidth": true, "title": "Address" },
+                { "data": "FIRDetails", "name": "FIRDetails", "autoWidth": true, "title": "FIR Details" },
+                //{
+                //    "title": "File URL",
+                //    "render": function (data, type, full, meta) {
+                //        if (full.FileURL) {
+                //            var truncatedFileName = (full.FileURL.length > 20) ? full.FileURL.substring(0, 20) + '...' : full.FileURL
+                //            return '<a target="_blank" style=" color: blue;white-space: nowrap;" href="' + full.FileURL + '">' + truncatedFileName + '</a>';
+                //        } else {
+                //            return '';
+                //        }
+                //    }
+                //},
+                {
+                    "title": "Download File",
+                    "render": function (data, type, full, meta) {
+                        if (full.FileUploadName) {
+                            var truncatedFileName = (full.FileUploadName.length > 20) ? full.FileUploadName.substring(0, 20) + '...' : full.FileUploadName
+                            return '<a target="_blank" style=" color: blue;white-space: nowrap;" href=/FilesUploaded/PAC/' + encodeURIComponent(full.FileUploadName) + '><i class="fa fa-download" style="color:black;cursor: pointer;"></i></a>';
+                        } else {
+                            return '';
+                        }
+                    }
+                }
+            ],
+            "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                var pageNumber = 0;
+                $.each($('.paginate_button'), function (index, button) {
+                    if ($(this).css('background-image') == 'linear-gradient(rgb(88, 88, 88) 0%, rgb(17, 17, 17) 100%)') {
+                        pageNumber = $(this).html()
+                    }
+                });
+                if (pageNumber == 0) {
+                    $("td:first", nRow).html((pageNumber * info.length) + iDisplayIndex + 1);
+                }
+                else {
+                    pageNumber = pageNumber - 1;
+                    $("td:first", nRow).html((pageNumber * info.length) + iDisplayIndex + 1);
+                }
+
+                return nRow;
+            },
+        });
+        var info = tablePACDoc.page.info();
+        $("#tablePACDoc_filter input")
+            .unbind() // Unbind previous default bindings
+            .bind("input", function (e) { // Bind our desired behavior
+                // If the length is 2 or more characters, or the user pressed ENTER, search
+                if (this.value.length >= 2 || e.keyCode == 13) {
+                    // Call the API search function
+                    tablePACDoc.search(this.value).draw();
+                }
+                // Ensure we clear the search if they backspace far enough
+                if (this.value == "") {
+                    tablePACDoc.search("").draw();
+                }
+                return;
+            });
+    });
+    $(document).on('click', '#btnPrint', function () {
+        var pageTitle = 'Preventive Action Cell (PAC) Details';
+        stylesheet = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css';
+        stylesheetDataTable = '//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css';
+        win = window.open('', 'Print', 'width=700,height=900');
+        var dd = $('.dataTables_scroll').clone();
+        //dd.find('tbody').append($('.table:eq(1) tbody tr').clone());
+
+        win.document.write('<html><head><title>' + pageTitle + '</title>' +
+            '<link rel="stylesheet" href="' + stylesheet + '">' +
+            '<link rel="stylesheet" href="' + stylesheetDataTable + '">' +
+            '</head><body style="font-size=11px;">' + dd.html() + '</body ></html>');
+        //'</head><body style="font-size=11px;"><hr/><div style="text-align:center;"><img src="' + $('#hdnHospitalLogo').val() + '"/></div><hr/> <table class="table table-bordered table-hover table-responsive table-striped">' + dd.html() + '</table></body ></html >
+        win.document.close();
+        win.print();
+        //win.close();
+        return false;
+    });
+    function strtrunc(str, max, add) {
+        add = add || '...';
+        return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
+    };
+    function formatDate(noticeDate) {
+        if (noticeDate != null) {
+            var milli = noticeDate.replace(/\/Date\((-?\d+)\)\//, '$1');
+            var now = new Date(parseInt(milli));
+
+            var day = ("0" + now.getDate()).slice(-2);
+            var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+            var today = (day) + "-" + (month) + "-" + now.getFullYear();
+            return today;
+        }
+        else
+            return "";
+    }
+</script>
+
+<style type="text/css">
+    #tablePACDoc td, #tablePACDoc th {
+        white-space: nowrap;
+    }
+  /*  #tablePACDoc thead th:nth-child(11) {
+        white-space: normal !important;
+        word-break: break-all;
+        width: 400px
+    }
+    #tablePACDoc tbody td:nth-child(11) {
+        white-space: normal!important;
+        word-break:break-all;
+        width:400px
+    }*/
+</style>

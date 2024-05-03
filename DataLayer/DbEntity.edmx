@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="upprbDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="500" />
+          <Property Name="MobileNumber" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserType" Type="varchar" MaxLength="500" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="otp_number" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="DirectRecruitementDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Parent_Id" Type="int" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+          <Property Name="FIleURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DistrictMaster">
+          <Key>
+            <PropertyRef Name="DistrictId" />
+          </Key>
+          <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="500" />
+          <Property Name="RangeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EventCalender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventDate" Type="datetime" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="FAQDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FAQ_Question" Type="nvarchar(max)" />
+          <Property Name="FAQ_Answer" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LoginDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="LoginAt" Type="datetime" />
+          <Property Name="LogoutAt" Type="datetime" />
+          <Property Name="IsLogin" Type="bit" />
+        </EntityType>
+        <EntityType Name="Lookup">
+          <Key>
+            <PropertyRef Name="LookupId" />
+          </Key>
+          <Property Name="LookupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LookupType" Type="varchar" MaxLength="500" />
+          <Property Name="LookupName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ParentLookupId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LookupNameImmutable" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="MedalDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedalCategoryId" Type="int" />
+          <Property Name="GivenBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ToWhom" Type="nvarchar" MaxLength="500" />
+          <Property Name="MedalDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="MedalGivenDate" Type="datetime" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoticeType" Type="int" />
+          <Property Name="NoticeCategoryId" Type="int" />
+          <Property Name="EntryTypeId" Type="int" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="NoticeDate" Type="datetime" />
+          <Property Name="fileURL" Type="varchar" MaxLength="500" />
+          <Property Name="filename" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="is_deleted" Type="bit" />
+          <Property Name="is_published" Type="bit" />
+        </EntityType>
+        <EntityType Name="PACEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State_Id" Type="int" />
+          <Property Name="Zone_Id" Type="int" />
+          <Property Name="Range_Id" Type="int" />
+          <Property Name="District_Id" Type="int" />
+          <Property Name="PS_Id" Type="int" />
+          <Property Name="ExamineCenterName" Type="varchar" MaxLength="500" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="FIRNo" Type="varchar" MaxLength="500" />
+          <Property Name="FIRDate" Type="datetime" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="AccusedName" Type="varchar" MaxLength="500" />
+          <Property Name="FIRDetails" Type="nvarchar(max)" />
+          <Property Name="FileURL" Type="varchar" MaxLength="500" />
+          <Property Name="FileUploadName" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="PACNumber" Type="varchar" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Solver_Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="recruitement_type" Type="int" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="CenterStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="PACUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="500" />
+          <Property Name="MobileNumber" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserType" Type="varchar" MaxLength="500" />
+          <Property Name="otp_number" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionName" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PopularRecruitment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecruitmentName" Type="nvarchar(max)" />
+          <Property Name="NoOfSeat" Type="int" />
+          <Property Name="RecruitmentStartDate" Type="datetime" />
+          <Property Name="RecruitmentEndDate" Type="datetime" />
+          <Property Name="fileURL" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="RecruitmentSubject" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PromotionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Parent_Id" Type="int" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+          <Property Name="FIleURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PSMaster">
+          <Key>
+            <PropertyRef Name="PSId" />
+          </Key>
+          <Property Name="PSId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PSName" Type="varchar" MaxLength="500" />
+          <Property Name="DistrictId" Type="int" />
+        </EntityType>
+        <EntityType Name="RangeMaster">
+          <Key>
+            <PropertyRef Name="RangeId" />
+          </Key>
+          <Property Name="RangeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RangeName" Type="varchar" MaxLength="500" />
+          <Property Name="ZoneId" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="PermissionId" Type="int" />
+        </EntityType>
+        <EntityType Name="Visitor_Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_IP_Address" Type="varchar" MaxLength="50" />
+          <Property Name="Session_Start_Date" Type="datetime" />
+          <Property Name="Browser_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Device_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Operating_System" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZoneName" Type="varchar" MaxLength="500" />
+          <Property Name="StateId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="upprbDbModelStoreContainer">
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DirectRecruitementDetail" EntityType="Self.DirectRecruitementDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistrictMaster" EntityType="Self.DistrictMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enquiry" EntityType="Self.Enquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventCalender" EntityType="Self.EventCalender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAQDetail" EntityType="Self.FAQDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginDetail" EntityType="Self.LoginDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedalDetails" EntityType="Self.MedalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PACEntry" EntityType="Self.PACEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PACUser" EntityType="Self.PACUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PopularRecruitment" EntityType="Self.PopularRecruitment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromotionDetail" EntityType="Self.PromotionDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PSMaster" EntityType="Self.PSMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RangeMaster" EntityType="Self.RangeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitor_Detail" EntityType="Self.Visitor_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneMaster" EntityType="Self.ZoneMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="upprbDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="upprbDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lookups" EntityType="upprbDbModel.Lookup" />
+          <EntitySet Name="PACUsers" EntityType="upprbDbModel.PACUser" />
+          <EntitySet Name="Enquiries" EntityType="upprbDbModel.Enquiry" />
+          <EntitySet Name="Feedbacks" EntityType="upprbDbModel.Feedback" />
+          <EntitySet Name="DistrictMasters" EntityType="upprbDbModel.DistrictMaster" />
+          <EntitySet Name="PSMasters" EntityType="upprbDbModel.PSMaster" />
+          <EntitySet Name="RangeMasters" EntityType="upprbDbModel.RangeMaster" />
+          <EntitySet Name="StateMasters" EntityType="upprbDbModel.StateMaster" />
+          <EntitySet Name="ZoneMasters" EntityType="upprbDbModel.ZoneMaster" />
+          <EntitySet Name="Notices" EntityType="upprbDbModel.Notice" />
+          <EntitySet Name="PACEntries" EntityType="upprbDbModel.PACEntry" />
+          <EntitySet Name="DirectRecruitementDetails" EntityType="upprbDbModel.DirectRecruitementDetail" />
+          <EntitySet Name="PromotionDetails" EntityType="upprbDbModel.PromotionDetail" />
+          <EntitySet Name="FAQDetails" EntityType="upprbDbModel.FAQDetail" />
+          <EntitySet Name="MedalDetails" EntityType="upprbDbModel.MedalDetail" />
+          <EntitySet Name="Permissions" EntityType="upprbDbModel.Permission" />
+          <EntitySet Name="Roles" EntityType="upprbDbModel.Role" />
+          <EntitySet Name="UserRoles" EntityType="upprbDbModel.UserRole" />
+          <EntitySet Name="EventCalenders" EntityType="upprbDbModel.EventCalender" />
+          <EntitySet Name="Visitor_Detail" EntityType="upprbDbModel.Visitor_Detail" />
+          <EntitySet Name="LoginDetails" EntityType="upprbDbModel.LoginDetail" />
+          <EntitySet Name="AdminUsers" EntityType="upprbDbModel.AdminUser" />
+          <EntitySet Name="PopularRecruitments" EntityType="upprbDbModel.PopularRecruitment" />
+        </EntityContainer>
+        <EntityType Name="Lookup">
+          <Key>
+            <PropertyRef Name="LookupId" />
+          </Key>
+          <Property Name="LookupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LookupType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LookupName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ParentLookupId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LookupNameImmutable" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PACUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="otp_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DistrictMaster">
+          <Key>
+            <PropertyRef Name="DistrictId" />
+          </Key>
+          <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RangeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PSMaster">
+          <Key>
+            <PropertyRef Name="PSId" />
+          </Key>
+          <Property Name="PSId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PSName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RangeMaster">
+          <Key>
+            <PropertyRef Name="RangeId" />
+          </Key>
+          <Property Name="RangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RangeName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ZoneMaster">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StateId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoticeType" Type="Int32" />
+          <Property Name="NoticeCategoryId" Type="Int32" />
+          <Property Name="EntryTypeId" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoticeDate" Type="DateTime" Precision="3" />
+          <Property Name="fileURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="filename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="is_deleted" Type="Boolean" />
+          <Property Name="is_published" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PACEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State_Id" Type="Int32" />
+          <Property Name="Zone_Id" Type="Int32" />
+          <Property Name="Range_Id" Type="Int32" />
+          <Property Name="District_Id" Type="Int32" />
+          <Property Name="PS_Id" Type="Int32" />
+          <Property Name="ExamineCenterName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FIRNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FIRDate" Type="DateTime" Precision="3" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="AccusedName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FIRDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FileUploadName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="PACNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Solver_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="recruitement_type" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CenterStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DirectRecruitementDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parent_Id" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FIleURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PromotionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parent_Id" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FIleURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FAQDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FAQ_Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MedalDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedalCategoryId" Type="Int32" />
+          <Property Name="GivenBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ToWhom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MedalDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MedalGivenDate" Type="DateTime" Precision="3" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+          </Key>
+          <Property Name="PermissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="PermissionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EventCalender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventDate" Type="DateTime" Precision="3" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Visitor_Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Session_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Browser_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Device_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operating_System" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LoginDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="LoginAt" Type="DateTime" Precision="3" />
+          <Property Name="LogoutAt" Type="DateTime" Precision="3" />
+          <Property Name="IsLogin" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="otp_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PopularRecruitment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecruitmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfSeat" Type="Int32" />
+          <Property Name="RecruitmentStartDate" Type="DateTime" Precision="3" />
+          <Property Name="RecruitmentEndDate" Type="DateTime" Precision="3" />
+          <Property Name="fileURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="RecruitmentSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="upprbDbModelStoreContainer" CdmEntityContainer="upprbDbEntities">
+          <EntitySetMapping Name="Lookups">
+            <EntityTypeMapping TypeName="upprbDbModel.Lookup">
+              <MappingFragment StoreEntitySet="Lookup">
+                <ScalarProperty Name="LookupNameImmutable" ColumnName="LookupNameImmutable" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ParentLookupId" ColumnName="ParentLookupId" />
+                <ScalarProperty Name="LookupName" ColumnName="LookupName" />
+                <ScalarProperty Name="LookupType" ColumnName="LookupType" />
+                <ScalarProperty Name="LookupId" ColumnName="LookupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACUsers">
+            <EntityTypeMapping TypeName="upprbDbModel.PACUser">
+              <MappingFragment StoreEntitySet="PACUser">
+                <ScalarProperty Name="otp_number" ColumnName="otp_number" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enquiries">
+            <EntityTypeMapping TypeName="upprbDbModel.Enquiry">
+              <MappingFragment StoreEntitySet="Enquiry">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="upprbDbModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistrictMasters">
+            <EntityTypeMapping TypeName="upprbDbModel.DistrictMaster">
+              <MappingFragment StoreEntitySet="DistrictMaster">
+                <ScalarProperty Name="RangeId" ColumnName="RangeId" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSMasters">
+            <EntityTypeMapping TypeName="upprbDbModel.PSMaster">
+              <MappingFragment StoreEntitySet="PSMaster">
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="PSName" ColumnName="PSName" />
+                <ScalarProperty Name="PSId" ColumnName="PSId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RangeMasters">
+            <EntityTypeMapping TypeName="upprbDbModel.RangeMaster">
+              <MappingFragment StoreEntitySet="RangeMaster">
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+                <ScalarProperty Name="RangeId" ColumnName="RangeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateMasters">
+            <EntityTypeMapping TypeName="upprbDbModel.StateMaster">
+              <MappingFragment StoreEntitySet="StateMaster">
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneMasters">
+            <EntityTypeMapping TypeName="upprbDbModel.ZoneMaster">
+              <MappingFragment StoreEntitySet="ZoneMaster">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notices">
+            <EntityTypeMapping TypeName="upprbDbModel.Notice">
+              <MappingFragment StoreEntitySet="Notice">
+                <ScalarProperty Name="is_published" ColumnName="is_published" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="fileURL" ColumnName="fileURL" />
+                <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="EntryTypeId" ColumnName="EntryTypeId" />
+                <ScalarProperty Name="NoticeCategoryId" ColumnName="NoticeCategoryId" />
+                <ScalarProperty Name="NoticeType" ColumnName="NoticeType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACEntries">
+            <EntityTypeMapping TypeName="upprbDbModel.PACEntry">
+              <MappingFragment StoreEntitySet="PACEntry">
+                <ScalarProperty Name="CenterStatus" ColumnName="CenterStatus" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="recruitement_type" ColumnName="recruitement_type" />
+                <ScalarProperty Name="Solver_Name" ColumnName="Solver_Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="PACNumber" ColumnName="PACNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="FileUploadName" ColumnName="FileUploadName" />
+                <ScalarProperty Name="FileURL" ColumnName="FileURL" />
+                <ScalarProperty Name="FIRDetails" ColumnName="FIRDetails" />
+                <ScalarProperty Name="AccusedName" ColumnName="AccusedName" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="FIRDate" ColumnName="FIRDate" />
+                <ScalarProperty Name="FIRNo" ColumnName="FIRNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ExamineCenterName" ColumnName="ExamineCenterName" />
+                <ScalarProperty Name="PS_Id" ColumnName="PS_Id" />
+                <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+                <ScalarProperty Name="Range_Id" ColumnName="Range_Id" />
+                <ScalarProperty Name="Zone_Id" ColumnName="Zone_Id" />
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DirectRecruitementDetails">
+            <EntityTypeMapping TypeName="upprbDbModel.DirectRecruitementDetail">
+              <MappingFragment StoreEntitySet="DirectRecruitementDetail">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="FIleURL" ColumnName="FIleURL" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromotionDetails">
+            <EntityTypeMapping TypeName="upprbDbModel.PromotionDetail">
+              <MappingFragment StoreEntitySet="PromotionDetail">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="FIleURL" ColumnName="FIleURL" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQDetails">
+            <EntityTypeMapping TypeName="upprbDbModel.FAQDetail">
+              <MappingFragment StoreEntitySet="FAQDetail">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FAQ_Answer" ColumnName="FAQ_Answer" />
+                <ScalarProperty Name="FAQ_Question" ColumnName="FAQ_Question" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedalDetails">
+            <EntityTypeMapping TypeName="upprbDbModel.MedalDetail">
+              <MappingFragment StoreEntitySet="MedalDetails">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="MedalGivenDate" ColumnName="MedalGivenDate" />
+                <ScalarProperty Name="MedalDescription" ColumnName="MedalDescription" />
+                <ScalarProperty Name="ToWhom" ColumnName="ToWhom" />
+                <ScalarProperty Name="GivenBy" ColumnName="GivenBy" />
+                <ScalarProperty Name="MedalCategoryId" ColumnName="MedalCategoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="upprbDbModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="upprbDbModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="upprbDbModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventCalenders">
+            <EntityTypeMapping TypeName="upprbDbModel.EventCalender">
+              <MappingFragment StoreEntitySet="EventCalender">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitor_Detail">
+            <EntityTypeMapping TypeName="upprbDbModel.Visitor_Detail">
+              <MappingFragment StoreEntitySet="Visitor_Detail">
+                <ScalarProperty Name="Operating_System" ColumnName="Operating_System" />
+                <ScalarProperty Name="Device_Type" ColumnName="Device_Type" />
+                <ScalarProperty Name="Browser_Type" ColumnName="Browser_Type" />
+                <ScalarProperty Name="Session_Start_Date" ColumnName="Session_Start_Date" />
+                <ScalarProperty Name="Client_IP_Address" ColumnName="Client_IP_Address" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginDetails">
+            <EntityTypeMapping TypeName="upprbDbModel.LoginDetail">
+              <MappingFragment StoreEntitySet="LoginDetail">
+                <ScalarProperty Name="IsLogin" ColumnName="IsLogin" />
+                <ScalarProperty Name="LogoutAt" ColumnName="LogoutAt" />
+                <ScalarProperty Name="LoginAt" ColumnName="LoginAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminUsers">
+            <EntityTypeMapping TypeName="upprbDbModel.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUser">
+                <ScalarProperty Name="otp_number" ColumnName="otp_number" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PopularRecruitments">
+            <EntityTypeMapping TypeName="upprbDbModel.PopularRecruitment">
+              <MappingFragment StoreEntitySet="PopularRecruitment">
+                <ScalarProperty Name="RecruitmentSubject" ColumnName="RecruitmentSubject" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="fileURL" ColumnName="fileURL" />
+                <ScalarProperty Name="RecruitmentEndDate" ColumnName="RecruitmentEndDate" />
+                <ScalarProperty Name="RecruitmentStartDate" ColumnName="RecruitmentStartDate" />
+                <ScalarProperty Name="NoOfSeat" ColumnName="NoOfSeat" />
+                <ScalarProperty Name="RecruitmentName" ColumnName="RecruitmentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

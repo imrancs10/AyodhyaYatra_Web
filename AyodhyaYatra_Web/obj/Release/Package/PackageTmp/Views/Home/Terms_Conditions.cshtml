@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Terms and Conditions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="hero-slider">
+    <div class="pr-15 pl-15">
+        <div class="row">
+
+            @Html.Partial("_Policy_SideMenu")
+
+            <div class="col-lg-9 w_content pt-20 mt-0">
+                <h2 class="w-bgph ">Terms and Conditions</h2>
+                @*<img class="d-block w-100" src="~/Content/images/2.jpg" alt="UPPRPB">
+        <br>
+        <h3 class="w-hd-u">Privacy Policy</h3>*@
+            <p style="text-align:justify">
+                These Terms of Service govern your use of our website located at http://uppbpb.gov.in/ operated by Uttar Pradesh Police Recruitment and Promotion Board.
+            </p>
+            <b>You may use Service only for lawful purposes and in accordance with Terms. You agree not to use Service:</b>
+            <ul class="w_ul">
+                <li style="text-align:justify">In any way that violates any applicable national law or regulation.</li>
+                <li style="text-align:justify">For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.</li>
+                <li style="text-align:justify">To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter,” “spam,” or any other similar solicitation.</li>
+                <li style="text-align:justify">To impersonate or attempt to impersonate Company, a Company employee, another user, or any other person or entity.</li>
+                <li style="text-align:justify"> In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful, or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.</li>
+                <li style="text-align:justify">To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of Service, or which, as determined by us, may harm or offend Company or users of Service or expose them to liability.</li>
+            </ul>    
+            <b>Additionally, you agree not to:</b>
+            <ul class="w_ul">
+                <li style="text-align:justify">Use Service in any manner that could disable, overburden, damage, or impair Service or interfere with any other party’s use of Service, including their ability to engage in real time activities through Service.</li>
+                <li style="text-align:justify">Use any robot, spider, or other automatic device, process, or means to access Service for any purpose, including monitoring or copying any of the material on Service.</li>
+                <li style="text-align:justify">Use any manual process to monitor or copy any of the material on Service or for any other unauthorized purpose without our prior written consent.</li>
+                <li style="text-align:justify">Use any device, software, or routine that interferes with the proper working of Service.</li>
+                <li style="text-align:justify">Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful.</li>
+                <li style="text-align:justify">Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of Service, the server on which Service is stored, or any server, computer, or database connected to Service.</li>
+                <li style="text-align:justify">Attack Service via a denial-of-service attack or a distributed denial-of-service attack.</li>
+                <li style="text-align:justify">Take any action that may damage or falsify Company rating.</li>
+                <li style="text-align:justify">Otherwise attempt to interfere with the proper working of Service.</li>                
+            </ul>
+                <br>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
+<script>
+
+    $("#nav-btn").click(function () {
+        $("nav1").toggle("slow");
+    });
+
+
+</script>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('.navbar-nav').find('li').removeClass('active');
+        $('a[href="/Home/About"]').parent().addClass('active')
+    });
+</script>*@

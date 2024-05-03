@@ -1,0 +1,209 @@
+﻿@using AyodhyaYatra_Web.Models.Masters;
+@{
+    ViewBag.Title = "Event Calender";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var psData = ViewData["EventData"] as List<EventCalenderModel>;
+    int index = 1;
+}
+@*<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />*@
+<section id="main-content" style="margin-left:10px">
+    <section class="wrapper">
+        <!--state overview start-->
+        <div class="row state-overview">
+
+            <div class="col-lg-12 col-sm-3">
+                @*  *@
+                <section class="card">
+                    <div class="card-body left">
+                        <header class="card-header" style="color:black; font-weight:bold">
+                            Add Event Calender
+                        </header>
+                        <div class="clr"></div><br />
+                        @using (Html.BeginForm("AddEventCalender", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="hidden" id="hiddenID" value="" name="hiddenID" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Event Title</label>
+                                    <input type="text" class="form-control" id="EventTitle" name="EventTitle"
+                                           placeholder="Enter Event Title">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Event Description (Max 500 words)</label>
+                                    <textarea type="text" class="form-control" id="EventDescription" name="EventDescription"
+                                              placeholder="Enter Event Details"></textarea>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputPassword1">Event Date</label>
+                                    <input type="date" class="form-control" id="EventDate" placeholder="Event Date" name="EventDate"
+                                           onload="getTodayDate()">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>File Upload</label>
+                                    <div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" name="postedFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" id="resetButton" class="btn btn-warning">Reset</button>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--state overview end-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="card">
+                    <header class="card-header" style="color:black; font-weight:bold">
+                        Event Calender Details
+                    </header>
+                    <table class="table table-striped table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th style="color:black; width:10px"><i class="fa fa-bullhorn" style="color:black"></i> Sr.No.</th>
+                                <th class="hidden-phone" style="color:black"><i class="fa fa-question-circle"></i> Event Title</th>
+                                <th style="color:black"><i class="fa fa-bookmark" style="color:black"></i> Event Date</th>
+                                <th class="hidden-phone" style="color:black"><i class="fa fa-question-circle"></i> Event Description</th>
+                                <th style="color:black; width:10px"><i class=" fa fa-act" style="color:black"></i> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in psData)
+                            {
+                                <tr>
+                                    <td>@index </td>
+                                    <td><a>@data.EventTitle</a></td>
+                                    <td class="hidden-phone">
+                                        @if (data.EventDate != null)
+                                        {
+                                            <span>@data.EventDate.Value.ToShortDateString()</span>
+                                        }
+                                    </td>
+                                    <td class="hidden-phone">@data.EventDescription</td>
+                                    <td>
+                                        <i class="fa fa-pencil" style="cursor:pointer;" onclick="EditEventDetail(@data.Id,'@data.EventTitle','@data.EventDate','@data.EventDescription','@data.FileName')"></i>&nbsp;
+                                        <i class="fa fa-trash-o" style="cursor:pointer;color:red" onclick="DeleteEventDetail(@data.Id)"></i>
+                                    </td>
+                                    @{
+                                        index = index + 1;
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!--main content end-->
+</section>
+<script>
+    //owl carousel
+    $(document).ready(function () {
+        $("#owl-demo").owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            autoPlay: true
+
+        });
+    });
+
+    //custom select box
+
+    $(function () {
+        $('select.styled').customSelect();
+    });
+
+    $(window).on("resize", function () {
+        var owl = $("#owl-demo").data("owlCarousel");
+        owl.reinit();
+    });
+
+    $('#customFile').on('change', function () {
+        files = $(this)[0].files;
+        name = '';
+        for (var i = 0; i < files.length; i++) {
+            name += '\"' + files[i].name + '\"' + (i != files.length - 1 ? ", " : "");
+        } $(".custom-file-label").html(name);
+    });
+
+    function EditEventDetail(id, EventTitle, EventDate, EventDescription, filename) {
+        $('#hiddenID').val(id);
+        $('#EventTitle').val(EventTitle);
+        $('#EventDescription').val(EventDescription);
+        $('#EventDate').val(formatDateyyyyMMdd(EventDate));
+        if (filename != null && filename != "" && filename != undefined && filename != "") {
+            //add upload document link
+            $('#customFile').parent().find('a').remove();
+            $('#customFile').addClass('hidden');
+            var fileUrl = '/FilesUploaded/EventCalender/' + encodeURIComponent(filename);
+            var truncatedFileName = (filename.length > 50) ? filename.substring(0, 50) + '...' : filename
+            var html = "<a href='" + fileUrl + "' target='_blank'>" + truncatedFileName + "</a><a href='javascript:void(0)' onclick='javasript:return RemoveFile()' style='color:red;padding-left:5px;'>X</a>";
+            $(html).insertAfter('#customFile');
+            $('#customFile').removeAttr('required');
+        }
+        window.scrollTo(0, 0);
+    }
+    function RemoveFile() {
+        $('#customFile').removeClass('hidden');
+        $('#customFile').parent().find('a').remove();
+        $('#customFile').attr('required');
+        $('[name*=postedFile]').removeAttr('disabled');
+        return false;
+    }
+    function DeleteEventDetail(Id) {
+        if (confirm("Are you sure want to Delete") == true) {
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                data: '{Id: "' + Id + '" }',
+                url: '/Admin/DeleteEventCalender',
+                success: function (data) {
+                    utility.alert.setAlert("Delete", "Successfully Deleted");
+                    location.reload();
+                },
+                failure: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        }
+
+    }
+    $('#resetButton').click(function () {
+        location.reload();
+    })
+    function formatDateyyyyMMdd(noticeDate) {
+        //var milli = 0;
+        //if (noticeDate.source) {
+        //    milli = noticeDate.source.replace("Date(", "").replace(")", "");
+        //}
+        //else {
+        //    milli = noticeDate.replace("Date(", "").replace(")", "").replaceAll("/", "");
+        //}
+        //var now = new Date(parseInt(milli));
+
+        //var day = ("0" + now.getDate()).slice(-2);
+        //var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        //var today = now.getFullYear() + "-" + (month) + "-" + (day);
+        var today = noticeDate.split("-")[2].substring(0, 4) + "-" + noticeDate.split("-")[1] + "-" + noticeDate.split("-")[0];
+        return today;
+    }
+</script>
+
+
+

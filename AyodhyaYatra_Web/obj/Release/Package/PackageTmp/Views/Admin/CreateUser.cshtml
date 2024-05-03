@@ -1,0 +1,229 @@
+﻿@using AyodhyaYatra_Web.Models.Masters;
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var psData = ViewData["UserData"] as List<AdminUserModel>;
+    int index = 1;
+}
+@*<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />*@
+<section id="main-content" style="margin-left:10px">
+    <section class="wrapper">
+        <!--state overview start-->
+        <div class="row state-overview">
+
+            <div class="col-lg-12 col-sm-3">
+                @*  *@
+                <section class="card">
+                    <div class="card-body left">
+                        <header class="card-header" style="color:black; font-weight:bold">
+                            Add New User
+                        </header>
+                        <div class="clr"></div><br />
+                        @using (Html.BeginForm("CreateUser", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="hidden" id="hiddenID" value="" name="hiddenID" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">User Name</label>
+                                    <input type="text" class="form-control" id="username" name="UserName" onkeypress="return blockSpecialChar(event)"
+                                           placeholder="Enter User Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Name</label>
+                                    <input type="text" class="form-control" id="name" name="Name" onkeypress="return blockSpecialChar(event)"
+                                           placeholder="Enter Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Mobile Number</label>
+                                    <input type="number" class="form-control" id="mobile" name="Mobile" size="10"
+                                           placeholder="Enter Mobile Number">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Email Id</label>
+                                    <input type="text" class="form-control" id="email" name="Email" onkeypress="return blockXSSChar(event)"
+                                           placeholder="Enter Email Id">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleInputEmail1">Select Role</label>
+                                    <select class="form-control mb-3" id="ddlRole" name="Role" style="width:450px">
+                                    </select>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" id="resetButton" class="btn btn-warning">Reset</button>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--state overview end-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="card">
+                    <header class="card-header" style="color:black; font-weight:bold">
+                        User Details
+                    </header>
+                    <table class="table table-striped table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th style="color:black; width:10px"><i class="fa fa-bullhorn" style="color:black"></i> Sr.No.</th>
+                                <th class="hidden-phone" style="color:black"><i class="fa fa-question-circle"></i> Name</th>
+                                <th style="color:black"><i class="fa fa-bookmark" style="color:black"></i> User Name</th>
+                                <th class="hidden-phone" style="color:black"><i class="fa fa-question-circle"></i> Mobile No.</th>
+                                <th style="color:black"><i class="fa fa-bookmark" style="color:black"></i> Email Id</th>
+                                <th style="color:black"><i class="fa fa-bookmark" style="color:black"></i> Role</th>
+                                <th style="color:black; width:10px"><i class=" fa fa-act" style="color:black"></i> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in psData)
+                            {
+                                <tr>
+                                    <td>@index </td>
+                                    <td><a>@data.Name</a></td>
+                                    <td class="hidden-phone">@data.UserName</td>
+                                    <td class="hidden-phone">@data.MobileNumber</td>
+                                    <td class="hidden-phone">@data.EmailID</td>
+                                    <td class="hidden-phone">@data.RoleName</td>
+                                    <td>
+                                        <i class="fa fa-pencil" style="cursor:pointer;" onclick="EditUserDetail(@data.Id,@data.RoleId,'@data.Name','@data.UserName','@data.MobileNumber','@data.EmailID')"></i>&nbsp;
+                                        <i class="fa fa-trash-o" style="cursor:pointer;color:red" onclick="DeleteUserDetail(@data.Id)"></i>
+                                    </td>
+                                    @{
+                                        index = index + 1;
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!--main content end-->
+</section>
+<script>
+    //owl carousel
+    $(document).ready(function () {
+        $("#owl-demo").owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            autoPlay: true
+
+        });
+    });
+
+    //custom select box
+
+    $(function () {
+        $('select.styled').customSelect();
+    });
+
+    $(window).on("resize", function () {
+        var owl = $("#owl-demo").data("owlCarousel");
+        owl.reinit();
+    });
+
+    $('#customFile').on('change', function () {
+        files = $(this)[0].files;
+        name = '';
+        for (var i = 0; i < files.length; i++) {
+            name += '\"' + files[i].name + '\"' + (i != files.length - 1 ? ", " : "");
+        } $(".custom-file-label").html(name);
+    });
+
+    FillRole();
+    function FillRole(selectedRoleId = null) {
+        let dropdown = $('#ddlRole');
+        dropdown.empty();
+        dropdown.append('<option value="">Select</option>');
+        dropdown.prop('selectedIndex', 0);
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: '/Master/GetUserRole',
+            success: function (data) {
+                $.each(data, function (key, entry) {
+                    dropdown.append($('<option></option>').attr('value', entry.RoleId).text(entry.RoleName));
+                });
+                if (selectedRoleId != null) {
+                    dropdown.val(selectedRoleId);
+                }
+            },
+            failure: function (response) {
+                console.log(response);
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    }
+    function EditUserDetail(id, RoleId, Name, UserName, MobileNumber, EmailID) {
+        $('#hiddenID').val(id);
+        $('#ddlRole').val(RoleId);
+        $('#username').val(UserName);
+        $('#name').val(Name);
+        $('#mobile').val(MobileNumber);
+        $('#email').val(EmailID);
+        window.scrollTo(0, 0);
+    }
+    function DeleteUserDetail(Id) {
+        if (confirm("Are you sure want to Delete") == true) {
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                data: '{Id: "' + Id + '" }',
+                url: '/Admin/DeleteUserDetailEntry',
+                success: function (data) {
+                    utility.alert.setAlert("Delete", "Successfully Deleted");
+                    location.reload();
+                },
+                failure: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        }
+
+    }
+    $('#resetButton').click(function () {
+        location.reload();
+    })
+    function blockSpecialChar(e) {
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+    function blockXSSChar(e) {
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)
+            || k == 58 || k == 59 || k == 63 || k == 64 || (k >= 91 && k <= 96) || (k >= 123 && k <= 127)
+            || (k >= 33 && k <= 47));
+    }
+    
+    $('#mobile').keydown(function (e) {
+        var max_chars = 10;
+        if ($(this).val().length >= max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#mobile').keyup(function (e) {
+        var max_chars = 10;
+        if ($(this).val().length >= max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+</script>
+
+

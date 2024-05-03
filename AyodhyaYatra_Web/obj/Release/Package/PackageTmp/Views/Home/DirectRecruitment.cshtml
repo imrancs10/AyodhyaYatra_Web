@@ -1,0 +1,75 @@
+﻿@using AyodhyaYatra_Web.Models.Masters;
+@{
+    ViewBag.Title = "Direct Recruitment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var DirectRecruitmentType = ViewData["DRType"] as IEnumerable<PopularRecruitmentModel>;
+    var DirectRecruitmentDetail = ViewData["DRDetail"] as List<PopularRecruitmentModel>;
+}
+
+<section class="hero-slider">
+    <div class="pr-15 pl-15">
+        <div class="row">
+            @*@Html.Partial("_DR_SideMenu", DirectRecruitmentType)*@
+            @Html.Partial("_PR_SideMenu", DirectRecruitmentType)
+             
+            <div class="col w_content pt-20 mt-0">
+                <h2 class="w-bgph ">Direct Recruitment</h2>
+                @*<h3 class="w-bgph">
+            @if (DirectRecruitmentDetail.Any())
+            {
+                <span>@DirectRecruitmentDetail.FirstOrDefault().ParentName</span>
+            }
+
+
+        </h3>
+        <hr><br />*@
+                <div class="clr"></div>
+                @if (DirectRecruitmentDetail != null)
+                {
+                    foreach (var item in DirectRecruitmentDetail)
+                    {
+                        <p style="margin-bottom:10px;">
+                            <span style="color: #000000;">
+                                <span style="color: #ff6600;">
+                                    ►
+                                    <span style="color: #000000;">
+                                        <a style="color: #000000;">
+                                            @item.RecruitmentSubject ।  पदों की संख्या: @item.NoOfSeat । आवेदन की अंतिम तिथि: (@item.RecruitmentEndDate.Value.ToString("dd/MM/yyyy")) ।
+                                        </a>
+                                        @if (DateTime.Now.Date <= item.RecruitmentEndDate.Value.Date)
+                                        {
+                                            <a href="@item.fileURL" target="_blank" rel="noopener noreferrer">
+                                                <img src="~/Content/images/AVEDAN-KAREN-GIFF.gif" alt="Avedan" style="width:10%; position:relative" />
+                                            </a>
+                                        }
+                                    </span>
+                                </span>
+                            </span>
+                        </p>
+                    }
+                }
+                <div class="clr"></div>
+                <hr>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</section>
+
+<script>
+
+    $("#nav-btn").click(function () {
+        $("nav1").toggle("slow");
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.navbar-nav').find('li').removeClass('active');
+        $('a[href="/Home/DirectRecruitment"]').parent().addClass('active')
+    });
+</script>

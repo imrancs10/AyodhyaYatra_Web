@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="hero-slider">
+    <div class="pr-15 pl-15">
+        <div class="row">
+
+            @Html.Partial("_About_SideMenu")
+
+            <div class="col w_content pt-20 mt-0">
+                <h2 class="w-bgph ">About Us</h2>
+                @*<img class="d-block w-100" src="~/Content/images/2.jpg" alt="UPPRPB">*@
+                <br>
+                <h3 class="w-hd-u">About Uttar Pradesh Police Recruitment & Promotion Board</h3>
+                <p style="text-align:justify">
+                    The UPPRPB was stablished by the government order dated  2/12/2008 for conduting the selection process in transparent and efficient way regarding the recruitment of various non gazetted posts in UP police and to ensure the unhindered process of promotion. All the procedures pertaining to recruitment and promotion are done within the time frame while strictly abiding by the relevant rules.
+                </p>
+                <p style="text-align:justify">
+                    The DG/ Chairman heads and oversees all the activities that occur in the board. Two ADGs are present in the board  one of whom forms the Member while the other forms the Secretary of the same. The structural framework of the board encompasses various other officials belonging to other posts too, which includes  Superintendent of Police ,Joint Secretary (Finance),  Additional Superintendents of Police,  Deputy Superintendents of Police and various non gazetted posts.
+                </p>
+                <p style="text-align:justify">
+                    For providing assistance during times when need arises, a group of professionals as part-time  members has also been constructed who provide the board with indispensable advice from time to time.
+                </p>
+                <p style="text-align:justify">
+                    The main aim of UPPRPB lies in the strive to conduct completely safe, impartial, unhindered and transparent examinations for the recruitment of non gazetted police officials in the state, alongwith maintaining a flow and rhythm in the promotion of the same. A myriad of modernized techniques, standardized equipments and codes of conduct for safe examinations assist the board in making progress in leaps and bounds towards its success. The board always strives to adhere to the fact that no undeserving candidate ever be selected for further training and that no eligible one be left out in the process.
+                </p>                
+                <br>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    $("#nav-btn").click(function () {
+        $("nav1").toggle("slow");
+    });
+
+
+</script>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('.navbar-nav').find('li').removeClass('active');
+        $('a[href="/Home/About"]').parent().addClass('active')
+    });
+</script>*@

@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero-slider">
+    <div class="pr-15 pl-15">
+        <div class="row">
+            @Html.Partial("_Contact_SideMenu")
+
+            <div class="col-6 w_content pt-20 mt-0">
+                <h2 class="w-bgph">Feedback Form</h2>
+                <hr>
+                <div class="clr"></div><center>
+                    <div style="width: 600px; height:500px">
+                        @using (Html.BeginForm("Feedback", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                <label class="required" for="name">Name:&nbsp;&nbsp;  </label><br />
+                                <input id="name" class="input" name="name" onkeypress="return blockSpecialChar(event)" type="text" value="" size="30" /><br />
+                                <span id="name_validation" class="error_message"></span>
+                            </div><br />
+                            <div class="row">
+                                <label class="required" for="email">Mobile:&nbsp;&nbsp;  </label><br />
+                                <input id="mobile" class="input" name="mobile" type="number" value="" size="30" /><br />
+                                <span id="email_validation" class="error_message"></span>
+                            </div><br />
+                            <div class="row">
+                                <label class="required" for="email">Email Id:&nbsp;  </label><br />
+                                <input id="email" class="input" name="email" type="text" value="" size="30" onkeypress="return blockXSSChar(event)"/><br />
+                                <span id="email_validation" class="error_message"></span>
+                            </div>
+                            <div class="row">
+                                <label class="required" for="address">Address:&nbsp;  </label>
+                                <textarea id="address" class="input" name="address" onkeypress="return blockXSSChar(event)" rows="1" cols="30"></textarea><br />
+                                <span id="message_validation" class="error_message"></span>
+                            </div>
+                            <div class="row">
+                                <label class="required" for="subject">Subject:&nbsp;  </label>
+                                <textarea id="subject" class="input" name="subject" onkeypress="return blockXSSChar(event)" rows="1" cols="30"></textarea><br />
+                                <span id="message_validation" class="error_message"></span>
+                            </div>
+                            <div class="row">
+                                <label class="required" for="message">Feedback:&nbsp;  </label>
+                                <textarea id="message" class="input" name="message" onkeypress="return blockXSSChar(event)" rows="3" cols="30"></textarea><br />
+                                <span id="message_validation" class="error_message"></span>
+                            </div><br />
+                            <input id="submit_button" type="submit" value="Submit" />
+                        }
+
+                    </div>
+                </center>
+                <hr>
+
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.navbar-nav').find('li').removeClass('active');
+        $('a[href="/Home/Administration"]').parent().addClass('active')
+    });
+    function blockSpecialChar(e) {
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+    function blockXSSChar(e) {
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)
+            || k == 58 || k == 59 || k == 63 || k == 64 || (k >= 91 && k <= 96) || (k >= 123 && k <= 127)
+            || (k >= 33 && k <= 47));
+    }
+    $('#mobile').keydown(function (e) {
+        var max_chars = 10;
+        if ($(this).val().length >= max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#mobile').keyup(function (e) {
+        var max_chars = 10;
+        if ($(this).val().length >= max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+</script>
+<script>
+
+    $("#nav-btn").click(function () {
+        $("nav1").toggle("slow");
+    });
+
+
+</script>

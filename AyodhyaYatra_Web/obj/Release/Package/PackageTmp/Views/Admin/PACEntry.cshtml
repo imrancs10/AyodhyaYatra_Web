@@ -1,0 +1,231 @@
+﻿@using AyodhyaYatra_Web.Models.Masters;
+@{
+    ViewBag.Title = "NoticeEntry";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var noticeData = ViewData["NoticeData"] as List<NoticeModel>;
+}
+<script src="~/Scripts/Masters/pacEntry.js"></script>
+<link href="~/Content/css/design1.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+<section class="wrapper">
+    <!--state overview start-->
+    <div class="row state-overview">
+
+        <div class="col-lg-12 col-sm-3">
+            <section class="card">
+                <header class="card-header" style="text-align: center; color: #fd7e14; font-weight:400">
+                    <strong>Cyber Security and Preventive Action Cell (CSPAC) Entry Form</strong>
+                </header>
+                <div class="card-body left">
+
+                    @using (Html.BeginForm("PACEntry", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input type="hidden" value="" name="hiddenId" id="hiddenId" />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label for="exampleInputEmail1">Recruitement Type</label>
+                                <select class="form-control mb-3" style="" id="RecruitementType" name="RecruitementType">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">State</label>
+                                <select class="form-control mb-3" style="" id="State" name="State">
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Zone</label>
+                                <select class="form-control mb-3" style="" id="Zone" name="Zone">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Range</label>
+                                <select class="form-control mb-3" id="Range" name="Range">
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputPassword1">District</label>
+                                <select class="form-control mb-3" id="District" name="District">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputPassword1">FIR Police Station</label>
+                                <select class="form-control mb-3" id="PoliceStation" name="PoliceStation">
+                                </select>
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputPassword1">Center Status</label>
+                                <select class="form-control mb-3" id="CenterStatus" name="CenterStatus">
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Center Name</label>
+                                <input type="text" class="form-control" id="Exam_Center_Name" placeholder="Enter Center Name" name="ExamineCenterName" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12" style="width: 1024px; overflow-x: auto; ">
+                                <table id="tableCSPACNo">
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Solver Name</label>
+                                <input type="text" class="form-control" id="Solver_Name" placeholder="Enter Solver Name" name="Solver_Name" />
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Remark/Subject</label>
+                                <textarea type="text" class="form-control" id="Remark" placeholder="Enter Remark/Subject" name="Remark"> </textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Address</label>
+                                <textarea type="text" class="form-control" id="Address" placeholder="Enter Subject" name="Address"> </textarea>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">FIR No.</label>
+                                <textarea type="text" class="form-control" id="FIRNo" placeholder="Enter FIRNo" name="FIRNo"> </textarea>
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputPassword1">FIR Date</label>
+                                <input type="date" class="form-control" id="FIRDate" placeholder="Notice Date" name="FIRDate">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputPassword1">PAC Entry Date</label>
+                                <input type="date" class="form-control" id="PACDate" placeholder="Notice Date" name="PublishDate"
+                                       onload="getTodayDate()">
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">Accused Name (Multiple Entry With Comma Separated)</label>
+                                <textarea type="text" class="form-control" id="AccusedName" placeholder="Enter Accused Name" name="AccusedName"> </textarea>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="exampleInputEmail1">FIR Details (Max 500 words)</label>
+                                <textarea type="text" class="form-control" id="FIRDetails" placeholder="FIR Details" name="FIRDetails"> </textarea>
+                            </div>
+                        </div><br />
+                        <div class="row" style="pointer-events: none; cursor: default; text-decoration: none; opacity:0.5">
+                            <div class="col-lg-12">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="1">
+                                    <label class="custom-control-label" for="customRadioInline1">Upload Web Url</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="2">
+                                    <label class="custom-control-label" for="customRadioInline2">Upload File</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>File URL</label>
+                                <div>
+                                    <div class="custom-file">
+                                        <input type="text" class="form-control" disabled id="fileURL" placeholder="file" name="fileURL">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>File Upload</label>
+                                <div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" disabled id="customFile"
+                                               accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.bmp,.jpg,.jpeg" name="postedFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br />
+                        <button type="submit" class="btn btn-primary" style="float:right;">Submit</button>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--state overview end-->
+</section>
+<!--main content end-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        const urlParams = new URLSearchParams(location.search);
+        const noticeId = urlParams.get('Id');
+        if (noticeId != null && noticeId != undefined) {
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                data: '{}',
+                url: '/Admin/GetPACForEdit?Id=' + noticeId,
+                success: function (data) {
+                    $('#hiddenId').val(data.Id);
+                    $('#State').val(data.State_Id);
+                    FillZone(data.State_Id, data.Zone_Id)
+                    FillRange(data.Zone_Id, data.Range_Id);
+                    FillDistrict(data.Range_Id, data.District_Id)
+                    FillPoliceStation(data.District_Id, data.PS_Id);
+                    FillCenterStatus(data.CenterStatusId);
+                    //$('#NoticeCategory').val(NoticeCategoryId);
+                    $('#Exam_Center_Name').val(data.ExamineCenterName);
+                    $('#Solver_Name').val(data.Solver_Name);
+                    $('#Address').val(data.Address);
+                    $('#FIRNo').val(data.FIRNo);
+                    $('#AccusedName').val(data.AccusedName);
+                    $('#FIRDetails').val(data.FIRDetails);
+                    $('#RecruitementType').val(data.RecruitementTypeId);
+                    $('#CenterStatus').val(data.CenterStatusId);
+                    $('#FIRDate').val(formatDateyyyyMMdd(data.FIRDate));
+                    $('#PACDate').val(formatDateyyyyMMdd(data.PublishDate));
+                    //$('#customFile').val(filename);
+                    //$('#EntryType').change();
+                    if (data.FileUploadName != null && data.FileUploadName != "" && data.FileUploadName != undefined) {
+                        $('[id*=customRadioInline2]').prop("checked", true);
+                        //add upload document link
+                        $('#customFile').parent().find('a').remove();
+                        $('#customFile').addClass('hidden');
+                        var fileUrl = '/FilesUploaded/PAC/' + encodeURIComponent(data.FileUploadName);
+                        var truncatedFileName = (data.FileUploadName.length > 50) ? data.FileUploadName.substring(0, 50) + '...' : data.FileUploadName
+                        var html = "<a href='" + fileUrl + "' target='_blank'>" + truncatedFileName + "</a><a href='javascript:void(0)' onclick='javasript:return RemoveFile()' style='color:red;padding-left:5px;'>X</a>";
+                        $(html).insertAfter('#customFile');
+                        $('#btnSave').val('Update');
+                        $('#customFile').removeAttr('required');
+                    }
+                },
+                failure: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        }
+    })
+    function RemoveFile() {
+        $('#customFile').removeClass('hidden');
+        $('#customFile').parent().find('a').remove();
+        $('#customFile').attr('required');
+        $('[name*=postedFile]').removeAttr('disabled');
+        return false;
+    }
+    function getTodayDate() {
+        var today = new Date();
+        document.getElementById("PACDate").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+    }
+</script>

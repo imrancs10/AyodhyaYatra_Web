@@ -38,15 +38,6 @@ namespace AyodhyaYatra_Web.Controllers
         ILog logger = LogManager.GetLogger(typeof(HomeController));
         public ActionResult Index()
         {
-            var detail = new GeneralDetails();
-            var latestEvent = detail.GetLatestEventDetail();
-            ViewData["LatestEvent"] = latestEvent;
-            var highlightedNotice = detail.GetHighlightedNoticeDetail();
-            ViewData["HighlightedNotice"] = highlightedNotice;
-            //var currentDate = DateTime.Now;
-            //currentDate.Date <= x.RecruitmentEndDate.Value.Date && 
-            var PopularRecruitment = detail.GetPopularRecruitmentDetail().Where(x => x.is_active == true).ToList();
-            ViewData["PopularRecruitment"] = PopularRecruitment;
             return View();
         }
         public ActionResult About()

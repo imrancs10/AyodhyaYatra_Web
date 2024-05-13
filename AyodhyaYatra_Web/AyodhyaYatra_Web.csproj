@@ -1401,7 +1401,6 @@
     <Content Include="Views\Home\SelectionProcedure.cshtml" />
     <Content Include="Views\Home\Administration.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\PhotoGallery.cshtml" />
     <Content Include="Views\Home\About_DGMessage.cshtml" />
     <Content Include="Views\Home\About_Vision.cshtml" />
     <Content Include="Views\Home\About_Logo.cshtml" />
@@ -1490,6 +1489,28 @@
     <Content Include="Views\Admin\PopularRecruitmentList.cshtml" />
     <Content Include="Views\Admin\PopularRecruitment.cshtml" />
     <Content Include="Views\Shared\_PR_SideMenu.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
+    <Content Include="Views\Home\FifthKosiYatra.cshtml" />
+    <Content Include="Views\Home\ForteenKosiYatra.cshtml" />
+    <Content Include="Views\Home\EightyFourKosiYatra.cshtml" />
+    <Content Include="Views\Home\TouristReligiousPlaces.cshtml" />
+    <Content Include="Views\Home\AudioGallery.cshtml" />
+    <Content Include="Views\Home\PhotoGallery.cshtml" />
+    <Content Include="Views\Home\TouristGuideByMap.cshtml" />
+    <Content Include="Views\Home\TouristHotelsResortsPlaces.cshtml" />
+    <Content Include="Views\Home\TouristIndustriesPlaces.cshtml" />
+    <Content Include="Views\Home\TouristEducationalPlaces.cshtml" />
+    <Content Include="Views\Home\TouristShoppingPlaces.cshtml" />
+    <Content Include="Views\Home\TouristGhats.cshtml" />
+    <Content Include="Views\Home\TouristGangaAarti.cshtml" />
+    <Content Include="Views\Home\TouristHeritage.cshtml" />
+    <Content Include="Views\Home\VideoGallery.cshtml" />
+    <Content Include="Views\Home\ThreeSixtyDegreeGallery.cshtml" />
+    <Content Include="Views\Home\Directory.cshtml" />
+    <Content Include="Views\Home\Helpline.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\NewsAndEvents.cshtml" />
+    <Content Include="Views\Home\TicketBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

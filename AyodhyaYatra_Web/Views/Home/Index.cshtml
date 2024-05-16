@@ -1,6 +1,8 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Models;
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var dashboardCountData = ViewData["dashboardCount"] as DashboardCountModel;
 }
 
 <!-- Page Content Starts -->
@@ -417,7 +419,7 @@
 
 
                                                                                     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-                                                                                        <h4 class="mb-0">300+</h4>
+                                                                                        <h4 class="mb-0">@dashboardCountData.attractionCounts.FirstOrDefault(x => x.attractionType == "Temple").count</h4>
                                                                                         <p class="mb-0">Temples</p>
                                                                                     </div><!-- arti -->
                                                                                 </div><!-- aarti -->
@@ -914,7 +916,7 @@
   </g>
  </g>
 </svg>     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-                                                                            <h4 class="mb-0">3+</h4>
+                                                                            <h4 class="mb-0"><span id="yatraCount">@dashboardCountData.yatraCount</span></h4>
                                                                             <p class="mb-0">Yatra</p>
                                                                         </div><!-- arti -->
                                                                     </div><!-- aarti -->

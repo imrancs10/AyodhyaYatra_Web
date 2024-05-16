@@ -1,4 +1,7 @@
-﻿using log4net;
+﻿using AyodhyaYatra_Web.Infrastructure.Utility;
+using AyodhyaYatra_Web.Models;
+using log4net;
+using Newtonsoft.Json;
 using System.Web.Mvc;
 
 namespace AyodhyaYatra_Web.Controllers
@@ -9,6 +12,9 @@ namespace AyodhyaYatra_Web.Controllers
         ILog logger = LogManager.GetLogger(typeof(HomeController));
         public ActionResult Index()
         {
+            var data = HttpClientHelper<DashboardCountModel>.GetAPIResponse("Feedback/get/dashboardCount", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["dashboardCount"] = data;
             return View();
         }
         public ActionResult About()
@@ -126,7 +132,7 @@ namespace AyodhyaYatra_Web.Controllers
         {
             return View();
         }
-       
+
         //public ActionResult Notice(int? noticeId = null, int? categoryId = null)
         //{
         //    var detail = new GeneralDetails();

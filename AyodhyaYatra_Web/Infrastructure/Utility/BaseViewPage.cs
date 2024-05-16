@@ -80,15 +80,15 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
         //    return null;
         //}
 
-        public virtual PDModel GetPatientOPDDetail()
-        {
-            //if (User != null)
-            //{
-            //    string crNumber = string.IsNullOrEmpty(WebSession.PatientCRNo) ? WebSession.PatientRegNo : WebSession.PatientCRNo;
-            //    var opdDetail = (new WebServiceIntegration()).GetPatientOPDDetail(crNumber, (Convert.ToInt32(OPDTypeEnum.IPD)).ToString());
-            //    return opdDetail;
-            //}
-            return null;
-        }
+        //public virtual PDModel GetPatientOPDDetail()
+        //{
+        //    //if (User != null)
+        //    //{
+        //    //    string crNumber = string.IsNullOrEmpty(WebSession.PatientCRNo) ? WebSession.PatientRegNo : WebSession.PatientCRNo;
+        //    //    var opdDetail = (new WebServiceIntegration()).GetPatientOPDDetail(crNumber, (Convert.ToInt32(OPDTypeEnum.IPD)).ToString());
+        //    //    return opdDetail;
+        //    //}
+        //    return null;
+        //}
     }
 }

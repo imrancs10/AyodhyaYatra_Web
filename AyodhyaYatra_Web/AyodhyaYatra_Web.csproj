@@ -290,6 +290,7 @@
     <Compile Include="Infrastructure\Authentication\CustomPrincipal.cs" />
     <Compile Include="Infrastructure\Authentication\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Infrastructure\Authentication\ICustomPrincipal.cs" />
+    <Compile Include="Infrastructure\Utility\HttpClientHelper.cs" />
     <Compile Include="Infrastructure\Utility\BaseViewPage.cs" />
     <Compile Include="Infrastructure\Utility\Common.cs" />
     <Compile Include="Infrastructure\Utility\CustomExceptionFilter.cs" />
@@ -298,9 +299,6 @@
     <Compile Include="Infrastructure\Utility\Serializer.cs" />
     <Compile Include="Infrastructure\Utility\VerificationCodeGeneration.cs" />
     <Compile Include="Models\Common\CommonModel.cs" />
-    <Compile Include="Models\DepartmentOPDModel.cs" />
-    <Compile Include="Models\AppointmentsModel.cs" />
-    <Compile Include="Models\DischargeSummaryModel.cs" />
     <Compile Include="Models\Masters\FeedbackModel.cs" />
     <Compile Include="Models\Masters\EnquiryModel.cs" />
     <Compile Include="Models\Masters\DirectRecruitmentModel.cs" />
@@ -313,13 +311,10 @@
     <Compile Include="Models\Masters\PSEntryModel.cs" />
     <Compile Include="Models\Masters\PromotionModel.cs" />
     <Compile Include="Models\Masters\PACEntryModel.cs" />
-    <Compile Include="Models\PDModel.cs" />
+    <Compile Include="Models\DashboardCountModel.cs" />
     <Compile Include="Models\Masters\AppSettingModel.cs" />
     <Compile Include="Models\Masters\NoticeModel.cs" />
     <Compile Include="Models\Masters\ScheduleModel.cs" />
-    <Compile Include="Models\HISPatientInfoModel.cs" />
-    <Compile Include="Models\HISPatientInfoInsertModel.cs" />
-    <Compile Include="Models\PatientInfoModel.cs" />
     <Compile Include="Models\Patient\ReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

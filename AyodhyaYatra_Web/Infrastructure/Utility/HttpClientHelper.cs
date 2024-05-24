@@ -24,7 +24,7 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
 {
     public static class HttpClientHelper<T>
     {
-        private const string BaseURL = "http://ayodhyaapi.hotlinesystemservices.com/v1/";
+        private const string BaseURL = "https://api.ayodhya-dham.in/v1/";
         //private string urlParameters = "?api_key=123";
 
         public static T GetAPIResponse(string apiUrl, string urlParameters)

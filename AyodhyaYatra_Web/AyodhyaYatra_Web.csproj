@@ -298,6 +298,7 @@
     <Compile Include="Infrastructure\Utility\KnownFolders.cs" />
     <Compile Include="Infrastructure\Utility\Serializer.cs" />
     <Compile Include="Infrastructure\Utility\VerificationCodeGeneration.cs" />
+    <Compile Include="Models\AttractionModel.cs" />
     <Compile Include="Models\Common\CommonModel.cs" />
     <Compile Include="Models\Masters\FeedbackModel.cs" />
     <Compile Include="Models\Masters\EnquiryModel.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="Models\Masters\FAQEntryModel.cs" />
     <Compile Include="Models\Masters\EventCalenderModel.cs" />
     <Compile Include="Models\Masters\AdminUserModel.cs" />
+    <Compile Include="Models\Masters\MasterYatraModel.cs" />
     <Compile Include="Models\Masters\MedalEntryModel.cs" />
     <Compile Include="Models\Masters\PopularRecruitmentModel.cs" />
     <Compile Include="Models\Masters\UserRoleModel.cs" />
@@ -1506,6 +1508,7 @@
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Home\NewsAndEvents.cshtml" />
     <Content Include="Views\Home\TicketBooking.cshtml" />
+    <Content Include="Views\Home\YatraDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

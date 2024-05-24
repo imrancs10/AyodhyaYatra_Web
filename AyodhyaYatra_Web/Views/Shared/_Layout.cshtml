@@ -1,4 +1,8 @@
 ﻿@using AyodhyaYatra_Web.Global
+@using AyodhyaYatra_Web.Infrastructure.Utility
+@{
+    var masterYatraList = GetYatra();
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -786,9 +790,10 @@
                                             <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
                                                 <a>Yatra in Ayodhya</a>
                                                 <ul class="sub-menu">
-                                                    <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
-                                                    <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                                                    <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>
+                                                    @foreach (var yatra in masterYatraList)
+                                                    {
+                                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                                                    }
                                                 </ul>
                                             </li>
                                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">

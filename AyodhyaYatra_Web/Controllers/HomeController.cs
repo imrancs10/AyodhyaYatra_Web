@@ -1,7 +1,10 @@
 ﻿using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
+using iTextSharp.text;
 using log4net;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace AyodhyaYatra_Web.Controllers
@@ -39,6 +42,13 @@ namespace AyodhyaYatra_Web.Controllers
 
         public ActionResult EightyFourKosiYatra()
         {
+            return View();
+        }
+        public ActionResult YatraDetail([FromUri]int Id)
+        {
+            var data = HttpClientHelper<List<YatraAttractionModel>>.GetAPIResponse("master/attraction/yatra/mapper/get/by/yatra?yatraId=" + Id, "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["getAttractionByYatraId"] = data;
             return View();
         }
 

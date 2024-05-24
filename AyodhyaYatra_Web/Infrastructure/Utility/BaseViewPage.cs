@@ -31,7 +31,15 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
         //    AppointDetails _details = new AppointDetails();
         //    return _details.PatientAppointmentCount(User.Id);
         //}
+
+        public static List<MasterYatraModel> GetYatra()
+        {
+            return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("MasterData/get/yatras", "");
+        }
+
     }
+
+
 
     public abstract class BaseViewPage<TModel> : WebViewPage<TModel>
     {
@@ -59,6 +67,11 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
         public virtual bool GetOTPEnable()
         {
             return Convert.ToBoolean(ConfigurationManager.AppSettings["EnableOTPLogin"]);
+        }
+
+        public static List<MasterYatraModel> GetYatra()
+        {
+            return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("MasterData/get/yatras", "");
         }
         //public virtual AppointmentModel GetAppointmentDetail()
         //{

@@ -1,5 +1,6 @@
 ﻿using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
+using AyodhyaYatra_Web.Models.Visitor;
 using iTextSharp.text;
 using log4net;
 using Newtonsoft.Json;
@@ -16,8 +17,16 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult Index()
         {
             var data = HttpClientHelper<DashboardCountModel>.GetAPIResponse("Feedback/get/dashboardCount", "");
+            var visitorDocType = HttpClientHelper<List<VisitorDocTypeModel>>.GetAPIResponse("visitors/get/doctype", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["dashboardCount"] = data;
+            ViewData["visitorDocType"] = visitorDocType;
+            return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Index(VisitorModel visitor)
+        {
             return View();
         }
         public ActionResult About()

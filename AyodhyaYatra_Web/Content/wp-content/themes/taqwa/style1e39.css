@@ -8482,7 +8482,7 @@ body.sticky .tq-sticky-menu {
   gap: 2.5rem;
 }
 .tq-about-cap > p {
-  max-width: 90%;
+  text-align:justify;
 }
 .tq-about-cap > ul {
   list-style-type: square;

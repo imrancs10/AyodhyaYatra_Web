@@ -64,12 +64,13 @@
                                                                                             <h2 itemprop="headline">Registration Form</h2>
                                                                                         </div>
                                                                                         <div class="row cnt-frm cnt-mp ">
+                                                                                           
                                                                                             <div class="col-md-6 col-sm-12 col-lg-6">
                                                                                                 <div class="mrg10">
                                                                                                     <p>
                                                                                                         <div class="wpcf7 no-js" id="wpcf7-f2027-p115-o1" lang="en-US" dir="ltr">
                                                                                                             <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-                                                                                                            <form style="color: black;" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                                                                                            <form style="color: black;"id="visitorForm" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
                                                                                                                 <div style="display: none;">
                                                                                                                     <input type="hidden" name="_wpcf7" value="2027" />
                                                                                                                     <input type="hidden" name="_wpcf7_version" value="5.8.5" />
@@ -79,47 +80,59 @@
                                                                                                                     <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
                                                                                                                 </div>
                                                                                                                 <div class="row mrg10">
+                                                                                                                    <div style="color:forestgreen" class="message"></div>
                                                                                                                     <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                         <p>
                                                                                                                             <span class="wpcf7-form-control-wrap" data-name="text-471">
-                                                                                                                            <input size="40" asp-for="Visitor.Name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visitors Name(दर्शनार्थी का नाम)" value="" type="text" name="text-471" /></span>
+                                                                                                                                <input size="40" asp-for="Visitor.Name" id="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visitors Name(दर्शनार्थी का नाम)" value="" type="text" name="text-471" />
+                                                                                                                            </span>
+                                                                                                                            <div style="color:red" id="nameError"></div>
                                                                                                                         </p>
                                                                                                                     </div>
                                                                                                                     <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                         <p>
                                                                                                                             <span class="wpcf7-form-control-wrap" data-name="text-427">
-                                                                                                                            <input size="40" asp-for="Visitor.Mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" name="text-427" /></span>
+                                                                                                                                <input size="40" asp-for="Visitor.Mobile" id="mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" name="text-427" />
+                                                                                                                            </span>
+                                                                                                                            <div style="color:red" id="mobileError"></div>
                                                                                                                         </p>
                                                                                                                     </div>
                                                                                                                     <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                         <p>
-                                                                                                                            <select asp-for="Visitor.DocumentTypeId" style="padding-top: 0.8em; padding-bottom:1em; width: 100%;border:1px solid;padding-left:1em;" name="Select Govt. Id (सरकारी आईडी)">
+                                                                                                                            <select asp-for="Visitor.DocumentTypeId" id="documentTypeId" style="padding-top: 0.8em; padding-bottom:1em; width: 100%;border:1px solid;padding-left:1em;" name="Select Govt. Id (सरकारी आईडी)">
                                                                                                                                 @foreach (var docType in visitorDocType)
                                                                                                                                 {
                                                                                                                                     <option value="@docType.Id">@docType.Name</option>
                                                                                                                                 }
                                                                                                                             </select>
                                                                                                                         </p>
+                                                                                                                        <div style="color:red" id="docError"></div>
                                                                                                                     </div>
                                                                                                                     <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                         <p>
                                                                                                                             <span class="wpcf7-form-control-wrap" data-name="text-487">
-                                                                                                                            <input size="40"  asp-for="Visitor.documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" name="text-487" /></span>
+                                                                                                                                <input size="40" asp-for="Visitor.documentNumber" id="documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" name="text-487" />
+                                                                                                                            </span>
+                                                                                                                            <div style="color:red" id="docNoError"></div>
+
                                                                                                                         </p>
 
                                                                                                                     </div>
                                                                                                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                                                                                                         <p>
                                                                                                                             <span class="wpcf7-form-control-wrap" data-name="textarea-678">
-                                                                                                                            <textarea asp-for="Visitor.Address" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)" name="textarea-678"></textarea></span>
+                                                                                                                                <textarea asp-for="Visitor.Address" cols="40" rows="10" id="address" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)" name="textarea-678"></textarea>
+                                                                                                                            </span>
                                                                                                                         </p>
+                                                                                                                        <div style="color:red" id="addressError"></div>
                                                                                                                     </div>
                                                                                                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                                                                                                         <p>
                                                                                                                             <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" />
                                                                                                                         </p>
                                                                                                                     </div>
-                                                                                                                </div><div class="wpcf7-response-output" aria-hidden="true"></div>
+                                                                                                                </div>
+                                                                                                                <div class="wpcf7-response-output" aria-hidden="true"></div>
                                                                                                             </form>
                                                                                                         </div>
                                                                                                 </div>
@@ -134,6 +147,72 @@
                                                                             </section>
                                                                         </div>
                                                                     </div>
+
+                                                                    <script>
+                                                                        $(document).ready(function () {
+                                                                            $('#visitorForm').on('submit', function (event) {
+                                                                                event.preventDefault(); // Prevent the form from submitting the default way
+
+                                                                                var visitorData = {
+                                                                                    name: $('#name').val(),
+                                                                                    mobile: $('#mobile').val(),
+                                                                                    documentNumber: $('#documentNumber').val(),
+                                                                                    documentTypeId: parseInt($('#documentTypeId').val()),
+                                                                                    address: $('#address').val()
+                                                                                };
+                                                                                debugger;
+                                                                                if (visitorData.name.length <= 3) {
+                                                                                    $('#nameError').text("Please enter name");
+                                                                                    return;
+                                                                                }
+                                                                                else {
+                                                                                    $('#nameError').text("");
+                                                                                }
+                                                                                if (visitorData.mobile.length <= 9) {
+                                                                                    $('#mobileError').text("Please enter mobile number");
+                                                                                    return;
+                                                                                }
+                                                                                else {
+                                                                                    $('#mobileError').text("");
+                                                                                }
+                                                                                if (visitorData.documentTypeId <= 0) {
+                                                                                    $('#docError').text("Please select Document Type");
+                                                                                    return;
+                                                                                } else {
+                                                                                    $('#docError').text("");
+                                                                                }
+                                                                                if (visitorData.documentNumber.length <= 9) {
+                                                                                    $('#docNoError').text("Please enter valid Document number");
+                                                                                    return;
+                                                                                } else {
+                                                                                    $('#docNoError').text("");
+                                                                                }
+                                                                                if (visitorData.address.length <= 9) {
+                                                                                    $('#addressError').text("Please enter valid address");
+                                                                                    return;
+                                                                                } else {
+                                                                                    $('#addressError').text("");
+                                                                                }
+
+                                                                                $.ajax({
+                                                                                    url: 'https://localhost:7216/v1/visitors/add', // Adjust the URL to your API endpoint
+                                                                                    type: 'PUT',
+                                                                                    contentType: 'application/json',
+                                                                                    data: JSON.stringify(visitorData),
+                                                                                    success: function (response) {
+                                                                                        $('#message').text('Visitor information saved successfully!').css('color', 'green');
+                                                                                        setTimeout(() => {
+                                                                                            $('#message').text('').css('color', 'green');
+                                                                                            closePopup();
+                                                                                        },3000)
+                                                                                    },
+                                                                                    error: function (error) {
+                                                                                        $('#message').text('Error saving visitor information.').css('color', 'red');
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                        });
+                                                                    </script>
 
                                                                     <!-- The overlay and popup container -->
                                                                     <div id="myCustomOverlay" class="custom-overlay" style="z-index: 99999;">

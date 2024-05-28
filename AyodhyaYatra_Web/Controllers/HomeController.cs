@@ -5,6 +5,7 @@ using iTextSharp.text;
 using log4net;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -53,9 +54,11 @@ namespace AyodhyaYatra_Web.Controllers
         {
             return View();
         }
-        public ActionResult YatraDetail([FromUri]int Id)
+        public ActionResult YatraDetail([FromUri]int? Id)
         {
-            var data = HttpClientHelper<List<YatraAttractionModel>>.GetAPIResponse("master/attraction/yatra/mapper/get/by/yatra?yatraId=" + Id, "");
+            if(Id==null || Id<=0)
+                return View("index");
+            var data = HttpClientHelper<YatraAttractionModel>.GetAPIResponse("master/attraction/get/yatra/" + Id, "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["getAttractionByYatraId"] = data;
             return View();
@@ -124,8 +127,13 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        public ActionResult ThreeSixtyDegreeGallery()
+        public ActionResult ThreeSixtyDegreeGallery([FromUri] int? attractionId)
         {
+            if (attractionId == null || attractionId <= 0)
+                return View("index");
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId="+ attractionId + "&imageType=360degreeimage", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["360Images"] = data;
             return View();
         }
 

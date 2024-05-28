@@ -64,14 +64,8 @@ namespace AyodhyaYatra_Web.Models
 
     public class YatraAttractionModel
     {
-        public int Id { get; set; }
-        public int YatraId { get; set; }
-        public int MasterAttractionId { get; set; }
-        public string YatraName { get; set; }
         public YatraModel Yatra { get; set; }
-        public string MasterAttractionName { get; set; }
-        public AttractionModel MasterAttractionResponse { get; set; }
-        public int? DisplayOrder { get; set; }
+        public List<AttractionModel> attractions { get; set; }
     }
 
 }

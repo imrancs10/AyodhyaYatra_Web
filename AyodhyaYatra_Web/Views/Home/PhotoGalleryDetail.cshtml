@@ -33,44 +33,62 @@
             }
 </style>
 
-<div>
-    <section class="hero-slider">
-        <div class="pr-15 pl-15">
-            <div class="row">
-                @*@Html.Partial("_Galary_SideMenu", noticeType)*@
-                <div class="col w_content pt-20 mt-0">
-                    <h2 class="w-bgph ">Photo Gallery</h2>
-                    <hr>
-                    <div class="clr"></div>
-                    <div class="gallery">
-                        @foreach (var item in photoGalleryImage)
-                        {
-                            if (!string.IsNullOrEmpty(item.FilePath))
-                            {
-                                <a href="#"
-                                   data-lightbox="mygallery">
-                                    <img src="@("https://api.ayodhya-dham.in/"+item.FilePath)" title="@item.FileType" style="max-width:100%;max-height:100%">
-                                </a>
-                                @*<img title="@item.Subject" src="~/FilesUploaded/PhotoGalary/@item.filename" onclick="openFullImg(this.src)" style="max-width:100%;max-height:100%">*@
-                            }
-                            else
-                            {
-                                @*<a src="@item.fileURL"
-                                   data-lightbox="mygallery">
-                                    <img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">
-                                </a>*@
-                                @*<img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">*@
-                            }
-                        }
-                                               
-                    </div>
-
+<section>
+    <div class="gap black-layer opc8 inner-banner">
+        <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center" style="padding-top:50px">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">Gallery</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Gallery >> </a> </li> <li class="active">Photo Gallery Detail</li></ol>
                 </div>
-
-                <div class="clearfix"></div>
-            </div>
+            </div><!-- Page Top Wrap -->
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Page Content Starts -->
+<div id="main" class="page-content">
+    <div class="container">
+        <div class="row">
+            <section class="hero-slider">
+                <div class="pr-15 pl-15">
+                    <div class="row">
+                        @*@Html.Partial("_Galary_SideMenu", noticeType)*@
+                        <div class="col w_content pt-20 mt-0">
+                            <hr>
+                            <div class="clr"></div>
+                            <div class="gallery">
+                                @foreach (var item in photoGalleryImage)
+                                {
+                                    if (!string.IsNullOrEmpty(item.FilePath))
+                                    {
+                                        <a href="#"
+                                           data-lightbox="mygallery">
+                                            <img src="@("https://api.ayodhya-dham.in/"+item.FilePath)" title="@item.FileType" style="max-width:100%;max-height:100%">
+                                        </a>
+                                        @*<img title="@item.Subject" src="~/FilesUploaded/PhotoGalary/@item.filename" onclick="openFullImg(this.src)" style="max-width:100%;max-height:100%">*@
+                                    }
+                                    else
+                                    {
+                                        @*<a src="@item.fileURL"
+                                               data-lightbox="mygallery">
+                                                <img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">
+                                            </a>*@
+                                        @*<img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">*@
+                                    }
+                                }
+
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {

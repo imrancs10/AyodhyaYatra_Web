@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var dashboardCountData = ViewData["dashboardCount"] as DashboardCountModel;
     var visitorDocType = ViewData["visitorDocType"] as List<VisitorDocTypeModel>;
+    var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
+
+<input type="hidden" value="@apiURL" id="hdnAPIURL" />
 
 <!-- Page Content Starts -->
 <div id="main" class="page-content">
@@ -64,76 +67,76 @@
                                                                                             <h2 itemprop="headline">Registration Form</h2>
                                                                                         </div>
                                                                                         <div class="row cnt-frm cnt-mp ">
-                                                                                           
+
                                                                                             <div class="col-md-6 col-sm-12 col-lg-6">
                                                                                                 <div class="mrg10">
-                                                                                                        <div class="wpcf7 no-js" id="wpcf7-f2027-p115-o1" lang="en-US" dir="ltr">
-                                                                                                            <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-                                                                                                            <form style="color: black;"id="visitorForm" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                                                                                                                <div style="display: none;">
-                                                                                                                    <input type="hidden" name="_wpcf7" value="2027" />
-                                                                                                                    <input type="hidden" name="_wpcf7_version" value="5.8.5" />
-                                                                                                                    <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                                                                                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2027-p115-o1" />
-                                                                                                                    <input type="hidden" name="_wpcf7_container_post" value="115" />
-                                                                                                                    <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+                                                                                                    <div class="wpcf7 no-js" id="wpcf7-f2027-p115-o1" lang="en-US" dir="ltr">
+                                                                                                        <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                                                                                                        <form style="color: black;" id="visitorForm" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                                                                                            <div style="display: none;">
+                                                                                                                <input type="hidden" name="_wpcf7" value="2027" />
+                                                                                                                <input type="hidden" name="_wpcf7_version" value="5.8.5" />
+                                                                                                                <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                                                                                                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2027-p115-o1" />
+                                                                                                                <input type="hidden" name="_wpcf7_container_post" value="115" />
+                                                                                                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+                                                                                                            </div>
+                                                                                                            <div class="row mrg10">
+                                                                                                                <div style="color:forestgreen" class="message"></div>
+                                                                                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                                                    <p>
+                                                                                                                        <span class="wpcf7-form-control-wrap" data-name="text-471">
+                                                                                                                            <input size="40" asp-for="Visitor.Name" id="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visitors Name(दर्शनार्थी का नाम)" value="" type="text" name="text-471" />
+                                                                                                                        </span>
+                                                                                                                        <div style="color:red" id="nameError"></div>
+                                                                                                                    </p>
                                                                                                                 </div>
-                                                                                                                <div class="row mrg10">
-                                                                                                                    <div style="color:forestgreen" class="message"></div>
-                                                                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                                                                        <p>
-                                                                                                                            <span class="wpcf7-form-control-wrap" data-name="text-471">
-                                                                                                                                <input size="40" asp-for="Visitor.Name" id="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visitors Name(दर्शनार्थी का नाम)" value="" type="text" name="text-471" />
-                                                                                                                            </span>
-                                                                                                                            <div style="color:red" id="nameError"></div>
-                                                                                                                        </p>
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                                                                        <p>
-                                                                                                                            <span class="wpcf7-form-control-wrap" data-name="text-427">
-                                                                                                                                <input size="40" asp-for="Visitor.Mobile" id="mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" name="text-427" />
-                                                                                                                            </span>
-                                                                                                                            <div style="color:red" id="mobileError"></div>
-                                                                                                                        </p>
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                                                                        <p>
-                                                                                                                            <select asp-for="Visitor.DocumentTypeId" id="documentTypeId" style="padding-top: 0.8em; padding-bottom:1em; width: 100%;border:1px solid;padding-left:1em;" name="Select Govt. Id (सरकारी आईडी)">
-                                                                                                                                @foreach (var docType in visitorDocType)
-                                                                                                                                {
-                                                                                                                                    <option value="@docType.Id">@docType.Name</option>
-                                                                                                                                }
-                                                                                                                            </select>
-                                                                                                                        </p>
-                                                                                                                        <div style="color:red" id="docError"></div>
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                                                                                                        <p>
-                                                                                                                            <span class="wpcf7-form-control-wrap" data-name="text-487">
-                                                                                                                                <input size="40" asp-for="Visitor.documentNumber" id="documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" name="text-487" />
-                                                                                                                            </span>
-                                                                                                                            <div style="color:red" id="docNoError"></div>
-
-                                                                                                                        </p>
-
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                                                                        <p>
-                                                                                                                            <span class="wpcf7-form-control-wrap" data-name="textarea-678">
-                                                                                                                                <textarea asp-for="Visitor.Address" cols="40" rows="10" id="address" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)" name="textarea-678"></textarea>
-                                                                                                                            </span>
-                                                                                                                        </p>
-                                                                                                                        <div style="color:red" id="addressError"></div>
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                                                                        <p>
-                                                                                                                            <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" />
-                                                                                                                        </p>
-                                                                                                                    </div>
+                                                                                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                                                    <p>
+                                                                                                                        <span class="wpcf7-form-control-wrap" data-name="text-427">
+                                                                                                                            <input size="40" asp-for="Visitor.Mobile" id="mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" name="text-427" />
+                                                                                                                        </span>
+                                                                                                                        <div style="color:red" id="mobileError"></div>
+                                                                                                                    </p>
                                                                                                                 </div>
-                                                                                                                <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                                                                                            </form>
-                                                                                                        </div>
+                                                                                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                                                    <p>
+                                                                                                                        <select asp-for="Visitor.DocumentTypeId" id="documentTypeId" style="padding-top: 0.8em; padding-bottom:1em; width: 100%;border:1px solid;padding-left:1em;" name="Select Govt. Id (सरकारी आईडी)">
+                                                                                                                            @foreach (var docType in visitorDocType)
+                                                                                                                            {
+                                                                                                                                <option value="@docType.Id">@docType.Name</option>
+                                                                                                                            }
+                                                                                                                        </select>
+                                                                                                                    </p>
+                                                                                                                    <div style="color:red" id="docError"></div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                                                                    <p>
+                                                                                                                        <span class="wpcf7-form-control-wrap" data-name="text-487">
+                                                                                                                            <input size="40" asp-for="Visitor.documentNumber" id="documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" name="text-487" />
+                                                                                                                        </span>
+                                                                                                                        <div style="color:red" id="docNoError"></div>
+
+                                                                                                                    </p>
+
+                                                                                                                </div>
+                                                                                                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                                                    <p>
+                                                                                                                        <span class="wpcf7-form-control-wrap" data-name="textarea-678">
+                                                                                                                            <textarea asp-for="Visitor.Address" cols="40" rows="10" id="address" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)" name="textarea-678"></textarea>
+                                                                                                                        </span>
+                                                                                                                    </p>
+                                                                                                                    <div style="color:red" id="addressError"></div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                                                    <p>
+                                                                                                                        <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" style="margin-top:-3%"/>
+                                                                                                                    </p>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                                                                                        </form>
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-5 col-sm-12 col-lg-5">
@@ -194,7 +197,8 @@
                                                                                 }
 
                                                                                 $.ajax({
-                                                                                    url: 'https://localhost:7216/v1/visitors/add', // Adjust the URL to your API endpoint
+                                                                                    url: $('#hdnAPIURL').val() +'visitors/add',
+                                                                                    //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint
                                                                                     type: 'PUT',
                                                                                     contentType: 'application/json',
                                                                                     data: JSON.stringify(visitorData),
@@ -203,7 +207,7 @@
                                                                                         setTimeout(() => {
                                                                                             $('#message').text('').css('color', 'green');
                                                                                             closePopup();
-                                                                                        },3000)
+                                                                                        }, 3000)
                                                                                     },
                                                                                     error: function (error) {
                                                                                         $('#message').text('Error saving visitor information.').css('color', 'red');
@@ -591,7 +595,7 @@
 </svg>
 
                                                                                     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-                                                                                        <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x=>x.attractionType=="Ghat").count</h4>
+                                                                                        <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Ghat").count</h4>
                                                                                         <p class="mb-0">Ghat</p>
 
                                                                                     </div><!-- arti -->
@@ -693,9 +697,9 @@
   </g>
  </g>
 </svg>     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-    <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Kund").count</h4>
-    <p class="mb-0">Kund</p>
-</div>
+                                                                            <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Kund").count</h4>
+                                                                            <p class="mb-0">Kund</p>
+                                                                        </div>
                                                                     </div><!-- aarti -->
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-6 col-lg-3">
@@ -791,9 +795,9 @@
   </g>
  </g>
 </svg>     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-    <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Bhawan").count</h4>
-    <p class="mb-0">Bhavan</p>
-</div><!-- arti -->
+                                                                            <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Bhawan").count</h4>
+                                                                            <p class="mb-0">Bhavan</p>
+                                                                        </div><!-- arti -->
                                                                     </div><!-- aarti -->
                                                                 </div>
 
@@ -890,9 +894,9 @@
   </g>
  </g>
 </svg>     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
-    <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Aashram").count</h4>
-    <p class="mb-0">Aashram</p>
-</div><!-- arti -->
+                                                                            <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Aashram").count</h4>
+                                                                            <p class="mb-0">Aashram</p>
+                                                                        </div><!-- arti -->
                                                                     </div><!-- aarti -->
                                                                 </div>
 
@@ -988,7 +992,7 @@
                                                                         <path class="fil3" d="M928.75 403.66l47.15 1.07 64.49 -86.48c53.48,-78.41 51.37,-138.47 -7.55,-214.74 -10.34,-13.38 -61.55,-69.66 -80.2,-69.55 -19.69,0.12 -68.3,54.85 -80.09,69.94 -105.01,134.45 -2.6,212.78 56.2,299.76zm-213.86 -124.64c-10.83,-16.43 -37.58,-25 -65.82,-58.52 -11.44,-13.58 -45.08,-54.93 -58.38,-58.91 -4.12,109.11 18.28,113.97 124.2,117.43zm475.62 -0.04c102.3,-2.73 132.38,-8.73 124.32,-118 -24.07,12.8 -64.77,74.68 -106.32,101.85 -10.47,6.85 -12.52,7.3 -18,16.15zm-673.04 120.37c4.96,25.94 46.18,56.26 76.9,66.08 28.39,9.08 99.59,11.13 119.7,-5.99 -62.42,-14.64 -90.47,-43.05 -121.76,-84.21 -31.12,-1.15 -53.05,16.64 -74.84,24.12zm672.98 61.34c22.3,17.51 94.78,13.76 122.99,3.97 29.71,-10.31 66.79,-39.32 75.27,-63.21 -20.62,-13.32 -45.81,-25.35 -75.69,-27.01 -7.6,14.64 -37.82,45.93 -51.31,55.19 -25.49,17.49 -42.89,18.57 -71.26,31.06zm-388.79 -160.99c-89.66,-82.57 -36.01,-140.28 -72.54,-169.26 -10.21,-8.09 -17.57,-13.09 -29.75,-20.37 -15.5,-9.25 -49.93,-28.32 -69.6,-29.53 -7.15,89.47 27.71,156.18 98.81,193.98 16.75,8.9 51.2,22.73 73.08,25.18zm302.39 -0.16c51.44,-4.44 103.27,-40.04 127.37,-66.99 34.88,-38.99 49.66,-84.22 44.8,-152.81 -22.72,3.41 -51.29,19.39 -68.31,29.23 -11.61,6.72 -19.46,12.7 -29.44,20.6 -14.15,11.2 -15.16,10.33 -15.07,34.06 0.21,61.77 -26.74,108.44 -59.35,135.91zm-246.57 27.07c-43.69,-49.62 -51.99,-128.42 -17.95,-192.45 13.15,-24.73 22.78,-32.36 37.02,-50.39 -7.19,-30.95 -36.59,-63.5 -54.08,-83.44 -18.45,7.49 -41.05,49.78 -51.18,72.36 -29.53,65.81 -23.67,137.3 20.24,195.52 12.09,16.03 46.18,51.2 65.95,58.4zm171.82 -242.84c69.81,79.8 80.53,155.85 18.09,245.17 46.16,-36.7 90.57,-66.12 103.05,-143.43 11.94,-73.98 -27.3,-152.12 -64.47,-185.51 -16.41,10.33 -50.85,59.15 -56.67,83.77zm-296.23 377.65c10.06,47.21 63.38,90.12 125.57,78.98 76.61,-13.74 82.22,-75.18 94.59,-109.1 10.68,34.96 9.01,46.25 29.88,72.18 34.8,43.21 104.11,52.01 149.49,17.26 31.58,-24.2 29.62,-39.89 41.14,-58.2 -20.33,-0.38 -32.13,9.05 -63.77,4.33 -60.74,-9.06 -107,-54.31 -157.43,-54.17 -75.12,0.2 -106.32,75.46 -219.47,48.72zm182.77 -57.43c-14.4,-36.34 -94.13,-94.1 -150.55,-106.65 -65.91,-14.66 -135.33,5.94 -184.72,-41.63 -3.69,-3.56 -5.19,-5.82 -8.1,-8.57l-11.46 -8.61c4.02,95.49 48.11,164.34 111.83,195.2 72.84,35.26 188.74,13.8 243,-29.74zm73.24 1.07c70.67,36.7 156.26,71.27 245.54,27.49 57.46,-28.18 115.68,-106.5 109.75,-196.88 -43.94,66.41 -112.14,43.8 -198.93,60.65 -60.5,11.74 -139.54,67.96 -156.36,108.74z" />
   </g>
  </g>
-</svg>     
+</svg>
                                                                         <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
                                                                             <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Kila").count</h4>
                                                                             <p class="mb-0">Kila</p>
@@ -1950,67 +1954,71 @@
 
 
 
-                                                                    </div>--><!-- Follow Cap -->
-                                                                <!--</div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-4">
-                                                                    <div class="tq-follow-boxes d-flex position-relative w-100">
-                                                                        <div class="tq-follow-box d-flex flex-column">
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="tq-follow-box tq-mt-60 d-flex flex-column">
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>--><!-- Follow Boxes -->
-                                                                <!--</div>
-                                                                <div class="col-md-6 col-sm-6 col-lg-4 order-lg-1">
-                                                                    <div class="tq-follow-boxes d-flex position-relative w-100">
-                                                                        <div class="tq-follow-box tq-mt-60 d-flex flex-column">
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="tq-follow-box d-flex flex-column">
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <img class="img-fluid w-100"
-                                                                                     src="../Content/wp-content/uploads/temple.jpg" alt=""
-                                                                                     loading="lazy">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>--><!-- Follow Boxes -->
-                                                                <!--</div>
-                                                            </div>
-                                                        </div>--><!-- Follow Wrapper -->
-                                                    <!--</div>
+                                                                    </div>-->
+                                            <!-- Follow Cap -->
+                                            <!--</div>
+                                            <div class="col-md-6 col-sm-6 col-lg-4">
+                                                <div class="tq-follow-boxes d-flex position-relative w-100">
+                                                    <div class="tq-follow-box d-flex flex-column">
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                    </div>
+                                                    <div class="tq-follow-box tq-mt-60 d-flex flex-column">
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                    </div>
+                                                </div>-->
+                                            <!-- Follow Boxes -->
+                                            <!--</div>
+                                            <div class="col-md-6 col-sm-6 col-lg-4 order-lg-1">
+                                                <div class="tq-follow-boxes d-flex position-relative w-100">
+                                                    <div class="tq-follow-box tq-mt-60 d-flex flex-column">
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                    </div>
+                                                    <div class="tq-follow-box d-flex flex-column">
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                        <a href="#">
+                                                            <img class="img-fluid w-100"
+                                                                 src="../Content/wp-content/uploads/temple.jpg" alt=""
+                                                                 loading="lazy">
+                                                        </a>
+                                                    </div>
+                                                </div>-->
+                                            <!-- Follow Boxes -->
+                                            <!--</div>
+                                                </div>
+                                            </div>-->
+                                            <!-- Follow Wrapper -->
+                                            <!--</div>
                                                 </div>
                                             </section>-->
                                         </div>

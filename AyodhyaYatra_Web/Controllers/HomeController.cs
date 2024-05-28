@@ -5,6 +5,7 @@ using iTextSharp.text;
 using log4net;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -14,6 +15,7 @@ namespace AyodhyaYatra_Web.Controllers
     public class HomeController : CommonController
     {
         //Declaring Log4Net
+        private static string BaseURL = ConfigurationManager.AppSettings["APIUrl"].ToString();
         ILog logger = LogManager.GetLogger(typeof(HomeController));
         public ActionResult Index()
         {
@@ -22,6 +24,7 @@ namespace AyodhyaYatra_Web.Controllers
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["dashboardCount"] = data;
             ViewData["visitorDocType"] = visitorDocType;
+            ViewData["APIUrl"] = BaseURL;
             return View();
         }
 

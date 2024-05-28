@@ -25,7 +25,7 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
     public static class HttpClientHelper<T>
     {
         //private const string BaseURL = "https://localhost:7216/v1/";
-        private const string BaseURL =  "https://api.ayodhya-dham.in/v1/";
+        private static string BaseURL = ConfigurationManager.AppSettings["APIUrl"].ToString();
         //private string urlParameters = "?api_key=123";
 
         public static T GetAPIResponse(string apiUrl, string urlParameters)

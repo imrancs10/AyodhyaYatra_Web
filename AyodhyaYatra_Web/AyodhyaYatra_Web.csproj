@@ -306,6 +306,7 @@
     <Compile Include="Models\Masters\FAQEntryModel.cs" />
     <Compile Include="Models\Masters\EventCalenderModel.cs" />
     <Compile Include="Models\Masters\AdminUserModel.cs" />
+    <Compile Include="Models\Masters\MasterDataTypeModel.cs" />
     <Compile Include="Models\Masters\MasterYatraModel.cs" />
     <Compile Include="Models\Masters\MedalEntryModel.cs" />
     <Compile Include="Models\Masters\PopularRecruitmentModel.cs" />
@@ -1503,7 +1504,7 @@
     <Content Include="Views\Home\TouristIndustriesPlaces.cshtml" />
     <Content Include="Views\Home\TouristEducationalPlaces.cshtml" />
     <Content Include="Views\Home\TouristShoppingPlaces.cshtml" />
-    <Content Include="Views\Home\TouristGhats.cshtml" />
+    <Content Include="Views\Home\MasterDetail.cshtml" />
     <Content Include="Views\Home\TouristGangaAarti.cshtml" />
     <Content Include="Views\Home\TouristHeritage.cshtml" />
     <Content Include="Views\Home\VideoGallery.cshtml" />

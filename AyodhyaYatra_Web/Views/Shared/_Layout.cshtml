@@ -2,6 +2,7 @@
 @using AyodhyaYatra_Web.Infrastructure.Utility
 @{
     var masterYatraList = GetYatra();
+    var masterList = GetMasterDataType();
 }
 <!DOCTYPE html>
 <html>
@@ -803,9 +804,13 @@
                                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                                                 <a>Other Attraction</a>
                                                 <ul class="sub-menu">
-                                                    <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                                    @foreach (var data in masterList.data)
+                                                    {
+                                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                                                    }
+                                                    @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
                                                     <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>
+                                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                                                 </ul>
                                             </li>
 

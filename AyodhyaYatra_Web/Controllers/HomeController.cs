@@ -73,8 +73,10 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        public ActionResult TouristGhats()
+        public ActionResult MasterDetail([FromUri] int Id)
         {
+            var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/" + Id, "");
+            ViewData["getAttractionByTypeId"] = data;
             return View();
         }
 

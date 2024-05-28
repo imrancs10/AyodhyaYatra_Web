@@ -11,6 +11,7 @@ using static AyodhyaYatra_Web.Global.Enums;
 using AyodhyaYatra_Web.BAL.Masters;
 using AyodhyaYatra_Web.Models.Masters;
 using System.Configuration;
+using log4net.Util;
 
 namespace AyodhyaYatra_Web.Infrastructure.Utility
 {
@@ -72,6 +73,14 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
         public static List<MasterYatraModel> GetYatra()
         {
             return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("MasterData/get/yatras", "");
+        }
+
+        public static MasterDataTypeModel GetMasterDataType()
+        {
+            var allMasterData = HttpClientHelper<MasterDataTypeModel>.GetAPIResponse("master/attraction/type", "");
+            var templedataIndex = allMasterData.data.FindIndex(x => x.name == "Temple");
+            allMasterData.data.RemoveAt(templedataIndex);
+            return allMasterData;
         }
         //public virtual AppointmentModel GetAppointmentDetail()
         //{

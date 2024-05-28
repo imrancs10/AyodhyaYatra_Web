@@ -1,9 +1,8 @@
-﻿@using AyodhyaYatra_Web.Models.Masters;
+﻿@using AyodhyaYatra_Web.Models;
 @{
-    ViewBag.Title = "PhotoGallery";
+    ViewBag.Title = "Photo Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var noticeData = ViewData["NoticeData"] as List<NoticeModel>;
-    var noticeType = ViewData["NoticeType"] as List<NoticeTypeModel>;
+    var photoGalleryImage = ViewData["PhotoGalleryImage"] as List<AttractionImageModel>;
 }
 <title>Lightbox Gallery</title>
 <script src="~/Content/lightbox-plus-jquery.min.js"></script>
@@ -38,28 +37,28 @@
     <section class="hero-slider">
         <div class="pr-15 pl-15">
             <div class="row">
-                @Html.Partial("_Galary_SideMenu", noticeType)
+                @*@Html.Partial("_Galary_SideMenu", noticeType)*@
                 <div class="col w_content pt-20 mt-0">
                     <h2 class="w-bgph ">Photo Gallery</h2>
                     <hr>
                     <div class="clr"></div>
                     <div class="gallery">
-                        @foreach (var item in noticeData)
+                        @foreach (var item in photoGalleryImage)
                         {
-                            if (!string.IsNullOrEmpty(item.filename))
+                            if (!string.IsNullOrEmpty(item.FilePath))
                             {
-                                <a href="~/FilesUploaded/PhotoGalary/@item.filename"
+                                <a href="#"
                                    data-lightbox="mygallery">
-                                    <img src="~/FilesUploaded/PhotoGalary/@item.filename" title="@item.Subject" style="max-width:100%;max-height:100%">
+                                    <img src="@("https://api.ayodhya-dham.in/"+item.FilePath)" title="@item.FileType" style="max-width:100%;max-height:100%">
                                 </a>
                                 @*<img title="@item.Subject" src="~/FilesUploaded/PhotoGalary/@item.filename" onclick="openFullImg(this.src)" style="max-width:100%;max-height:100%">*@
                             }
                             else
                             {
-                                <a src="@item.fileURL"
+                                @*<a src="@item.fileURL"
                                    data-lightbox="mygallery">
                                     <img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">
-                                </a>
+                                </a>*@
                                 @*<img title="@item.Subject" src="@item.fileURL" style="max-width:100%;max-height:100%">*@
                             }
                         }

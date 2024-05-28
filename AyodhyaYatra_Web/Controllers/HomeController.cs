@@ -57,7 +57,7 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult YatraDetail([FromUri]int? Id)
         {
             if(Id==null || Id<=0)
-                return View("index");
+                return RedirectToAction("index");
             var data = HttpClientHelper<YatraAttractionModel>.GetAPIResponse("master/attraction/get/yatra/" + Id, "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["getAttractionByYatraId"] = data;
@@ -113,11 +113,6 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        public ActionResult PhotoGallery()
-        {
-            return View();
-        }
-
         public ActionResult AudioGallery()
         {
             return View();
@@ -130,10 +125,18 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult ThreeSixtyDegreeGallery([FromUri] int? attractionId)
         {
             if (attractionId == null || attractionId <= 0)
-                return View("index");
+                return RedirectToAction("index");
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId="+ attractionId + "&imageType=360degreeimage", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["360Images"] = data;
+            return View();
+        }
+
+        public ActionResult PhotoGallery()
+        {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["PhotoGalleryImage"] = data;
             return View();
         }
 
@@ -166,113 +169,15 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        //public ActionResult Notice(int? noticeId = null, int? categoryId = null)
-        //{
-        //    var detail = new GeneralDetails();
-        //    var currentDate = DateTime.Now;
-        //    var thresoldDate = currentDate.AddMonths(-3);
-        //    var allnotice = detail.GetNoticeDetail(noticeId, categoryId).Where(x => x.EntryTypeName == "Notice" && currentDate >= x.NoticeDate && thresoldDate.Date <= x.NoticeDate.Value.Date).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
-
-        //public ActionResult Result(int? noticeId = null, int? categoryId = null)
-        //{
-        //    var detail = new GeneralDetails();
-        //    var currentDate = DateTime.Now;
-        //    var thresoldDate = currentDate.AddMonths(-6);
-        //    var allnotice = detail.GetNoticeDetail(noticeId, categoryId).Where(x => x.EntryTypeName == "Result" && currentDate >= x.NoticeDate && thresoldDate.Date <= x.NoticeDate.Value.Date).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
-
-        //public ActionResult DirectRecruitment(int? drId)
-        //{
-        //    var detail = new GeneralDetails();
-        //    var noticeTypeDetail = detail.GetAllPopularRecruitmentDetail();
-        //    ViewData["DRType"] = noticeTypeDetail;
-
-        //    var allnotice = detail.GetPopularRecruitmentDetail(drId).Where(not => not.is_active == true).ToList();
-        //    ViewData["DRDetail"] = allnotice;
-        //    return View();
-        //}
-        //public ActionResult Promotion(int? promotionId)
-        //{
-        //    var detail = new GeneralDetails();
-        //    var noticeTypeDetail = detail.GetRecursivePromotionDetail();
-        //    ViewData["PromotionType"] = noticeTypeDetail;
-
-        //    var allnotice = detail.GetPromotionDetail(promotionId).ToList();
-        //    ViewData["PromotionDetail"] = allnotice;
-
-        //    return View();
-        //}
-        //public ActionResult GovernmentOrders()
-        //{
-        //    var detail = new GeneralDetails();
-        //    var currentDate = DateTime.Now;
-        //    var thresoldDate = currentDate.AddMonths(-1);
-        //    var allnotice = detail.GetNoticeDetail().Where(x => x.EntryTypeName == "GO" && currentDate >= x.NoticeDate && thresoldDate.Date <= x.NoticeDate.Value.Date).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetGONoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
-        //public ActionResult GovernmentOrders_Detail(int? noticeId = null)
-        //{
-        //    var detail = new GeneralDetails();
-        //    var currentDate = DateTime.Now;
-        //    var allnotice = detail.GetNoticeDetail(noticeId).Where(x => x.EntryTypeName == "GO" && currentDate >= x.NoticeDate).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetGONoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
-        //public ActionResult SelectionProcedure()
-        //{
-        //    return View();
-        //}
-        //public ActionResult Administration()
-        //{
-        //    return View();
-        //}
-        //public ActionResult MedalDetails()
-        //{
-        //    var detail = new GeneralDetails();
-        //    var noticeTypeDetail = detail.GetPhotoGalaryNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    var admindetail = new AdminDetails();
-        //    ViewData["MedalData"] = admindetail.GetMedalEntry();
-        //    return View();
-        //}
-        //public ActionResult PhotoGallery(int? Id = null)
-        //{
-        //    TimeZoneInfo India_Standard_Time = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-        //    DateTime dateTime_Indian = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, India_Standard_Time);
-
-        //    var detail = new GeneralDetails();
-        //    var allnotice = detail.GetNoticeDetail(Id).Where(x => x.EntryTypeName == "PhotoGalary" && dateTime_Indian >= x.NoticeDate).GroupBy(x => x.Subject).Select(x => x.First()).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetPhotoGalaryNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
-        //public ActionResult PhotoGalleryDetail(string Subject = null)
-        //{
-        //    TimeZoneInfo India_Standard_Time = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-        //    DateTime dateTime_Indian = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, India_Standard_Time);
-
-        //    var detail = new GeneralDetails();
-        //    var allnotice = detail.GetNoticeDetail().Where(x => x.EntryTypeName == "PhotoGalary" && dateTime_Indian >= x.NoticeDate && (x.Subject.Trim() == Subject.Trim() || Subject == null)).ToList();
-        //    ViewData["NoticeData"] = allnotice;
-        //    var noticeTypeDetail = detail.GetPhotoGalaryNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
+        public ActionResult PhotoGalleryDetail([FromUri] int? attractionId)
+        {
+            if (attractionId == null || attractionId <= 0)
+                return RedirectToAction("index");
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId=" + attractionId + "&imageType=image", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["PhotoGalleryImage"] = data;
+            return View();
+        }
         //public ActionResult PrevailingRecruitmentProcesses()
         //{
         //    var detail = new GeneralDetails();

@@ -809,8 +809,8 @@
                                                         <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
                                                     }
                                                     @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                                                 </ul>
                                             </li>
 
@@ -959,17 +959,25 @@
                             <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
                                 <a>Yatra in Ayodhya</a>
                                 <ul class="sub-menu">
-                                    <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
+                                    @foreach (var yatra in masterYatraList)
+                                    {
+                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                                    }
+                                    @*<li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
                                     <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                                    <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>
+                                    <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
                                 </ul>
                             </li>
                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                                 <a>Other Attraction</a>
                                 <ul class="sub-menu">
-                                    <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                    <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>
+                                    @foreach (var data in masterList.data)
+                                    {
+                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                                    }
+                                    @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                                 </ul>
                             </li>
 
@@ -1085,17 +1093,25 @@
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
                         <a>Yatra in Ayodhya</a>
                         <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
+                            @foreach (var yatra in masterYatraList)
+                            {
+                                <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                            }
+                            @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                         <a>Other Attraction</a>
                         <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>
+                            @foreach (var data in masterList.data)
+                            {
+                                <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                            }
+                            @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">

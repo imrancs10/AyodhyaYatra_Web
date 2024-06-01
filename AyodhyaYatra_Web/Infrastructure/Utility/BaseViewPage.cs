@@ -72,14 +72,15 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
 
         public static List<MasterYatraModel> GetYatra()
         {
-            return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("MasterData/get/yatras", "");
+            return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("get/yatras", "");
         }
 
         public static MasterDataTypeModel GetMasterDataType()
         {
             var allMasterData = HttpClientHelper<MasterDataTypeModel>.GetAPIResponse("master/attraction/type", "");
             var templedataIndex = allMasterData.data.FindIndex(x => x.name == "Temple");
-            allMasterData.data.RemoveAt(templedataIndex);
+            if (templedataIndex != -1)
+                allMasterData.data.RemoveAt(templedataIndex);
             return allMasterData;
         }
         //public virtual AppointmentModel GetAppointmentDetail()

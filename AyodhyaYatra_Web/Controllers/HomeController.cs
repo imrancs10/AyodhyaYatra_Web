@@ -3,6 +3,7 @@ using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Visitor;
 using iTextSharp.text;
 using log4net;
+using Microsoft.Owin;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,6 +13,7 @@ using System.Web.Mvc;
 
 namespace AyodhyaYatra_Web.Controllers
 {
+    //[PreventDuplicateRequest]
     public class HomeController : CommonController
     {
         //Declaring Log4Net
@@ -57,9 +59,9 @@ namespace AyodhyaYatra_Web.Controllers
         {
             return View();
         }
-        public ActionResult YatraDetail([FromUri]int? Id)
+        public ActionResult YatraDetail([FromUri] int? Id)
         {
-            if(Id==null || Id<=0)
+            if (Id == null || Id <= 0)
                 return RedirectToAction("index");
             var data = HttpClientHelper<YatraAttractionModel>.GetAPIResponse("master/attraction/get/yatra/" + Id, "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
@@ -80,36 +82,18 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        public ActionResult TouristHeritage()
+        public ActionResult TouristAtractionPlaces(string masterDataType, string heading)
         {
-            return View();
-        }
-
-        public ActionResult TouristGangaAarti()
-        {
-            return View();
-        }
-
-        public ActionResult TouristReligiousPlaces()
-        {
-            return View();
-        }
-        public ActionResult TouristShoppingPlaces()
-        {
-            return View();
-        }
-        public ActionResult TouristEducationalPlaces()
-        {
-            return View();
-        }
-
-        public ActionResult TouristIndustriesPlaces()
-        {
-            return View();
-        }
-
-        public ActionResult TouristHotelsResortsPlaces()
-        {
+            var IdArray = masterDataType.Split(',');
+            string queryParameter = string.Empty;
+            for (int i = 0; i < IdArray.Length; i++)
+            {
+                queryParameter += "&masterDataType=" + IdArray[i];
+            }
+            queryParameter = queryParameter.Remove(0, 1);
+            var data = HttpClientHelper<List<MasterResponse>>.GetAPIResponse("master/data/types?" + queryParameter, "");
+            ViewData["MasterAttraction"] = data;
+            ViewData["Heading"] = heading;
             return View();
         }
 
@@ -131,7 +115,7 @@ namespace AyodhyaYatra_Web.Controllers
         {
             if (attractionId == null || attractionId <= 0)
                 return RedirectToAction("index");
-            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId="+ attractionId + "&imageType=360degreeimage", "");
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId=" + attractionId + "&imageType=360degreeimage", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["360Images"] = data;
             return View();

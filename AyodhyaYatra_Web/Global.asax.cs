@@ -60,6 +60,7 @@ namespace AyodhyaYatra_Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             GlobalFilters.Filters.Add(new CustomExceptionFilter());
+            //GlobalFilters.Filters.Add(new PreventDuplicateRequestAttribute());
             log4net.Config.XmlConfigurator.Configure();
             //Application["Totaluser"] = 0;
         }

@@ -290,6 +290,7 @@
     <Compile Include="Infrastructure\Authentication\CustomPrincipal.cs" />
     <Compile Include="Infrastructure\Authentication\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Infrastructure\Authentication\ICustomPrincipal.cs" />
+    <Compile Include="Infrastructure\Utility\PreventDuplicateRequestAttribute.cs" />
     <Compile Include="Infrastructure\Utility\HttpClientHelper.cs" />
     <Compile Include="Infrastructure\Utility\BaseViewPage.cs" />
     <Compile Include="Infrastructure\Utility\Common.cs" />
@@ -1496,14 +1497,11 @@
     <Content Include="Views\Home\FifthKosiYatra.cshtml" />
     <Content Include="Views\Home\ForteenKosiYatra.cshtml" />
     <Content Include="Views\Home\EightyFourKosiYatra.cshtml" />
-    <Content Include="Views\Home\TouristReligiousPlaces.cshtml" />
     <Content Include="Views\Home\AudioGallery.cshtml" />
     <Content Include="Views\Home\PhotoGallery.cshtml" />
     <Content Include="Views\Home\TouristGuideByMap.cshtml" />
-    <Content Include="Views\Home\TouristHotelsResortsPlaces.cshtml" />
-    <Content Include="Views\Home\TouristIndustriesPlaces.cshtml" />
     <Content Include="Views\Home\TouristEducationalPlaces.cshtml" />
-    <Content Include="Views\Home\TouristShoppingPlaces.cshtml" />
+    <Content Include="Views\Home\TouristAtractionPlaces.cshtml" />
     <Content Include="Views\Home\MasterDetail.cshtml" />
     <Content Include="Views\Home\TouristGangaAarti.cshtml" />
     <Content Include="Views\Home\TouristHeritage.cshtml" />

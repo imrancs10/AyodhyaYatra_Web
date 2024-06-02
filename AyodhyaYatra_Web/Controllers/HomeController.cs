@@ -81,7 +81,12 @@ namespace AyodhyaYatra_Web.Controllers
             ViewData["getAttractionByTypeId"] = data;
             return View();
         }
-
+        public ActionResult Master_DetailPage([FromUri] int Id)
+        {
+            var data = HttpClientHelper<AttractionModel>.GetAPIResponse("master/attraction/get/" + Id, "");
+            ViewData["getAttractionById"] = data;
+            return View();
+        }
         public ActionResult TouristAtractionPlaces(string masterDataType, string heading)
         {
             var IdArray = masterDataType.Split(',');
@@ -94,6 +99,13 @@ namespace AyodhyaYatra_Web.Controllers
             var data = HttpClientHelper<List<MasterResponse>>.GetAPIResponse("master/data/types?" + queryParameter, "");
             ViewData["MasterAttraction"] = data;
             ViewData["Heading"] = heading;
+            return View();
+        }
+
+        public ActionResult TouristAtraction_Detail([FromUri] int Id)
+        {
+            var data = HttpClientHelper<MasterResponse>.GetAPIResponse("master/data/" + Id, "");
+            ViewData["getAttractionById"] = data;
             return View();
         }
 

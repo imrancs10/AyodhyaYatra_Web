@@ -1,937 +1,1433 @@
 ﻿@using AyodhyaYatra_Web.Global
+@using AyodhyaYatra_Web.Infrastructure.Utility
+@{
+    var masterYatraList = GetYatra();
+    var masterList = GetMasterDataType();
+}
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="copyright">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Title Tag  -->
-    <title>
-        Uttar Pradesh Police Recruitment & Promotion Board
-    </title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="~/Content/images/logo1.png">
-    <!-- Web Font -->
-    <link href="css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
-    <script src="bundles/modernizr?v=w9fZKPSiHtN4N4FRqV7jn-3kGoQY5hHpkwFv5TfMrus1"></script>
-
-    <!-- StyleSheet -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="~/Content/css/magnific-popup.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/Content/css/font-awesome.css">
-    <!-- Fancybox -->
-    <link rel="stylesheet" href="~/Content/css/jquery.fancybox.min.css">
-    <!-- Themify Icons -->
-    <link rel="stylesheet" href="~/Content/css/themify-icons.css">
-    <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="~/Content/css/niceselect.css">
-
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="~/Content/css/animate.css">
-    <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="~/Content/css/flexslider.css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="~/Content/css/owl-carousel.css">
-    <!-- Slicknav -->
-    <link rel="stylesheet" href="~/Content/css/slicknav.min.css">
-    <link rel="stylesheet" href="~/Content/css/all.min.css">
-
-
-    <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="~/Content/css/reset.css">
-    <link href="~/Content/css/hover.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/Content/css/responsive.css">
-    <link rel="stylesheet" href="~/Content/css/custom-bootstrap-margin-padding.css">
-    <link rel="stylesheet" href="~/Content/css/style.css">
-    <link href="~/Content/css/simple.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/Content/css/whack.css?v=1.0">
-    <link rel="stylesheet" href="~/Content/css/image.css">
-
-    <script type="text/javascript" language="javascript">
-        function renderTime() {
-           
-            var currentdate = new Date();
-            var currentTime = new Date();
-            var diem = "AM";
-            var h = currentTime.getHours();
-            var m = currentTime.getMinutes();
-            var s = currentTime.getSeconds();
-            var TodayDate = currentdate.getDay() + "/" + currentdate.getMonth() + "/" + currentdate.getFullYear();
-            setTimeout('renderTime()', 1000);
-            if (h == 0) {
-                h = 12;
-            } else if (h > 12) {
-                h = h - 12;
-                diem = "PM";
-            }
-            if (h < 10) {
-                h = "0" + h;
-            }
-            if (m < 10) {
-                m = "0" + m;
-            }
-            if (s < 10) {
-                s = "0" + s;
-            }
-            var myClock = document.getElementById('clockDisplay');
-
-            var d = new Date();
-            var month = d.getMonth() + 1;
-            var day = d.getDate();
-            var dayOfWeek = d.getDay();
-            var output = (day < 10 ? '0' : '') + day + "-" + (month < 10 ? '0' : '') + month + '-' + d.getFullYear();
-
-            myClock.innerHTML = getDayOfWeek(d) + ":" + output + ' ' + " " + h + ":" + m + ":" + s + " " + diem;
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <style id="learn-press-custom-css">
+        :root {
+            --lp-cotainer-max-with: 1290px;
+            --lp-cotainer-padding: 2rem;
+            --lp-primary-color: #ffb606;
+            --lp-secondary-color: #442e66;
         }
-        renderTime();
-        function getDayOfWeek(date) {
-            var day = date.getDay();
-            if (day == 0)
-                return "Sunday";
-            else if (day == 1)
-                return "Monday";
-            else if (day == 2)
-                return "Tuesday";
-            else if (day == 3)
-                return "Wednesday";
-            else if (day == 4)
-                return "Thursday";
-            else if (day == 5)
-                return "Friday";
-            else if (day == 6)
-                return "Saturday";
+    </style>
+    <title>Ayodhya Dham | A pilgrimage to Ayodhya</title>
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link rel='preconnect' href='https://fonts.gstatic.com/' crossorigin />
+    <link rel="alternate" type="application/rss+xml" title="Muezzin &raquo; Feed" href="feed//Home/Index" />
+    <link rel="alternate" type="application/rss+xml" title="Muezzin &raquo; Comments Feed" href="comments/feed//Home/Index" />
+    <meta name="generator" content="Elementor 3.18.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-auto">
+    <link rel="icon" href="~/Content/icon/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="~/Content/icon/android-chrome-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="~/Content/icon/apple-touch-icon.png" />
+    <link rel='stylesheet' id='animate-css' href='../Content/wp-content/plugins/ingeniofy/css/animate.min1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='owl-carousel-css' href='../Content/wp-content/plugins/ingeniofy/css/owl.carousel.min1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style id='wp-emoji-styles-inline-css' type='text/css'>
+
+        img.wp-smiley, img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 0.07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
         }
+    </style>
+    <style id='create-block-campaignblock-style-inline-css' type='text/css'>
+        /*!***************************************************************************************************************************************************************************************************************************************!*\
+         !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+         \***************************************************************************************************************************************************************************************************************************************/
+        /**
+        * The following styles get applied both on the front of your site
+        * and in the editor.
+        *
+        * Replace them with your own styles or remove the file completely.
+        */
+        .wp-block-create-block-campaignblock {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .wp-block-create-block-campaignblock .charitable-logo {
+                margin-left: auto;
+                margin-right: auto;
+                display: table;
+            }
+
+        /*# sourceMappingURL=style-index.css.map*/
+    </style>
+    <style id='classic-theme-styles-inline-css' type='text/css'>
+        /*! This file is auto-generated */
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id='global-styles-inline-css' type='text/css'>
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flow > .alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-flow > .alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-flow > .aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained > .alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-constrained > .alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-constrained > .aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: var(--wp--style--global--content-size);
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained > .alignwide {
+            max-width: var(--wp--style--global--wide-size);
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        body .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+            body .is-layout-flex > * {
+                margin: 0;
+            }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+            body .is-layout-grid > * {
+                margin: 0;
+            }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        .wp-block-navigation a:where(:not(.wp-element-button)) {
+            color: inherit;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        .wp-block-pullquote {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <link rel='stylesheet' id='redux-extendify-styles-css' href='../Content/wp-content/plugins/redux-framework/redux-core/assets/css/extendify-utilities0ad8.css?ver=4.4.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css' href='../Content/wp-content/plugins/contact-form-7/includes/css/stylesdfc9.css?ver=5.8.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='events-manager-css' href='../Content/wp-content/plugins/events-manager/includes/css/events-manager.min431a.css?ver=6.4.6.4' type='text/css' media='all' />
+    <style id='events-manager-inline-css' type='text/css'>
+        body .em {
+            --font-family: inherit;
+            --font-weight: inherit;
+            --font-size: 1em;
+            --line-height: inherit;
+        }
+    </style>
+    <link rel='stylesheet' id='charitable-styles-css' href='../Content/wp-content/plugins/charitable/assets/css/charitable.min4986.css?ver=1.8.0.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css' href='../Content/wp-content/themes/taqwa/assets/css/bootstrap1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='webfonts-css' href='../Content/wp-content/themes/taqwa/assets/css/webfonts1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='taqwa-wp-developers-css' href='../Content/wp-content/themes/taqwa/assets/css/themecss/wp-developer1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='fancybox-css' href='../Content/wp-content/themes/taqwa/assets/css/themecss/fancybox.min1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='taqwa-ttstyles-css' href='../Content/wp-content/themes/taqwa/assets/css/themecss/ttstyles1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='taqwa-default-css' href='../Content/wp-content/themes/taqwa/style1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='taqwa-responsive-css' href='../Content/wp-content/themes/taqwa/assets/css/themecss/responsive1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='plus_bootstrap5-css' href='../Content/wp-content/plugins/ingeniofy-plus/assets/css/bootstrap.min1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='plus_style-css' href='../Content/wp-content/plugins/ingeniofy-plus/assets/css/plus_style1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='plus_responsive-css' href='../Content/wp-content/plugins/ingeniofy-plus/assets/css/plus_responsive1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='plus_swiper-bundle-css' href='../Content/wp-content/plugins/ingeniofy-plus/assets/css/swiper-bundle.min1e39.css?ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-icons-css' href='../Content/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min7bb8.css?ver=5.25.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css' href='../Content/wp-content/plugins/elementor/assets/css/frontend-lite.minf3b2.css?ver=3.18.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='swiper-css' href='../Content/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min48f5.css?ver=5.3.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-post-5-css' href='../Content/wp-content/uploads/elementor/css/post-56bf5.css?ver=1703844534' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-global-css' href='../Content/wp-content/uploads/elementor/css/globalf9d4.css?ver=1703844535' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-post-2330-css' href='../Content/wp-content/uploads/elementor/css/post-2330f9d4.css?ver=1703844535' type='text/css' media='all' />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Cinzel%20Decorative:400,700,900%7CEpilogue:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic&amp;subset=latin&amp;display=swap&amp;ver=1703784325" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel%20Decorative:400,700,900%7CEpilogue:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic&amp;subset=latin&amp;display=swap&amp;ver=1703784325" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel%20Decorative:400,700,900%7CEpilogue:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic&amp;subset=latin&amp;display=swap&amp;ver=1703784325" /></noscript>
+    <link rel='stylesheet' id='learnpress-widgets-css' href='../Content/wp-content/plugins/learnpress/assets/css/widgets.min8bea.css?ver=4.2.5.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CEpilogue%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCinzel+Decorative%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-icons-shared-0-css' href='../Content/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min52d5.css?ver=5.15.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-icons-fa-brands-css' href='../Content/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min52d5.css?ver=5.15.3' type='text/css' media='all' />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script type="text/javascript" src="../Content/wp-content/plugins/charitable/assets/js/libraries/js-cookie.min6b25.js?ver=2.1.4" id="js-cookie-js"></script>
+    <script type="text/javascript" id="charitable-sessions-js-extra">
+        var CHARITABLE_SESSION = { "ajaxurl": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-admin\/admin-ajax.php", "id": "", "cookie_name": "charitable_session", "expiration": "86400", "expiration_variant": "82800", "secure": "", "cookie_path": "\/demo\/muezzin\/", "cookie_domain": "", "generated_id": "8fa3719201fb54ae0870d2adb57d2695", "disable_cookie": "" };
     </script>
-    <script>
-        function orangecolor() {
-            localStorage.setItem("color", "orange");
-            $(".goog-te-gadget-simple").css("backgroundColor", "#b33d2f");
-            $(".goog-te-gadget-simple").css("border", "none");
-            $(".block-cmf-content").css("backgroundColor", "#b33d2f");
-            $(".menu-area").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-
-            });
-            $(".nav-tabs .nav-link.active").css("backgroundColor", "#b33d2f");
-            $(".w-bgph ").css("backgroundColor", "#b33d2f");
-
-            //$(".menu-area, h4").css({
-            //    background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-            //});
-            $(".headline").css("backgroundColor", "#b33d2f");
-            $(".slogan-name").css("color", "#b33d2f");
-
-            $(".header.shop .header-inner").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-            });
-            $(".themecolor").css("color", "#b33d2f");
-            $(".stickysocial").css("backgroundColor", "#b33d2f");
-            $(".section-title12 h1").css("backgroundColor", "#b33d2f");
-            $(".footer").css("backgroundColor", "#b33d2f");
-            $(".dropdown-menu").css("backgroundColor", "#b33d2f");
-            $(".mainmenu .active a").css("backgroundColor", "#b33d2f");
-
-            $(".dropdown-menu > li > a:hover").css("backgroundColor", "#b33d2f");
-
-        }
-
-        function bluecolor() {
-
-            localStorage.setItem("color", "blue");
-            $(".goog-te-gadget-simple").css("backgroundColor", "#1674AC");
-            $(".goog-te-gadget-simple").css("border", "none");
-            $(".block-cmf-content").css("backgroundColor", "#1674AC");
-            $(".menu-area").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            });
-            $(".header.shop .header-inner").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            });
-            $(".nav-tabs .nav-link.active").css("backgroundColor", "#1674AC");
-            $(".w-bgph ").css("backgroundColor", "#1674AC");
-            $("a.hover").css("backgroundColor", "#1674AC");
-
-            //$(".menu-area, h4").css({
-            //    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            //});
-            $(".headline").css("backgroundColor", "#1674AC");
-            $(".slogan-name").css("color", "#1674AC");
-
-
-            $(".themecolor").css("color", "#1674AC");
-            $(".stickysocial").css("backgroundColor", "#1674AC");
-            $(".section-title12 h1").css("backgroundColor", "#1674AC");
-            $(".footer").css("backgroundColor", "#1674AC");
-            $(".dropdown-menu").css("backgroundColor", "#1674AC");
-            $(".mainmenu .active a").css("backgroundColor", "#1674AC");
-
-            $(".dropdown-menu > li > a:hover").css("backgroundColor", "#1674AC");
-
-        }
-
-        function teabluecolor() {
-            localStorage.setItem("color", "teablue");
-            $(".goog-te-gadget-simple").css("backgroundColor", "#3AAFA9");
-            $(".goog-te-gadget-simple").css("border", "none");
-            $(".block-cmf-content").css("backgroundColor", "#3AAFA9");
-            $(".menu-area").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#3AAFA9), to(#266184))"
-            });
-            $(".header.shop .header-inner").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#3AAFA9), to(#266184))"
-            });
-            $(".nav-tabs .nav-link.active").css("backgroundColor", "#3AAFA9");
-            $(".w-bgph ").css("backgroundColor", "#3AAFA9");
-            //$(".menu-area, h4").css({
-            //    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            //});
-            $(".headline").css("backgroundColor", "#3AAFA9");
-            $(".slogan-name").css("color", "#3AAFA9");
-
-
-            $(".themecolor").css("color", "#3AAFA9");
-            $(".stickysocial").css("backgroundColor", "#3AAFA9");
-            $(".section-title12 h1").css("backgroundColor", "#3AAFA9");
-            $(".footer").css("backgroundColor", "#3AAFA9");
-            $(".dropdown-menu").css("backgroundColor", "#3AAFA9");
-            $(".mainmenu .active a").css("backgroundColor", "#3AAFA9");
-
-            $(".dropdown-menu > li > a:hover").css("backgroundColor", "#3AAFA9");
-
-        }
-
-        function khadicolor() {
-            localStorage.setItem("color", "khadi");
-            $(".goog-te-gadget-simple").css("backgroundColor", "#ddbf64");
-            $(".goog-te-gadget-simple").css("border", "none");
-            $(".block-cmf-content").css("backgroundColor", "#ddbf64");
-            $(".menu-area").css({
-                background: "-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(221, 191, 100)), to(rgb(195 159 49)))"
-            });
-            $(".header.shop .header-inner").css({
-                background: "-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(221, 191, 100)), to(rgb(195 159 49)))"
-            });
-            $(".nav-tabs .nav-link.active").css("backgroundColor", "#ddbf64");
-            $(".w-bgph ").css("backgroundColor", "#ddbf64");
-            //$(".menu-area, h4").css({
-            //    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            //});
-            $(".headline").css("backgroundColor", "#ddbf64");
-            $(".slogan-name").css("color", "#ddbf64");
-
-
-            $(".themecolor").css("color", "#ddbf64");
-            $(".stickysocial").css("backgroundColor", "#ddbf64");
-            $(".section-title12 h1").css("backgroundColor", "#ddbf64");
-            $(".footer").css("backgroundColor", "#ddbf64");
-            $(".dropdown-menu").css("backgroundColor", "#ddbf64");
-            $(".mainmenu .active a").css("backgroundColor", "#ddbf64");
-
-            $(".dropdown-menu > li > a:hover").css("backgroundColor", "#ddbf64");
-
-        }
-
-        function greencolor() {
-            localStorage.setItem("color", "green");
-            $(".goog-te-gadget-simple").css("backgroundColor", "#378805");
-            $(".goog-te-gadget-simple").css("border", "none");
-            $(".block-cmf-content").css("backgroundColor", "#378805");
-            $(".menu-area").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#378805), to(#378805))"
-            });
-            $(".header.shop .header-inner").css({
-                background: "-webkit-gradient(linear, left top, left bottom, from(#378805), to(#378805))"
-            });
-            $(".nav-tabs .nav-link.active").css("background-color", "#378805");
-            $(".w-bgph ").css("backgroundColor", "#378805");
-            //$(".menu-area, h4").css({
-            //    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-            //});
-            $(".headline").css("backgroundColor", "#378805");
-            $(".slogan-name").css("color", "#378805");
-
-
-            $(".themecolor").css("color", "#378805");
-            $(".stickysocial").css("backgroundColor", "#378805");
-            $(".section-title12 h1").css("backgroundColor", "#378805");
-            $(".footer").css("backgroundColor", "#378805");
-            $(".dropdown-menu").css("backgroundColor", "#378805");
-            $(".mainmenu .active a").css("backgroundColor", "#378805");
-
-            $(".dropdown-menu > li > a:hover").css("backgroundColor", "#378805");
-
-        }
-
-
+    <script type="text/javascript" src="../Content/wp-content/plugins/charitable/assets/js/charitable-session.min4986.js?ver=1.8.0.6" id="charitable-sessions-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1" id="jquery-migrate-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/core.min3f14.js?ver=1.13.2" id="jquery-ui-core-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/mouse.min3f14.js?ver=1.13.2" id="jquery-ui-mouse-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/sortable.min3f14.js?ver=1.13.2" id="jquery-ui-sortable-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/datepicker.min3f14.js?ver=1.13.2" id="jquery-ui-datepicker-js"></script>
+    <script type="text/javascript" id="jquery-ui-datepicker-js-after">
+        jQuery(function (jQuery) { jQuery.datepicker.setDefaults({ "closeText": "Close", "currentText": "Today", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Previous", "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "dateFormat": "MM d, yy", "firstDay": 1, "isRTL": false }); });
     </script>
-    @*<script>
-
-            function orangecolor() {
-
-                $(".block-cmf-content").css("backgroundColor", "#b33d2f");
-                $(".menu-area").css({
-                    background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-                });
-
-
-                //$(".menu-area, h4").css({
-                //    background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-                //});
-                $(".headline").css("backgroundColor", "#b33d2f");
-                $(".slogan-name").css("color", "#b33d2f");
-
-                $(".header.shop .header-inner").css({
-                    background: "-webkit-gradient(linear, left top, left bottom, from(#ff7357), to(#b33d2f))"
-                });
-                $(".themecolor").css("color", "#b33d2f");
-                $(".stickysocial").css("backgroundColor", "#b33d2f");
-                $(".section-title12 h1").css("backgroundColor", "#b33d2f");
-                $(".footer").css("backgroundColor", "#b33d2f");
-                $(".dropdown-menu").css("backgroundColor", "#b33d2f");
-                $(".mainmenu .active a").css("backgroundColor", "#b33d2f");
-
-                $(".dropdown-menu > li > a:hover").css("backgroundColor", "#b33d2f");
-
-            }
-
-            function bluecolor() {
-                $(".block-cmf-content").css("backgroundColor", "#1674AC");
-                $(".menu-area").css({
-                    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-                });
-                $(".header.shop .header-inner").css({
-                    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-                });
-
-                //$(".menu-area, h4").css({
-                //    background: "-webkit-gradient(linear, left top, left bottom, from(#1674AC), to(#266184))"
-                //});
-                $(".headline").css("backgroundColor", "#1674AC");
-                $(".slogan-name").css("color", "#1674AC");
-
-
-                $(".themecolor").css("color", "#1674AC");
-                $(".stickysocial").css("backgroundColor", "#1674AC");
-                $(".section-title12 h1").css("backgroundColor", "#1674AC");
-                $(".footer").css("backgroundColor", "#1674AC");
-                $(".dropdown-menu").css("backgroundColor", "#1674AC");
-                $(".mainmenu .active a").css("backgroundColor", "#1674AC");
-
-                $(".dropdown-menu > li > a:hover").css("backgroundColor", "#1674AC");
-
-            }
-
-            //function blackcolor() {
-            //    $(".block-cmf-content").css("backgroundColor", "#000000");
-            //    $(".menu-area").css({
-            //        background: "-webkit-gradient(linear, left top, left bottom, from(#747474), to(#000000))"
-            //    });
-
-
-            //    $(".menu-area, h4").css({
-            //        background: "-webkit-gradient(linear, left top, left bottom, from(#747474), to(#000000))"
-            //    });
-            //    $(".headline").css("backgroundColor", "#747474");
-            //    $(".slogan-name").css("color", "#000000");
-
-
-            //    $(".themecolor").css("color", "#000000");
-            //    $(".stickysocial").css("backgroundColor", "rgb(90, 179, 244)");
-            //    $(".section-title12 h1").css("backgroundColor", "#5ab3f4");
-            //    $(".footer").css("backgroundColor", "#0689E9");
-            //    $(".dropdown-menu").css("backgroundColor", "#266184");
-            //    $(".mainmenu .active a").css("backgroundColor", "#000000");
-
-            //    $(".dropdown-menu > li > a:hover").css("backgroundColor", "#000000");
-
-            //}
-
-        </script>*@
-    <script type="text/javascript">
-        // jQuery('.fontSizeEvent').trigger('fontSelected');
-
-        function set_font_size(fontEvent) {
-            event.stopPropagation();
-            event.preventDefault();
-            var fs = jQuery("body").css("font-size");
-            var fontSize = fs;
-            if (fontEvent == "increase") {
-                if (parseInt(fontSize) < 18) {
-                    fontSize = parseInt(fontSize) + 2;
-                }
-            } else if (fontEvent == "decrease") {
-                if (parseInt(fontSize) > 10) {
-                    fontSize = parseInt(fontSize) - 2;
-                }
-            } else {
-                fontSize = 14;
-            }
-
-            $(this).addClass('link-selected').parent().siblings().find('a').removeClass('link-selected')
-            jQuery("body").attr('style', 'font-size: ' + fontSize + 'px !important');
-        }
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/resizable.min3f14.js?ver=1.13.2" id="jquery-ui-resizable-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/draggable.min3f14.js?ver=1.13.2" id="jquery-ui-draggable-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/controlgroup.min3f14.js?ver=1.13.2" id="jquery-ui-controlgroup-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/checkboxradio.min3f14.js?ver=1.13.2" id="jquery-ui-checkboxradio-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/button.min3f14.js?ver=1.13.2" id="jquery-ui-button-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/jquery/ui/dialog.min3f14.js?ver=1.13.2" id="jquery-ui-dialog-js"></script>
+    <script type="text/javascript" id="events-manager-js-extra">
+        var EM = { "ajaxurl": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-admin\/admin-ajax.php", "locationajaxurl": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-admin\/admin-ajax.php?action=locations_search", "firstDay": "1", "locale": "en", "dateFormat": "yy-mm-dd", "ui_css": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-content\/plugins\/events-manager\/includes\/css\/jquery-ui\/build.min.css", "show24hours": "0", "is_ssl": "1", "autocomplete_limit": "10", "calendar": { "breakpoints": { "small": 560, "medium": 908, "large": false } }, "phone": "", "datepicker": { "format": "d\/m\/Y" }, "search": { "breakpoints": { "small": 650, "medium": 850, "full": false } }, "url": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-content\/plugins\/events-manager", "bookingInProgress": "Please wait while the booking is being submitted.", "tickets_save": "Save Ticket", "bookingajaxurl": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-admin\/admin-ajax.php", "bookings_export_save": "Export Bookings", "bookings_settings_save": "Save Settings", "booking_delete": "Are you sure you want to delete?", "booking_offset": "30", "bookings": { "submit_button": { "text": { "default": "Send your booking", "free": "Send your booking", "payment": "Send your booking", "processing": "Processing ..." } }, "update_listener": "" }, "bb_full": "Sold Out", "bb_book": "Book Now", "bb_booking": "Booking...", "bb_booked": "Booking Submitted", "bb_error": "Booking Error. Try again?", "bb_cancel": "Cancel", "bb_canceling": "Canceling...", "bb_cancelled": "Cancelled", "bb_cancel_error": "Cancellation Error. Try again?", "txt_search": "Search", "txt_searching": "Searching...", "txt_loading": "Loading...", "event_detach_warning": "Are you sure you want to detach this event? By doing so, this event will be independent of the recurring set of events.", "delete_recurrence_warning": "Are you sure you want to delete all recurrences of this event? All events will be moved to trash.", "disable_bookings_warning": "Are you sure you want to disable bookings? If you do this and save, you will lose all previous bookings. If you wish to prevent further bookings, reduce the number of spaces available to the amount of bookings you currently have", "booking_warning_cancel": "Are you sure you want to cancel your booking?" };
     </script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/events-manager/includes/js/events-manager.min431a.js?ver=6.4.6.4" id="events-manager-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/learnpress/assets/js/dist/loadAJAX.min8bea.js?ver=4.2.5.8" id="lp-load-ajax-js" async="async" data-wp-strategy="async"></script>
+    <link rel="https://api.w.org/" href="../Content/wp-json///Home/Index" />
+    <link rel="alternate" type="application/json" href="../Content/wp-json//wp/v2/pages/2330.json" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+    <meta name="generator" content="WordPress 6.4.2" />
+    <link rel="canonical" href="/Home/Index" />
+    <link rel='shortlink' href='/Home/Index' />
+    <link rel="alternate" type="application/json+oembed" href="../Content/wp-json//oembed/1.0/embeded94.json?url=https%3A%2F%2Fnauthemes.com%2Fdemo%2Fmuezzin%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="../Content/wp-json//oembed/1.0/embede2c0?url=https%3A%2F%2Fnauthemes.com%2Fdemo%2Fmuezzin%2F&amp;format=xml" />
+    <meta name="generator" content="Redux 4.4.11" />
+    <style id="stylesheet">
+        body {
+            background: #FFFFFF;
+        }
+
+        .news_ticker_sec span {
+            background: #5D2B00
+        }
+
+        #triangle-right {
+            border-left: 25px solid #5D2B00
+        }
+
+        #add_payment_method .wc-proceed-to-checkout a.checkout-button, .breadcrumb::before, .calendar_wrap > table caption, .calendar_wrap > table tbody td#today, .date-box, .dnt-lst > a:focus, .dnt-lst > a:hover, .em-booking-buttons input[type=submit], .em-booking-login-form > input[type=submit], .em-pagination .next:focus, .em-pagination .next:hover, .em-pagination .prev:focus, .em-pagination .prev:hover, .em-pagination a:focus, .em-pagination a:hover, .em-pagination span, .event-detail-desc ul > li:before, .event-detail-img .countdown:before, .event-detail-img > span:before, .event-thmb .countdown:before, .event-thmb > span:before, .featured-area-wrap .owl-carousel button.owl-dot.active, .lgn-rgstr-frm input[type=submit], .member-expr-lst > li:before, .owl-carousel .owl-nav > button.owl-next, .owl-carousel .owl-nav > button.owl-prev, .page + span.edit-link > a:focus, .page + span.edit-link > a:hover, .page-links > a:focus, .page-links > a:hover, .page-links > span, .page > span.edit-link > a:focus, .page > span.edit-link > a:hover, .pagination > li a:focus, .pagination > li.active span, .pagination > li:hover a, .plr-bx > i:after, .plyr.v4 .player .volume .volume-btn, .post-password-form input[type=submit], .pr-tm-lst .pr-tm-bx.spc-pr-tm, .preloader, .rspn-mnu-btn:hover, .rspn-mnu-cls:hover, .rspn-scil > li a:hover, .serv-bx2:hover .serv-inf2, .serv-bx:hover .srv-inf.green-bg, .social-share2 > a:focus, .social-share2 > a:hover, .srch-cls-btn:hover, .tag-sticky-2 .post-bx .post-inf:before, .tagcloud > a, .team-bx:hover .team-inf, .team-inf > span:before, .theme-bg, .theme-bg-layer:before, .theme-btn.green-bg:after, .theme-btn.green-bg:before, .widget table caption, .widget.style2 > h5::before, .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce a.remove, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce div.product form.cart .button, .woocommerce input.button, .woocommerce input.button.alt, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce span.onsale, .woocommerce ul.products li.product a, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart table.cart th, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button, .wp-block-button .wp-block-button__link:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-tag-cloud > a, a.page-item.brd-rd5.active, body.woocommerce div.product .woocommerce-tabs ul.tabs li.active, form.wp-block-search button, nav > div > ul li > a:after, nav > div > ul li > a:before, table#wp-calendar caption, table#wp-calendar tbody td#today, .tq-support-cause-stats .progress-bar {
+            background-color: #DB9E30 !important;
+        }
+
+        .pr-tm-wrp:before {
+            background-image: linear-gradient(120deg, #DB9E30, #004B39) !important;
+        }
+
+        .tag-clouds > span, .pst-shr-tgs .scl1 > span, #cancel-comment-reply-link, .abt-vdo > a:focus, .abt-vdo > a:hover, .blog-detail-desc > h2 + ol li a, .blog-detail-desc > h2 + ul li a, .breadcrumb > li a:focus, .breadcrumb > li a:hover, .cause-inf > h5 a:focus, .cause-inf > h5 a:hover, .cnt-inf-lst > li a:focus, .cnt-inf-lst > li a:hover, .cnt-inf > li a:focus, .cnt-inf > li a:hover, .cont-frm a:focus, .cont-frm a:hover, .cpy-rgt > p a:focus, .cpy-rgt > p a:hover, .em-pagination a:focus, .em-pagination a:hover, .em-pagination span, .event-bx:hover > a:focus, .event-bx:hover > a:hover, .event-bx > a:focus, .event-bx > a:hover, .event-bx > h5 a:focus, .event-bx > h5 a:hover, .event-inf > a:focus, .event-inf > a:hover, .event-inf > h5 a:focus, .event-inf > h5 a:hover, .header-search form > button:focus, .header-search form > button:hover, .inf-lst > li a:focus, .inf-lst > li a:hover, .ins, .light_mode .pr-tm-bx > span, .lst-cas > h6 a:focus, .lst-cas > h6 a:hover, .ltst-prd-inf > h6 a:focus, .ltst-prd-inf > h6 a:hover, .pagination .page-link.active, .post-inf > a:focus, .post-inf > a:hover, .post-inf > h5 a:focus, .post-inf > h5 a:hover, .post-info > a, .prayer-timings > table tr:hover td, .product-detail-tabs > ul li a.nav-link.active, .product-detail-tabs > ul li a.nav-link:focus, .product-detail-tabs > ul li a.nav-link:hover, .product-inf > h5 a:focus, .product-inf > h5 a:hover, .pst-mta > li a:focus, .pst-mta > li a:hover, .rcnt-inf > h6 a:focus, .rcnt-inf > h6 a:hover, .rsnp-mnu ul li.menu-item-has-children.active:before, .rsnp-mnu ul > li.active > a, .rsnp-mnu ul > li:hover > a, .rsnp-mnu ul > li > a:focus, .rspn-cnt > span a:focus, .rspn-cnt > span a:hover, .rspn-srch > button:hover, .scl1 > a:focus, .scl1 > a:hover, .serv-bx:hover > i.green-clr, .service-detail-nav > ul li.active > a, .service-detail-nav > ul li:hover > a, .service-detail-nav > ul li > a:focus, .srch-btn:focus, .srch-btn:hover, .style1 nav > div ul ul li a:hover, .tag-clouds > a:focus, .tag-clouds > a:hover, .tch-dwn-btn > a:focus, .tch-dwn-btn > a:hover, .tch-thmb > a:focus, .tch-thmb > a:hover, .theme-clr, .time-box > span:first-child, .tp-lnks > li a:focus, .tp-lnks > li a:hover, .widget .srch-frm button i, .widget table a, .widget ul li > a:focus, .widget ul li > a:hover, .widget > div > ul li span.rss-date, .widget > div > ul li:before, .widget > h5 + div > ul li:before, .widget > h5 + div > ul li:hover > a, .widget > h5 + div > ul li > a:focus, .widget > ul li span.rss-date, .widget > ul li:before, .widget_recent_comments a:hover, .woocommerce .star-rating span, .woocommerce .star-rating + a, .woocommerce .star-rating::before, .woocommerce .woocommerce-tabs ul.tabs li.active .star-rating span, .woocommerce .woocommerce-tabs ul.tabs li.active .star-rating::before, .woocommerce .woocommerce-tabs ul.tabs li:hover .star-rating span, .woocommerce .woocommerce-tabs ul.tabs li:hover .star-rating::before, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li.active > a, .woocommerce div.product .woocommerce-tabs ul.tabs li > a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li > a:hover, .woocommerce div.product form.cart .group_table td label a:focus, .woocommerce div.product form.cart .group_table td label a:hover, .woocommerce div.product form.cart .group_table td.woocommerce-grouped-product-list-item__price > span, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce form .form-row .required, .woocommerce form .form-row label abbr, .woocommerce form .form-row.woocommerce-invalid label, .woocommerce table.shop_table td.product-name a:focus, .woocommerce table.shop_table td.product-name a:hover, .woocommerce table.shop_table td.product-price, .woocommerce table.shop_table td.product-subtotal, .woocommerce ul.product_list_widget li a + del + ins, .woocommerce ul.product_list_widget li a:focus img + span.product-title, .woocommerce ul.product_list_widget li:hover img + span.product-title, .woocommerce ul.products li.product .price, .woocommerce-MyAccount-content p a, .woocommerce-MyAccount-navigation > ul > li a:focus, .woocommerce-MyAccount-navigation > ul > li a:hover, .woocommerce-MyAccount-navigation > ul > li.is-active a, .woocommerce-account .addresses .title .edit, .woocommerce-info a, .woocommerce-info::before, .woocommerce-message a, .woocommerce-message::before, .wp-block-calendar table#wp-calendar tbody a, .wp-block-calendar table#wp-calendar tfoot a, a:hover, body .pst-shr-tgs .tag-clouds a:hover, dd a, div.category-sticky .post-bx .post-inf::before, div.post-bx.lst .post-inf > a:focus, div.post-bx.lst .post-inf > a:hover, div.sticky .post-bx .post-inf::before, div.tag-sticky-2 .post-bx .post-inf::before, dl a, form.cart + a.compare:focus, form.cart + a.compare:hover, h2 + table td a, h2 + table th a, header.style1 .scl1 > a:focus, header.style1 .scl1 > a:hover, header.style1 nav > div > a.srch-btn:focus, header.style1 nav > div > a.srch-btn:hover, nav > div > ul li a:focus, nav > div > ul li:hover, nav > div > ul li:hover > a, nav > div > ul > li.menu-item-has-children:hover:after, ol.breadcrumb > li.breadcrumb-item.active, p a, table th a:focus, table th a:hover, header.style2 .dropdown-menu, .tq-service-box2 i, footer span a:hover, .widget a:hover, .tq-header-menu nav ul ul li.menu-item-has-children > a:hover, .single .event-detail-desc > ul li:before, .single-campaign .cause-detail-wrp .scl1 > a:hover {
+            color: #DB9E30;
+        }
+
+        .abt-vdo.style2:before, .dnt-lst > a:focus, .dnt-lst > a:hover, .pagination > li.active, .pagination > li:hover, .product-detail-tabs > ul li a.nav-link.active, .product-detail-tabs > ul li a.nav-link:focus, .product-detail-tabs > ul li a.nav-link:hover, .serv-bx2:hover .serv-inf2, .theme-brd-clr, .wp-block-button .wp-block-button__link:focus, .wp-block-button .wp-block-button__link:hover, li.pr-tm-bx {
+            border-color: #DB9E30;
+        }
+
+        .testi-desc {
+            border-top-color: #DB9E30;
+        }
+
+        #add_payment_method .wc-proceed-to-checkout a.checkout-button:focus, #add_payment_method .wc-proceed-to-checkout a.checkout-button:hover, .blue-bg, .btn-primary:hover, .cont-frm .form-submit input:focus, .cont-frm .form-submit input:hover, .cont-frm input.wpcf7-submit:focus, .cont-frm input.wpcf7-submit:hover, .dnt-lst a.brd-rd30.active, .em-booking-buttons input[type=submit]:focus, .em-booking-buttons input[type=submit]:hover, .em-booking-login-form > input[type=submit]:focus, .em-booking-login-form > input[type=submit]:hover, .fea-prd-prc:before, .featured-area-wrap .owl-carousel button.owl-dot, .green-bg, .green-bg-layer:before, .lg-mnu-inr, .lg-mnu-sec, .lgn-rgstr-frm input[type=submit]:focus, .lgn-rgstr-frm input[type=submit]:hover, .namaz-drp .table thead > tr, .owl-carousel .owl-nav > button:focus, .owl-carousel .owl-nav > button:hover, .package-box.active:before, .post-password-form input[type=submit]:focus, .post-password-form input[type=submit]:hover, .rcnt-pst:before, .rspn-mnu-btn, .serv-bx:hover .srv-inf.theme-bg, .single-product .btn-primary:hover, .tagcloud > a:focus, .tagcloud > a:hover, .theme-bg .newsletter-form form p:last-of-type input, .theme-bg .newsletter-form > button, .theme-btn.theme-bg:after, .theme-btn.theme-bg:before, .widget.blue-bg2.style2, .woocommerce #respond input#submit.alt:focus, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit:focus, .woocommerce #respond input#submit:hover, .woocommerce .cart .button:focus, .woocommerce .cart .button:hover, .woocommerce .cart input.button:focus, .woocommerce .cart input.button:hover, .woocommerce .woocommerce-error .button:focus, .woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-info .button:focus, .woocommerce .woocommerce-info .button:hover, .woocommerce .woocommerce-message .button:focus, .woocommerce .woocommerce-message .button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover, .woocommerce a.button:focus, .woocommerce a.button:hover, .woocommerce a.remove:focus, .woocommerce a.remove:hover, .woocommerce button.button.alt:focus, .woocommerce button.button.alt:hover, .woocommerce button.button:focus, .woocommerce button.button:hover, .woocommerce div.product form.cart .button:focus, .woocommerce div.product form.cart .button:hover, .woocommerce input.button.alt:focus, .woocommerce input.button.alt:hover, .woocommerce input.button:focus, .woocommerce input.button:hover, .woocommerce ul.products li.product a:focus, .woocommerce ul.products li.product a:hover, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:focus, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:focus, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:hover, .woocommerce-page .woocommerce-error .button:focus, .woocommerce-page .woocommerce-error .button:hover, .woocommerce-page .woocommerce-info .button:focus, .woocommerce-page .woocommerce-info .button:hover, .woocommerce-page .woocommerce-message .button:focus, .woocommerce-page .woocommerce-message .button:hover, .wp-block-tag-cloud > a:focus, .wp-block-tag-cloud > a:hover, footer .wpcf7 input[type=submit]:hover, form.wp-block-search button:focus, form.wp-block-search button:hover, header.style2 > .topbar, input.mailpoet_submit, .namaz-drp button#dropdownMenuButton {
+            background-color: #004B39;
+        }
+
+        .error-page-inner > h1, .error-page-inner > p a:focus, .error-page-inner > p a:hover, .error-page-inner > span, .green-clr, .inf-lst li, .menu-sec nav > div > ul > li:hover > a, .menu-sec nav > div > ul > li > a:focus, .pr-tm-bx > span i, .rspn-cnt .inf-lst > li i, .serv-bx:hover > i.theme-clr, .serv-bx > h5 a:focus, .serv-bx > h5 a:hover, .style2 nav > div ul li:hover, .woocommerce a.button.alt:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce-MyAccount-content p a:focus, .woocommerce-MyAccount-content p a:hover, .woocommerce-account .addresses .title .edit:focus, .woocommerce-account .addresses .title .edit:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page button.button:hover, a.comment-reply-link:hover, p a:hover, #cancel-comment-reply-link:hover, .widget .srch-frm button i:hover, .cmt-inf a.url:hover {
+            color: #004B39 !important;
+        }
+
+        .green-brd-clr, .namaz-drp button#dropdownMenuButton {
+            border-color: #004B39;
+        }
+    </style>
+    <style id="charitable-highlight-colour-styles">
+        .campaign-raised .amount, .campaign-figures .amount, .donors-count, .time-left, .charitable-form-field a:not(.button), .charitable-form-fields .charitable-fieldset a:not(.button), .charitable-notice, .charitable-notice .errors a {
+            color:;
+        }
+
+        #charitable-donation-form .charitable-notice {
+            border-color:;
+        }
+
+        .campaign-progress-bar .bar, .donate-button, .charitable-donation-form .donation-amount.selected, .charitable-donation-amount-form .donation-amount.selected {
+            background-color: #f89d35;
+        }
+
+        .charitable-donation-form .donation-amount.selected, .charitable-donation-amount-form .donation-amount.selected, .charitable-notice, .charitable-drag-drop-images li:hover a.remove-image, .supports-drag-drop .charitable-drag-drop-dropzone.drag-over {
+            border-color: #f89d35;
+        }
+    </style>
+    <meta name="generator" content="Elementor 3.18.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-auto">
+    <link rel="icon" href="#" sizes="32x32" />
+    <link rel="icon" href="#" sizes="192x192" />
+    <link rel="apple-touch-icon" href="#" />
+    <meta name="msapplication-TileImage" content="#" />
+    <style id="taqwa_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+        body h1 {
+            font-family: "Cinzel Decorative";
+            font-weight: 700;
+            font-style: normal;
+            color: #000;
+            font-size: 60px;
+        }
+
+        body h2 {
+            font-family: "Cinzel Decorative";
+            font-weight: 700;
+            font-style: normal;
+            color: #000;
+            font-size: 54px;
+        }
+
+        body h3 {
+            font-family: "Cinzel Decorative";
+            font-weight: 700;
+            font-style: normal;
+            color: #000;
+            font-size: 30px;
+        }
+
+        body h4 {
+            font-family: "Cinzel Decorative";
+            font-weight: 700;
+            font-style: normal;
+            color: #000;
+            font-size: 26px;
+        }
+
+        body h5 {
+            font-family: "Cinzel Decorative";
+            font-weight: 700;
+            font-style: normal;
+            color: #000;
+            font-size: 24px;
+        }
+
+        body h6 {
+            font-family: Epilogue;
+            font-weight: 700;
+            font-style: normal;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        body p, .event-detail-desc > p, .inf-lst li, .hdr-srch > form input, .pst-mta li, .post-inf > a, .post-bx .post-inf > p, .widget form input, .widget form textarea, .cpy-rgt > p, .pagination > li, .wp-block-button .wp-block-button__link, .wp-block-cover p.wp-block-cover-text, body ol li, body .elementor-text-editor p:not(:first-child), body ul li, figcaption, .elementor-text-editor p:not(:first-child) {
+            font-family: Epilogue;
+            font-weight: 400;
+            font-style: normal;
+            color: #444;
+            font-size: 16px;
+        }
+
+        #nav-id li a, .menu-sec nav > div > ul > li, .tq-header-menu nav ul li, .tq-header-menu nav ul ul li {
+            font-family: Epilogue;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        html body, .tag-clouds > span, .tag-clouds > a, .pst-shr-tgs .scl1, .single-campaign .tag-clouds, .theme-btn, .cause-detail-inf-inr .pst-mta > li span, .event-detail-desc ul li:not(.blocks-gallery-grid .blocks-gallery-image, .blocks-gallery-grid .blocks-gallery-item, .wp-block-gallery .blocks-gallery-image, .wp-block-gallery .blocks-gallery-item) {
+            font-family: Epilogue;
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
-<body>
-    <script src="bundles/MsAjaxJs?v=c42ygB2U07n37m_Sfa8ZbLGVu4Rr2gsBo7MvUEnJeZ81" type="text/javascript"></script>
-    <script src="~/Scripts/library/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="~/Scripts/library/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="bundles/WebFormsJs?v=AAyiAYwMfvmwjNSBfIMrBAqfU5exDukMVhrRuZ-PDU01" type="text/javascript"></script>
-
-    <div class="region region-header-top">
-
-        <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
-
-            <div class="container-fluid common-container four_content top-header">
-                <div class="common-left clearfix">
-                    <ul>
-                        <li>
-                            <p id="clockDisplay" class="datep notranslate"></p>
-                        </li>
-                        <!--<li>
-                            <p class="datep" style="color:black">
-                                | Visitors Count:-->
-                        @*<div id="sfcdgtlzdk2ap8s7nzd3xbasl4uuanp8ssf" style="position: absolute; top: 23%; left: 99%; width: 53%;"></div>
-                            <script type="text/javascript" src="https://counter3.optistats.ovh/private/counter.js?c=dgtlzdk2ap8s7nzd3xbasl4uuanp8ssf&down=async" async></script>
-                            <noscript><a href="https://www.freecounterstat.com" title="free counter"><img src="https://counter3.optistats.ovh/private/freecounterstat.php?c=dgtlzdk2ap8s7nzd3xbasl4uuanp8ssf" border="0" title="free counter" alt="free counter"></a></noscript>-->*@
-                        <!--@ApplicationInstance.Application["Totaluser"]
-                            </p>
-                        </li>-->
-                    </ul>
-                </div>
-                <div class="common-right clearfix">
-                    <ul id="header-nav">
-
-                        <li class="ico-skip cf">
-                            <a href="/Home/Index" title=""><i class="fa fa-home"></i>   मुख्य पृष्ठ</a>
-                        </li>
-
-
-                        <li class="ico-skip cf">
-                            <a href="#skipCont" title="">Skip to main content</a>
-                        </li>
-
-                        <li class="ico-skip cf">
-                            <a href="#skipCont" title="">Screen Reader</a>
-                        </li>
-
-                        <li class="ico-accessibility cf">
-                            <a href="javascript:void(0);" onclick="bluecolor()" title="Blue Theme">
-                                <img class="top" style="background-color: #1674AC; height: 2em; width: 2em;">
-                            </a>
-                            <ul style="visibility: hidden;">
-                                <li>
-                                    <a onclick="orangecolor()" title="Orange Theme" href="javascript:void(0);" class="alinktheme">
-                                        <img class="top" style="background-color: #b33d2f; height: 2em; width: 2em;">
-                                        @*<img class="top " src="~/Content/images/orange.png" alt="Orange Theme">*@
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onclick="teabluecolor()" title="TeaBlue Theme" href="javascript:void(0);" class="alinktheme">
-                                        <img class="top" style="background-color: #3AAFA9; height: 2em; width: 2em;">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onclick="khadicolor()" title="khadi Theme" href="javascript:void(0);" class="alinktheme">
-                                        <img class="top" style="background-color: #ddbf64; height: 2em; width: 2em;">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onclick="greencolor()" title="Green Theme" href="javascript:void(0);" class="alinktheme">
-                                        <img class="top" style="background-color: #378805; height: 2em; width: 2em;">
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <!--<li class="ico-accessibility cf">
-                        <a href="javascript:void(0);" onclick="bluecolor()" title="Blue Theme">
-                            <img class="top" src="~/Content/images/blue.png" alt="Blue theme">
-                        </a>
-                        <ul style="visibility: hidden;">
-                            <li>
-                                <a onclick="orangecolor()" title="Orange Theme" href="javascript:void(0);" class="alinktheme">
-                                    <img class="top " src="~/Content/images/orange.png" alt="Orange Theme">
-                                </a>
-                            </li>-->
-                        @*<li> <a onclick="blackcolor()" title="Black Theme" href="javascript:void(0);" class="alinktheme"> <img class="top" src="~/Content/images/black.png" alt="Black Theme">  </a> </li>*@
-
-                        <!--</ul>
-                        </li>-->
-
-                        <li class="ico-accessibility cf">
-                            <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
-                                <img class="top" src="~/Content/images/ico-accessibility.png" alt="Accessibility Dropdown">
-                            </a>
-                            <ul style="visibility: hidden;">
-                                <li>
-                                    <a onclick="set_font_size('increase')" title="Increase font size" href="javascript:void(0);">
-                                        A<sup>+</sup>
-                                    </a>
-                                </li>
-                                <li> <a onclick="set_font_size()" title="Reset font size" href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
-                                <li> <a onclick="set_font_size('decrease')" title="Decrease font size" href="javascript:void(0);">A<sup>-</sup></a> </li>
-                                <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a> </li>
-                                <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast" style="display: none;">A</a> </li>
-                            </ul>
-                        </li>
-
-
-                        <li class="ico-social cf">
-                            <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
-                                <img class="top" src="~/Content/images/ico-social.png" alt="Social Medias">
-                            </a>
-                            <ul style="visibility: hidden;">
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="https://www.facebook.com/profile.php?id=100089212700306"><img alt="Facebook Page" src="~/Content/images/ico-facebook.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="https://twitter.com/upprpb"><img alt="Twitter Page" src="~/Content/images/ico-twitter.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" title="External Link that opens in a new window" href="https://www.youtube.com/channel/UCGS-CVdV-Em0GYu7cIa-s7A"><img alt="youtube Page" src="~/Content/images/ico-youtube.png"></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="ico-sitemap cf">
-                            <a href="/Home/Sitemap" target="_blank" title="Sitemap">
-                                <img class="top" src="~/Content/images/ico-sitemap.png" alt="Sitemap">
-                            </a>
-                        </li>
-                        <li class="cf">
-                            <div id="google_translate_element" style="margin: 4px;">
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Header -->
-        <header class="header shop" id="skipCont">
-
-            <!-- Topbar -->
-            <!-- End Topbar -->
-            <div class="middle-inner">
-                <div class="container" style="max-width: 90%;">
+<body class="home page-template-default page page-id-2330 elementor-default elementor-kit-5 elementor-page elementor-page-2330" itemscope>
+    <!--Wrapper Start-->
+    <main>
+        <header class="stick tq-style1">
+            <div class="container">
+                <div class="tq-header-wrapper position-relative w-100">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 col-12 p-0" style="background-color:white;">
-                            <!-- Logo -->
-                            <div class="logo mt-0">
+                        <div class="col-md-2 col-sm-3 col-lg-2">
+                            <div class="tq-logo position-relative w-100">
                                 <a href="/Home/Index">
-                                    <img src="~/Content/images/logo3.jpg" alt="Uttar Pradesh Police Recruitment & Promotion Board">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                         viewBox="0 0 1693.32 1693.32"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                                    <defs>
+                                    <style type="text/css">
+                                        .fil2 {
+                                            fill: none
+                                        }
+
+                                        .fil1 {
+                                            fill: #FFD580
+                                        }
+
+                                        .fil0 {
+                                            fill: white
+                                        }
+</style>
+                                    <clipPath id="id0">
+                                    <path d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+   </clipPath>
+ </defs>
+                                    <g id="Layer_x0020_1">
+                                    <metadata id="CorelCorpID_0Corel-Layer" />
+                                    <path class="fil0" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+                                    <g style="clip-path:url(#id0)">
+                                    <g id="_1638681743744">
+                                    <g>
+                                    <path id="1" class="fil1" d="M155.64 408.02l0.03 -61.92c3.92,10.69 10.86,18.84 13.41,30.96 2.94,13.99 -1.09,28.02 -13.44,30.96zm0.37 -118.03l-0.51 -8.82 0.1 -9.47 0 -18.93 0.02 -3.76 8.68 -6.3 19.15 9.88c-11.42,7.06 -22.45,21.15 -27.44,37.4zm-0.12 -62.18l-0.28 -67.1c6.6,19.03 17.05,30.56 24.06,44.73 -13.83,10.72 -14.25,4.27 -23.78,22.37zm59.76 -122.15c-15.08,-6.56 -23.48,-3.92 -27.93,10.81 9.42,4.69 11.71,0.68 18.09,9.84 4.34,6.22 7.33,12.81 11.53,18.75 12.87,18.2 22.16,19.81 29.8,27.9 -12.23,8.23 -15.32,15.94 -3.98,29.43 3.87,-19.2 29.95,-13.99 49.68,-21.93 23.37,-9.4 31.16,-16.9 45.53,-29.6 -6.89,20 -29.76,45.3 -47.39,54.18 -27.95,14.07 -58.5,1.85 -76.9,-13.18 -86.97,-71.04 17.28,-189.13 75.94,-151.64 28.89,18.46 46.93,74.35 4.74,98.59 -12.41,7.13 -27.88,8.27 -36.45,-2.51 -8.7,-10.95 -5.54,-32.68 5.73,-35.75 13.93,-3.8 26.76,9.81 26.25,22.21 15.79,-9.59 25.32,-47.04 -19.32,-53.8 1.44,-15.7 -0.39,-20.19 -9.88,-26.6 -5.14,4.52 -2.52,9.1 -10.55,16.24 -4.5,3.99 -10.77,7.69 -15.24,11.28 -13.31,10.71 -11.3,20.4 -19.65,35.78zm-60.07 -95.24c14.25,2.43 14.74,18.1 11.15,32.49 -2.81,11.23 -8.84,25.38 -10.83,34.95l-0.29 -14.4 -0.01 -5.68 -0.02 -47.36zm623.92 -2.52l29.09 0.24c-0.4,0.33 -0.93,0.78 -1.22,0.98 -0.29,0.2 -0.85,0.7 -1.2,0.93l-7.68 3.96c-2.86,1.66 -5.27,3.64 -7.67,5.1l-11.32 -11.21zm-31.72 36.23c2.71,1.36 -2.1,3.84 5.36,-3.24 29.34,-27.81 31.7,37.23 -11.63,13.52 -14.8,-8.09 -18.75,-14.68 -28.78,-24.2 -15.15,-14.39 -17.15,-12.37 -28.24,-19.31 -2.65,-1.66 -2.14,-1.34 -3.82,-3.17l74.59 0.36c-4.95,6.7 -16.41,22.41 -7.48,36.04zm-144.04 -11.16c-1.33,-2.44 -2.68,-10.85 -9.52,-25.06l42.08 0.27 -10.15 5.76c-2.32,1.29 -6.26,3.92 -7.96,5.31 -4.45,3.62 -10.33,9.75 -14.45,13.72zm-53.48 -25.2l29.46 0.1 -10.06 11.14 -19.4 -11.24zm-176.96 36.76c13.56,-9.34 22.21,-7.02 21.08,-36.88l109.95 0.2 -32.92 25.51c-9.8,6.94 -26.86,15.27 -39.11,6.64 -2.21,-10.11 1.35,-13.79 4.12,-22.51 -25.22,3.67 -44,19.27 -26.94,45.22 20.23,30.77 45.63,11.99 56.06,8.97 7.05,16.85 3.67,20.26 17,33.49 41.84,41.54 85.74,-41.75 47.37,-52.11 -5.16,11.28 -1.29,17.37 -11.36,25.28 -21.34,2.66 -26.32,-24.87 -10.03,-36.28 17.26,-12.09 33.66,-7.54 43.27,5.21 23.52,31.2 -0.72,72.46 -24.14,84.02 -31.45,15.52 -72.14,-15.01 -88.54,-28.15l-65.81 -58.61zm18.14 -36.38c-5.98,11.13 -17,15.05 -34.98,10.96 -11.88,-2.7 -27.6,-5.05 -36.88,-11.12l32.38 -0.39 24.61 0 14.87 0.55zm-200.76 4.58c-0.26,-0.32 -0.68,-0.79 -0.91,-1.08l43.33 -3.5 -32.59 17.12 -9.83 -12.54zm-60.78 241.93c-0.04,38.28 -1.53,123.83 0.39,156.77 56.62,0.23 55.08,1.92 68.32,-35.48 23.66,-2.06 49.58,-0.58 60.16,-38.45 7.41,-26.51 -4.02,-44.74 20.41,-64.74l6.71 -6.74c-20.3,-17.93 -39.99,-0.03 -42.81,23.8 -11.47,-4.93 -21.87,-13.63 -36.07,-0.27 -10.77,10.14 -12.8,28.43 1.07,35.28 2.74,-4.2 3.07,-6.2 7.18,-11.29 23.97,-2.7 16.33,23.87 3.14,27.09 -14.72,3.6 -29.02,-10.69 -32.83,-19.89 -12.72,-30.79 24.48,-54.55 44.24,-63.27 61.94,-27.37 97.57,-5.63 130.91,-89.52 2.95,16.32 6.46,26.56 16.44,33.13 11.07,7.29 27.63,7.94 39.95,1.44 26.66,-14.07 27.04,-55.34 -8.27,-56.98 1.11,7.28 5.34,9.09 4.3,18.17 -0.83,7.29 -5.91,11.76 -13.84,11.7 -24.15,-0.2 -9.93,-31.36 -22.16,-79.16 24.62,8.13 59.42,35.87 70.65,58.78 8.03,16.36 4.33,18.06 4.69,34.67 17.64,-3.2 15.38,-20.56 13.63,-37.52 15.2,4.84 44.19,36.17 86.37,-1.79 42.69,-38.43 65.92,-145.27 121.57,-113.71 9.45,5.36 27.11,23.23 19.45,40.73 -5.29,12.07 -32.72,20.12 -38.37,1.19 2.41,-13.19 10.67,-9.41 20.67,-13.25 -3.5,-36.29 -68.55,-12.63 -55.66,35.97 -9.52,7.32 -12.77,4.56 -21.08,16.16 -5.56,7.76 -8.88,16.56 -7.88,28.79 26.04,-20.44 44.54,-8.63 79.64,-15.73 29.19,-5.91 42.54,-19.36 50.85,-45.54 25.13,22.67 55.95,11.9 71.7,-11.75 11.8,-17.74 16.06,-35.34 36.67,-46.63 12.79,-7 14.48,-2.8 18.82,-10.49 -3.3,-4.04 -3.44,-4.23 -10.59,-6.2 1.49,-0.96 0.95,-1.26 4.09,-1.91 2.15,-0.45 3.09,-0.3 5.2,-0.36l1.43 -24.55 -719.15 0.04 0.06 271.51z" />
+                                    <path class="fil1" d="M1537.66 408.02l-0.03 -61.92c-3.91,10.69 -10.86,18.84 -13.4,30.96 -2.94,13.99 1.09,28.02 13.43,30.96zm-0.37 -118.03l0.51 -8.82 -0.09 -9.47 0 -18.93 -0.02 -3.76 -8.69 -6.3 -19.14 9.88c11.42,7.06 22.45,21.15 27.43,37.4zm0.12 -62.18l0.29 -67.1c-6.6,19.03 -17.05,30.56 -24.06,44.73 13.83,10.72 14.25,4.27 23.77,22.37zm-59.75 -122.15c15.07,-6.56 23.48,-3.92 27.92,10.81 -9.42,4.69 -11.71,0.68 -18.08,9.84 -4.34,6.22 -7.33,12.81 -11.53,18.75 -12.88,18.2 -22.16,19.81 -29.8,27.9 12.23,8.23 15.32,15.94 3.98,29.43 -3.87,-19.2 -29.95,-13.99 -49.68,-21.93 -23.37,-9.4 -31.16,-16.9 -45.53,-29.6 6.88,20 29.76,45.3 47.39,54.18 27.95,14.07 58.5,1.85 76.9,-13.18 86.97,-71.04 -17.28,-189.13 -75.94,-151.64 -28.9,18.46 -46.93,74.35 -4.74,98.59 12.41,7.13 27.88,8.27 36.45,-2.51 8.7,-10.95 5.53,-32.68 -5.73,-35.75 -13.93,-3.8 -26.77,9.81 -26.25,22.21 -15.8,-9.59 -25.32,-47.04 19.31,-53.8 -1.43,-15.7 0.4,-20.19 9.89,-26.6 5.14,4.52 2.52,9.1 10.55,16.24 4.5,3.99 10.77,7.69 15.24,11.28 13.31,10.71 11.3,20.4 19.65,35.78zm60.06 -95.24c-14.24,2.43 -14.73,18.1 -11.14,32.49 2.81,11.23 8.84,25.38 10.82,34.95l0.3 -14.4 0.01 -5.68 0.01 -47.36zm-623.91 -2.52l-29.09 0.24c0.4,0.33 0.92,0.78 1.22,0.98 0.28,0.2 0.85,0.7 1.2,0.93l7.68 3.96c2.86,1.66 5.27,3.64 7.66,5.1l11.33 -11.21zm31.72 36.23c-2.71,1.36 2.1,3.84 -5.36,-3.24 -29.34,-27.81 -31.7,37.23 11.63,13.52 14.8,-8.09 18.74,-14.68 28.78,-24.2 15.15,-14.39 17.15,-12.37 28.23,-19.31 2.66,-1.66 2.15,-1.34 3.83,-3.17l-74.59 0.36c4.94,6.7 16.41,22.41 7.48,36.04zm144.04 -11.16c1.32,-2.44 2.67,-10.85 9.52,-25.06l-42.08 0.27 10.15 5.76c2.31,1.29 6.26,3.92 7.96,5.31 4.44,3.62 10.33,9.75 14.45,13.72zm53.47 -25.2l-29.45 0.1 10.06 11.14 19.39 -11.24zm176.97 36.76c-13.57,-9.34 -22.21,-7.02 -21.08,-36.88l-109.95 0.2 32.91 25.51c9.8,6.94 26.87,15.27 39.11,6.64 2.21,-10.11 -1.34,-13.79 -4.12,-22.51 25.23,3.67 44.01,19.27 26.95,45.22 -20.23,30.77 -45.63,11.99 -56.07,8.97 -7.04,16.85 -3.66,20.26 -16.99,33.49 -41.84,41.54 -85.74,-41.75 -47.37,-52.11 5.15,11.28 1.29,17.37 11.36,25.28 21.33,2.66 26.31,-24.87 10.03,-36.28 -17.27,-12.09 -33.66,-7.54 -43.27,5.21 -23.52,31.2 0.72,72.46 24.14,84.02 31.45,15.52 72.13,-15.01 88.54,-28.15l65.81 -58.61zm-18.14 -36.38c5.98,11.13 17,15.05 34.98,10.96 11.87,-2.7 27.6,-5.05 36.88,-11.12l-32.38 -0.39 -24.61 0 -14.87 0.55zm200.76 4.58c0.26,-0.32 0.68,-0.79 0.91,-1.08l-43.33 -3.5 32.59 17.12 9.83 -12.54zm60.78 241.93c0.03,38.28 1.53,123.83 -0.39,156.77 -56.62,0.23 -55.08,1.92 -68.33,-35.48 -23.66,-2.06 -49.57,-0.58 -60.15,-38.45 -7.41,-26.51 4.02,-44.74 -20.41,-64.74l-6.71 -6.74c20.3,-17.93 39.99,-0.03 42.8,23.8 11.48,-4.93 21.88,-13.63 36.08,-0.27 10.77,10.14 12.8,28.43 -1.07,35.28 -2.74,-4.2 -3.07,-6.2 -7.18,-11.29 -23.97,-2.7 -16.33,23.87 -3.14,27.09 14.72,3.6 29.02,-10.69 32.82,-19.89 12.72,-30.79 -24.47,-54.55 -44.23,-63.27 -61.95,-27.37 -97.57,-5.63 -130.91,-89.52 -2.95,16.32 -6.47,26.56 -16.44,33.13 -11.07,7.29 -27.63,7.94 -39.96,1.44 -26.65,-14.07 -27.03,-55.34 8.28,-56.98 -1.12,7.28 -5.34,9.09 -4.31,18.17 0.83,7.29 5.92,11.76 13.84,11.7 24.16,-0.2 9.94,-31.36 22.16,-79.16 -24.61,8.13 -59.41,35.87 -70.65,58.78 -8.02,16.36 -4.33,18.06 -4.68,34.67 -17.64,-3.2 -15.38,-20.56 -13.63,-37.52 -15.2,4.84 -44.19,36.17 -86.37,-1.79 -42.69,-38.43 -65.92,-145.27 -121.57,-113.71 -9.46,5.36 -27.11,23.23 -19.45,40.73 5.29,12.07 32.71,20.12 38.36,1.19 -2.4,-13.19 -10.66,-9.41 -20.66,-13.25 3.5,-36.29 68.55,-12.63 55.66,35.97 9.52,7.32 12.77,4.56 21.08,16.16 5.56,7.76 8.88,16.56 7.87,28.79 -26.03,-20.44 -44.54,-8.63 -79.64,-15.73 -29.19,-5.91 -42.53,-19.36 -50.84,-45.54 -25.13,22.67 -55.96,11.9 -71.7,-11.75 -11.8,-17.74 -16.06,-35.34 -36.68,-46.63 -12.78,-7 -14.47,-2.8 -18.81,-10.49 3.29,-4.04 3.44,-4.23 10.59,-6.2 -1.49,-0.96 -0.95,-1.26 -4.09,-1.91 -2.15,-0.45 -3.1,-0.3 -5.2,-0.36l-1.44 -24.55 719.15 0.04 -0.05 271.51z" />
+    </g>
+   </g>
+  </g>
+                                    <path class="fil2" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+ </g>
+</svg>
+
+
+                                    <img src="../Content/wp-content/uploads/logoAyodhyanew.png" style="height: auto; width: 60%;" alt="" loading="lazy">
                                 </a>
-                            </div>
-
-                            <!--/ End Search Form -->
-                            <div class="mobile-nav"></div>
+                            </div><!-- Logo -->
                         </div>
-                        <div class="col-lg-5 col-md-5 col-12 p-0 w-sm-hide">
-                            <div class="header-right">
-                                <img src="~/Content/Images/ajadilogo.png" alt="उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड" style="width: 130px; height:65px;">
-                            </div>
+                        <div class="col-md-10 col-sm-9 col-lg-10">
+                            <div class="tq-header-inner d-flex flex-column position-relative w-100" style="background-color: #91280d; padding: 1em; border-radius: 0px 0px 0px 20px;">
+                                <div class="tq-header-topbar d-flex flex-wrap justify-content-between position-relative w-100">
+                                    <ul class="tq-top-links text-white d-inline-flex align-items-center list-unstyled mb-0">
+                                        <li>
+
+                                            Government of Uttar Pradesh
+                                        </li>
+                                        <li>
+                                            <input style="width: 8em;" type="text" class="searchTerm" placeholder="Search">
+                                            <button type="submit" class="searchButton">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </li>
+
+
+
+                                        <div class="tq-header-menu d-flex align-items-center justify-content-between position-relative w-100">
+                                            <nav>
+
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-635" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-635">
+                                                        <a>English</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="tq-social-links text-white d-inline-flex align-items-center"><a href="https://twitter.com/" title="" itemprop="url" target="_blank">English </a></li>
+                                                            <li class="tq-social-links text-white d-inline-flex align-items-center"><a href="https://twitter.com/" title="" itemprop="url" target="_blank">Hindi</a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                </ul>
+
+
+
+
+                                            </nav>
+                                        </div>
+
+                                    </ul><!-- Top Links -->
+                                    <div class="tq-social-links text-white d-inline-flex align-items-center">
+                                        <ul class="tq-top-links text-white d-inline-flex align-items-center list-unstyled mb-0">
+                                            <a href="#" title="Skip to main content"><i class="fa fa-forward"></i></a>
+                                            <a href="#" title="Sitemap"><i class="fa fa-sitemap"></i></a>
+                                            <a href="#" title="Login"><i class="fa fa-user"></i></a>
+                                            <li>
+                                                <div class="btn-group me-2" role="group" aria-label="font size changer" style="max-height: 2em; max-width: 10em;">
+                                                    <input type="radio" class="btn-check" name="fntradio" id="font-sm">
+                                                    <label class="btn btn-xs btn-outline-primary mb-0" for="font-sm">A-</label>
+
+                                                    <input type="radio" class="btn-check" name="fntradio" id="font-default" checked>
+                                                    <label class="btn btn-xs btn-outline-primary mb-0" for="font-default">A</label>
+
+                                                    <input type="radio" class="btn-check" name="fntradio" id="font-lg">
+                                                    <label class="btn btn-xs btn-outline-primary mb-0" for="font-lg">A+</label>
+                                                </div>
+                                            </li>
+
+                                            <div class="tq-header-menu d-flex align-items-center justify-content-between position-relative w-100">
+
+                                            </div>
+
+                                        </ul>
+                                    </div><!-- Social Links -->
+                                </div><!-- Header Topbar -->
+                                <div class="tq-header-menu d-flex align-items-center justify-content-between position-relative w-100">
+                                    <nav>
+                                        <ul id="menu-main-menu" class="">
+                                            <li id="menu-item-635" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-635">
+                                                <a href="/Home/Index">Home</a>
+                                            </li>
+                                            <li id="menu-item-693" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-693">
+                                                <a>About</a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-707" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">Overview and Concept</a></li>
+                                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">Personality of Ayodhya</a></li>
+                                                </ul>
+                                            </li>
+                                            <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
+                                                <a>Yatra in Ayodhya</a>
+                                                <ul class="sub-menu">
+                                                    @foreach (var yatra in masterYatraList)
+                                                    {
+                                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                                                <a>Other Attraction</a>
+                                                <ul class="sub-menu">
+                                                    @foreach (var data in masterList.data)
+                                                    {
+                                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                                                    }
+                                                    @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                                                </ul>
+                                            </li>
+
+                                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                                                <a>Tourist Guide</a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=17&heading=Historical and Religious Places">Historical &amp; Religious Places</a>
+                                                    </li>
+                                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=8,22,25&heading=Entertainment and Shopping Places">Entertainment &amp; Shopping Places</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=3&heading=Educational Institutions">Educational Institutions</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=19&heading=Industries">Industries</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=4,7&heading=Hotels, Resorts and Restaurants">Hotels, Resorts and Restaurants</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=21,24&heading=Railway and Transport">Railway &amp; Transport</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=23&heading=Hospitals">Hospitals</a>
+                                                    </li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
+                                                    </li>
+                                                    @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                                                    </li>*@
+                                                    @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                                            <a href="/Home/TouristAtractionPlaces">Park</a>
+                                                        </li>*@
+                                                </ul>
+                                            </li>
+                                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-628">
+                                                <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
+
+                                            </li>
+                                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                                                <a><b>Gallery</b></a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="/Home/PhotoGallery">Photo Gallery</a></li>
+                                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/AudioGallery">Audio Gallery</a></li>
+                                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/VideoGallery">Video Gallery</a></li>
+                                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375"><a href="/Home/ThreeSixtyDegreeGallery">360 degree Gallery</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav><!-- Navigation -->
+                                    <div class="tq-header-menu-right d-inline-flex align-items-center">
+                                        <!-- Side Menu -->
+                                        <a class="tq-menu-btn" href="#">
+                                            <span>
+                                                <i class="tq-bar-top"></i>
+                                                <i class="tq-bar-middle"></i>
+                                                <i class="tq-bar-bottom"></i>
+                                            </span>
+                                        </a>
+                                        <!-- Side Menu Ends -->
+                                        <div class="tq-select-box position-relative tq-bg-theme rounded-pill">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                                <path d="M50,86.11c-19.91,0-36.11-16.2-36.11-36.12S30.09,13.89,50,13.89c19.91,0,36.12,16.2,36.12,36.11
+	c0,1.68-1.36,3.04-3.04,3.04c-1.68,0-3.04-1.36-3.04-3.04c0-16.56-13.48-30.03-30.04-30.03S19.97,33.44,19.97,50
+	S33.44,80.03,50,80.03c1.68,0,3.04,1.36,3.04,3.04C53.04,84.75,51.68,86.11,50,86.11z" />
+                                                <path d="M50,97.5C23.81,97.5,2.5,76.19,2.5,50S23.81,2.5,50,2.5S97.5,23.81,97.5,50C97.5,76.19,76.19,97.5,50,97.5z M50,8.58
+	C27.16,8.58,8.58,27.16,8.58,50S27.16,91.42,50,91.42S91.42,72.84,91.42,50S72.84,8.58,50,8.58z" />
+                                                <path d="M63.22,66.26c-0.78,0-1.55-0.3-2.15-0.89L47.85,52.15c-0.57-0.57-0.89-1.35-0.89-2.15V28.58c0-1.68,1.36-3.04,3.04-3.04
+	c1.68,0,3.04,1.36,3.04,3.04v20.16l12.33,12.32c1.19,1.19,1.19,3.11,0,4.3C64.77,65.96,64,66.26,63.22,66.26z" />
+                                            </svg>
+
+                                        </div>
+                                    </div><!-- Header Menu Right -->
+                                </div><!-- Header Menu -->
+                            </div><!-- Header Inner -->
                         </div>
-                        <div class="col-lg-2 col-md-2 col-12 p-0 w-sm-hide">
-
-
-                            <!--<div class="float-element">
-                                                                    <img src="~/Content/Images/ajadilogo.png" alt="उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड" style="width: 150px;
-                            height:60px;">
-                                                                </div>-->
-
-                            <div class="float-element">
-                                <img src="~/Content/images/G20_India_Logo.png" alt="उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड" style="width: 130px; height:65px;">
-                            </div>
-
-                        </div>
-
                     </div>
+                </div><!-- Header Wrapper -->
+            </div>
+        </header>
+
+        <div class="tq-side-menu d-flex flex-column align-items-start position-fixed w-100">
+            <a class="tq-side-menu-close" href="javascript:void(0);"><i class="fas fa-times"></i></a>
+            <ul id="menu-main-menu" class="">
+                <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                    <a href="/Home/TicketBooking"><b>Online Booking</b></a>
+
+                </li>
+
+
+                <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
+                    <a href="/Home/UnderConstruction"><b>Public Utilities</b></a>
+                </li>
+                <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
+                    <a href="/Home/NewsAndEvents"><b>News &amp; Events</b></a>
+                </li>
+                <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                    <a href="/Home/ContactUs"><b>Contact Us</b></a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="/Home/Directory">Directory</a></li>
+                        <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/Helpline">Helpline</a></li>
+                        <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375"><a href="/Home/Feedback">Feedback</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+
+            <!-- Widget Box -->
+        </div>
+        <!-- Side Menu -->
+        <!-- Header Sticky -->
+        <div class="tq-sticky-menu">
+            <div class="container">
+                <div class="tq-sticky-menu-inner d-flex flex-wrap align-items-center justify-content-between w-100">
+                    <div class="tq-logo position-relative w-100">
+                        <a href="/Home/Index">
+                            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                 viewBox="0 0 1693.32 1693.32"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                            <defs>
+                            <style type="text/css">
+                                .fil2 {
+                                    fill: none
+                                }
+
+                                .fil1 {
+                                    fill: #FFD580
+                                }
+
+                                .fil0 {
+                                    fill: white
+                                }
+</style>
+                            <clipPath id="id0">
+                            <path d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+   </clipPath>
+ </defs>
+                            <g id="Layer_x0020_1">
+                            <metadata id="CorelCorpID_0Corel-Layer" />
+                            <path class="fil0" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+                            <g style="clip-path:url(#id0)">
+                            <g id="_1638681743744">
+                            <g>
+                            <path id="1" class="fil1" d="M155.64 408.02l0.03 -61.92c3.92,10.69 10.86,18.84 13.41,30.96 2.94,13.99 -1.09,28.02 -13.44,30.96zm0.37 -118.03l-0.51 -8.82 0.1 -9.47 0 -18.93 0.02 -3.76 8.68 -6.3 19.15 9.88c-11.42,7.06 -22.45,21.15 -27.44,37.4zm-0.12 -62.18l-0.28 -67.1c6.6,19.03 17.05,30.56 24.06,44.73 -13.83,10.72 -14.25,4.27 -23.78,22.37zm59.76 -122.15c-15.08,-6.56 -23.48,-3.92 -27.93,10.81 9.42,4.69 11.71,0.68 18.09,9.84 4.34,6.22 7.33,12.81 11.53,18.75 12.87,18.2 22.16,19.81 29.8,27.9 -12.23,8.23 -15.32,15.94 -3.98,29.43 3.87,-19.2 29.95,-13.99 49.68,-21.93 23.37,-9.4 31.16,-16.9 45.53,-29.6 -6.89,20 -29.76,45.3 -47.39,54.18 -27.95,14.07 -58.5,1.85 -76.9,-13.18 -86.97,-71.04 17.28,-189.13 75.94,-151.64 28.89,18.46 46.93,74.35 4.74,98.59 -12.41,7.13 -27.88,8.27 -36.45,-2.51 -8.7,-10.95 -5.54,-32.68 5.73,-35.75 13.93,-3.8 26.76,9.81 26.25,22.21 15.79,-9.59 25.32,-47.04 -19.32,-53.8 1.44,-15.7 -0.39,-20.19 -9.88,-26.6 -5.14,4.52 -2.52,9.1 -10.55,16.24 -4.5,3.99 -10.77,7.69 -15.24,11.28 -13.31,10.71 -11.3,20.4 -19.65,35.78zm-60.07 -95.24c14.25,2.43 14.74,18.1 11.15,32.49 -2.81,11.23 -8.84,25.38 -10.83,34.95l-0.29 -14.4 -0.01 -5.68 -0.02 -47.36zm623.92 -2.52l29.09 0.24c-0.4,0.33 -0.93,0.78 -1.22,0.98 -0.29,0.2 -0.85,0.7 -1.2,0.93l-7.68 3.96c-2.86,1.66 -5.27,3.64 -7.67,5.1l-11.32 -11.21zm-31.72 36.23c2.71,1.36 -2.1,3.84 5.36,-3.24 29.34,-27.81 31.7,37.23 -11.63,13.52 -14.8,-8.09 -18.75,-14.68 -28.78,-24.2 -15.15,-14.39 -17.15,-12.37 -28.24,-19.31 -2.65,-1.66 -2.14,-1.34 -3.82,-3.17l74.59 0.36c-4.95,6.7 -16.41,22.41 -7.48,36.04zm-144.04 -11.16c-1.33,-2.44 -2.68,-10.85 -9.52,-25.06l42.08 0.27 -10.15 5.76c-2.32,1.29 -6.26,3.92 -7.96,5.31 -4.45,3.62 -10.33,9.75 -14.45,13.72zm-53.48 -25.2l29.46 0.1 -10.06 11.14 -19.4 -11.24zm-176.96 36.76c13.56,-9.34 22.21,-7.02 21.08,-36.88l109.95 0.2 -32.92 25.51c-9.8,6.94 -26.86,15.27 -39.11,6.64 -2.21,-10.11 1.35,-13.79 4.12,-22.51 -25.22,3.67 -44,19.27 -26.94,45.22 20.23,30.77 45.63,11.99 56.06,8.97 7.05,16.85 3.67,20.26 17,33.49 41.84,41.54 85.74,-41.75 47.37,-52.11 -5.16,11.28 -1.29,17.37 -11.36,25.28 -21.34,2.66 -26.32,-24.87 -10.03,-36.28 17.26,-12.09 33.66,-7.54 43.27,5.21 23.52,31.2 -0.72,72.46 -24.14,84.02 -31.45,15.52 -72.14,-15.01 -88.54,-28.15l-65.81 -58.61zm18.14 -36.38c-5.98,11.13 -17,15.05 -34.98,10.96 -11.88,-2.7 -27.6,-5.05 -36.88,-11.12l32.38 -0.39 24.61 0 14.87 0.55zm-200.76 4.58c-0.26,-0.32 -0.68,-0.79 -0.91,-1.08l43.33 -3.5 -32.59 17.12 -9.83 -12.54zm-60.78 241.93c-0.04,38.28 -1.53,123.83 0.39,156.77 56.62,0.23 55.08,1.92 68.32,-35.48 23.66,-2.06 49.58,-0.58 60.16,-38.45 7.41,-26.51 -4.02,-44.74 20.41,-64.74l6.71 -6.74c-20.3,-17.93 -39.99,-0.03 -42.81,23.8 -11.47,-4.93 -21.87,-13.63 -36.07,-0.27 -10.77,10.14 -12.8,28.43 1.07,35.28 2.74,-4.2 3.07,-6.2 7.18,-11.29 23.97,-2.7 16.33,23.87 3.14,27.09 -14.72,3.6 -29.02,-10.69 -32.83,-19.89 -12.72,-30.79 24.48,-54.55 44.24,-63.27 61.94,-27.37 97.57,-5.63 130.91,-89.52 2.95,16.32 6.46,26.56 16.44,33.13 11.07,7.29 27.63,7.94 39.95,1.44 26.66,-14.07 27.04,-55.34 -8.27,-56.98 1.11,7.28 5.34,9.09 4.3,18.17 -0.83,7.29 -5.91,11.76 -13.84,11.7 -24.15,-0.2 -9.93,-31.36 -22.16,-79.16 24.62,8.13 59.42,35.87 70.65,58.78 8.03,16.36 4.33,18.06 4.69,34.67 17.64,-3.2 15.38,-20.56 13.63,-37.52 15.2,4.84 44.19,36.17 86.37,-1.79 42.69,-38.43 65.92,-145.27 121.57,-113.71 9.45,5.36 27.11,23.23 19.45,40.73 -5.29,12.07 -32.72,20.12 -38.37,1.19 2.41,-13.19 10.67,-9.41 20.67,-13.25 -3.5,-36.29 -68.55,-12.63 -55.66,35.97 -9.52,7.32 -12.77,4.56 -21.08,16.16 -5.56,7.76 -8.88,16.56 -7.88,28.79 26.04,-20.44 44.54,-8.63 79.64,-15.73 29.19,-5.91 42.54,-19.36 50.85,-45.54 25.13,22.67 55.95,11.9 71.7,-11.75 11.8,-17.74 16.06,-35.34 36.67,-46.63 12.79,-7 14.48,-2.8 18.82,-10.49 -3.3,-4.04 -3.44,-4.23 -10.59,-6.2 1.49,-0.96 0.95,-1.26 4.09,-1.91 2.15,-0.45 3.09,-0.3 5.2,-0.36l1.43 -24.55 -719.15 0.04 0.06 271.51z" />
+                            <path class="fil1" d="M1537.66 408.02l-0.03 -61.92c-3.91,10.69 -10.86,18.84 -13.4,30.96 -2.94,13.99 1.09,28.02 13.43,30.96zm-0.37 -118.03l0.51 -8.82 -0.09 -9.47 0 -18.93 -0.02 -3.76 -8.69 -6.3 -19.14 9.88c11.42,7.06 22.45,21.15 27.43,37.4zm0.12 -62.18l0.29 -67.1c-6.6,19.03 -17.05,30.56 -24.06,44.73 13.83,10.72 14.25,4.27 23.77,22.37zm-59.75 -122.15c15.07,-6.56 23.48,-3.92 27.92,10.81 -9.42,4.69 -11.71,0.68 -18.08,9.84 -4.34,6.22 -7.33,12.81 -11.53,18.75 -12.88,18.2 -22.16,19.81 -29.8,27.9 12.23,8.23 15.32,15.94 3.98,29.43 -3.87,-19.2 -29.95,-13.99 -49.68,-21.93 -23.37,-9.4 -31.16,-16.9 -45.53,-29.6 6.88,20 29.76,45.3 47.39,54.18 27.95,14.07 58.5,1.85 76.9,-13.18 86.97,-71.04 -17.28,-189.13 -75.94,-151.64 -28.9,18.46 -46.93,74.35 -4.74,98.59 12.41,7.13 27.88,8.27 36.45,-2.51 8.7,-10.95 5.53,-32.68 -5.73,-35.75 -13.93,-3.8 -26.77,9.81 -26.25,22.21 -15.8,-9.59 -25.32,-47.04 19.31,-53.8 -1.43,-15.7 0.4,-20.19 9.89,-26.6 5.14,4.52 2.52,9.1 10.55,16.24 4.5,3.99 10.77,7.69 15.24,11.28 13.31,10.71 11.3,20.4 19.65,35.78zm60.06 -95.24c-14.24,2.43 -14.73,18.1 -11.14,32.49 2.81,11.23 8.84,25.38 10.82,34.95l0.3 -14.4 0.01 -5.68 0.01 -47.36zm-623.91 -2.52l-29.09 0.24c0.4,0.33 0.92,0.78 1.22,0.98 0.28,0.2 0.85,0.7 1.2,0.93l7.68 3.96c2.86,1.66 5.27,3.64 7.66,5.1l11.33 -11.21zm31.72 36.23c-2.71,1.36 2.1,3.84 -5.36,-3.24 -29.34,-27.81 -31.7,37.23 11.63,13.52 14.8,-8.09 18.74,-14.68 28.78,-24.2 15.15,-14.39 17.15,-12.37 28.23,-19.31 2.66,-1.66 2.15,-1.34 3.83,-3.17l-74.59 0.36c4.94,6.7 16.41,22.41 7.48,36.04zm144.04 -11.16c1.32,-2.44 2.67,-10.85 9.52,-25.06l-42.08 0.27 10.15 5.76c2.31,1.29 6.26,3.92 7.96,5.31 4.44,3.62 10.33,9.75 14.45,13.72zm53.47 -25.2l-29.45 0.1 10.06 11.14 19.39 -11.24zm176.97 36.76c-13.57,-9.34 -22.21,-7.02 -21.08,-36.88l-109.95 0.2 32.91 25.51c9.8,6.94 26.87,15.27 39.11,6.64 2.21,-10.11 -1.34,-13.79 -4.12,-22.51 25.23,3.67 44.01,19.27 26.95,45.22 -20.23,30.77 -45.63,11.99 -56.07,8.97 -7.04,16.85 -3.66,20.26 -16.99,33.49 -41.84,41.54 -85.74,-41.75 -47.37,-52.11 5.15,11.28 1.29,17.37 11.36,25.28 21.33,2.66 26.31,-24.87 10.03,-36.28 -17.27,-12.09 -33.66,-7.54 -43.27,5.21 -23.52,31.2 0.72,72.46 24.14,84.02 31.45,15.52 72.13,-15.01 88.54,-28.15l65.81 -58.61zm-18.14 -36.38c5.98,11.13 17,15.05 34.98,10.96 11.87,-2.7 27.6,-5.05 36.88,-11.12l-32.38 -0.39 -24.61 0 -14.87 0.55zm200.76 4.58c0.26,-0.32 0.68,-0.79 0.91,-1.08l-43.33 -3.5 32.59 17.12 9.83 -12.54zm60.78 241.93c0.03,38.28 1.53,123.83 -0.39,156.77 -56.62,0.23 -55.08,1.92 -68.33,-35.48 -23.66,-2.06 -49.57,-0.58 -60.15,-38.45 -7.41,-26.51 4.02,-44.74 -20.41,-64.74l-6.71 -6.74c20.3,-17.93 39.99,-0.03 42.8,23.8 11.48,-4.93 21.88,-13.63 36.08,-0.27 10.77,10.14 12.8,28.43 -1.07,35.28 -2.74,-4.2 -3.07,-6.2 -7.18,-11.29 -23.97,-2.7 -16.33,23.87 -3.14,27.09 14.72,3.6 29.02,-10.69 32.82,-19.89 12.72,-30.79 -24.47,-54.55 -44.23,-63.27 -61.95,-27.37 -97.57,-5.63 -130.91,-89.52 -2.95,16.32 -6.47,26.56 -16.44,33.13 -11.07,7.29 -27.63,7.94 -39.96,1.44 -26.65,-14.07 -27.03,-55.34 8.28,-56.98 -1.12,7.28 -5.34,9.09 -4.31,18.17 0.83,7.29 5.92,11.76 13.84,11.7 24.16,-0.2 9.94,-31.36 22.16,-79.16 -24.61,8.13 -59.41,35.87 -70.65,58.78 -8.02,16.36 -4.33,18.06 -4.68,34.67 -17.64,-3.2 -15.38,-20.56 -13.63,-37.52 -15.2,4.84 -44.19,36.17 -86.37,-1.79 -42.69,-38.43 -65.92,-145.27 -121.57,-113.71 -9.46,5.36 -27.11,23.23 -19.45,40.73 5.29,12.07 32.71,20.12 38.36,1.19 -2.4,-13.19 -10.66,-9.41 -20.66,-13.25 3.5,-36.29 68.55,-12.63 55.66,35.97 9.52,7.32 12.77,4.56 21.08,16.16 5.56,7.76 8.88,16.56 7.87,28.79 -26.03,-20.44 -44.54,-8.63 -79.64,-15.73 -29.19,-5.91 -42.53,-19.36 -50.84,-45.54 -25.13,22.67 -55.96,11.9 -71.7,-11.75 -11.8,-17.74 -16.06,-35.34 -36.68,-46.63 -12.78,-7 -14.47,-2.8 -18.81,-10.49 3.29,-4.04 3.44,-4.23 10.59,-6.2 -1.49,-0.96 -0.95,-1.26 -4.09,-1.91 -2.15,-0.45 -3.1,-0.3 -5.2,-0.36l-1.44 -24.55 719.15 0.04 -0.05 271.51z" />
+    </g>
+   </g>
+  </g>
+                            <path class="fil2" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+ </g>
+</svg><img src="../Content/wp-content/uploads/logoAyodhyanew.png" style="width: 60%; height: auto;" alt="" loading="lazy">
+                        </a>
+                    </div><!-- Logo -->
+                    <nav>
+                        <ul id="menu-main-menu" class="">
+                            <li id="menu-item-635" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent  menu-item-635">
+                                <a href="/Home/Index">Home</a>
+                            </li>
+                            <li id="menu-item-693" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-693">
+                                <a>About</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-707" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">Overview and Concept</a></li>
+                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">Personality of Ayodhya</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
+                                <a>Yatra in Ayodhya</a>
+                                <ul class="sub-menu">
+                                    @foreach (var yatra in masterYatraList)
+                                    {
+                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                                    }
+                                    @*<li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
+                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
+                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
+                                </ul>
+                            </li>
+                            <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                                <a>Other Attraction</a>
+                                <ul class="sub-menu">
+                                    @foreach (var data in masterList.data)
+                                    {
+                                        <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                                    }
+                                    @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                                </ul>
+                            </li>
+
+                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                                <a>Tourist Guide</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=17&heading=Historical and Religious Places">Historical &amp; Religious Places</a>
+                                    </li>
+                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=8,22,25&heading=Entertainment and Shopping Places">Entertainment &amp; Shopping Places</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=3&heading=Educational Institutions">Educational Institutions</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=19&heading=Industries">Industries</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=4,7&heading=Hotels, Resorts and Restaurants">Hotels, Resorts and Restaurants</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=21,24&heading=Railway and Transport">Railway &amp; Transport</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=23&heading=Hospitals">Hospitals</a>
+                                    </li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
+                                    </li>
+                                    @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                        <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                                    </li>*@
+                                    @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                            <a href="/Home/TouristAtractionPlaces">Park</a>
+                                        </li>*@
+                                </ul>
+                            </li>
+                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-628">
+                                <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
+                            </li>
+
+                        </ul>
+                    </nav><!-- Navigation -->
                 </div>
             </div>
-            <!-- Header Inner -->
-            <div class="header-inner">
+        </div>
+        <!-- Sticky Header -->
+        <div class="tq-res-header position-relative w-100">
+            <div class="tq-res-topbar w-100">
+                <div class="container">
+                    <div class="tq-res-topbar-inner d-flex flex-wrap align-items-center justify-content-between w-100">
+                        <div class="tq-logo position-relative w-100">
+                            <a href="/Home/Index">
+                                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                     viewBox="0 0 1693.32 1693.32"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                                <defs>
+                                <style type="text/css">
+                                    .fil2 {
+                                        fill: none
+                                    }
 
-                <div class="pr-15 pl-15">
-                    <div class="row ">
+                                    .fil1 {
+                                        fill: #FFD580
+                                    }
+
+                                    .fil0 {
+                                        fill: white
+                                    }
+</style>
+                                <clipPath id="id0">
+                                <path d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+   </clipPath>
+ </defs>
+                                <g id="Layer_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer" />
+                                <path class="fil0" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+                                <g style="clip-path:url(#id0)">
+                                <g id="_1638681743744">
+                                <g>
+                                <path id="1" class="fil1" d="M155.64 408.02l0.03 -61.92c3.92,10.69 10.86,18.84 13.41,30.96 2.94,13.99 -1.09,28.02 -13.44,30.96zm0.37 -118.03l-0.51 -8.82 0.1 -9.47 0 -18.93 0.02 -3.76 8.68 -6.3 19.15 9.88c-11.42,7.06 -22.45,21.15 -27.44,37.4zm-0.12 -62.18l-0.28 -67.1c6.6,19.03 17.05,30.56 24.06,44.73 -13.83,10.72 -14.25,4.27 -23.78,22.37zm59.76 -122.15c-15.08,-6.56 -23.48,-3.92 -27.93,10.81 9.42,4.69 11.71,0.68 18.09,9.84 4.34,6.22 7.33,12.81 11.53,18.75 12.87,18.2 22.16,19.81 29.8,27.9 -12.23,8.23 -15.32,15.94 -3.98,29.43 3.87,-19.2 29.95,-13.99 49.68,-21.93 23.37,-9.4 31.16,-16.9 45.53,-29.6 -6.89,20 -29.76,45.3 -47.39,54.18 -27.95,14.07 -58.5,1.85 -76.9,-13.18 -86.97,-71.04 17.28,-189.13 75.94,-151.64 28.89,18.46 46.93,74.35 4.74,98.59 -12.41,7.13 -27.88,8.27 -36.45,-2.51 -8.7,-10.95 -5.54,-32.68 5.73,-35.75 13.93,-3.8 26.76,9.81 26.25,22.21 15.79,-9.59 25.32,-47.04 -19.32,-53.8 1.44,-15.7 -0.39,-20.19 -9.88,-26.6 -5.14,4.52 -2.52,9.1 -10.55,16.24 -4.5,3.99 -10.77,7.69 -15.24,11.28 -13.31,10.71 -11.3,20.4 -19.65,35.78zm-60.07 -95.24c14.25,2.43 14.74,18.1 11.15,32.49 -2.81,11.23 -8.84,25.38 -10.83,34.95l-0.29 -14.4 -0.01 -5.68 -0.02 -47.36zm623.92 -2.52l29.09 0.24c-0.4,0.33 -0.93,0.78 -1.22,0.98 -0.29,0.2 -0.85,0.7 -1.2,0.93l-7.68 3.96c-2.86,1.66 -5.27,3.64 -7.67,5.1l-11.32 -11.21zm-31.72 36.23c2.71,1.36 -2.1,3.84 5.36,-3.24 29.34,-27.81 31.7,37.23 -11.63,13.52 -14.8,-8.09 -18.75,-14.68 -28.78,-24.2 -15.15,-14.39 -17.15,-12.37 -28.24,-19.31 -2.65,-1.66 -2.14,-1.34 -3.82,-3.17l74.59 0.36c-4.95,6.7 -16.41,22.41 -7.48,36.04zm-144.04 -11.16c-1.33,-2.44 -2.68,-10.85 -9.52,-25.06l42.08 0.27 -10.15 5.76c-2.32,1.29 -6.26,3.92 -7.96,5.31 -4.45,3.62 -10.33,9.75 -14.45,13.72zm-53.48 -25.2l29.46 0.1 -10.06 11.14 -19.4 -11.24zm-176.96 36.76c13.56,-9.34 22.21,-7.02 21.08,-36.88l109.95 0.2 -32.92 25.51c-9.8,6.94 -26.86,15.27 -39.11,6.64 -2.21,-10.11 1.35,-13.79 4.12,-22.51 -25.22,3.67 -44,19.27 -26.94,45.22 20.23,30.77 45.63,11.99 56.06,8.97 7.05,16.85 3.67,20.26 17,33.49 41.84,41.54 85.74,-41.75 47.37,-52.11 -5.16,11.28 -1.29,17.37 -11.36,25.28 -21.34,2.66 -26.32,-24.87 -10.03,-36.28 17.26,-12.09 33.66,-7.54 43.27,5.21 23.52,31.2 -0.72,72.46 -24.14,84.02 -31.45,15.52 -72.14,-15.01 -88.54,-28.15l-65.81 -58.61zm18.14 -36.38c-5.98,11.13 -17,15.05 -34.98,10.96 -11.88,-2.7 -27.6,-5.05 -36.88,-11.12l32.38 -0.39 24.61 0 14.87 0.55zm-200.76 4.58c-0.26,-0.32 -0.68,-0.79 -0.91,-1.08l43.33 -3.5 -32.59 17.12 -9.83 -12.54zm-60.78 241.93c-0.04,38.28 -1.53,123.83 0.39,156.77 56.62,0.23 55.08,1.92 68.32,-35.48 23.66,-2.06 49.58,-0.58 60.16,-38.45 7.41,-26.51 -4.02,-44.74 20.41,-64.74l6.71 -6.74c-20.3,-17.93 -39.99,-0.03 -42.81,23.8 -11.47,-4.93 -21.87,-13.63 -36.07,-0.27 -10.77,10.14 -12.8,28.43 1.07,35.28 2.74,-4.2 3.07,-6.2 7.18,-11.29 23.97,-2.7 16.33,23.87 3.14,27.09 -14.72,3.6 -29.02,-10.69 -32.83,-19.89 -12.72,-30.79 24.48,-54.55 44.24,-63.27 61.94,-27.37 97.57,-5.63 130.91,-89.52 2.95,16.32 6.46,26.56 16.44,33.13 11.07,7.29 27.63,7.94 39.95,1.44 26.66,-14.07 27.04,-55.34 -8.27,-56.98 1.11,7.28 5.34,9.09 4.3,18.17 -0.83,7.29 -5.91,11.76 -13.84,11.7 -24.15,-0.2 -9.93,-31.36 -22.16,-79.16 24.62,8.13 59.42,35.87 70.65,58.78 8.03,16.36 4.33,18.06 4.69,34.67 17.64,-3.2 15.38,-20.56 13.63,-37.52 15.2,4.84 44.19,36.17 86.37,-1.79 42.69,-38.43 65.92,-145.27 121.57,-113.71 9.45,5.36 27.11,23.23 19.45,40.73 -5.29,12.07 -32.72,20.12 -38.37,1.19 2.41,-13.19 10.67,-9.41 20.67,-13.25 -3.5,-36.29 -68.55,-12.63 -55.66,35.97 -9.52,7.32 -12.77,4.56 -21.08,16.16 -5.56,7.76 -8.88,16.56 -7.88,28.79 26.04,-20.44 44.54,-8.63 79.64,-15.73 29.19,-5.91 42.54,-19.36 50.85,-45.54 25.13,22.67 55.95,11.9 71.7,-11.75 11.8,-17.74 16.06,-35.34 36.67,-46.63 12.79,-7 14.48,-2.8 18.82,-10.49 -3.3,-4.04 -3.44,-4.23 -10.59,-6.2 1.49,-0.96 0.95,-1.26 4.09,-1.91 2.15,-0.45 3.09,-0.3 5.2,-0.36l1.43 -24.55 -719.15 0.04 0.06 271.51z" />
+                                <path class="fil1" d="M1537.66 408.02l-0.03 -61.92c-3.91,10.69 -10.86,18.84 -13.4,30.96 -2.94,13.99 1.09,28.02 13.43,30.96zm-0.37 -118.03l0.51 -8.82 -0.09 -9.47 0 -18.93 -0.02 -3.76 -8.69 -6.3 -19.14 9.88c11.42,7.06 22.45,21.15 27.43,37.4zm0.12 -62.18l0.29 -67.1c-6.6,19.03 -17.05,30.56 -24.06,44.73 13.83,10.72 14.25,4.27 23.77,22.37zm-59.75 -122.15c15.07,-6.56 23.48,-3.92 27.92,10.81 -9.42,4.69 -11.71,0.68 -18.08,9.84 -4.34,6.22 -7.33,12.81 -11.53,18.75 -12.88,18.2 -22.16,19.81 -29.8,27.9 12.23,8.23 15.32,15.94 3.98,29.43 -3.87,-19.2 -29.95,-13.99 -49.68,-21.93 -23.37,-9.4 -31.16,-16.9 -45.53,-29.6 6.88,20 29.76,45.3 47.39,54.18 27.95,14.07 58.5,1.85 76.9,-13.18 86.97,-71.04 -17.28,-189.13 -75.94,-151.64 -28.9,18.46 -46.93,74.35 -4.74,98.59 12.41,7.13 27.88,8.27 36.45,-2.51 8.7,-10.95 5.53,-32.68 -5.73,-35.75 -13.93,-3.8 -26.77,9.81 -26.25,22.21 -15.8,-9.59 -25.32,-47.04 19.31,-53.8 -1.43,-15.7 0.4,-20.19 9.89,-26.6 5.14,4.52 2.52,9.1 10.55,16.24 4.5,3.99 10.77,7.69 15.24,11.28 13.31,10.71 11.3,20.4 19.65,35.78zm60.06 -95.24c-14.24,2.43 -14.73,18.1 -11.14,32.49 2.81,11.23 8.84,25.38 10.82,34.95l0.3 -14.4 0.01 -5.68 0.01 -47.36zm-623.91 -2.52l-29.09 0.24c0.4,0.33 0.92,0.78 1.22,0.98 0.28,0.2 0.85,0.7 1.2,0.93l7.68 3.96c2.86,1.66 5.27,3.64 7.66,5.1l11.33 -11.21zm31.72 36.23c-2.71,1.36 2.1,3.84 -5.36,-3.24 -29.34,-27.81 -31.7,37.23 11.63,13.52 14.8,-8.09 18.74,-14.68 28.78,-24.2 15.15,-14.39 17.15,-12.37 28.23,-19.31 2.66,-1.66 2.15,-1.34 3.83,-3.17l-74.59 0.36c4.94,6.7 16.41,22.41 7.48,36.04zm144.04 -11.16c1.32,-2.44 2.67,-10.85 9.52,-25.06l-42.08 0.27 10.15 5.76c2.31,1.29 6.26,3.92 7.96,5.31 4.44,3.62 10.33,9.75 14.45,13.72zm53.47 -25.2l-29.45 0.1 10.06 11.14 19.39 -11.24zm176.97 36.76c-13.57,-9.34 -22.21,-7.02 -21.08,-36.88l-109.95 0.2 32.91 25.51c9.8,6.94 26.87,15.27 39.11,6.64 2.21,-10.11 -1.34,-13.79 -4.12,-22.51 25.23,3.67 44.01,19.27 26.95,45.22 -20.23,30.77 -45.63,11.99 -56.07,8.97 -7.04,16.85 -3.66,20.26 -16.99,33.49 -41.84,41.54 -85.74,-41.75 -47.37,-52.11 5.15,11.28 1.29,17.37 11.36,25.28 21.33,2.66 26.31,-24.87 10.03,-36.28 -17.27,-12.09 -33.66,-7.54 -43.27,5.21 -23.52,31.2 0.72,72.46 24.14,84.02 31.45,15.52 72.13,-15.01 88.54,-28.15l65.81 -58.61zm-18.14 -36.38c5.98,11.13 17,15.05 34.98,10.96 11.87,-2.7 27.6,-5.05 36.88,-11.12l-32.38 -0.39 -24.61 0 -14.87 0.55zm200.76 4.58c0.26,-0.32 0.68,-0.79 0.91,-1.08l-43.33 -3.5 32.59 17.12 9.83 -12.54zm60.78 241.93c0.03,38.28 1.53,123.83 -0.39,156.77 -56.62,0.23 -55.08,1.92 -68.33,-35.48 -23.66,-2.06 -49.57,-0.58 -60.15,-38.45 -7.41,-26.51 4.02,-44.74 -20.41,-64.74l-6.71 -6.74c20.3,-17.93 39.99,-0.03 42.8,23.8 11.48,-4.93 21.88,-13.63 36.08,-0.27 10.77,10.14 12.8,28.43 -1.07,35.28 -2.74,-4.2 -3.07,-6.2 -7.18,-11.29 -23.97,-2.7 -16.33,23.87 -3.14,27.09 14.72,3.6 29.02,-10.69 32.82,-19.89 12.72,-30.79 -24.47,-54.55 -44.23,-63.27 -61.95,-27.37 -97.57,-5.63 -130.91,-89.52 -2.95,16.32 -6.47,26.56 -16.44,33.13 -11.07,7.29 -27.63,7.94 -39.96,1.44 -26.65,-14.07 -27.03,-55.34 8.28,-56.98 -1.12,7.28 -5.34,9.09 -4.31,18.17 0.83,7.29 5.92,11.76 13.84,11.7 24.16,-0.2 9.94,-31.36 22.16,-79.16 -24.61,8.13 -59.41,35.87 -70.65,58.78 -8.02,16.36 -4.33,18.06 -4.68,34.67 -17.64,-3.2 -15.38,-20.56 -13.63,-37.52 -15.2,4.84 -44.19,36.17 -86.37,-1.79 -42.69,-38.43 -65.92,-145.27 -121.57,-113.71 -9.46,5.36 -27.11,23.23 -19.45,40.73 5.29,12.07 32.71,20.12 38.36,1.19 -2.4,-13.19 -10.66,-9.41 -20.66,-13.25 3.5,-36.29 68.55,-12.63 55.66,35.97 9.52,7.32 12.77,4.56 21.08,16.16 5.56,7.76 8.88,16.56 7.87,28.79 -26.03,-20.44 -44.54,-8.63 -79.64,-15.73 -29.19,-5.91 -42.53,-19.36 -50.84,-45.54 -25.13,22.67 -55.96,11.9 -71.7,-11.75 -11.8,-17.74 -16.06,-35.34 -36.68,-46.63 -12.78,-7 -14.47,-2.8 -18.81,-10.49 3.29,-4.04 3.44,-4.23 10.59,-6.2 -1.49,-0.96 -0.95,-1.26 -4.09,-1.91 -2.15,-0.45 -3.1,-0.3 -5.2,-0.36l-1.44 -24.55 719.15 0.04 -0.05 271.51z" />
+    </g>
+   </g>
+  </g>
+                                <path class="fil2" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
+ </g>
+</svg>
+
+                                <img height="90" src="../Content/wp-content/uploads/logoAyodhyanew.png" alt="ram" itemprop="image">
+                            </a>
+                        </div><!-- Logo -->
+
+                        <div class="d-inline-flex align-items-center">
+                            <div class="d-inline-flex align-items-center" style="line-height: 1; gap:10px;">
+                                <a href="#" title="Skip to main content"><i class="fa fa-forward"></i></a>
+                                <a href="#" title="Sitemap"><i class="fa fa-sitemap"></i></a>  <a href="#" title="Login"><i class="fa fa-user"></i></a>
+
+                                <li>
+                                    <div class="btn-group me-2" role="group" aria-label="font size changer">
+                                        <input type="radio" class="btn-check" name="fntradio" id="font-sm">
+                                        <label class="btn btn-xs btn-outline-primary mb-0" for="font-sm">A-</label>
+
+                                        <input type="radio" class="btn-check" name="fntradio" id="font-default" checked>
+                                        <label class="btn btn-xs btn-outline-primary mb-0" for="font-default">A</label>
+
+                                        <input type="radio" class="btn-check" name="fntradio" id="font-lg">
+                                        <label class="btn btn-xs btn-outline-primary mb-0" for="font-lg">A+</label>
+                                    </div>
+                                </li>
+
+                            </div><!-- Social Links -->
+                            <a class="tq-res-menu-trigger" href="javascript:void(0);" title="">
+                                <i class="fa fa-align-justify"></i>
+                            </a>
+                        </div><!-- Header Right -->
 
 
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <div class="cat-nav-head">
-                                <div class="menu-area">
-                                    <!-- Main Menu -->
-                                    <nav class="navbar navbar-expand-lg">
-                                        <div class="navbar-collapse">
-                                            <div class="nav-inner">
-                                                <ul class="nav nav-menu main-menu1  menu navbar-nav">
-                                                    <li class="active notranslate"><a href="/Home/Index"><i class="fa fa-home fa-2x m-1 wf18"></i>Home</a></li>
-                                                    <li><a href="/Home/About">About us</a></li>
-                                                    <li><a href="/Home/Notice">Notices</a></li>
-                                                    <li><a href="/Home/DirectRecruitment">Direct Recruitment</a></li>
-                                                    <li><a href="/Home/Promotion">Promotion</a></li>
-                                                    <li><a href="/Home/GovernmentOrders">Government Orders</a></li>
-                                                    <li><a href="/Home/Manual">Recruitment Rules</a></li>
-                                                    <li><a href="javascript:void(0);">Examination</a></li>
-                                                    <li><a href="/Home/PhotoGallery">Photo Gallery</a></li>
-                                                    <li><a href="/Home/Contact">Contact</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                    <!--/ End Main Menu -->
+                    </div><!-- Responsive Topbar Inner -->
+                </div>
+            </div><!-- Responsive Topbar -->
+            <div class="tq-res-menu position-fixed w-100 rsnp-mnu">
+                <a class="tq-res-menu-close position-absolute" href="javascript:void(0);"><i class="fa fa-times"></i></a>
+                <ul id="menu-main-menu-2" class="">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-635">
+                        <a href="/Home/Index">Home</a>
+
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-693">
+                        <a>About</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">Overview and Concept</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">Personality of Ayodhya</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
+                        <a>Yatra in Ayodhya</a>
+                        <ul class="sub-menu">
+                            @foreach (var yatra in masterYatraList)
+                            {
+                                <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                            }
+                            @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a>Other Attraction</a>
+                        <ul class="sub-menu">
+                            @foreach (var data in masterList.data)
+                            {
+                                <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                            }
+                            @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a>Tourist Guide</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=17&heading=Historical and Religious Places">Historical &amp; Religious Places</a>
+                            </li>
+                            <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=8,22,25&heading=Entertainment and Shopping Places">Entertainment &amp; Shopping Places</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=3&heading=Educational Institutions">Educational Institutions</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=19&heading=Industries">Industries</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=4,7&heading=Hotels, Resorts and Restaurants">Hotels, Resorts and Restaurants</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=21,24&heading=Railway and Transport">Railway &amp; Transport</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=23&heading=Hospitals">Hospitals</a>
+                            </li>
+                            <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
+                            </li>
+                            @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                            </li>*@
+                            @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
+                                    <a href="/Home/TouristAtractionPlaces">Park</a>
+                                </li>*@
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
+                        <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a href="/Home/TicketBooking">Online Booking</a>
+
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a>Gallery</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/PhotoGallery">Photo Gallery</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/AudioGallery">Audio Gallery</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/VideoGallery">Video Gallery</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/ThreeSixtyDegreeGallery">360 degree Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
+                        <a href="/Home/UnderConstruction">Public Utilities</a>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
+                        <a href="/Home/NewsAndEvents">News &amp; Events</a>
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a href="/Home/ContactUs">Contact Us</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/Directory">Directory</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/Helpline">Helpline</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/Feedback">Feedback</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- Responsive Menu -->
+        </div>
+        <!-- Responsive Header -->
+
+        @RenderBody()
+
+        <footer>
+            <div class="w-100 tq-pt-100 tq-secondary-layer tq-opc1 tq-pb-30 overflow-hidden position-relative">
+                <div class="tq-fixed-bg tq-bg-secondary tq-bg-blend-multiply" style="background-image: url(../Content/wp-content/uploads/footerbg.png);"></div>
+                <div class="container">
+
+                    <div class="tq-footer-body position-relative w-100">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-3">
+                                <div class="tq-logo v2 position-relative">
+                                    <a href="/Home/Index" title="">
+
+                                        <svg class="fill-theme" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                             viewBox="0 0 1054.53 1408.84"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                                        <defs>
+                                        <style type="text/css">
+                                            .fil010 {
+                                                fill: white
+                                            }
+</style>
+ </defs>
+                                        <g id="Layer_x0020_1">
+                                        <metadata id="CorelCorpID_0Corel-Layer" />
+                                        <path class="fil010" d="M1.27 986.21l0.01 -3.13c-1.18,-7.46 -1.28,-16.34 -1.28,-28.22l0 -1.59 0 -1.62 0 -1.66c0.55,-0.63 1,-5.94 1.37,-14.83 0.47,-236.2 0.47,-225.27 0,-461.48 -0.37,-8.88 -0.82,-14.19 -1.37,-14.82l0 -1.66 0 -1.63 0 -1.59c0,-11.87 0.1,-20.75 1.28,-28.22l-0.01 -3.13 0.59 0c2.34,-10.97 7.66,-19.07 19.7,-30.11 17.99,-16.48 38.86,-15.28 65.37,-19.19 7.18,-96.82 53.8,-162.07 151.74,-164.23 0.49,-99.02 53.34,-89.75 131.13,-95 65.73,-4.44 112.88,-26.31 146.22,-81.09 1.84,-6.62 4.19,-10.72 6.2,-17.74 2.84,-9.91 0.39,-12.17 8.09,-15.27 -2.18,30.34 31.25,67.22 46.29,78.57 103.43,78.04 238.7,-21.34 239.32,130.59 97.44,2.3 145.86,67.77 151.76,164.14 45.59,7.56 74.79,8.21 83.84,49.33l1.19 0 -0.01 6.33c1.3,8.34 1.92,18.13 1.82,29.68 -0.83,1.26 -1.45,14.36 -1.89,36.35 -0.26,221.86 -0.26,197.01 0,418.87 0.44,21.99 1.06,35.09 1.89,36.35 0.1,11.55 -0.52,21.33 -1.82,29.68l0.01 6.32 -1.19 0c-9.05,41.13 -38.25,41.77 -83.84,49.33 -5.9,96.37 -54.32,161.84 -151.76,164.15 -0.62,151.93 -135.89,52.55 -239.32,130.58 -15.04,11.35 -48.47,48.24 -46.29,78.58 -7.7,-3.11 -5.25,-5.36 -8.09,-15.28 -2.01,-7.02 -4.36,-11.11 -6.2,-17.74 -33.34,-54.77 -80.49,-76.64 -146.22,-81.08 -77.79,-5.25 -130.64,4.02 -131.13,-95 -97.94,-2.17 -144.56,-67.42 -151.74,-164.24 -26.51,-3.9 -47.38,-2.7 -65.37,-19.19 -12.04,-11.04 -17.36,-19.14 -19.7,-30.11l-0.59 0z" />
+ </g>
+</svg>
+
+
+
+                                        <img class="img-fluid position-absolute" src="../Content/wp-content/uploads/logoAyodhya.png" loading="lazy" style="width: 80%;">
+                                    </a>
+                                </div>
+                                <!-- Logo -->
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-lg-3">
+                                <div class="widget-box widget widget">
+
+                                    <div class="tq-widget-box d-flex flex-column position-relative w-100">
+                                        <!--			<h4 class="mb-0">Information</h4>-->
+                                        <p class="mb-0">
+                                            Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-2">
+                                <div class="widget-box widget widget">
+                                    <div class="tq-widget-box d-flex flex-column position-relative w-100">
+                                        <h4 class="mb-0">About Us</h4>
+                                        <ul class="d-flex flex-column list-unstyled mb-0">
+
+                                            <li>
+                                                <a itemprop="url" href="salat-timings//Home/Index">About Ayodhya</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="travel-tours//Home/Index">Key Facts</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="online-classes//Home/Index">UPSTDC Portal</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="lp-term-conditions//Home/Index">Press & Media</a>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-2">
+                                <div class="widget-box widget widget">
+                                    <div class="tq-widget-box d-flex flex-column position-relative w-100">
+                                        <h4 class="mb-0">Quick Links</h4>
+                                        <ul class="d-flex flex-column list-unstyled mb-0">
+
+                                            <li>
+                                                <a itemprop="url" href="salat-timings//Home/Index">Emergency Services</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="travel-tours//Home/Index">FAQs</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="online-classes//Home/Index">DOs & Don’ts</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="lp-term-conditions//Home/Index">Map</a>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-2">
+                                <div class="widget-box widget widget">
+                                    <div class="tq-widget-box d-flex flex-column position-relative w-100">
+                                        <h4 class="mb-0">Policies</h4>
+                                        <ul class="d-flex flex-column list-unstyled mb-0">
+
+                                            <li>
+                                                <a itemprop="url" href="salat-timings//Home/Index">Terms & Conditions</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="travel-tours//Home/Index">Copyright Policy</a>
+                                            </li>
+                                            <li>
+                                                <a itemprop="url" href="online-classes//Home/Index">Privacy Policy</a>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div><!-- Footer Body -->
+                    <div class="tq-footer-bottom d-flex align-items-center justify-content-between position-relative w-100">
 
-
-            </div>
-            <!--/ End Header Inner -->
-        </header>
-        <!--/ End Header -->
-
-
-
-
-    </div>
-    <div>
-        @RenderBody()
-    </div>
-    <!-- Start Footer Area -->
-    <footer class="footer">
-        <!-- Footer Top -->
-        <div class="footer-top section" style="padding-bottom:0px !important">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-10 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links ">
-                            <h4>Contact Us</h4>
-                            <ul>
-                                <li>
-                                    <a>
-                                        Tulsi Ganga Complex, 19-C Vidhan Shabha Marg, Lucknow
-                                        <br />Uttar Pradesh - 226001
-                                        <br />
-                                        <b>Email: sampark@uppbpb.gov.in</b>
-                                        <br />
-                                        <b>Phone: 0522-2235752</b>
-                                        <br />
-                                        @*<b>Fax: 0522-2235806</b>
-                                            <br />*@
-                                        <b>C.U.G.: +91 - 9454404786</b>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- <div class="single-footer social">
-                                 <ul>
-                                     <h4 class=" pull-left">Get In Touch : </h4>
-                                     <li class="hasdrop"><a href="https://www.facebook.com/mmmut.ac.in" target="_blank"><i class="ti-facebook"></i></a></li>
-                                     <li class="hasdrop"><a href="https://twitter.com/MmmutOfficial" target="_blank"><i class="ti-twitter"></i></a></li>
-                                     <li class="hasdrop"><a href="https://www.linkedin.com/school/madan-mohan-malaviya-university-of-technology/" target="_blank"><i class="ti-linkedin"></i></a></li>
-                                     <li class="hasdrop"><a href="https://www.youtube.com/user/mmmut1" target="_blank"><i class=" ti-youtube"></i></a></li>
-                                 </ul>
-                             </div>-->
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-10 col-12">
-                        <div class="single-footer links">
-                            <h4>Get In Touch</h4>
-                            <ul>
-                                <li><a href="https://www.facebook.com/profile.php?id=100089212700306">Facebook </a><i class="ti-facebook"></i></li>
-                                <li><a href="https://twitter.com/upprpb">Twitter </a><i class="ti-twitter"></i></li>
-                                <li><a href="#!">Linkedin </a><i class="ti-linkedin"></i></li>
-                                <li><a href="https://www.youtube.com/channel/UCGS-CVdV-Em0GYu7cIa-s7A">Youtube </a><i class=" ti-youtube"></i></li>
-                                <li><a href="#!">Instagram </a><i class=" ti-instagram"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-10 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links">
-                            <h4>Media</h4>
-                            <ul>
-                                <li><a href="/Home/PhotoGallery">Photo Gallery</a></li>
-                                <li><a href="/Home/PhotoGallery?Id=68">Events Gallery</a></li>
-                                <li><a href="/Home/PhotoGallery?Id=67">Media Coverage</a></li>
-                                <li><a href="/Home/Sitemap">Site Map </a></li>
-                                <li><a href="/Home/Terms_Conditions">Term & Conditions </a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-10 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links">
-                            <h4>Quick Link</h4>
-                            <ul>
-                                <li><a href="https://information.up.gov.in/en" target="_blank">Government of Uttar Pradesh  </a></li>
-                                <li><a href="https://uppolice.gov.in/" target="_blank">Uttar Pradesh Police </a></li>
-                                <li><a href="/Home/FAQ">FAQs</a></li>
-                                <li><a href="/Home/EnquiryForm">Contact- Control Room</a></li>
-                                <li><a href="/Home/HowToReach">Get in touch</a></li>
-                                @*<li><a href="fonts.zip" target="_blank">Download Hindi Font</a></li>*@
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
+                        <p itemprop="description" class="mb-0 text-white"> Content Owned by District Administration <a href="#">Developed and hosted by <a href="http://spit-tech.com/" target="_blank">SPIT</a>,<br><a href="http://meity.gov.in/" target="_blank">Ministry of Electronics &amp; Information Technology</a>, Government of India </a> </p>
+                        <!--                    <p>Last Updated: <strong>May 05, 2023</strong></p>-->
+                        <div class="tq-social-links text-white d-inline-flex align-items-center">
+                            <a class="brd-rd50" data-toggle="tooltip" data-placement="top" href="https://facebook.com/" title="" itemprop="url" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="brd-rd50" data-toggle="tooltip" data-placement="top" href="https://twitter.com/" title="" itemprop="url" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="brd-rd50" data-toggle="tooltip" data-placement="top" href="https://linkedin.com/" title="" itemprop="url" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="brd-rd50" data-toggle="tooltip" data-placement="top" href="https://instagram.com/" title="" itemprop="url" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div><!-- Social Links -->
+                    </div><!-- Footer Bottom -->
                 </div>
             </div>
-        </div>
-        <!-- End Footer Top -->
-        <div class="copyright">
-            <div class="container">
-                <div class="inner">
-                    <div class="row">
-                        <div class="col-lg-12 col-12">
-                            <div class="left ">
+        </footer>
 
-                                <p style="margin-top: 0px; margin-bottom: 0px; font-size: 12px; text-align: center">
-                                    This is the official Website of Uttar Pradesh Police Recruitment & Promotion Board. |
-                                    Best viewed in 1366*768 pixel resolution.
-                                </p>
-                                <p class="website-counter" style="margin-top: 0px; margin-bottom: 0px; font-size: 12px; text-align: center">Visitor's count = </p><p style="margin-top: 0px; margin-bottom: 0px; font-size: 12px; text-align: center">
-                                    &nbsp;<a href="/Home/Copyright_Statement">Copyright Statement </a>| <a href="/Home/Hyperlink_Policy">Hyperlinking Policy</a> | <a href="/Home/Terms_Conditions">
-                                        Terms &amp; Conditions
-                                    </a>|<a href="/Home/Privacy_Policy"> Privacy Policy </a>|<a href="/Home/Disclaimer"> Disclaimer </a>
-                                </p>
-                                <p style="margin-top: 0px; margin-bottom: 0px; font-size: 12px; text-align: center">
-                                    Designed Developed and Maintained by | <a href="http://spit-tech.com/" target="_blank">SHAURYAPRABHATINFRATECH</a>
-                                </p>
-                                @*<p class="datep" style="color:white; margin:0px; text-align:center;">
-                                    <b>Visitors Count:</b>
-                                    <div id="sfcdgtlzdk2ap8s7nzd3xbasl4uuanp8ssf" style="text-align:center;"></div>
-                                    <script type="text/javascript" src="https://counter3.optistats.ovh/private/counter.js?c=dgtlzdk2ap8s7nzd3xbasl4uuanp8ssf&down=async" async></script>
-                                    <noscript><a href="https://www.freecounterstat.com" title="free counter"><img src="https://counter3.optistats.ovh/private/freecounterstat.php?c=dgtlzdk2ap8s7nzd3xbasl4uuanp8ssf" border="0" title="free counter" alt="free counter"></a></noscript>
-                                    @ApplicationInstance.Application["Totaluser"]
-                                                            </p>*@
+    </main>
 
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <!--<div class="right">
-                                <img src="~/Content/images/payments.png" alt="#">
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- /End Footer Area -->
-    <!-- Jquery -->
-    <script src="~/Scripts/library/js/jquery.min.js"></script>
-    <script src="~/Scripts/library/js/jquery-migrate-3.0.0.js"></script>
-    <script src="~/Scripts/library/js/jquery-ui.min.js"></script>
-    <!-- Popper JS -->
-    <script src="~/Scripts/library/js/popper.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="~/Scripts/library/js/bootstrap.min.js"></script>
-    <!-- Color JS -->
-    <script src="~/Scripts/library/js/colors.js"></script>
-    <!-- Slicknav JS -->
-    <script src="~/Scripts/library/js/slicknav.min.js"></script>
-    <!-- Owl Carousel JS -->
-    <script src="~/Scripts/library/js/owl-carousel.js"></script>
-    <!-- Magnific Popup JS -->
-    <script src="~/Scripts/library/js/magnific-popup.js"></script>
-    <!-- Waypoints JS -->
-    <script src="~/Scripts/library/js/waypoints.min.js"></script>
-    <!-- Countdown JS -->
-    <script src="~/Scripts/library/js/finalcountdown.min.js"></script>
-    <!-- Nice Select JS -->
-    <script src="~/Scripts/library/js/nicesellect.js"></script>
-    <!-- Flex Slider JS -->
-    <script src="~/Scripts/library/js/jquery.flexslider.js"></script>
-    <!-- ScrollUp JS -->
-    <script src="~/Scripts/library/js/scrollup.js"></script>
-    <!-- Onepage Nav JS -->
-    <script src="~/Scripts/library/js/onepage-nav.min.js"></script>
-    <!-- Easing JS -->
-    <script src="~/Scripts/library/js/easing.js"></script>
-    <!-- Active JS -->
-    <script src="~/Scripts/library/js/active.js"></script>
-    <script src="~/Scripts/library/js/owl-carousel.js"></script>
-
-    <!-- ------------------------------------------------------------------w -->
-    <script src="~/Scripts/library/js/jquery.marquee.js"></script>
-    <script src="~/Content/js/jquery.fancybox.pack.js"></script>
-
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy-plus/assets/js/bootstrap.min8a54.js?ver=1.0.0" id="plus_bootstrap5-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy-plus/assets/js/swiper-bundle.min8a54.js?ver=1.0.0" id="plus_swiper-bundle-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy-plus/assets/js/plus_scripts8a54.js?ver=1.0.0" id="plus_scripts-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy/js/owl.carousel.min8a54.js?ver=1.0.0" id="owl-carousel-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy/js/custom-slider8a54.js?ver=1.0.0" id="slider-script-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/ingeniofy/js/musicplayer-min8a54.js?ver=1.0.0" id="musicplayer-min-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/contact-form-7/includes/swv/js/indexdfc9.js?ver=5.8.5" id="swv-js"></script>
+    <script type="text/javascript" id="contact-form-7-js-extra">
+        var wpcf7 = { "api": { "root": "https:\/\/nauthemes.com\/demo\/muezzin\/../Content/wp-json/\/", "namespace": "contact-form-7\/v1" } };
+    </script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/contact-form-7/includes/js/indexdfc9.js?ver=5.8.5" id="contact-form-7-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/charitable/assets/js/charitable-frontend-2.0.min4986.js?ver=1.8.0.6" id="charitable-frontend-v2-js"></script>
+    <script type="text/javascript" src="../Content/wp-includes/js/comment-reply.min1e39.js?ver=6.4.2" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+    <script type="text/javascript" id="bootstrap-js-extra">
+        var ajax_var = { "url": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-admin\/admin-ajax.php", "nonce": "ab982c65b5" };
+    </script>
+    <script type="text/javascript" src="../Content/wp-content/themes/taqwa/assets/js/bootstrap.min8a54.js?ver=1.0.0" id="bootstrap-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/themes/taqwa/assets/js/themejs/fancybox.min8a54.js?ver=1.0.0" id="fancybox-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/themes/taqwa/assets/js/themejs/perfect-scrollbar.min8a54.js?ver=1.0.0" id="perfect-scrollbar-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/themes/taqwa/assets/js/themejs/custom-scripts8a54.js?ver=1.0.0" id="taqwa-custom-scripts-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/elementor/assets/js/webpack.runtime.minf3b2.js?ver=3.18.3" id="elementor-webpack-runtime-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/elementor/assets/js/frontend-modules.minf3b2.js?ver=3.18.3" id="elementor-frontend-modules-js"></script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+    <script type="text/javascript" id="elementor-frontend-js-before">
+        var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.18.3", "is_static": false, "experimentalFeatures": { "e_dom_optimization": true, "e_optimized_assets_loading": true, "e_optimized_css_loading": true, "additional_custom_breakpoints": true, "block_editor_assets_optimize": true, "landing-pages": true, "e_image_loading_optimization": true, "e_global_styleguide": true }, "urls": { "assets": "https:\/\/nauthemes.com\/demo\/muezzin\/wp-content\/plugins\/elementor\/assets\/" }, "swiperClass": "swiper-container", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 2330, "title": "Muezzin%20%E2%80%93%20Islamic%20Center%20WordPress%20Theme", "excerpt": "", "featuredImage": false } };
+    </script>
+    <script type="text/javascript" src="../Content/wp-content/plugins/elementor/assets/js/frontend.minf3b2.js?ver=3.18.3" id="elementor-frontend-js"></script>
 
     <script>
-        $(window).load(function () {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                animationLoop: false,
-                itemWidth: 210,
-                itemMargin: 5
-            });
-        });</script>
+        function openPopup() {
+            document.getElementById("myOverlay").style.display = "flex";
+        }
 
-    <!----------------POPUP-------------------------------->
-    <script>
-        $('#overlay').modal('show');
+        function closePopup() {
+            document.getElementById("myOverlay").style.display = "none";
+        }
 
-        //setTimeout(function () {
-        //    $('#overlay').modal('hide');
-        //}, 5000);
-    </script>
+        function openCustomPopup() {
+            document.getElementById("myCustomOverlay").style.display = "flex";
+        }
 
-    <script type="text/javascript" src="sts/sts-full.js"></script>
-    <link rel="stylesheet" type="text/css" href="sts/sts.css">
-    <script src="Jq/newssc.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //$(".goog-te-gadget-simple  .VIpgJd-ZVi9od-xl07Ob-lTBxed ").css("display", "none");
-            //visitor count
-            var counterContainer = document.querySelector(".website-counter");
-            var visitCount = localStorage.getItem("page_view");
-
-            // Check if page_view entry is present
-            if (visitCount) {
-                visitCount = Number(visitCount) + 1;
-                localStorage.setItem("page_view", visitCount);
-            } else {
-                visitCount = 1;
-                localStorage.setItem("page_view", 1);
-            }
-            counterContainer.innerHTML = "Visitor's Count = "+ visitCount;
-
-            var urlStrings = getUrlVars();
-            var colorTheme = localStorage.getItem("color");
-            if (urlStrings["colorTheme"] != "" && urlStrings["colorTheme"] != null && urlStrings["colorTheme"] != undefined) {
-                if (urlStrings["colorTheme"] == "orange") {
-                    orangecolor();
-                }
-                else if (urlStrings["colorTheme"] == "blue") {
-                    bluecolor();
-                }
-                else if (urlStrings["colorTheme"] == "teablue") {
-                    teabluecolor();
-                }
-                else if (urlStrings["colorTheme"] == "khadi") {
-                    khadicolor();
-                }
-                else if (urlStrings["colorTheme"] == "green") {
-                    greencolor();
-                }
-            }
-            else if (colorTheme != "" && colorTheme != null && colorTheme != undefined) {
-                if (colorTheme == "orange") {
-                    orangecolor();
-                }
-                else if (colorTheme == "blue") {
-                    bluecolor();
-                }
-                else if (colorTheme == "teablue") {
-                    teabluecolor();
-                }
-                else if (colorTheme == "khadi") {
-                    khadicolor();
-                }
-                else if (colorTheme == "green") {
-                    greencolor();
-                }
-            }
-
-
-            //highlight main menu
-            $('.nav-menu li.active').removeClass('active');
-            $('.nav-menu a[href]').each(function (ind, ele) {
-                if (location.pathname == '/') {
-                    $('a[href="/Home/Index"]').parent().addClass('active')
-                }
-                else if ($(ele).attr('href').toLowerCase().indexOf(location.pathname.toLowerCase()) > -1) {
-                    $(ele).parent().addClass('active');
-                    $(ele).parent().parent().show();
-                }
-            });
-            //highlight side menu
-            //$('.nav-menu li.active').removeClass('active');
-            //$('.nav-menu a[href]').each(function (ind, ele) {
-            //    if ($(ele).attr('href').toLowerCase().indexOf(location.pathname.toLowerCase()) > -1) {
-            //        $(ele).parent().addClass('active');
-            //        $(ele).parent().parent().show();
-            //    }
-            //});
-
-            function getUrlVars() {
-                var vars = [], hash;
-                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-                for (var i = 0; i < hashes.length; i++) {
-                    hash = hashes[i].split('=');
-                    vars.push(hash[0]);
-                    vars[hash[0]] = hash[1];
-                }
-                return vars;
-            }
-
-            function _getCookie(name) {
-                var arg = name + "=";
-                var alen = arg.length;
-                var clen = document.cookie.length;
-                var i = 0;
-                while (i < clen) {
-                    var j = i + alen;
-                    if (document.cookie.substring(i, j) == arg) {
-                        return _getCookieVal(j);
-                    }
-                    i = document.cookie.indexOf(" ", i) + 1;
-                    if (i == 0) break;
-                }
-                return null;
-            }
-
-            function _setCookie(name, value, expires, path, domain, secure) {
-                var vurl = true;
-                if (path != "" && path != undefined) {
-                    vurl = validUrl(path);
-                }
-                if (jQuery.type(name) == "string" && vurl) {
-                    document.cookie =
-                        name +
-                        "=" +
-                        escape(value) +
-                        (expires ? "; expires=" + expires.toGMTString() : "") +
-                        (path ? "; path=" + path : "") +
-                        (domain ? "; domain=" + domain : "") +
-                        (secure ? "; secure" : "");
-                }
-            }
-            if (_getCookie("fontSize") != null) {
-                var fontSize = _getCookie("fontSize");
-                jQuery("body").attr('style', 'font-size: ' + fontSize + 'px !important');
-            }
-            else {
-                var fs = jQuery("body").css("font-size");
-                var fontSize = fs;
-                jQuery("body").attr('style', 'font-size: ' + fontSize + 'px !important');
-            }
-
-        })
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'hi,en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-            //new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        function closeCustomPopup() {
+            document.getElementById("myCustomOverlay").style.display = "none";
+            // Pause the video when the popup is closed (optional)
+            var iframe = document.querySelector('.custom-video-container iframe');
+            var videoSrc = iframe.src;
+            iframe.src = videoSrc;
         }
     </script>
+
+
 </body>
 </html>
 

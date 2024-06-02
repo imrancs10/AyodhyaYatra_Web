@@ -1,6 +1,10 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Models;
+@using System.Linq;
+
+@{
     ViewBag.Title = "NewsAndEvents";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var newsUpdateList = ViewData["newsUpdateList"] as List<NewsUpdateModel>;
 }
 
 <section>
@@ -9,8 +13,11 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Our Campaigns</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="../index.html">Home</a> </li> <li class="breadcrumb-item active">Our Campaigns</li></ol>
+                    <h1 itemprop="headline">News And Events</h1>
+                    <ol class="breadcrumb brd-rd30">
+                        <li class="breadcrumb"><a href="/Home/Index">Home /</a> </li>
+                        <li class="breadcrumb active">News And Events</li>
+                    </ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -36,147 +43,46 @@
                                                     <div class="container">
                                                         <div class="cause-sec remove-ext5">
                                                             <div class="row">
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
 
-
+                                                                @foreach (var news in newsUpdateList)
+                                                                {
+                                                                    <div class="col-md-4 col-sm-6 col-lg-4">
+                                                                        <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
+                                                                            <div class="cause-thmb">
+                                                                                @if (news.Images != null && news.Images.Count > 0)
+                                                                                {
+                                                                                    <a href="javascript:void(0);" itemprop="url">
+                                                                                        <img fetchpriority="high" decoding="async" width="370" height="285" class="attachment-370x285 size-370x285 wp-post-image"
+                                                                                             src="@(news.Images[0]!=null? "https://api.ayodhya-dham.in/"+news.Images[0].FilePath:"")"
+                                                                                             alt="test" loading="lazy">
+                                                                                    </a>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <a href="javascript:void(0);" itemprop="url">
+                                                                                        <img fetchpriority="high" decoding="async" width="370" height="285" class="attachment-370x285 size-370x285 wp-post-image"
+                                                                                             src="../Content/wp-content/uploads/temple.jpg"
+                                                                                             alt="test" loading="lazy">
+                                                                                    </a>
+                                                                                }
+                                                                            </div>
+                                                                            <div class="cause-inf">
+                                                                                <h5 itemprop="headline"><a href="/Home/NewsEventsDetailPage" itemprop="url">@news.NewsUpdateTypeName</a></h5>
+                                                                                <ul class="pst-mta">
+                                                                                    <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">@news.EventDate.Value.ToString("dd/MMM/yyyy")</span></li>
+                                                                                    <li><i class="far fa-user theme-clr"></i> @news.EnTitle</li>
+                                                                                </ul>
+                                                                                <p itemprop="description">@news.EnDescription</p>
+                                                                                <div class="prg-wrp">
+                                                                                    <a class="tq-theme-btn tq-bg-theme rounded-pill" href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                        Read More
+                                                                                    </a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                }
 
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/photo.webp" class="attachment-370x285 size-370x285 wp-post-image" alt="" /></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline"><a href="NewsEventsDetailPage.html" itemprop="url">News</a></h5>
-                                                                            <ul class="pst-mta">
-                                                                                <li><i class="far fa-calendar-alt theme-clr"></i><span class="amount time-left days-left">22</span> January</li>
-                                                                                <li><i class="far fa-user theme-clr"></i> Ayodhya Dham</li>
-                                                                            </ul>
-                                                                            <p itemprop="description">Test</p>
-                                                                            <div class="prg-wrp">
-                                                                                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="NewsEventsDetailPage.html">
-                                                                                    Read More
-                                                                                </a>
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
 
                                                             </div>
                                                         </div>

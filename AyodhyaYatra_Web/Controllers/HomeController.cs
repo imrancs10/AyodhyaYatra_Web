@@ -136,6 +136,15 @@ namespace AyodhyaYatra_Web.Controllers
 
         public ActionResult NewsAndEvents()
         {
+            var data = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
+            ViewData["newsUpdateList"] = data;
+            return View();
+        }
+
+        public ActionResult NewsEventsDetailPage(int eventId)
+        {
+            var data = HttpClientHelper<NewsUpdateModel>.GetAPIResponse("NewsUpdate/newsupdate/get/" + eventId, "");
+            ViewData["newsUpdateData"] = data;
             return View();
         }
 

@@ -301,6 +301,7 @@
     <Compile Include="Infrastructure\Utility\VerificationCodeGeneration.cs" />
     <Compile Include="Models\AttractionModel.cs" />
     <Compile Include="Models\Common\CommonModel.cs" />
+    <Compile Include="Models\NewsUpdateResponse.cs" />
     <Compile Include="Models\Masters\FeedbackModel.cs" />
     <Compile Include="Models\Masters\EnquiryModel.cs" />
     <Compile Include="Models\Masters\DirectRecruitmentModel.cs" />
@@ -1514,6 +1515,7 @@
     <Content Include="Views\Home\TicketBooking.cshtml" />
     <Content Include="Views\Home\YatraDetail.cshtml" />
     <Content Include="Views\Home\AttractionDetail.cshtml" />
+    <Content Include="Views\Home\NewsEventsDetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

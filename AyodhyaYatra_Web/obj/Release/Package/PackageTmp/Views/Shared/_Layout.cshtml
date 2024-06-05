@@ -31,6 +31,7 @@
     <link rel='stylesheet' id='animate-css' href='../Content/wp-content/plugins/ingeniofy/css/animate.min1e39.css?ver=6.4.2' type='text/css' media='all' />
     <link rel='stylesheet' id='owl-carousel-css' href='../Content/wp-content/plugins/ingeniofy/css/owl.carousel.min1e39.css?ver=6.4.2' type='text/css' media='all' />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNA3lxRwq-kie-4fKPwzsO3FFcdHdUwDQ" async defer></script>
     <style id='wp-emoji-styles-inline-css' type='text/css'>
 
         img.wp-smiley, img.emoji {
@@ -666,7 +667,7 @@
 <body class="home page-template-default page page-id-2330 elementor-default elementor-kit-5 elementor-page elementor-page-2330" itemscope>
     <!--Wrapper Start-->
     <main>
-        <header class="stick tq-style1">
+        <header id="header" class="stick tq-style1">
             <div class="container">
                 <div class="tq-header-wrapper position-relative w-100">
                     <div class="row">
@@ -711,7 +712,7 @@
 </svg>
 
 
-                                    <img src="../Content/wp-content/uploads/logoAyodhyanew.png" style="height: auto; width: 60%;" alt="" loading="lazy">
+                                    <img src="../Content/wp-content/uploads/logoAyodhya.png" style="height: auto; width: 60%;" alt="" loading="lazy">
                                 </a>
                             </div><!-- Logo -->
                         </div>
@@ -789,7 +790,7 @@
                                                 <a>About</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-707" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">Overview and Concept</a></li>
-                                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">Personality of Ayodhya</a></li>
+                                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/AyodhyaPersonality">Personality of Ayodhya</a></li>
                                                 </ul>
                                             </li>
                                             <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
@@ -802,7 +803,7 @@
                                                 </ul>
                                             </li>
                                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                                                <a>Other Attraction</a>
+                                                <a>Attraction</a>
                                                 <ul class="sub-menu">
                                                     @foreach (var data in masterList.data)
                                                     {
@@ -842,8 +843,8 @@
                                                         <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
                                                     </li>
                                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                                        <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
-                                                    </li>*@
+                                                            <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                                                        </li>*@
                                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
                                                             <a href="/Home/TouristAtractionPlaces">Park</a>
                                                         </li>*@
@@ -966,7 +967,7 @@
   </g>
                             <path class="fil2" d="M1563.24 1.69l0.07 0.24c1.65,5.94 0.75,205.25 -0.07,431.08l0 0.02c-1.08,297.69 -2.03,641.45 3.13,649.26 0.96,105.39 -41.78,103.76 -118.53,116.49 -8.05,131.55 -74.16,220.92 -207.16,224.06 -0.85,207.4 -185.49,71.73 -326.69,178.26 -20.52,15.49 -66.16,65.84 -63.18,107.25 -10.51,-4.24 -7.16,-7.31 -11.04,-20.85 -2.74,-9.58 -5.96,-15.17 -8.46,-24.22 -45.52,-74.76 -109.87,-104.62 -199.59,-110.68 -106.2,-7.17 -178.34,5.49 -179.01,-129.67 -133.69,-2.96 -197.33,-92.03 -207.12,-224.19 -36.19,-5.33 -64.69,-3.7 -89.24,-26.2 -29.99,-27.5 -29.42,-41.63 -29.43,-90.55 6.53,-7.45 2.89,-491.73 2.86,-547.25 -0.04,-64.21 -4.67,-532.2 1.9,-549.76l1431.56 0 0 16.71z" />
  </g>
-</svg><img src="../Content/wp-content/uploads/logoAyodhyanew.png" style="width: 60%; height: auto;" alt="" loading="lazy">
+</svg><img src="../Content/wp-content/uploads/logoAyodhya.png" style="width: 60%; height: auto;" alt="" loading="lazy">
                         </a>
                     </div><!-- Logo -->
                     <nav>
@@ -989,20 +990,20 @@
                                         <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
                                     }
                                     @*<li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
-                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
+                <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
+                <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
                                 </ul>
                             </li>
                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                                <a>Other Attraction</a>
+                                <a>Attraction</a>
                                 <ul class="sub-menu">
                                     @foreach (var data in masterList.data)
                                     {
                                         <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
                                     }
                                     @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                                 </ul>
                             </li>
 
@@ -1034,17 +1035,25 @@
                                         <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
                                     </li>
                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                        <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
-                                    </li>*@
+                    <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                </li>*@
                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                            <a href="/Home/TouristAtractionPlaces">Park</a>
-                                        </li>*@
+                    <a href="/Home/TouristAtractionPlaces">Park</a>
+                </li>*@
                                 </ul>
                             </li>
                             <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-628">
                                 <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
                             </li>
-
+                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                                <a><b>Gallery</b></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="/Home/PhotoGallery">Photo Gallery</a></li>
+                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/AudioGallery">Audio Gallery</a></li>
+                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/VideoGallery">Video Gallery</a></li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375"><a href="/Home/ThreeSixtyDegreeGallery">360 degree Gallery</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav><!-- Navigation -->
                 </div>
@@ -1094,7 +1103,7 @@
  </g>
 </svg>
 
-                                <img height="90" src="../Content/wp-content/uploads/logoAyodhyanew.png" alt="ram" itemprop="image">
+                                <img height="90" src="../Content/wp-content/uploads/logoAyodhya.png" alt="ram" itemprop="image">
                             </a>
                         </div><!-- Logo -->
 
@@ -1153,7 +1162,7 @@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                        <a>Other Attraction</a>
+                        <a>Attraction</a>
                         <ul class="sub-menu">
                             @foreach (var data in masterList.data)
                             {
@@ -1192,8 +1201,8 @@
                                 <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
                             </li>
                             @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
-                            </li>*@
+                                    <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                                </li>*@
                             @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
                                     <a href="/Home/TouristAtractionPlaces">Park</a>
                                 </li>*@
@@ -1203,10 +1212,10 @@
                         <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
                     </li>
 
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                    @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                         <a href="/Home/TicketBooking">Online Booking</a>
 
-                    </li>
+                    </li>*@
 
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                         <a>Gallery</a>
@@ -1293,16 +1302,16 @@
                                         <ul class="d-flex flex-column list-unstyled mb-0">
 
                                             <li>
-                                                <a itemprop="url" href="salat-timings//Home/Index">About Ayodhya</a>
+                                                <a itemprop="url" href="/Home/About">About Ayodhya</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="travel-tours//Home/Index">Key Facts</a>
+                                                <a itemprop="url" href="/Home/KeyFacts">Key Facts</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="online-classes//Home/Index">UPSTDC Portal</a>
+                                                <a itemprop="url" href="https://upstdc.co.in/" target="_blank">UPSTDC Portal</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="lp-term-conditions//Home/Index">Press & Media</a>
+                                                <a itemprop="url" href="/Home/NewsAndEvents">Press & Media</a>
                                             </li>
                                         </ul>
 
@@ -1318,16 +1327,16 @@
                                         <ul class="d-flex flex-column list-unstyled mb-0">
 
                                             <li>
-                                                <a itemprop="url" href="salat-timings//Home/Index">Emergency Services</a>
+                                                <a itemprop="url" href="/Home/Helpline">Emergency Services</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="travel-tours//Home/Index">FAQs</a>
+                                                <a itemprop="url" href="/Home/FAQ">FAQs</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="online-classes//Home/Index">DOs & Don’ts</a>
+                                                <a itemprop="url" href="/Home/DosDonts">DOs & Don’ts</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="lp-term-conditions//Home/Index">Map</a>
+                                                <a itemprop="url" href="/Home/Map">Map</a>
                                             </li>
                                         </ul>
 
@@ -1343,13 +1352,13 @@
                                         <ul class="d-flex flex-column list-unstyled mb-0">
 
                                             <li>
-                                                <a itemprop="url" href="salat-timings//Home/Index">Terms & Conditions</a>
+                                                <a itemprop="url" href="/Home/TermsConditions">Terms & Conditions</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="travel-tours//Home/Index">Copyright Policy</a>
+                                                <a itemprop="url" href="/Home/CopyrightPolicy">Copyright Policy</a>
                                             </li>
                                             <li>
-                                                <a itemprop="url" href="online-classes//Home/Index">Privacy Policy</a>
+                                                <a itemprop="url" href="/Home/PrivacyPolicy">Privacy Policy</a>
                                             </li>
                                         </ul>
 

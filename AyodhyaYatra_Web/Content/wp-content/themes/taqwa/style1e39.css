@@ -8959,9 +8959,9 @@ ul.tq-nav-tab + .tq-consult-box-wrap {
   background-color: var(--white);
 }
 .tq-package-head {
-  max-width: 15.625rem;
-  flex: 0 0 15.530rem;
-  padding: 2.1875rem 2.5rem;
+    max-width: 15.625rem;
+    flex: 1 0 14.53rem;
+    padding: 2.1875rem 2.5rem;
 }
 .tq-package-head > h3 {
   font-size: 2.125rem;

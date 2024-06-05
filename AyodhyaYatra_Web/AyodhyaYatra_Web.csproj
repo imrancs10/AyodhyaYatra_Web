@@ -1518,6 +1518,7 @@
     <Content Include="Views\Home\NewsEventsDetailPage.cshtml" />
     <Content Include="Views\Home\Master_DetailPage.cshtml" />
     <Content Include="Views\Home\TouristAtraction_Detail.cshtml" />
+    <Content Include="Views\Home\QrLanding.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

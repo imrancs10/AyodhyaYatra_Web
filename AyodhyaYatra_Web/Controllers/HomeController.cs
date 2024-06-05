@@ -1,13 +1,9 @@
 ﻿using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Visitor;
-using iTextSharp.text;
 using log4net;
-using Microsoft.Owin;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -188,13 +184,10 @@ namespace AyodhyaYatra_Web.Controllers
             ViewData["PhotoGalleryImage"] = data;
             return View();
         }
-        //public ActionResult PrevailingRecruitmentProcesses()
-        //{
-        //    var detail = new GeneralDetails();
-        //    var noticeTypeDetail = detail.GetNoticeHirarchyDetail();
-        //    ViewData["NoticeType"] = noticeTypeDetail;
-        //    return View();
-        //}
+        public ActionResult QrLanding([FromUri] string type, [FromUri] int id)
+        {
+            return View();
+        }
         //public ActionResult InfoAboutDirectRecruitment()
         //{
         //    var detail = new GeneralDetails();

@@ -55,7 +55,7 @@
                                                                     <div class="tq-about-img-wrap d-flex align-items-start justify-content-end position-relative w-100">
                                                                         <div class="tq-about-img2 overflow-hidden w-100">
                                                                             <img decoding="async" class="img-fluid w-100" loading="lazy"
-                                                                                 src=@(attractionById.Images.Count>0? "https://api.ayodhya-dham.in/"+attractionById.Images[0].FilePath:"") alt="Together We Prosper The">
+                                                                                 src=@(attractionById.Images.Count>0? "https://api.ayodhya-dham.in/"+attractionById.Images[0].FilePath:"") alt=@(attractionById.EnName != null ? attractionById.EnName : "")>
                                                                         </div>
                                                                         <!-- About Image -->
 
@@ -125,8 +125,8 @@
                                                                                 <div class="tq-course-img overflow-hidden position-relative w-100">
                                                                                     <a href="#">
                                                                                         <img class="img-fluid w-100"
-                                                                                             src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt="test"
-                                                                                             loading="lazy">
+                                                                                             src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt=@attractionById.EnName
+                                                                                             loading="lazy" style="max-height:300px !important">
                                                                                     </a>
                                                                                 </div><!-- Course Image -->
                                                                             </div><!-- Course Box -->

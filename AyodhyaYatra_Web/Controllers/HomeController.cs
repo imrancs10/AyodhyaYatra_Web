@@ -1,7 +1,9 @@
-﻿using AyodhyaYatra_Web.Infrastructure.Utility;
+﻿using AyodhyaYatra_Web.Global;
+using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -24,7 +26,7 @@ namespace AyodhyaYatra_Web.Controllers
             var famousTemple = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/10", "").Take(4).ToList();
             var newsUpdate = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
             var specificAttractionDetail = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get", "");
-            
+
             ViewData["specificAttractionDetail"] = specificAttractionDetail;
             ViewData["newsUpdateList"] = newsUpdate;
             ViewData["famouseTemple"] = famousTemple;
@@ -154,6 +156,10 @@ namespace AyodhyaYatra_Web.Controllers
 
         public ActionResult AudioGallery()
         {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=" + Convert.ToInt32(ModuleNameEnum.AudioGallery), "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["AudioGallery"] = data;
+            return View();
             return View();
         }
         public ActionResult VideoGallery()

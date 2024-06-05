@@ -803,7 +803,7 @@
                                                 </ul>
                                             </li>
                                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                                                <a>Other Attraction</a>
+                                                <a>Attraction</a>
                                                 <ul class="sub-menu">
                                                     @foreach (var data in masterList.data)
                                                     {
@@ -990,20 +990,20 @@
                                         <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
                                     }
                                     @*<li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
-                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                                        <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
+                <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
+                <li id="menu-item-2038" class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
                                 </ul>
                             </li>
                             <li id="menu-item-630" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                                <a>Other Attraction</a>
+                                <a>Attraction</a>
                                 <ul class="sub-menu">
                                     @foreach (var data in masterList.data)
                                     {
                                         <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
                                     }
                                     @*<li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                        <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                <li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                                 </ul>
                             </li>
 
@@ -1035,17 +1035,25 @@
                                         <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a>
                                     </li>
                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                            <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
-                                        </li>*@
+                    <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                </li>*@
                                     @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                            <a href="/Home/TouristAtractionPlaces">Park</a>
-                                        </li>*@
+                    <a href="/Home/TouristAtractionPlaces">Park</a>
+                </li>*@
                                 </ul>
                             </li>
                             <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-628">
                                 <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
                             </li>
-
+                            <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                                <a><b>Gallery</b></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="/Home/PhotoGallery">Photo Gallery</a></li>
+                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/AudioGallery">Audio Gallery</a></li>
+                                    <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/VideoGallery">Video Gallery</a></li>
+                                    <li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375"><a href="/Home/ThreeSixtyDegreeGallery">360 degree Gallery</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav><!-- Navigation -->
                 </div>
@@ -1154,7 +1162,7 @@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
-                        <a>Other Attraction</a>
+                        <a>Attraction</a>
                         <ul class="sub-menu">
                             @foreach (var data in masterList.data)
                             {
@@ -1204,10 +1212,10 @@
                         <a href="/Home/TouristGuideByMap">Tourist Guide by Map</a>
                     </li>
 
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                    @*<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                         <a href="/Home/TicketBooking">Online Booking</a>
 
-                    </li>
+                    </li>*@
 
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
                         <a>Gallery</a>

@@ -104,7 +104,41 @@ namespace AyodhyaYatra_Web.Controllers
             ViewData["getAttractionById"] = data;
             return View();
         }
-
+        public ActionResult AyodhyaPersonality()
+        {
+            return View();
+        }
+        public ActionResult CopyrightPolicy()
+        {
+            return View();
+        }
+        public ActionResult TermsConditions()
+        {
+            return View();
+        }
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+        public ActionResult Map()
+        {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["PhotoGalleryImage"] = data;
+            return View();
+        }
+        public ActionResult DosDonts()
+        {
+            return View();
+        }
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+        public ActionResult KeyFacts()
+        {
+            return View();
+        }
         public ActionResult TouristGuideByMap()
         {
             return View();

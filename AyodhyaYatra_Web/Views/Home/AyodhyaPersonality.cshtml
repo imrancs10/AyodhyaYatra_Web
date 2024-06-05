@@ -1,0 +1,156 @@
+﻿@using AyodhyaYatra_Web.Models;
+@{
+    ViewBag.Title = "Personality of Ayodhya";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var attractionById = ViewData["getAttractionById"] as MasterResponse;
+}
+
+<section>
+    <div class="gap black-layer opc8 inner-banner">
+        <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/Temple/GAR00026.JPG);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center" style="padding-top:50px">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">Tourist Attraction</h1>
+                    <ol class="breadcrumb brd-rd30">
+                        <li class="breadcrumb-item">
+                            <a href="">@attractionById.MasterDataTypeName | </a>
+                        </li>
+                        <li class="active">@(attractionById.EnName !=null ? attractionById.EnName:"")</li>
+                    </ol>
+                </div>
+            </div><!-- Page Top Wrap -->
+        </div>
+    </div>
+</section>
+
+<!-- Page Content Starts -->
+<div id="main" class="page-content">
+    <div class="container">
+        <div class="row">
+            <div id="post-3358" class="post-3358 page type-page status-publish hentry">
+                <div data-elementor-type="wp-page" data-elementor-id="3358" class="elementor elementor-3358">
+
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-11084c0 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="11084c0" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ec1ed63" data-id="ec1ed63" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-164893d elementor-widget elementor-widget-plus_welcome_namaz" data-id="164893d" data-element_type="widget" data-widget_type="plus_welcome_namaz.default">
+                                        <div class="elementor-widget-container">
+
+
+                                            <section>
+                                                <div class="w-100 tq-pt-120 tq-pb-110 position-relative">
+                                                    <div class="container">
+                                                        <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
+                                                            <div class="tq-sec-title d-flex flex-column align-items-center text-center">
+
+                                                                <span>Welcome to Ayodhya</span>
+                                                                <h2 class="mb-0">@(attractionById.EnName != null ? attractionById.EnName : "") </h2>
+                                                            </div><!-- Section Title -->
+                                                        </div><!-- Section Title Wrapper -->
+                                                        <div class="tq-about-wrapper position-relative w-100">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-lg-5 order-lg-1">
+                                                                    <div class="tq-about-img-wrap d-flex align-items-start justify-content-end position-relative w-100">
+                                                                        <div class="tq-about-img2 overflow-hidden w-100">
+                                                                            <img decoding="async" class="img-fluid w-100" loading="lazy"
+                                                                                 src=@(attractionById.Images.Count>0? "https://api.ayodhya-dham.in/"+attractionById.Images[0].FilePath:"") alt="Together We Prosper The">
+                                                                        </div>
+                                                                        <!-- About Image -->
+
+                                                                    </div><!-- About Image Wrap -->
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-lg-7">
+                                                                    <div class="tq-about-cap tq-mt-30 d-flex flex-column align-items-start w-100">
+                                                                        <p>@(attractionById.EnDescription != null ? attractionById.EnDescription : "") </p>
+                                                                        @*<ul class="d-flex flex-column  mb-0">
+
+                                                                                <li>Shailputri Durga</li>
+
+
+                                                                                <li>Brahmacharini Durga</li>
+
+
+                                                                                <li>Chandraghanta Durga</li>
+
+
+                                                                                <li>Kushmanda Durga</li>
+
+                                                                            </ul>*@
+
+                                                                    </div><!-- About Cap -->
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- About Wrapper -->
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-d47a42b elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="d47a42b" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a1f3691" data-id="a1f3691" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-f08ba90 elementor-widget elementor-widget-plus_online_classes" data-id="f08ba90" data-element_type="widget" data-widget_type="plus_online_classes.default">
+                                        <div class="elementor-widget-container">
+
+                                            <section>
+                                                <div class="w-100 tq-pt-110 tq-pb-110 position-relative">
+                                                    <div class="container">
+                                                        <div class="tq-sec-title-wrapper d-flex align-items-center justify-content-between position-relative w-100">
+                                                            <div class="tq-sec-title d-flex flex-column">
+                                                                <span>Ayodhya Dham</span>
+                                                                <h2 class="mb-0">@attractionById.Images.Count Images of @(attractionById.EnName!=null?attractionById.EnName:"")</h2>
+                                                            </div><!-- Section Title -->
+                                                            <div class="tq-swiper-buttons d-inline-flex align-items-center">
+                                                                <div class="tq-swiper-btn tq-swiper-button-next"><i class="fa fa-angle-left"></i></div>
+                                                                <div class="tq-swiper-btn tq-swiper-button-prev"><i class="fa fa-angle-right"></i></div>
+                                                            </div><!-- Swiper Buttons -->
+                                                        </div><!-- Section Title Wrapper -->
+                                                        <div class="tq-courses-wrapper position-relative w-100">
+                                                            <div class="tq-courses-caro swiper w-100">
+                                                                <div class="swiper-wrapper">
+                                                                    @foreach (var item in attractionById.Images)
+                                                                    {
+
+                                                                        <div class="tq-course-item swiper-slide position-relative">
+                                                                            <div class="tq-course-box tq-bg-color2 d-flex flex-column position-relative w-100">
+                                                                                <div class="tq-course-img overflow-hidden position-relative w-100">
+                                                                                    <a href="#">
+                                                                                        <img class="img-fluid w-100"
+                                                                                             src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt="test"
+                                                                                             loading="lazy">
+                                                                                    </a>
+                                                                                </div><!-- Course Image -->
+                                                                            </div><!-- Course Box -->
+                                                                        </div><!-- Course Item -->
+                                                                    }
+
+                                                                </div>
+                                                            </div><!-- Courses Carousel -->
+                                                        </div><!-- Cources Wrapper -->
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+            </div><!-- #post-## -->
+
+        </div>
+    </div>
+</div>

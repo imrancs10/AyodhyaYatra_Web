@@ -4,6 +4,7 @@ using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -20,6 +21,13 @@ namespace AyodhyaYatra_Web.Controllers
             var data = HttpClientHelper<DashboardCountModel>.GetAPIResponse("Feedback/get/dashboardCount", "");
             var visitorDocType = HttpClientHelper<List<VisitorDocTypeModel>>.GetAPIResponse("visitors/get/doctype", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            var famousTemple = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/10", "").Take(4).ToList();
+            var newsUpdate = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
+            var specificAttractionDetail = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get", "");
+            
+            ViewData["specificAttractionDetail"] = specificAttractionDetail;
+            ViewData["newsUpdateList"] = newsUpdate;
+            ViewData["famouseTemple"] = famousTemple;
             ViewData["dashboardCount"] = data;
             ViewData["visitorDocType"] = visitorDocType;
             ViewData["APIUrl"] = BaseURL;
@@ -104,7 +112,41 @@ namespace AyodhyaYatra_Web.Controllers
             ViewData["getAttractionById"] = data;
             return View();
         }
-
+        public ActionResult AyodhyaPersonality()
+        {
+            return View();
+        }
+        public ActionResult CopyrightPolicy()
+        {
+            return View();
+        }
+        public ActionResult TermsConditions()
+        {
+            return View();
+        }
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+        public ActionResult Map()
+        {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
+            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            ViewData["PhotoGalleryImage"] = data;
+            return View();
+        }
+        public ActionResult DosDonts()
+        {
+            return View();
+        }
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+        public ActionResult KeyFacts()
+        {
+            return View();
+        }
         public ActionResult TouristGuideByMap()
         {
             return View();

@@ -1,0 +1,116 @@
+﻿@using AyodhyaYatra_Web.Models;
+@{
+    ViewBag.Title = "Key Facts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var photoGalleryImage = ViewData["PhotoGalleryImage"] as List<AttractionImageModel>;
+    var imageGroup = photoGalleryImage.Where(x => x.FileType.ToLower() == "image").GroupBy(x => x.ModuleId).ToList();
+}
+
+<section>
+    <div class="gap black-layer opc8 inner-banner">
+        <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center" style="padding-top:50px">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">Ayodhya Maps</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Footer >> </a> </li> <li class="active">Ayodhya Maps</li></ol>
+                </div>
+            </div><!-- Page Top Wrap -->
+        </div>
+    </div>
+</section>
+
+<!-- Page Content Starts -->
+<div id="main" class="page-content">
+    <div class="container">
+        <div class="row">
+            <div id="post-103" class="post-103 page type-page status-publish hentry">
+                <div data-elementor-type="wp-page" data-elementor-id="103" class="elementor elementor-103">
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-bcfca24 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="bcfca24" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a8ca888" data-id="a8ca888" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-26a22e6 elementor-widget elementor-widget-campaign_grid" data-id="26a22e6" data-element_type="widget" data-widget_type="campaign_grid.default">
+                                        <div class="elementor-widget-container">
+
+
+                                            <section>
+                                                <div class="gap excerpt_style">
+                                                    <div class="container">
+                                                        <div class="cause-sec remove-ext5">
+                                                            <div class="row">
+
+                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
+                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
+                                                                        <div class="cause-thmb">
+                                                                            <a href="#" itemprop="url">
+                                                                                <img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/14 Kosi & 5 Kosi Yatra Route.jpg" title="fdgd" class="attachment-370x285 size-370x285 wp-post-image" alt="" />
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="cause-inf">
+                                                                            <div class="image-count" style="font-size:20px !important">5 Kosi Yatra</div>
+                                                                            <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="\home\photogalleryDetail?attractionId=1">
+                                                                                View Gallery
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
+                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
+                                                                        <div class="cause-thmb">
+                                                                            <a href="#" itemprop="url">
+                                                                                <img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/14 Kosi & 5 Kosi Yatra Route 2.jpg" title="fdgd" class="attachment-370x285 size-370x285 wp-post-image" alt="" />
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="cause-inf">
+                                                                            <div class="image-count" style="font-size:20px !important">14 Kosi Parikrama</div>
+                                                                            <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="\home\photogalleryDetail?attractionId=1">
+                                                                                View Gallery
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
+                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
+                                                                        <div class="cause-thmb">
+                                                                            <a href="#" itemprop="url">
+                                                                                <img fetchpriority="high" decoding="async" width="370" height="285" src="../Content/wp-content/uploads/84 Kosi Yatra Map.jpg" title="fdgd" class="attachment-370x285 size-370x285 wp-post-image" alt="" />
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="cause-inf">
+                                                                            <div class="image-count" style="font-size:20px !important">84 Kosi Parikrama</div>
+                                                                            <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="\home\photogalleryDetail?attractionId=1">
+                                                                                View Gallery
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div><!-- #post-## -->
+
+        </div>
+    </div>
+</div>
+<style>
+    .image-count {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+    }
+</style>

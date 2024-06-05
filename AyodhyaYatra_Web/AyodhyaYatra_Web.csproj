@@ -1519,6 +1519,13 @@
     <Content Include="Views\Home\Master_DetailPage.cshtml" />
     <Content Include="Views\Home\TouristAtraction_Detail.cshtml" />
     <Content Include="Views\Home\QrLanding.cshtml" />
+    <Content Include="Views\Home\AyodhyaPersonality.cshtml" />
+    <Content Include="Views\Home\CopyrightPolicy.cshtml" />
+    <Content Include="Views\Home\TermsConditions.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Home\DosDonts.cshtml" />
+    <Content Include="Views\Home\KeyFacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

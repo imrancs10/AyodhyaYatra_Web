@@ -1,9 +1,14 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using System.Linq;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var dashboardCountData = ViewData["dashboardCount"] as DashboardCountModel;
     var visitorDocType = ViewData["visitorDocType"] as List<VisitorDocTypeModel>;
+    var famouseTemple = ViewData["famouseTemple"] as List<AttractionModel>;
+    var newsUpdateList = ViewData["newsUpdateList"] as List<NewsUpdateModel>;
+    var specificAttractionDetail = ViewData["specificAttractionDetail"] as List<AttractionModel>;
+
     var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
 
@@ -130,7 +135,7 @@
                                                                                                                 </div>
                                                                                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                                                                                     <p>
-                                                                                                                        <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" style="margin-top:-3%"/>
+                                                                                                                        <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" style="margin-top:-3%" />
                                                                                                                     </p>
                                                                                                                 </div>
                                                                                                             </div>
@@ -197,7 +202,7 @@
                                                                                 }
 
                                                                                 $.ajax({
-                                                                                    url: $('#hdnAPIURL').val() +'visitors/add',
+                                                                                    url: $('#hdnAPIURL').val() + 'visitors/add',
                                                                                     //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint
                                                                                     type: 'PUT',
                                                                                     contentType: 'application/json',
@@ -1103,74 +1108,113 @@
                                                                         <img decoding="async" class="img-fluid" src="../Content/wp-content/uploads/ramdarbar.png"
                                                                              alt="Service Image" loading="lazy">
                                                                     </div><!-- Service Image -->
-                                                                </div><div class="col-md-6 col-sm-6 col-lg-3">
-                                                                    <div class="tq-service-boxes d-flex flex-column w-100">
-                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                            <span>
-
-                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                <i class="flaticon-open-book" theme-clr></i>
-                                                                            </span>
-                                                                            <h4 class="mb-0">
-                                                                                <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                            </h4>
-                                                                            <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                        </div><!-- Service Box -->
-
-
-                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                            <span>
-
-                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                <i class="flaticon-open-book" theme-clr></i>
-                                                                            </span>
-                                                                            <h4 class="mb-0">
-                                                                                <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                            </h4>
-                                                                            <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                        </div><!-- Service Box -->
-
-                                                                    </div>
-                                                                </div><div class="col-md-6 col-sm-6 col-lg-3 order-lg-1">
-                                                                    <div class="tq-service-boxes d-flex flex-column w-100">
-
-                                                                        <div class="tq-service-box d-flex flex-column align-items-start w-100">
-                                                                            <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                                <span>
-
-                                                                                    <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                    <i class="flaticon-open-book" theme-clr></i>
-                                                                                </span>
-                                                                                <h4 class="mb-0">
-                                                                                    <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                                </h4>
-                                                                                <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                            </div><!-- Service Box -->
-
-
-                                                                            <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                                <span>
-
-                                                                                    <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                    <i class="flaticon-open-book" theme-clr></i>
-                                                                                </span>
-                                                                                <h4 class="mb-0">
-                                                                                    <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                                </h4>
-                                                                                <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                            </div><!-- Service Box -->
-                                                                        </div>
-                                                                    </div>
-
                                                                 </div>
+                                                                @for (int i = 0; i < 2; i++)
+                                                                {
+                                                                    if (i == 0)
+                                                                    {
+
+
+                                                                        <div class="col-md-6 col-sm-6 col-lg-3">
+                                                                            <div class="tq-service-boxes d-flex flex-column w-100">
+
+                                                                                @if (famouseTemple.Count >= 1)
+                                                                                {
+                                                                                    <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                        <span>
+                                                                                            <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                            <i class="flaticon-open-book" theme-clr></i>
+                                                                                        </span>
+                                                                                        <h4 class="mb-0">
+                                                                                            <a href="/Home/Master_DetailPage?Id=@famouseTemple[0].Id">@famouseTemple[0].EnName</a>
+                                                                                        </h4>
+                                                                                        @if (famouseTemple[0].EnDescription.Length > 100)
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[0].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[0].EnDescription</p>
+                                                                                        }
+                                                                                    </div>
+                                                                                }
+                                                                                @if (famouseTemple.Count >= 2)
+                                                                                {
+                                                                                    <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                        <span>
+                                                                                            <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                            <i class="flaticon-open-book" theme-clr></i>
+                                                                                        </span>
+                                                                                        <h4 class="mb-0">
+                                                                                            <a href="/Home/Master_DetailPage?Id=@famouseTemple[1].Id">@famouseTemple[1].EnName</a>
+                                                                                        </h4>
+                                                                                        @if (famouseTemple[1].EnDescription.Length > 100)
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[1].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[1].EnDescription</p>
+                                                                                        }
+                                                                                    </div>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="col-md-6 col-sm-6 col-lg-3 order-lg-1">
+                                                                            <div class="tq-service-boxes d-flex flex-column w-100">
+                                                                                <div class="tq-service-box d-flex flex-column align-items-start w-100">
+                                                                                    @if (famouseTemple.Count >= 3)
+                                                                                    {
+                                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                            <span>
+                                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                                <i class="flaticon-open-book" theme-clr></i>
+                                                                                            </span>
+                                                                                            <h4 class="mb-0">
+                                                                                                <a href="/Home/Master_DetailPage?Id=@famouseTemple[2].Id">@famouseTemple[2].EnName</a>
+                                                                                            </h4>
+                                                                                            @if (famouseTemple[2].EnDescription.Length > 100)
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[2].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[2].EnDescription</p>
+                                                                                            }
+
+                                                                                        </div>
+                                                                                    }
+                                                                                    @if (famouseTemple.Count >= 4)
+                                                                                    {
+                                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                            <span>
+                                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                                <i class="flaticon-open-book" theme-clr></i>
+                                                                                            </span>
+                                                                                            <h4 class="mb-0">
+                                                                                                <a href="/Home/Master_DetailPage?Id=@famouseTemple[3].Id">@famouseTemple[3].EnName</a>
+                                                                                            </h4>
+                                                                                            @if (famouseTemple[3].EnDescription.Length > 100)
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[3].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[3].EnDescription</p>
+                                                                                            }
+                                                                                        </div>
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    }
+                                                                }
+
+
                                                             </div><!-- Service Wrapper -->
                                                         </div>
                                                     </div>
@@ -1196,37 +1240,23 @@
                                                             <div class="row">
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             News
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "News").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
                                                                             </ul>
                                                                         </marquee>
                                                                     </div><!-- Fun Fact Box -->
@@ -1234,36 +1264,23 @@
 
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             Notification
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "Notification").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
 
                                                                             </ul>
                                                                         </marquee>
@@ -1272,37 +1289,23 @@
 
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             Documents
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "Document").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
                                                                             </ul>
                                                                         </marquee>
                                                                     </div><!-- Fun Fact Box -->
@@ -1339,153 +1342,37 @@
                                                         </div><!-- Section Title -->
                                                         <div class="tq-pillars-wrapper position-relative w-100">
                                                             <div class="row justify-content-center">
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
+                                                                @foreach (var data in specificAttractionDetail)
+                                                                {
+                                                                    <div class="col">
+                                                                        <div class="tq-pillar-box-wrap d-flex position-relative w-100">
+                                                                            <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
+                                                                                <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
+                                                                                    <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
+                                                                                         alt="(Faith)">
+                                                                                    <h4 class="mb-0">@data.EnName</h4>
+                                                                                </div><!-- Pillar Head -->
+                                                                                <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
+                                                                                    <span class="rounded-circle">
+                                                                                        <img class="img-fluid rounded-circle"
+                                                                                             src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
+                                                                                             loading="lazy">
+                                                                                    </span>
+                                                                                    @if (data.EnDescription.Length > 100)
+                                                                                    {
+                                                                                        <p class="mb-0">@data.EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <p class="mb-0">@data.EnDescription</p>
+                                                                                    }
+                                                                                </div>
+                                                                            </div><!-- Pillar Box -->
 
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Ram Mandir</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon2.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Ghat</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon3.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Kund</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Aashram</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon2.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Bhawan</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-
-
+                                                                            <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
+                                                                        </div>
+                                                                    </div>
+                                                                }
                                                             </div>
                                                         </div><!-- Pillars Wrapper -->
                                                     </div>

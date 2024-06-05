@@ -4,6 +4,7 @@ using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -20,6 +21,9 @@ namespace AyodhyaYatra_Web.Controllers
             var data = HttpClientHelper<DashboardCountModel>.GetAPIResponse("Feedback/get/dashboardCount", "");
             var visitorDocType = HttpClientHelper<List<VisitorDocTypeModel>>.GetAPIResponse("visitors/get/doctype", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+            var famousTemple = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/10", "").Take(4).ToList();
+            ViewData["famouseTemple"] = famousTemple;
+
             ViewData["dashboardCount"] = data;
             ViewData["visitorDocType"] = visitorDocType;
             ViewData["APIUrl"] = BaseURL;

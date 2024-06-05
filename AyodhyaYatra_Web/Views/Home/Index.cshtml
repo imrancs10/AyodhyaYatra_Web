@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var dashboardCountData = ViewData["dashboardCount"] as DashboardCountModel;
     var visitorDocType = ViewData["visitorDocType"] as List<VisitorDocTypeModel>;
+    var famouseTemple = ViewData["famouseTemple"] as List<AttractionModel>;
     var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
 
@@ -130,7 +131,7 @@
                                                                                                                 </div>
                                                                                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                                                                                     <p>
-                                                                                                                        <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" style="margin-top:-3%"/>
+                                                                                                                        <input class="wpcf7-form-control wpcf7-submit has-spinner tq-theme-btn tq-bg-theme rounded-pill" type="submit" value="Submit" style="margin-top:-3%" />
                                                                                                                     </p>
                                                                                                                 </div>
                                                                                                             </div>
@@ -197,7 +198,7 @@
                                                                                 }
 
                                                                                 $.ajax({
-                                                                                    url: $('#hdnAPIURL').val() +'visitors/add',
+                                                                                    url: $('#hdnAPIURL').val() + 'visitors/add',
                                                                                     //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint
                                                                                     type: 'PUT',
                                                                                     contentType: 'application/json',
@@ -1103,74 +1104,113 @@
                                                                         <img decoding="async" class="img-fluid" src="../Content/wp-content/uploads/ramdarbar.png"
                                                                              alt="Service Image" loading="lazy">
                                                                     </div><!-- Service Image -->
-                                                                </div><div class="col-md-6 col-sm-6 col-lg-3">
-                                                                    <div class="tq-service-boxes d-flex flex-column w-100">
-                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                            <span>
-
-                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                <i class="flaticon-open-book" theme-clr></i>
-                                                                            </span>
-                                                                            <h4 class="mb-0">
-                                                                                <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                            </h4>
-                                                                            <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                        </div><!-- Service Box -->
-
-
-                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                            <span>
-
-                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                <i class="flaticon-open-book" theme-clr></i>
-                                                                            </span>
-                                                                            <h4 class="mb-0">
-                                                                                <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                            </h4>
-                                                                            <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                        </div><!-- Service Box -->
-
-                                                                    </div>
-                                                                </div><div class="col-md-6 col-sm-6 col-lg-3 order-lg-1">
-                                                                    <div class="tq-service-boxes d-flex flex-column w-100">
-
-                                                                        <div class="tq-service-box d-flex flex-column align-items-start w-100">
-                                                                            <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                                <span>
-
-                                                                                    <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                    <i class="flaticon-open-book" theme-clr></i>
-                                                                                </span>
-                                                                                <h4 class="mb-0">
-                                                                                    <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                                </h4>
-                                                                                <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                            </div><!-- Service Box -->
-
-
-                                                                            <div class="tq-service-box d-flex flex-column align-items-center w-100">
-
-                                                                                <span>
-
-                                                                                    <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
-
-                                                                                    <i class="flaticon-open-book" theme-clr></i>
-                                                                                </span>
-                                                                                <h4 class="mb-0">
-                                                                                    <a href="services/quran-learning/index.html">Ram Mandir</a>
-                                                                                </h4>
-                                                                                <p class="mb-0">Provide rehab facility dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci...</p>
-                                                                            </div><!-- Service Box -->
-                                                                        </div>
-                                                                    </div>
-
                                                                 </div>
+                                                                @for (int i = 0; i < 2; i++)
+                                                                {
+                                                                    if (i == 0)
+                                                                    {
+
+
+                                                                        <div class="col-md-6 col-sm-6 col-lg-3">
+                                                                            <div class="tq-service-boxes d-flex flex-column w-100">
+
+                                                                                @if (famouseTemple.Count >= 1)
+                                                                                {
+                                                                                    <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                        <span>
+                                                                                            <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                            <i class="flaticon-open-book" theme-clr></i>
+                                                                                        </span>
+                                                                                        <h4 class="mb-0">
+                                                                                            <a href="/Home/Master_DetailPage?Id=@famouseTemple[0].Id">@famouseTemple[0].EnName</a>
+                                                                                        </h4>
+                                                                                        @if (famouseTemple[0].EnDescription.Length > 100)
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[0].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[0].EnDescription</p>
+                                                                                        }
+                                                                                    </div>
+                                                                                }
+                                                                                @if (famouseTemple.Count >= 2)
+                                                                                {
+                                                                                    <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                        <span>
+                                                                                            <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                            <i class="flaticon-open-book" theme-clr></i>
+                                                                                        </span>
+                                                                                        <h4 class="mb-0">
+                                                                                            <a href="/Home/Master_DetailPage?Id=@famouseTemple[1].Id">@famouseTemple[1].EnName</a>
+                                                                                        </h4>
+                                                                                        @if (famouseTemple[1].EnDescription.Length > 100)
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[1].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <p class="mb-0">@famouseTemple[1].EnDescription</p>
+                                                                                        }
+                                                                                    </div>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <div class="col-md-6 col-sm-6 col-lg-3 order-lg-1">
+                                                                            <div class="tq-service-boxes d-flex flex-column w-100">
+                                                                                <div class="tq-service-box d-flex flex-column align-items-start w-100">
+                                                                                    @if (famouseTemple.Count >= 3)
+                                                                                    {
+                                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                            <span>
+                                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                                <i class="flaticon-open-book" theme-clr></i>
+                                                                                            </span>
+                                                                                            <h4 class="mb-0">
+                                                                                                <a href="/Home/Master_DetailPage?Id=@famouseTemple[2].Id">@famouseTemple[2].EnName</a>
+                                                                                            </h4>
+                                                                                            @if (famouseTemple[2].EnDescription.Length > 100)
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[2].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[2].EnDescription</p>
+                                                                                            }
+
+                                                                                        </div>
+                                                                                    }
+                                                                                    @if (famouseTemple.Count >= 4)
+                                                                                    {
+                                                                                        <div class="tq-service-box d-flex flex-column align-items-center w-100">
+                                                                                            <span>
+                                                                                                <img class="d-flex flex-column" src="../Content/wp-content/uploads/circle.png" style="max-width: 40%;">
+                                                                                                <i class="flaticon-open-book" theme-clr></i>
+                                                                                            </span>
+                                                                                            <h4 class="mb-0">
+                                                                                                <a href="/Home/Master_DetailPage?Id=@famouseTemple[3].Id">@famouseTemple[3].EnName</a>
+                                                                                            </h4>
+                                                                                            @if (famouseTemple[3].EnDescription.Length > 100)
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[3].EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <p class="mb-0">@famouseTemple[3].EnDescription</p>
+                                                                                            }
+                                                                                        </div>
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    }
+                                                                }
+
+
                                                             </div><!-- Service Wrapper -->
                                                         </div>
                                                     </div>

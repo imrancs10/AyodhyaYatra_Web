@@ -49,9 +49,12 @@
                                                                             <div class="tq-recent-post-img position-relative overflow-hidden w-100">
 
                                                                                 <a href="javascript:void(0);">
-                                                                                    <img class="img-fluid w-100"
-                                                                                         src="@(masterData.Images[0]!=null? "https://api.ayodhya-dham.in/"+masterData.Images[0].FilePath:"")"
-                                                                                         alt="test" loading="lazy">
+                                                                                    @if (masterData.Images != null && masterData.Images.Count > 0 && masterData.Images[0] != null)
+                                                                                    {
+                                                                                        <img class="img-fluid w-100"
+                                                                                             src="https://api.ayodhya-dham.in/@masterData.Images[0].FilePath"
+                                                                                             alt="test" loading="lazy">
+                                                                                    }
                                                                                 </a>
                                                                             </div><!-- Recent Post Image -->
                                                                             <div class="tq-recent-cap d-flex flex-column position-relative w-100">
@@ -63,7 +66,14 @@
                                                                                     <li><a href="/Home/Master_DetailPage?Id=@masterData.Id"> @masterData.AttractionType</a></li>
                                                                                 </ul>
                                                                                 <span>
-                                                                                    @masterData.EnDescription
+                                                                                    @if (masterData.EnDescription.Length > 100)
+                                                                                    {
+                                                                                        @masterData.EnDescription.Substring(0, 100)<span>...</span>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        @masterData.EnDescription
+                                                                                    }
                                                                                 </span>
                                                                                 <!-- Post Meta -->
                                                                             </div><!-- Recent Post Cap -->

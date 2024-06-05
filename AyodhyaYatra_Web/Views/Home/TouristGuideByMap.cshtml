@@ -5,7 +5,7 @@
 
 
 <section>
-    <div class="gap black-layer opc8 inner-banner">
+    <div id="tgbm" class="gap black-layer opc8 inner-banner">
         <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
@@ -19,7 +19,7 @@
 </section>
 
 <section>
-    <div class="gap">
+    <div id="map-container" class="gap">
         <div class="container">
             <div class="cause-detail-wrp">
                 <div class="row">
@@ -30,14 +30,14 @@
                                 <h4 itemprop="headline">Tourist Guide By Map</h4><form action="#" method="post" id="commentform" class="row mrg10" novalidate>
                                     <p class="comment-notes"><span id="email-notes">Search by Place Name</span></p>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <select class="input" id="service_category" style="padding: 15px; width: 100%;">
+                                        <select class="input" id="service_category" style="padding: 15px; width: 100%;border:1px solid;border-radius:10px">
                                             <option value="1">Yatra</option>
                                             <option value="2">Attraction</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <select class="input" id="service_category" style="padding: 15px; width: 100%;">
+                                        <select class="input" id="service_category" style="padding: 15px; width: 100%; border: 1px solid; border-radius: 10px">
                                             <option value="1">Yatra</option>
                                             <option value="2">Temple</option>
                                             <option value="3">Ghat</option>
@@ -63,46 +63,73 @@
                         <div class="separator30 "></div>
                         <div class="distTableContent">
                             <!--<iframe src="https://www.google.com/maps/d/embed?mid=1fYK5NVQbnSHNvKkzC97Opi4Y7Sy_gyM&hl=en&ehbc=2E312F" width="640" height="480"></iframe>-->
-                           
-
                             <!--<div id="divAllTemple"><iframe src="https://www.google.com/maps/d/embed?mid=1b3o8LuMHiilQ8WGcrdyq_QhdLCo&hl=en_US&ehbc=2E312F" width="640" height="480"></iframe></div>-->
                             <div id="map" style="height: 500px; width: 100%;"></div>
                         </div>
-                        </div>
                     </div>
                 </div>
-
-
             </div>
+
+
         </div>
-        <script>
-            function initMap() {
-                // Center the map at some coordinate (e.g., the first marker)
-                var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
+    </div>
+    <script>
+        function initMap() {
+            // Center the map at some coordinate (e.g., the first marker)
+            var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: centerCoord
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: centerCoord
+            });
+
+            // List of coordinates to place markers
+            var coordinates = [
+                { lat: 26.7749, lng: 82.1998 },
+                { lat: 34.0522, lng: -118.2437 },
+                { lat: 40.7128, lng: -74.0060 }
+                // Add more coordinates as needed
+            ];
+
+            // Loop through the coordinates and place a marker for each
+            coordinates.forEach(function (coord) {
+                new google.maps.Marker({
+                    position: coord,
+                    map: map
                 });
-
-                // List of coordinates to place markers
-                var coordinates = [
-                    { lat: 26.7749, lng: 82.1998 },
-                    { lat: 34.0522, lng: -118.2437 },
-                    { lat: 40.7128, lng: -74.0060 }
-                    // Add more coordinates as needed
-                ];
-
-                // Loop through the coordinates and place a marker for each
-                coordinates.forEach(function (coord) {
-                    new google.maps.Marker({
-                        position: coord,
-                        map: map
-                    });
+            });
+        }
+        document.addEventListener("DOMContentLoaded", initMap);
+        // Initialize the map
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to get query parameters from the URL
+            function getQueryParams() {
+                let params = {};
+                window.location.search.substr(1).split("&").forEach(function (item) {
+                    let pair = item.split("=");
+                    params[pair[0]] = decodeURIComponent(pair[1]);
                 });
+                return params;
             }
 
-            // Initialize the map
-            google.maps.event.addDomListener(window, 'load', initMap);
-        </script>
-    </section>
+            // Get the query parameters
+            const queryParams = getQueryParams();
+
+            // Check if the specific parameter is present and its value
+            if (queryParams['hideHeader'] === 'true') {
+                // Hide the header and banner
+                document.getElementById('header').style.display = 'none';
+                document.getElementById('tgbm').style.display = 'none';
+                document.getElementById('map-container').style.padding = '0';
+            }
+            else {
+                document.getElementById('header').style.display = 'block';
+                document.getElementById('tgbm').style.display = 'block';
+                document.getElementById('map-container').style.padding = '100px 0';
+            }
+        });
+    </script>
+</section>

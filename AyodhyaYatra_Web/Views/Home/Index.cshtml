@@ -1,10 +1,12 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using System.Linq;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var dashboardCountData = ViewData["dashboardCount"] as DashboardCountModel;
     var visitorDocType = ViewData["visitorDocType"] as List<VisitorDocTypeModel>;
     var famouseTemple = ViewData["famouseTemple"] as List<AttractionModel>;
+    var newsUpdateList = ViewData["newsUpdateList"] as List<NewsUpdateModel>;
     var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
 
@@ -1236,37 +1238,23 @@
                                                             <div class="row">
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             News
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "News").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
                                                                             </ul>
                                                                         </marquee>
                                                                     </div><!-- Fun Fact Box -->
@@ -1274,36 +1262,23 @@
 
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             Notification
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "Notification").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
 
                                                                             </ul>
                                                                         </marquee>
@@ -1312,37 +1287,23 @@
 
 
                                                                 <div class="col-md-6 col-sm-12 col-lg-4">
-                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
+                                                                    <div class="fun-fact-box d-flex flex-column align-items-start position-relative w-100" style="height:300px;">
                                                                         <h4 class="mb-0">
                                                                             Documents
                                                                         </h4>
-                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();">
+                                                                        <marquee direction="up" x onmouseover="this.stop();" onmouseout="this.start();" style="height:200px;">
                                                                             <ul>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="https://timesofindia.indiatimes.com/city/Ayodhya/7-35-crore-visit-Ayodhya-vishwanath-Dham-in-opening-year/articleshow/96211539.cms">
-                                                                                        7.35 crore visit Ayodhya Vishwanath Dham in opening year
-                                                                                    </a>
-                                                                                    <span href="News&Events.html" style="text-align: center">
-                                                                                        <a href="#" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
-                                                                                    </span>
-                                                                                </li>
-
+                                                                                @foreach (var news in newsUpdateList.Where(x => x.NewsUpdateTypeName == "Document").ToList())
+                                                                                {
+                                                                                    <li>
+                                                                                        <a href="/Home/NewsEventsDetailPage?eventId=@news.Id">
+                                                                                            @news.EnTitle
+                                                                                        </a>
+                                                                                        <span style="text-align: center">
+                                                                                            <a href="/Home/NewsEventsDetailPage?eventId=@news.Id" style="padding: 1em; font-size:small; color: orange;"><b>Read More</b></a>
+                                                                                        </span>
+                                                                                    </li>
+                                                                                }
                                                                             </ul>
                                                                         </marquee>
                                                                     </div><!-- Fun Fact Box -->

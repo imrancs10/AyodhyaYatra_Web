@@ -22,8 +22,10 @@ namespace AyodhyaYatra_Web.Controllers
             var visitorDocType = HttpClientHelper<List<VisitorDocTypeModel>>.GetAPIResponse("visitors/get/doctype", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             var famousTemple = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/10", "").Take(4).ToList();
+            var newsUpdate = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
+            
+            ViewData["newsUpdateList"] = newsUpdate;
             ViewData["famouseTemple"] = famousTemple;
-
             ViewData["dashboardCount"] = data;
             ViewData["visitorDocType"] = visitorDocType;
             ViewData["APIUrl"] = BaseURL;

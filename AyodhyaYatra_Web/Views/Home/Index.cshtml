@@ -7,6 +7,8 @@
     var visitorDocType = ViewData["visitorDocType"] as List<VisitorDocTypeModel>;
     var famouseTemple = ViewData["famouseTemple"] as List<AttractionModel>;
     var newsUpdateList = ViewData["newsUpdateList"] as List<NewsUpdateModel>;
+    var specificAttractionDetail = ViewData["specificAttractionDetail"] as List<AttractionModel>;
+
     var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
 
@@ -1340,153 +1342,37 @@
                                                         </div><!-- Section Title -->
                                                         <div class="tq-pillars-wrapper position-relative w-100">
                                                             <div class="row justify-content-center">
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
+                                                                @foreach (var data in specificAttractionDetail)
+                                                                {
+                                                                    <div class="col">
+                                                                        <div class="tq-pillar-box-wrap d-flex position-relative w-100">
+                                                                            <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
+                                                                                <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
+                                                                                    <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
+                                                                                         alt="(Faith)">
+                                                                                    <h4 class="mb-0">@data.EnName</h4>
+                                                                                </div><!-- Pillar Head -->
+                                                                                <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
+                                                                                    <span class="rounded-circle">
+                                                                                        <img class="img-fluid rounded-circle"
+                                                                                             src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
+                                                                                             loading="lazy">
+                                                                                    </span>
+                                                                                    @if (data.EnDescription.Length > 100)
+                                                                                    {
+                                                                                        <p class="mb-0">@data.EnDescription.Substring(0, 100)<span>...</span></p>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <p class="mb-0">@data.EnDescription</p>
+                                                                                    }
+                                                                                </div>
+                                                                            </div><!-- Pillar Box -->
 
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Ram Mandir</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon2.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Ghat</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon3.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Kund</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon1.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Aashram</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-                                                                <div class="col">
-                                                                    <div class="tq-pillar-box-wrap d-flex position-relative w-100">
-                                                                        <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
-
-
-
-
-                                                                            <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
-                                                                                <img decoding="async" class="img-fluid" style="width: 40%;" src="../Content/wp-content/uploads/attractionicon2.png"
-                                                                                     alt="(Faith)">
-                                                                                <h4 class="mb-0">Bhawan</h4>
-                                                                            </div><!-- Pillar Head -->
-                                                                            <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
-                                                                                <span class="rounded-circle">
-                                                                                    <img class="img-fluid rounded-circle"
-                                                                                         src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
-                                                                                         loading="lazy">
-                                                                                </span>
-                                                                                <p class="mb-0">The greatest and largest read epics, the Ramayan and the Shri Ramcharitmanas are the mirror of the glory of Ayodhya.</p>
-                                                                            </div>
-
-
-
-
-                                                                        </div><!-- Pillar Box -->
-
-                                                                        <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
-                                                                    </div><!-- Pillar Box Wrap -->
-                                                                </div>
-
-
+                                                                            <img class="position-absolute tq-shape-bottom" src="../Content/wp-content/uploads/attractiontop.png">
+                                                                        </div>
+                                                                    </div>
+                                                                }
                                                             </div>
                                                         </div><!-- Pillars Wrapper -->
                                                     </div>

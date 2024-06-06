@@ -139,7 +139,25 @@ namespace AyodhyaYatra_Web.Controllers
         {
             return View();
         }
+        public ActionResult PhotoGallery()
+        {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
+            var AlbumData = data.Where(x => x.FileType.ToLower() == "image").GroupBy(x => x.ModuleId).Take(9).ToList();
+            var response = new List<AttractionImageModel>();
+            AlbumData.ForEach(x =>
+            {
+                response.AddRange(data.Where(y => y.ModuleId == x.Key).ToList());
+            });
+            ViewData["PhotoGalleryImage"] = response;
+            return View();
+        }
 
+        public ActionResult PhotoGalleryDetails()
+        {
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
+            ViewData["PhotoGalleryImage"] = data;
+            return View();
+        }
         public ActionResult AudioGallery()
         {
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=" + Convert.ToInt32(ModuleNameEnum.AudioGallery), "");
@@ -155,19 +173,31 @@ namespace AyodhyaYatra_Web.Controllers
 
         public ActionResult ThreeSixtyDegreeGallery([FromUri] int? attractionId)
         {
-            if (attractionId == null || attractionId <= 0)
-                return RedirectToAction("index");
-            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId=" + attractionId + "&imageType=360degreeimage", "");
-            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
-            ViewData["360Images"] = data;
+            var response = new List<AttractionModel>();
+            if (attractionId != null && attractionId > 0)
+            {
+                var data = HttpClientHelper<AttractionModel>.GetAPIResponse("master/attraction/get/" + attractionId, "");
+                response.Add(data);
+                ViewData["360Video"] = response;
+            }
+            else
+            {
+                //get all temple
+                var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/1", "");
+                response.AddRange(data.Where(x => x.Video360URL != null).Take(9));
+                ViewData["360Video"] = response;
+            }
+
             return View();
         }
 
-        public ActionResult PhotoGallery()
+        public ActionResult ThreeSixtyDegreeGalleryDetail()
         {
-            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
-            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
-            ViewData["PhotoGalleryImage"] = data;
+            var response = new List<AttractionModel>();
+            //get all temple
+            var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/1", "");
+            response.AddRange(data.Where(x => x.Video360URL != null).ToList());
+            ViewData["360Video"] = response;
             return View();
         }
 

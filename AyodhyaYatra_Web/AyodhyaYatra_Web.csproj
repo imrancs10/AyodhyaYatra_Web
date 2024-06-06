@@ -1069,6 +1069,8 @@
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\Home\DosDonts.cshtml" />
     <Content Include="Views\Home\KeyFacts.cshtml" />
+    <Content Include="Views\Home\ThreeSixtyDegreeGalleryDetail.cshtml" />
+    <Content Include="Views\Home\PhotoGalleryDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -143,13 +143,13 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult AudioGallery()
         {
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=" + Convert.ToInt32(ModuleNameEnum.AudioGallery), "");
-            //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
             ViewData["AudioGallery"] = data;
-            return View();
             return View();
         }
         public ActionResult VideoGallery()
         {
+            var data = HttpClientHelper<List<VideoGalaryModel>>.GetAPIResponse("Gallery/get/videogallery", "");
+            ViewData["VideoGallery"] = data;
             return View();
         }
 

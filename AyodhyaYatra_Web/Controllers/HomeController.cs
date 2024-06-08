@@ -250,6 +250,10 @@ namespace AyodhyaYatra_Web.Controllers
         }
         public ActionResult QrLanding([FromUri] string type, [FromUri] int id)
         {
+            if (type == "attraction")
+                //return RedirectToAction("attractionDetail", new { id = id });
+
+                return Redirect(Url.Action("attractionDetail", "Home") + "?id=" + id);
             return View();
         }
     }

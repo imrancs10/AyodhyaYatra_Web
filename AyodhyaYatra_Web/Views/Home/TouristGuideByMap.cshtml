@@ -31,13 +31,14 @@
                                     <p class="comment-notes"><span id="email-notes">Search by Place Name</span></p>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <select class="input" id="service_category" style="padding: 15px; width: 100%;border:1px solid;border-radius:10px">
+                                            <option value="0">Select Category</option>
                                             <option value="1">Yatra</option>
                                             <option value="2">Attraction</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <select class="input" id="service_category" style="padding: 15px; width: 100%; border: 1px solid; border-radius: 10px">
+                                        <select class="input" id="service_subcategory" style="padding: 15px; width: 100%; border: 1px solid; border-radius: 10px">
                                             <option value="1">Yatra</option>
                                             <option value="2">Temple</option>
                                             <option value="3">Ghat</option>
@@ -74,34 +75,7 @@
         </div>
     </div>
     <script>
-        function initMap() {
-            // Center the map at some coordinate (e.g., the first marker)
-            var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: centerCoord
-            });
-
-            // List of coordinates to place markers
-            var coordinates = [
-                { lat: 26.7749, lng: 82.1998 },
-                { lat: 34.0522, lng: -118.2437 },
-                { lat: 40.7128, lng: -74.0060 }
-                // Add more coordinates as needed
-            ];
-
-            // Loop through the coordinates and place a marker for each
-            coordinates.forEach(function (coord) {
-                new google.maps.Marker({
-                    position: coord,
-                    map: map
-                });
-            });
-        }
-        document.addEventListener("DOMContentLoaded", initMap);
-        // Initialize the map
-        google.maps.event.addDomListener(window, 'load', initMap);
+     
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -130,6 +104,266 @@
                 document.getElementById('tgbm').style.display = 'block';
                 document.getElementById('map-container').style.padding = '100px 0';
             }
+
+            initMap();
         });
+
+        $(document).ready(function () {
+            var urls = {
+                getYatraList: "https://api.ayodhya-dham.in/v1/get/yatras",
+                getAttractionByYatraId:"https://api.ayodhya-dham.in/v1/master/attraction/get/yatra/"
+            }
+            $('#service_category').change(function (e) {
+                var selectedCatId = e.target.value;
+                var url;
+                if (selectedCatId === "1")
+                    url = urls.getYatraList;
+                // Call the API using jQuery AJAX
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        if (selectedCatId === "1") {
+                            populateSelect(data, "Yatra");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("There was a problem with the AJAX request:", error);
+                        $("#apiData").text("Error loading data");
+                    }
+                });
+            });
+
+            $('#service_subcategory').change(function (e) {
+                var selectedCatId = $('#service_category').val();
+                var selectedSubCatId = e.target.value;
+                var url;
+                if (selectedCatId === "1")
+                    url = urls.getAttractionByYatraId + selectedSubCatId;
+                // Call the API using jQuery AJAX
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        if (selectedCatId === "1") {
+                            var latLngData = getLatLong(data?.attractions)
+                            initMapWithRoute(data?.attractions);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("There was a problem with the AJAX request:", error);
+                        $("#apiData").text("Error loading data");
+                    }
+                });
+            });
+        });
+
+        function populateSelect(data,selectType) {
+            var $select = $('#service_subcategory');
+            $select.empty(); // Clear any existing options
+            $select.append('<option value="">Select an ' + selectType + '</option>'); // Default option
+
+            $.each(data, function (index, yatra) {
+                var option = $('<option></option>').attr('value', yatra.id).text(yatra.enName);
+                $select.append(option);
+            });
+        }
+
+        const getLatLong = (data) => {
+            return data?.map(function (yatra) {
+                return { lat: yatra.latitude, lng: yatra.longitude };
+            });
+        }
+        const createMarker = (latlng, data,map, url, index, user_Current_Lat, user_Current_Lng) => {
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                icon: "http://www.google.com/mapfiles/marker_yellow.png",
+                title: data?.enName ?? '',
+                label: {
+                    text: data?.sequenceNo == "" || data?.sequenceNo === null ? `${data?.enName}` : data?.sequenceNo,
+                    color: 'black'
+                },
+                zIndex: 100000000000000
+            });
+            if (data !== undefined) {
+              new google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.setContent(renderToString(""));
+                    infowindow.open(map, marker);
+                });
+            }
+        }
+        function initMap(coordinates,data,catId) {
+            debugger;
+            // Center the map at some coordinate (e.g., the first marker)
+            var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
+            document.getElementById('map')
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: centerCoord
+            });
+
+            // List of coordinates to place markers
+            var coordinates = coordinates?.length > 0 ? coordinates: [
+                { lat: 26.7749, lng: 82.1998 },
+                { lat: 34.0522, lng: -118.2437 },
+                { lat: 40.7128, lng: -74.0060 }
+                // Add more coordinates as needed
+            ];
+
+            // Loop through the coordinates and place a marker for each
+            data?.forEach(function (coord) {
+                createMarker({ lat: parseFloat(coord?.latitude), lng: parseFloat(coord?.longitude) }, coord, map);
+            });
+        }
+        // Initialize the map
+      //  google.maps.event.addDomListener(window, 'load', initMap);
+
+        function initMapWithRoute(yatraArray) {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 5,
+                center: new google.maps.LatLng(22.9734, 78.6569) // Center the map to India
+            });
+
+            // Create the Directions service and renderer
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderers = [];
+
+            // Function to calculate and display the route
+            function calculateAndDisplayRoute(directionsService, start, end, waypoints, segmentIndex) {
+                directionsService.route({
+                    origin: start,
+                    destination: end,
+                    waypoints: waypoints,
+                    optimizeWaypoints: true,
+                    travelMode: 'DRIVING'
+                }, function (response, status) {
+                    if (status === 'OK') {
+                        if (!directionsRenderers[segmentIndex]) {
+                            directionsRenderers[segmentIndex] = new google.maps.DirectionsRenderer({ suppressMarkers: true });
+                            directionsRenderers[segmentIndex].setMap(map);
+                        }
+                        directionsRenderers[segmentIndex].setDirections(response);
+
+                        // Add markers for each waypoint and start/end points with custom info windows
+                        var routeLegs = response.routes[0].legs;
+                        routeLegs.forEach(function (leg, legIndex) {
+                            var markerStart = new google.maps.Marker({
+                                position: leg.start_location,
+                                map: map,
+                                title: leg.start_address
+                            });
+
+                            var markerEnd = new google.maps.Marker({
+                                position: leg.end_location,
+                                map: map,
+                                title: leg.end_address
+                            });
+
+
+
+                            addInfoWindow(markerStart, yatraArray[segmentIndex * 25 + legIndex]);
+                            if (legIndex === routeLegs.length - 1) {
+                                addInfoWindow(markerEnd, yatraArray[segmentIndex * 25 + legIndex + 1]);
+                            }
+                        });
+                    } else {
+                        window.alert('Directions request failed due to ' + status);
+                    }
+                });
+            }
+
+            // Function to split the waypoints into segments
+            function splitWaypoints(yatraArray) {
+                var segments = [];
+                for (var i = 0; i < yatraArray.length; i += 25) {
+                    var segment = yatraArray.slice(i, i + 25);
+                    segments.push(segment);
+                }
+                return segments;
+            }
+
+            // Function to process the segments and draw the route
+            function processSegments(segments) {
+                for (var i = 0; i < segments.length; i++) {
+                    var start = new google.maps.LatLng(segments[i][0].latitude, segments[i][0].longitude);
+                    var end = new google.maps.LatLng(segments[i][segments[i].length - 1].latitude, segments[i][segments[i].length - 1].longitude);
+                    var waypoints = segments[i].slice(1, -1).map(function (yatra) {
+                        return {
+                            location: new google.maps.LatLng(yatra.latitude, yatra.longitude),
+                            stopover: true
+                        };
+                    });
+                    calculateAndDisplayRoute(directionsService, start, end, waypoints, i);
+                }
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    var userMarker = new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-pushpin.png', // Google user icon URL
+                        title: "Your Location"
+                    });
+                }, function () {
+                    handleLocationError(true, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, map.getCenter());
+            }
+
+            function handleLocationError(browserHasGeolocation, pos) {
+                var infoWindow = new google.maps.InfoWindow();
+                var pos = { lat: pos.lat(), lng: pos.lng() };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+
+            // Function to add info window to a marker
+            function addInfoWindow(marker, yatra) {
+                var imagesHtml = yatra.images.map(function (imageUrl) {
+                    return `<img style="margin: 0 3px 3px 0;width: 100px;height: 75px;border: 1px solid;border-radius: 4px;" src="${"https://api.ayodhya-dham.in/" + imageUrl.thumbPath}" alt="${yatra.name}" class="info-window-image" />`;
+                }).join('');
+
+                var contentString = `
+                              <div>
+                                  <h3>${yatra.enName}</h3>
+                                  <p>Description: ${yatra.enDescription}</p>
+                                  <p>Sequence No.: ${yatra.sequenceNo}</p>
+                                  <div style="display:flex;flex-direction: row;flex-wrap: wrap;">
+                                  ${imagesHtml}
+                                  </div>
+                                  <p><a href="${yatra.website}" target="_blank">Website</a></p>
+                                  <p><a href="https://www.google.com/maps/dir/?api=1&destination=${yatra.latitude},${yatra.longitude}" target="_blank">Navigate</a></p>
+                              </div>
+                          `;
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker.addListener('click', function () {
+                    infowindow.open(marker.getMap(), marker);
+                });
+            }
+
+            // Split the yatraArray into segments and process them
+            var segments = splitWaypoints(yatraArray);
+            processSegments(segments);
+        }
     </script>
 </section>

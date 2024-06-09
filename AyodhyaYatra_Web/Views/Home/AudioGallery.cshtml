@@ -1,6 +1,8 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Models;
+@{
     ViewBag.Title = "AudioGallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var audioGalary = ViewData["AudioGallery"] as List<AttractionImageModel>;
 }
 
 <section>
@@ -31,13 +33,13 @@
                                         <div class="elementor-widget-container">
                                             <script>
 
-				jQuery(document).ready(function($) {
+                                                jQuery(document).ready(function ($) {
 
-					jQuery(".plyr").musicPlayer({
-					  elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'], // ==> This will display in  the order it is inserted
+                                                    jQuery(".plyr").musicPlayer({
+                                                        elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'], // ==> This will display in  the order it is inserted
 
-					});
-				});
+                                                    });
+                                                });
 
                                             </script>
                                             <style>
@@ -78,53 +80,32 @@
                                                                 </div>
                                                                 <div class="col-md-12 col-sm-12 col-lg-9">
                                                                     <div class="tq-sermons-boxes d-flex flex-column align-items-end position-relative w-100">
+                                                                        @foreach (var audio in audioGalary)
+                                                                        {
+                                                                            <div class="plyr-box w-100 pat-bg back-blend-multiply">
+                                                                                <div class="plyr v4 w-100">
+                                                                                    <ul class="playlist mb-0 list-unstyled">
+                                                                                        <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg"
+                                                                                            data-artist="By UP Tourism)">
+                                                                                            @if (audio.FilePath != null)
+                                                                                            {
+                                                                                                <a href="https://api.ayodhya-dham.in/@audio.FilePath" title="">@audio.Remark</a>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <a href="sample1.mp3" title="">@audio.Remark</a>
+                                                                                            }
 
-                                                                        <div class="plyr-box w-100 pat-bg back-blend-multiply">
-                                                                            <div class="plyr v4 w-100">
-                                                                                <ul class="playlist mb-0 list-unstyled">
-                                                                                    <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg" data-artist="(22 January 2024)"><a href="sample1.mp3" title="">Sample 1</a></li>
-                                                                                </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
                                                                             </div>
-                                                                        </div><!-- Player Wrap -->
+                                                                        }
 
-                                                                        <div class="plyr-box w-100 pat-bg back-blend-multiply">
-                                                                            <div class="plyr v4 w-100">
-                                                                                <ul class="playlist mb-0 list-unstyled">
-                                                                                    <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg" data-artist="(22 January 2024)"><a href="sample1.mp3" title="">Sample 1</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div><!-- Player Wrap -->
-
-                                                                        <div class="plyr-box w-100 pat-bg back-blend-multiply">
-                                                                            <div class="plyr v4 w-100">
-                                                                                <ul class="playlist mb-0 list-unstyled">
-                                                                                    <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg" data-artist="(22 January 2024)"><a href="sample1.mp3" title="">Sample 1</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div><!-- Player Wrap -->
-
-                                                                        <div class="plyr-box w-100 pat-bg back-blend-multiply">
-                                                                            <div class="plyr v4 w-100">
-                                                                                <ul class="playlist mb-0 list-unstyled">
-                                                                                    <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg" data-artist="(22 January 2024)"><a href="sample1.mp3" title="">Sample 1</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div><!-- Player Wrap -->
-
-                                                                        <div class="plyr-box w-100 pat-bg back-blend-multiply">
-                                                                            <div class="plyr v4 w-100">
-                                                                                <ul class="playlist mb-0 list-unstyled">
-                                                                                    <li data-cover="https://st.depositphotos.com/1842549/3995/i/450/depositphotos_39953765-stock-photo-speaker-icon.jpg" data-artist="(22 January 2024)"><a href="sample1.mp3" title="">Sample 1</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div><!-- Player Wrap -->
-
-
-
-                                                                    </div><!-- Sermons Boxes -->
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div><!-- Sermons Wrapper -->
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </section>

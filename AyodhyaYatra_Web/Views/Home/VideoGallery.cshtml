@@ -1,6 +1,8 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Models;
+@{
     ViewBag.Title = "VideoGallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var videoGalary = ViewData["VideoGallery"] as List<VideoGalaryModel>;
 }
 
 <section>
@@ -36,61 +38,25 @@
                                                     <div class="container">
                                                         <div class="cause-sec remove-ext5">
                                                             <div class="row">
-                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/WVHkMVn9jsw?si=iN8nGH88UQ9rRgZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline">Murti Isthapna</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/WVHkMVn9jsw?si=iN8nGH88UQ9rRgZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline">Murti Isthapna</h5>
+                                                                @foreach (var video in videoGalary)
+                                                                {
+                                                                    <div class="col-md-4 col-sm-6 col-lg-4 ">
+                                                                        <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
+                                                                            <div class="cause-thmb">
+                                                                                <a href="#" itemprop="url">
+                                                                                    <iframe width="560" height="315" src="@video.videoUrl"
+                                                                                            title="YouTube video player" frameborder="0"
+                                                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                                                            allowfullscreen>
+                                                                                    </iframe>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="cause-inf">
+                                                                                <h5 itemprop="headline">@video.enName</h5>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/WVHkMVn9jsw?si=iN8nGH88UQ9rRgZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline">Murti Isthapna</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/WVHkMVn9jsw?si=iN8nGH88UQ9rRgZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline">Murti Isthapna</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4 col-sm-6 col-lg-4 ">
-                                                                    <div class="cause-bx brd-rd5 wow noanim" data-wow-duration="1s">
-                                                                        <div class="cause-thmb">
-                                                                            <a href="#" itemprop="url"><iframe width="560" height="315" src="https://www.youtube.com/embed/WVHkMVn9jsw?si=iN8nGH88UQ9rRgZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></a>
-                                                                        </div>
-                                                                        <div class="cause-inf">
-                                                                            <h5 itemprop="headline">Murti Isthapna</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>

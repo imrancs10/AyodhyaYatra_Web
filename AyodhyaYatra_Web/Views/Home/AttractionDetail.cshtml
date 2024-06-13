@@ -82,6 +82,33 @@
                                                                     </div><!-- About Cap -->
                                                                 </div>
                                                             </div>
+                                                            <div class="row">
+                                                                <h5 class="heading3 text-dark">Contact Details</h5>
+                                                                <p><strong>Address: </strong> Regional Tourist Office, Ayodhya </p>
+                                                                <p>
+                                                                    <strong>Website: </strong>
+                                                                    <a class="word-break" href="https://ayodhya-dham.in/home/attractionDetail?id=@attractionById.Id">https://ayodhya-dham.in/home/attractionDetail?id=@attractionById.Id</a>
+                                                                </p>
+                                                                <p>
+                                                                    <strong>Location: </strong>
+                                                                    <a href="https://www.google.com/maps/dir/@attractionById.Latitude N,@attractionById.Longitude E" target="_blank">
+                                                                        <i class="fa fa-location-arrow"></i> MAP
+                                                                    </a>
+                                                                </p>
+                                                                <br />
+                                                                <div class="row py-4">
+                                                                    <div class="col-12">
+                                                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                                            <a class="btn btn-warning" href="/Home/TouristGuideByMap?showFull=1">Tourist Guide by Map</a>
+                                                                            @*<a class="btn btn-success" href="#/Temple360Gallery?id=226">Photo Gallery</a>*@
+                                                                            <a class="btn btn-primary" href="/Home/ThreeSixtyDegreeGallery?attractionId=@attractionById.Id">360° Video Gallery</a>
+                                                                            <a class="btn btn-danger" href="https://www.google.com/maps/dir/?api=1&amp;origin=Ayodhya Junction&amp;destination=@attractionById.Latitude,@attractionById.Longitude" target="_blank">
+                                                                                <i class="fa fa-location-arrow"></i> Navigate
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div><!-- About Wrapper -->
                                                     </div>
                                                 </div>

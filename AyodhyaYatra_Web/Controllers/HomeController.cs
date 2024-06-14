@@ -1,6 +1,7 @@
 ﻿using AyodhyaYatra_Web.Global;
 using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
+using AyodhyaYatra_Web.Models.Masters;
 using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
 using System;
@@ -26,12 +27,17 @@ namespace AyodhyaYatra_Web.Controllers
             var famousTemple = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/10", "").Take(4).ToList();
             var newsUpdate = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
             var specificAttractionDetail = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get", "");
+            var allMasterData = HttpClientHelper<MasterDataTypeModel>.GetAPIResponse("master/attraction/type", "");
+            var templedataIndex = allMasterData.data.FindIndex(x => x.name == "Temple");
+            if (templedataIndex != -1)
+                allMasterData.data.RemoveAt(templedataIndex);
 
             ViewData["specificAttractionDetail"] = specificAttractionDetail;
             ViewData["newsUpdateList"] = newsUpdate;
             ViewData["famouseTemple"] = famousTemple;
             ViewData["dashboardCount"] = data;
             ViewData["visitorDocType"] = visitorDocType;
+            ViewData["allMasterData"] = allMasterData;
             ViewData["APIUrl"] = BaseURL;
             return View();
         }

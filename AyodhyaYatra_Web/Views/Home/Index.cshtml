@@ -1,4 +1,5 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Models.Masters;
 @using System.Linq;
 @{
     ViewBag.Title = "Index";
@@ -8,6 +9,7 @@
     var famouseTemple = ViewData["famouseTemple"] as List<AttractionModel>;
     var newsUpdateList = ViewData["newsUpdateList"] as List<NewsUpdateModel>;
     var specificAttractionDetail = ViewData["specificAttractionDetail"] as List<AttractionModel>;
+    var allMasterData = ViewData["allMasterData"] as MasterDataTypeModel;
 
     var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
@@ -1537,16 +1539,10 @@
 
                                                                                     <div class="tq-package-body d-flex flex-column align-items-start">
                                                                                         <ul class="d-flex flex-column align-items-start list-unstyled mb-0">
-                                                                                            <li> &#9679; Aashram</li>
-                                                                                            <li> &#9679; Bhawan</li>
-                                                                                            <li> &#9679; Famous Temple</li>
-                                                                                            <li> &#9679; Ghat</li>
-                                                                                            <li> &#9679; Gurudwara</li>
-                                                                                            <li> &#9679; Heritage</li>
-                                                                                            <li> &#9679; Kila</li>
-                                                                                            <li> &#9679; Kund</li>
-                                                                                            <li> &#9679; Mahal</li>
-
+                                                                                            @foreach (var data in allMasterData.data)
+                                                                                            {
+                                                                                                <li> &#9679; <a href="/Home/MasterDetail?id=@data.id">@data.name</a></li>
+                                                                                            }
                                                                                         </ul>
 
                                                                                     </div><!-- Package Body -->
@@ -1583,14 +1579,14 @@
 
                                                                                     <div class="tq-package-body d-flex flex-column align-items-start">
                                                                                         <ul class="d-flex flex-column align-items-start list-unstyled mb-0">
-                                                                                            <li> &#9679; Historial & Religious Places</li>
-                                                                                            <li> &#9679; Entertainment & Shopping Places</li>
-                                                                                            <li> &#9679; Educational Institute</li>
-                                                                                            <li> &#9679; Industries</li>
-                                                                                            <li> &#9679; Hotel, Resorts & Restourants</li>
-                                                                                            <li> &#9679; Railways & Transports</li>
-                                                                                            <li> &#9679; Hospitals</li>
-                                                                                            <li> &#9679; ATMs</li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=17&heading=Historical and Religious Places">Historical &amp; Religious Places</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=8,22,25&heading=Entertainment and Shopping Places">Entertainment &amp; Shopping Places</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=3&heading=Educational Institutions">Educational Institutions</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=19&heading=Industries">Industries</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=4,7&heading=Hotels, Resorts and Restaurants">Hotels, Resorts and Restaurants</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=21,24&heading=Railway and Transport">Railway &amp; Transport</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=23&heading=Hospitals">Hospitals</a></li>
+                                                                                            <li> &#9679; <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">ATM</a></li>
                                                                                         </ul>
 
                                                                                     </div><!-- Package Body -->

@@ -113,21 +113,30 @@
         $(document).ready(function () {
             var urls = {
                 getYatraList: "https://api.ayodhya-dham.in/v1/get/yatras",
-                getAttractionByYatraId:"https://api.ayodhya-dham.in/v1/master/attraction/get/yatra/"
+                getAttractionByYatraId: "https://api.ayodhya-dham.in/v1/master/attraction/get/yatra/",
+                getAllAttraction: "https://api.ayodhya-dham.in/v1/master/attraction?PageNo=1&PageSize=10000"
             }
+            let attractionData = [];
+
             $('#service_category').change(function (e) {
                 var selectedCatId = e.target.value;
                 var url;
                 if (selectedCatId === "1")
                     url = urls.getYatraList;
+                else if (selectedCatId === "2")
+                    url = urls.getAllAttraction;
                 // Call the API using jQuery AJAX
                 $.ajax({
                     url: url,
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    success: function (res) {
                         if (selectedCatId === "1") {
-                            populateSelect(data, "Yatra");
+                            populateSelect(res, "Yatra");
+                        }
+                        else if (selectedCatId === "2") {
+                            populateSelect(res?.data, "Attraction", true);
+                            attractionData = res?.data;
                         }
                     },
                     error: function (xhr, status, error) {
@@ -144,28 +153,46 @@
                 if (selectedCatId === "1")
                     url = urls.getAttractionByYatraId + selectedSubCatId;
                 // Call the API using jQuery AJAX
-                $.ajax({
-                    url: url,
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        if (selectedCatId === "1") {
-                            var latLngData = getLatLong(data?.attractions)
-                            initMapWithRoute(data?.attractions);
+                if (url !== undefined) {
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            if (selectedCatId === "1") {
+                                var latLngData = getLatLong(data?.attractions)
+                                initMapWithRoute(data?.attractions);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("There was a problem with the AJAX request:", error);
+                            $("#apiData").text("Error loading data");
                         }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("There was a problem with the AJAX request:", error);
-                        $("#apiData").text("Error loading data");
+                    });
+                }
+
+
+                if (selectedCatId === "2") {
+                    debugger;
+                    var selectedAttraction;
+                    if (selectedSubCatId !== "0") {
+                        selectedAttraction = attractionData?.filter(x => x.id?.toString() === selectedSubCatId)
                     }
-                });
+                    else {
+                        selectedAttraction = attractionData;
+                    }
+                    var latLngData = getLatLong(selectedAttraction)
+                    initMap(latLngData, selectedAttraction, selectedCatId);
+                }
             });
         });
 
-        function populateSelect(data,selectType) {
+        function populateSelect(data,selectType,selectAll) {
             var $select = $('#service_subcategory');
             $select.empty(); // Clear any existing options
             $select.append('<option value="">Select an ' + selectType + '</option>'); // Default option
+            if (selectAll)
+                $select.append('<option value="0">Select All</option>'); // Default option
 
             $.each(data, function (index, yatra) {
                 var option = $('<option></option>').attr('value', yatra.id).text(yatra.enName);
@@ -182,19 +209,16 @@
             var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
-                icon: "http://www.google.com/mapfiles/marker_yellow.png",
+                icon: "https://maps.gstatic.com/mapfiles/ms2/micons/blue-pushpin.png",
                 title: data?.enName ?? '',
                 label: {
-                    text: data?.sequenceNo == "" || data?.sequenceNo === null ? `${data?.enName}` : data?.sequenceNo,
+                    text: data?.enName == "" || data?.enName === null ? data?.sequenceNo : `${data?.enName}`,
                     color: 'black'
                 },
                 zIndex: 100000000000000
             });
             if (data !== undefined) {
-              new google.maps.event.addListener(marker, 'click', function () {
-                    infowindow.setContent(renderToString(""));
-                    infowindow.open(map, marker);
-                });
+                addInfoWindow(marker, data)
             }
         }
         function initMap(coordinates,data,catId) {
@@ -336,36 +360,37 @@
             }
 
             // Function to add info window to a marker
-            function addInfoWindow(marker, yatra) {
-                var imagesHtml = yatra.images.map(function (imageUrl) {
-                    return `<img style="margin: 0 3px 3px 0;width: 100px;height: 75px;border: 1px solid;border-radius: 4px;" src="${"https://api.ayodhya-dham.in/" + imageUrl.thumbPath}" alt="${yatra.name}" class="info-window-image" />`;
-                }).join('');
-
-                var contentString = `
-                              <div>
-                                  <h3>${yatra.enName}</h3>
-                                  <p>Description: ${yatra.enDescription}</p>
-                                  <p>Sequence No.: ${yatra.sequenceNo}</p>
-                                  <div style="display:flex;flex-direction: row;flex-wrap: wrap;">
-                                  ${imagesHtml}
-                                  </div>
-                                  <p><a href="${yatra.website}" target="_blank">Website</a></p>
-                                  <p><a href="https://www.google.com/maps/dir/?api=1&destination=${yatra.latitude},${yatra.longitude}" target="_blank">Navigate</a></p>
-                              </div>
-                          `;
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-
-                marker.addListener('click', function () {
-                    infowindow.open(marker.getMap(), marker);
-                });
-            }
+           
 
             // Split the yatraArray into segments and process them
             var segments = splitWaypoints(yatraArray);
             processSegments(segments);
+        }
+        function addInfoWindow(marker, yatra) {
+            var imagesHtml = yatra.images.map(function (imageUrl) {
+                return `<img style="margin: 0 3px 3px 0;width: 100px;height: 75px;border: 1px solid;border-radius: 4px;" src="${"https://api.ayodhya-dham.in/" + imageUrl.thumbPath}" alt="${yatra.name}" class="info-window-image" />`;
+            }).join('');
+
+            var contentString = `
+                   <div>
+                       <h3>${yatra.enName}</h3>
+                       <p>Description: ${yatra.enDescription}</p>
+                       <p>Sequence No.: ${yatra.sequenceNo}</p>
+                       <div style="display:flex;flex-direction: row;flex-wrap: wrap;">
+                       ${imagesHtml}
+                       </div>
+                      ${yatra.website === undefined ? '' :' <p><a href="${yatra.website}" target="_blank">Website</a></p>'}
+                       <p><a href="https://www.google.com/maps/dir/?api=1&destination=${yatra.latitude},${yatra.longitude}" target="_blank">Navigate</a></p>
+                   </div>
+               `;
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(marker.getMap(), marker);
+            });
         }
     </script>
 </section>

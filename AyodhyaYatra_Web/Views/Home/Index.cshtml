@@ -64,6 +64,7 @@
                                                                         </div>
                                                                     </div><!-- Featured Item -->
                                                                     <!-- The overlay and popup container -->
+                                                                    
                                                                     <div id="myOverlay" class="overlay" style="z-index: 99999;">
                                                                         <div class="popup">
                                                                             <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -73,12 +74,15 @@
                                                                                         <div class="sec-tl text-center">
                                                                                             <h2 itemprop="headline">Registration Form</h2>
                                                                                         </div>
-                                                                                        <div class="row cnt-frm cnt-mp ">
-
-                                                                                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                                                                        <div style="color:forestgreen;font-size:30px" class="message" id="message"></div>
+                                                                                        <div class="row cnt-frm cnt-mp " id="visitor-reg-container">
+                                                                                            <div class="col-md-6 col-sm-12 col-lg-6 ">
                                                                                                 <div class="mrg10">
                                                                                                     <div class="wpcf7 no-js" id="wpcf7-f2027-p115-o1" lang="en-US" dir="ltr">
-                                                                                                        <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                                                                                                        <div class="screen-reader-response">
+                                                                                                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                                                                                                            <ul></ul>
+                                                                                                        </div>
                                                                                                         <form style="color: black;" id="visitorForm" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
                                                                                                             <div style="display: none;">
                                                                                                                 <input type="hidden" name="_wpcf7" value="2027" />
@@ -89,7 +93,7 @@
                                                                                                                 <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
                                                                                                             </div>
                                                                                                             <div class="row mrg10">
-                                                                                                                <div style="color:forestgreen" class="message"></div>
+
                                                                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                     <p>
                                                                                                                         <span class="wpcf7-form-control-wrap" data-name="text-471">
@@ -150,7 +154,68 @@
                                                                                                 <div class="cnt-img brd-rd5"><img decoding="async" src="../Content/wp-content/uploads/ramdarbar.png" alt="Image" itemprop="image"></div>
                                                                                             </div>
                                                                                         </div>
+                                                                                        <div class="container">
+                                                                                            <button class="btn btn-primary" id="printButton">Print Pass</button>
+                                                                                            <div class="row align-items-center"  id="visitor-pass"vocab="                   ">
+                                                                                                <div class="col-md-12 col-sm-12 col-lg-12 tq-package-box d-flex flex-wrap align-items-center w-60 " style="background-color: cornsilk; background-image: url(wp-content/uploads/bglotus.png);">
+                                                                                                    <div class="container">
+                                                                                                        <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100 mt-4">
+                                                                                                            <div class="tq-sec-title d-flex flex-column align-items-center text-center">
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-md-6 col-sm-12 col-lg-4">
+                                                                                                                        <img decoding="async" class="img-fluid" src="../content/wp-content/uploads/logoAyodhyanew.png" style="height: auto; width: 50%;" alt="">
+                                                                                                                    </div>
+
+                                                                                                                    <div class="col-md-6 col-sm-12 col-lg-8">
+                                                                                                                        <h2 class="mb-0">अयोध्या धाम यात्रा</h2>
+                                                                                                                        <h4 class="mb-0">Ayodhya Dham Yatra</h4>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="fun-fact-box d-flex flex-column align-items-center position-relative w-70" style="background-color:#ffd580; padding: 10px;">
+                                                                                                                    <h4 class="mb-0">Visitor Pass / आगंतुक पास</h4>
+                                                                                                                    <h4 class="mb-0" id="visitorId">Visitor Pass / आगंतुक पास</h4>
+
+                                                                                                                </div>
+                                                                                                            </div><!-- Section Title -->
+                                                                                                        </div><!-- Section Title Wrapper -->
+                                                                                                        <div class="tq-about-wrapper position-relative w-100">
+                                                                                                            <div class="row">
+                                                                                                                <div class="col-md-6 col-sm-12 col-lg-4">
+                                                                                                                    <div class="tq-about-cap d-flex flex-column align-items-center w-100">
+                                                                                                                        <img id="visitorPassQrImage" src="wp-content/uploads/qr.png" style="width: 70%; height: auto;">
+                                                                                                                        <!--	<a  class="tq-theme-btn bg-white rounded-pill" href="aboutus.html" >Read More</a>-->
+                                                                                                                    </div><!-- About Cap -->
+                                                                                                                </div>
+                                                                                                                <div class="col-md-6 col-sm-12 col-lg-8">
+                                                                                                                    <div class="tq-post-boxes d-flex flex-column w-100">
+
+                                                                                                                        <div class="tq-post-box d-flex flex-wrap align-items-center w-100">
+
+
+                                                                                                                            <div class="tq-post-cap d-flex flex-column">
+                                                                                                                                <h3 class="mb-0">नाम / Name : <b  id="visitorName"></b></h3>
+                                                                                                                                <br>
+                                                                                                                                <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
+                                                                                                                                <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
+                                                                                                                                <h4 class="mb-0">वर्ग / Category : <b>General</b> </h4>
+                                                                                                                            </div>
+                                                                                                                        </div><!-- Post Box -->
+
+
+
+                                                                                                                    </div><!-- Post Boxes -->
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div><!-- About Wrapper -->
+                                                                                                    </div>
+
+
+
+                                                                                                </div>
+                                                                                            </div><!-- Package Wrapper -->
+                                                                                        </div>
                                                                                     </div>
+                                                                                  
 
                                                                                 </div><!-- Post Box -->
                                                                             </section>
@@ -159,6 +224,8 @@
 
                                                                     <script>
                                                                         $(document).ready(function () {
+                                                                            $('#visitor-pass').hide();
+                                                                            $('#printButton').hide();
                                                                             $('#visitorForm').on('submit', function (event) {
                                                                                 event.preventDefault(); // Prevent the form from submitting the default way
 
@@ -169,7 +236,6 @@
                                                                                     documentTypeId: parseInt($('#documentTypeId').val()),
                                                                                     address: $('#address').val()
                                                                                 };
-                                                                                debugger;
                                                                                 if (visitorData.name.length <= 3) {
                                                                                     $('#nameError').text("Please enter name");
                                                                                     return;
@@ -202,27 +268,65 @@
                                                                                 } else {
                                                                                     $('#addressError').text("");
                                                                                 }
-
+                                                                                var apiBaseUrl = 'https://localhost:7216/v1/';// $('#hdnAPIURL').val();
                                                                                 $.ajax({
-                                                                                    url: $('#hdnAPIURL').val() + 'visitors/add',
+                                                                                    url: apiBaseUrl + 'visitors/add',
                                                                                     //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint
                                                                                     type: 'PUT',
                                                                                     contentType: 'application/json',
                                                                                     data: JSON.stringify(visitorData),
                                                                                     success: function (response) {
-                                                                                        $('#message').text('Visitor information saved successfully!').css('color', 'green');
-                                                                                        setTimeout(() => {
-                                                                                            $('#message').text('').css('color', 'green');
-                                                                                            closePopup();
-                                                                                        }, 3000)
+                                                                                        $("#visitorId").text('Registration ID : '+response?.id);
+                                                                                        $("#visitorName").text(response?.name);
+                                                                                        $("#visitorMobile").text(response?.mobile);
+                                                                                        $("#visitorDocId").text(response?.documentNumber);
+                                                                                        $("#visitorDocType").text(response?.documentType);
+                                                                                        $('#visitor-pass').show();
+                                                                                        $('#visitorPassQrImage').attr('src', 'data:image/png;base64,' + response.qrImage)
+                                                                                        $('#message').html('Visitor information saved successfully!').css('color', 'green');
+                                                                                        $('#visitor-reg-container').hide();
+                                                                                        $('#printButton').show()
                                                                                     },
                                                                                     error: function (error) {
                                                                                         $('#message').text('Error saving visitor information.').css('color', 'red');
                                                                                     }
                                                                                 });
+
+                                                                                $('#printButton').click(function () {
+                                                                                    // Create a new window for printing
+                                                                                    var printWindow = window.open('', '', 'height=600,width=800');
+                                                                                    printWindow.document.write('<html><head><title>Visitor Pass</title>');
+                                                                                    printWindow.document.write('</head><body >');
+                                                                                    printWindow.document.write($('#visitor-pass').html());
+                                                                                    printWindow.document.write('</body></html>');
+
+                                                                                    printWindow.document.close();
+                                                                                    printWindow.focus();
+
+                                                                                    // Trigger the print dialog
+                                                                                    printWindow.print();
+                                                                                    printWindow.close();
+                                                                                });
                                                                             });
                                                                         });
                                                                     </script>
+                                                                    <style>
+                                                                        .visitor-pass {
+                                                                            width: 430px;
+                                                                            border: 1px solid;
+                                                                            border-radius: 17px;
+                                                                            padding: 14px;
+                                                                            height: 300px;
+                                                                        }
+                                                                            .visitor-pass .header {
+                                                                                display: flex;
+                                                                                width: 100%;
+                                                                            }
+                                                                            .visitor-pass-logo{
+                                                                                width:75px !important;
+                                                                                height:75px !important;
+                                                                            }
+                                                                    </style>
 
                                                                     <!-- The overlay and popup container -->
                                                                     <div id="myCustomOverlay" class="custom-overlay" style="z-index: 99999;">

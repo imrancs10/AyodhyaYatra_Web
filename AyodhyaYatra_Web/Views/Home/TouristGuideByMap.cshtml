@@ -267,6 +267,7 @@
                     optimizeWaypoints: true,
                     travelMode: 'DRIVING'
                 }, function (response, status) {
+                    debugger;
                     if (status === 'OK') {
                         if (!directionsRenderers[segmentIndex]) {
                             directionsRenderers[segmentIndex] = new google.maps.DirectionsRenderer({ suppressMarkers: true });
@@ -280,13 +281,15 @@
                             var markerStart = new google.maps.Marker({
                                 position: leg.start_location,
                                 map: map,
-                                title: leg.start_address
+                                title: yatraArray[segmentIndex * 25 + legIndex].enName,
+                                label: yatraArray[segmentIndex * 25 + legIndex].enName
                             });
 
                             var markerEnd = new google.maps.Marker({
                                 position: leg.end_location,
                                 map: map,
-                                title: leg.end_address
+                                title: yatraArray[segmentIndex * 25 + legIndex+1].enName,
+                                label: yatraArray[segmentIndex * 25 + legIndex+1].enName
                             });
 
 

@@ -127,18 +127,16 @@
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-courses-wrapper position-relative w-100">
                                                             <div class="tq-courses-caro swiper w-100">
-                                                                <div class="swiper-wrapper">
+                                                                <div class="swiper-wrapper gallery">
                                                                     @foreach (var item in attractionById.Images)
                                                                     {
 
                                                                         <div class="tq-course-item swiper-slide position-relative">
                                                                             <div class="tq-course-box tq-bg-color2 d-flex flex-column position-relative w-100">
                                                                                 <div class="tq-course-img overflow-hidden position-relative w-100">
-                                                                                    <a href="#">
-                                                                                        <img class="img-fluid w-100" style="width:355px;height:237px;"
-                                                                                             src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt=@attractionById.EnName
-                                                                                             loading="lazy">
-                                                                                    </a>
+                                                                                    <img class="img-fluid w-100" style="width:355px;height:237px;"
+                                                                                         src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt=@attractionById.EnName
+                                                                                         loading="lazy">
                                                                                 </div><!-- Course Image -->
                                                                             </div><!-- Course Box -->
                                                                         </div><!-- Course Item -->
@@ -150,7 +148,18 @@
                                                     </div>
                                                 </div>
                                             </section>
-
+                                            <div class="popup" id="gallery-popup">
+                                                <button id="btn-closePupup" class="close">X</button>
+                                                <button id="btn-pre" class="nav-button prev">❮</button>
+                                                <img id="popup-img" src="" alt="Popup Image">
+                                                <button id="btn-next" class="nav-button next">❯</button>
+                                                <div class="dots" id="dots-container">
+                                                    @for (int i = 0; i < attractionById.Images.Count; i++)
+                                                    {
+                                                        <span class="dot" onclick="jumpToImage(@i)"></span>
+                                                    }
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -164,4 +173,140 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            var currentIndex = 0;
+    var images = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(attractionById.Images.Select(i => "https://api.ayodhya-dham.in/" + i.FilePath)));
+
+    function openPopup(index) {
+    debugger;
+        currentIndex = index;
+        updatePopupImage();
+        document.getElementById('gallery-popup').style.display = 'block';
+    }
+
+        $("#btn-closePupup").click(() => {
+            document.getElementById('gallery-popup').style.display = 'none';
+        });
+
+        $("#btn-next").click(() => {
+            debugger;
+            currentIndex = (currentIndex + 1) % images.length;
+            updatePopupImage();
+        });
+
+        $("#btn-pre").click(() => {
+            debugger;
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updatePopupImage();
+        });
+
+        document.querySelectorAll('.gallery img').forEach((img, index) => {
+            img.addEventListener('click', () => openPopup(index));
+        });
+
+        function updatePopupImage() {
+            document.getElementById('popup-img').src = images[currentIndex];
+            updateDots(currentIndex);
+        }
+
+
+
+        updateDots(currentIndex);
+    });
+    function jumpToImage(index) {
+        debugger;
+        var images = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(attractionById.Images.Select(i => "https://api.ayodhya-dham.in/" + i.FilePath)));
+        document.getElementById('popup-img').src = images[index];
+        updateDots(index);
+    }
+    function updateDots(currentIndexParam) {
+        var dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            if (index === currentIndexParam) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    </script>
+    <style>
+        /* Add custom styles here */
+        .gallery {
+          
+        }
+
+            .gallery img {
+                cursor: pointer;
+            }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000000;
+        }
+
+            .popup img {
+                max-width: 90%;
+                max-height: 90%;
+            }
+
+            .popup .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, 0.7);
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .popup .prev {
+                left: 10px;
+            }
+
+            .popup .next {
+                right: 10px;
+            }
+
+            .popup .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(255, 255, 255, 0.7);
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+            .dot.active {
+                background-color: #717171;
+            }
+    </style>
 </div>

@@ -40,7 +40,12 @@
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
                     <h1 itemprop="headline">Gallery</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Gallery >> </a> </li> <li class="active">Photo Gallery Detail</li></ol>
+                    <ol class="breadcrumb brd-rd30">
+                        <li class="breadcrumb-item">
+                            <a href="#">Gallery >> </a>
+                        </li>
+                        <li class="active">Photo Gallery Detail</li>
+                    </ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -59,15 +64,11 @@
                             <hr>
                             <div class="clr"></div>
                             <div class="gallery">
-                                @foreach (var item in photoGalleryImage)
+                                @foreach (var item in photoGalleryImage ?? new List<AttractionImageModel>())
                                 {
                                     if (!string.IsNullOrEmpty(item.FilePath))
                                     {
-                                        <a href="#"
-                                           data-lightbox="mygallery">
-                                            <img src="@("https://api.ayodhya-dham.in/"+item.FilePath)" title="@item.FileType" style="max-width:100%;max-height:100%">
-                                        </a>
-                                        @*<img title="@item.Subject" src="~/FilesUploaded/PhotoGalary/@item.filename" onclick="openFullImg(this.src)" style="max-width:100%;max-height:100%">*@
+                                        <img src="@("https://api.ayodhya-dham.in/"+item.FilePath)" title="@item.FileType" loading="lazy" style="max-width:100%;max-height:100%">
                                     }
                                     else
                                     {
@@ -87,6 +88,18 @@
                     </div>
                 </div>
             </section>
+            <div class="popup" id="gallery-popup">
+                <button id="btn-closePupup" class="close">X</button>
+                <button id="btn-pre" class="nav-button prev">❮</button>
+                <img id="popup-img" src="" alt="Popup Image">
+                <button id="btn-next" class="nav-button next">❯</button>
+                <div class="dots" id="dots-container">
+                    @for (int i = 0; i < photoGalleryImage.Count; i++)
+                    {
+                        <span class="dot" onclick="jumpToImage(@i)"></span>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -94,8 +107,144 @@
     $(document).ready(function () {
         $('.navbar-nav').find('li').removeClass('active');
         $('a[href="/Home/PhotoGallery"]').parent().addClass('active')
+            var currentIndex = 0;
+    var images = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(photoGalleryImage.Select(i => "https://api.ayodhya-dham.in/" + i.FilePath)));
+
+    function openPopup(index) {
+    debugger;
+        currentIndex = index;
+        updatePopupImage();
+        document.getElementById('gallery-popup').style.display = 'flex';
+    }
+
+        $("#btn-closePupup").click(() => {
+            document.getElementById('gallery-popup').style.display = 'none';
+        });
+
+        $("#btn-next").click(() => {
+            debugger;
+            currentIndex = (currentIndex + 1) % images.length;
+            updatePopupImage();
+        });
+
+        $("#btn-pre").click(() => {
+            debugger;
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updatePopupImage();
+        });
+
+        document.querySelectorAll('.gallery img').forEach((img, index) => {
+            img.addEventListener('click', () => openPopup(index));
+        });
+
+        function updatePopupImage() {
+            document.getElementById('popup-img').src = images[currentIndex];
+            updateDots(currentIndex);
+        }
+
+
+
+        updateDots(currentIndex);
     });
+    function jumpToImage(index) {
+        debugger;
+        var images = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(photoGalleryImage.Select(i => "https://api.ayodhya-dham.in/" + i.FilePath)));
+        document.getElementById('popup-img').src = images[index];
+        updateDots(index);
+    }
+    function updateDots(currentIndexParam) {
+        var dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            if (index === currentIndexParam) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
 </script>
+<style>
+    /* Add custom styles here */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .gallery img {
+            max-width: 200px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius:18px;
+        }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 10000000;
+    }
+
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .popup .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .popup .prev {
+            left: 10px;
+        }
+
+        .popup .next {
+            right: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+    .dots {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        .dot.active {
+            background-color: #717171;
+        }
+</style>
 <script>
 
     $("#nav-btn").click(function () {
@@ -104,4 +253,5 @@
 
 
 </script>
+
 

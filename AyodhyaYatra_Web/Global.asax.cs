@@ -14,6 +14,8 @@ using System.Data.Entity;
 using System.Net;
 using Org.BouncyCastle.Utilities.Net;
 using Antlr.Runtime.Tree;
+using System.Globalization;
+using System.Threading;
 
 namespace AyodhyaYatra_Web
 {
@@ -27,6 +29,21 @@ namespace AyodhyaYatra_Web
             //}
             //restrict Click Jacking 
             //HttpContext.Current.Response.AddHeader("x-frame-options", "DENY");
+
+            HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
+            if (cookie != null && cookie.Value != null)
+            {
+                var cultureInfo = new CultureInfo(cookie.Value);
+                Thread.CurrentThread.CurrentCulture = cultureInfo;
+                Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            }
+            else
+            {
+                // Default culture
+                var cultureInfo = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentCulture = cultureInfo;
+                Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            }
         }
         protected void Application_EndRequest()
         {

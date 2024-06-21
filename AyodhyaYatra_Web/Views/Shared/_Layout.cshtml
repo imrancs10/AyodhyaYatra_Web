@@ -1,5 +1,6 @@
 ﻿@using AyodhyaYatra_Web.Global
 @using AyodhyaYatra_Web.Infrastructure.Utility
+@using AyodhyaYatra_Web.Resources;
 @{
     var masterYatraList = GetYatra();
     var masterList = GetMasterDataType();
@@ -31,6 +32,7 @@
     <link rel='stylesheet' id='animate-css' href='../Content/wp-content/plugins/ingeniofy/css/animate.min1e39.css?ver=6.4.2' type='text/css' media='all' />
     <link rel='stylesheet' id='owl-carousel-css' href='../Content/wp-content/plugins/ingeniofy/css/owl.carousel.min1e39.css?ver=6.4.2' type='text/css' media='all' />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/jquery.cookie.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNA3lxRwq-kie-4fKPwzsO3FFcdHdUwDQ" async defer></script>
     <style id='wp-emoji-styles-inline-css' type='text/css'>
 
@@ -721,8 +723,8 @@
                                 <div class="tq-header-topbar d-flex flex-wrap justify-content-between position-relative w-100">
                                     <ul class="tq-top-links text-white d-inline-flex align-items-center list-unstyled mb-0">
                                         <li>
-
-                                            Government of Uttar Pradesh
+                                            @Resource.GovernmentofUttarPradesh
+                                            @*Government of Uttar Pradesh*@
                                         </li>
                                         <li>
                                             <input style="width: 8em;" type="text" class="searchTerm" placeholder="Search">
@@ -738,10 +740,16 @@
 
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-635" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-635">
-                                                        <a>English</a>
+                                                        <a id="selectedLanguage">English</a>
                                                         <ul class="sub-menu">
-                                                            <li class="tq-social-links text-white d-inline-flex align-items-center"><a href="https://twitter.com/" title="" itemprop="url" target="_blank">English </a></li>
-                                                            <li class="tq-social-links text-white d-inline-flex align-items-center"><a href="https://twitter.com/" title="" itemprop="url" target="_blank">Hindi</a></li>
+                                                            <li class="tq-social-links text-white d-inline-flex align-items-center">
+                                                                @*<a href="https://twitter.com/" title="" itemprop="url" target="_blank">English </a>*@
+                                                                @Html.ActionLink("English", "Change", "Language", new { lang = "en-US" }, null)
+                                                            </li>
+                                                            <li class="tq-social-links text-white d-inline-flex align-items-center">
+                                                                @*<a href="https://twitter.com/" title="" itemprop="url" target="_blank">Hindi</a>*@
+                                                                @Html.ActionLink("Hindi", "Change", "Language", new { lang = "hi-IN" }, null)
+                                                            </li>
                                                         </ul>
                                                     </li>
 
@@ -1285,7 +1293,7 @@
                                             Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region.<br /><br />
                                             Download Our Mobile App : <span><a href="../Content/wp-content/uploads/Ayodhya-Yatra.apk"><span class=" lazy-load-image-background blur lazy-load-image-loaded" style="color: transparent; display: inline-block;"><img src="../Content/wp-content/uploads/android.png" style="width: 32px; height: 32px;"></span></a></span>
                                         </p>
-                                        
+
                                     </div>
                                     <div></div>
                                 </div>
@@ -1428,6 +1436,27 @@
             var iframe = document.querySelector('.custom-video-container iframe');
             var videoSrc = iframe.src;
             iframe.src = videoSrc;
+        }
+        $(document).ready(function () {
+            var languageSelected = readCookie("Language");
+            if (languageSelected == "en-US")
+                $("#selectedLanguage").text("English")
+            else
+                $("#selectedLanguage").text("Hindi")
+
+
+        });
+
+        function readCookie(name) {
+            var readCookie = $.cookie(name);
+            readCookie = readCookie.split('&');
+            if (readCookie.length != 0) {
+                return readCookie[0];
+                //for (i = 0; i < readCookie.length; i++) {
+                //    readCookie[i] = readCookie[i].split('=');
+                //    popUps[readCookie[i][0]] = readCookie[i][1];
+                //}
+            }
         }
     </script>
 

@@ -117,7 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>के बारे में</value>
+  </data>
+  <data name="ATM" xml:space="preserve">
+    <value>ATM</value>
+  </data>
+  <data name="AudioGallery" xml:space="preserve">
+    <value>Audio Gallery</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Directory</value>
+  </data>
+  <data name="EducationalInstitutions" xml:space="preserve">
+    <value>Educational Institutions</value>
+  </data>
+  <data name="EntertainmentShoppingPlaces" xml:space="preserve">
+    <value>Entertainment &amp;amp; Shopping Places</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
   <data name="GovernmentofUttarPradesh" xml:space="preserve">
     <value>उत्तर प्रदेश सरकार</value>
+  </data>
+  <data name="Helpline" xml:space="preserve">
+    <value>Helpline</value>
+  </data>
+  <data name="HistoricalReligiousPlaces" xml:space="preserve">
+    <value>Historical &amp;amp; Religious Places</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Hospitals" xml:space="preserve">
+    <value>Hospitals</value>
+  </data>
+  <data name="HotelsResortsandRestaurants" xml:space="preserve">
+    <value>Hotels, Resorts and Restaurants</value>
+  </data>
+  <data name="Industries" xml:space="preserve">
+    <value>Industries</value>
+  </data>
+  <data name="NewsEvents" xml:space="preserve">
+    <value>News &amp;amp; Events</value>
+  </data>
+  <data name="OnlineBooking" xml:space="preserve">
+    <value>Online Booking</value>
+  </data>
+  <data name="OtherAttraction" xml:space="preserve">
+    <value>Other Attraction</value>
+  </data>
+  <data name="OverviewandConcept" xml:space="preserve">
+    <value>अवलोकन और संकल्पना</value>
+  </data>
+  <data name="PersonalityofAyodhya" xml:space="preserve">
+    <value>अयोध्या का व्यक्तित्व</value>
+  </data>
+  <data name="PhotoGallery" xml:space="preserve">
+    <value>Photo Gallery</value>
+  </data>
+  <data name="PublicUtilities" xml:space="preserve">
+    <value>Public Utilities</value>
+  </data>
+  <data name="RailwayTransport" xml:space="preserve">
+    <value>Railway &amp;amp; Transport</value>
+  </data>
+  <data name="ThreeSixtydegreeGallery" xml:space="preserve">
+    <value>360 degree Gallery</value>
+  </data>
+  <data name="TouristGuide" xml:space="preserve">
+    <value>Tourist Guide</value>
+  </data>
+  <data name="TouristGuidebyMap" xml:space="preserve">
+    <value>Tourist Guide by Map</value>
+  </data>
+  <data name="VideoGallery" xml:space="preserve">
+    <value>Video Gallery</value>
+  </data>
+  <data name="YatrainAyodhya" xml:space="preserve">
+    <value>Yatra in Ayodhya</value>
   </data>
 </root>

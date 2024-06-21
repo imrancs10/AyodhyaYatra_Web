@@ -61,11 +61,263 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ATM.
+        /// </summary>
+        public static string ATM {
+            get {
+                return ResourceManager.GetString("ATM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Gallery.
+        /// </summary>
+        public static string AudioGallery {
+            get {
+                return ResourceManager.GetString("AudioGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact Us.
+        /// </summary>
+        public static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory.
+        /// </summary>
+        public static string Directory {
+            get {
+                return ResourceManager.GetString("Directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Educational Institutions.
+        /// </summary>
+        public static string EducationalInstitutions {
+            get {
+                return ResourceManager.GetString("EducationalInstitutions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entertainment &amp;amp; Shopping Places.
+        /// </summary>
+        public static string EntertainmentShoppingPlaces {
+            get {
+                return ResourceManager.GetString("EntertainmentShoppingPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback.
+        /// </summary>
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery.
+        /// </summary>
+        public static string Gallery {
+            get {
+                return ResourceManager.GetString("Gallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Government of Uttar Pradesh.
         /// </summary>
         public static string GovernmentofUttarPradesh {
             get {
                 return ResourceManager.GetString("GovernmentofUttarPradesh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Helpline.
+        /// </summary>
+        public static string Helpline {
+            get {
+                return ResourceManager.GetString("Helpline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Historical &amp;amp; Religious Places.
+        /// </summary>
+        public static string HistoricalReligiousPlaces {
+            get {
+                return ResourceManager.GetString("HistoricalReligiousPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hospitals.
+        /// </summary>
+        public static string Hospitals {
+            get {
+                return ResourceManager.GetString("Hospitals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotels, Resorts and Restaurants.
+        /// </summary>
+        public static string HotelsResortsandRestaurants {
+            get {
+                return ResourceManager.GetString("HotelsResortsandRestaurants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Industries.
+        /// </summary>
+        public static string Industries {
+            get {
+                return ResourceManager.GetString("Industries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News &amp;amp; Events.
+        /// </summary>
+        public static string NewsEvents {
+            get {
+                return ResourceManager.GetString("NewsEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online Booking.
+        /// </summary>
+        public static string OnlineBooking {
+            get {
+                return ResourceManager.GetString("OnlineBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Attraction.
+        /// </summary>
+        public static string OtherAttraction {
+            get {
+                return ResourceManager.GetString("OtherAttraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview and Concept.
+        /// </summary>
+        public static string OverviewandConcept {
+            get {
+                return ResourceManager.GetString("OverviewandConcept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personality of Ayodhya.
+        /// </summary>
+        public static string PersonalityofAyodhya {
+            get {
+                return ResourceManager.GetString("PersonalityofAyodhya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo Gallery.
+        /// </summary>
+        public static string PhotoGallery {
+            get {
+                return ResourceManager.GetString("PhotoGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public Utilities.
+        /// </summary>
+        public static string PublicUtilities {
+            get {
+                return ResourceManager.GetString("PublicUtilities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Railway &amp;amp; Transport.
+        /// </summary>
+        public static string RailwayTransport {
+            get {
+                return ResourceManager.GetString("RailwayTransport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 360 degree Gallery.
+        /// </summary>
+        public static string ThreeSixtydegreeGallery {
+            get {
+                return ResourceManager.GetString("ThreeSixtydegreeGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tourist Guide.
+        /// </summary>
+        public static string TouristGuide {
+            get {
+                return ResourceManager.GetString("TouristGuide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tourist Guide by Map.
+        /// </summary>
+        public static string TouristGuidebyMap {
+            get {
+                return ResourceManager.GetString("TouristGuidebyMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video Gallery.
+        /// </summary>
+        public static string VideoGallery {
+            get {
+                return ResourceManager.GetString("VideoGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yatra in Ayodhya.
+        /// </summary>
+        public static string YatrainAyodhya {
+            get {
+                return ResourceManager.GetString("YatrainAyodhya", resourceCulture);
             }
         }
     }

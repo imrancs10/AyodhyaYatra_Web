@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>About us</value>
+  </data>
+  <data name="AboutAyodhya" xml:space="preserve">
+    <value>About Ayodhya</value>
   </data>
   <data name="ATM" xml:space="preserve">
     <value>ATM</value>
@@ -126,17 +129,44 @@
   <data name="AudioGallery" xml:space="preserve">
     <value>Audio Gallery</value>
   </data>
+  <data name="AyodhyacountedDescription1" xml:space="preserve">
+    <value>Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region</value>
+  </data>
+  <data name="AyodhyacountedDescription2" xml:space="preserve">
+    <value>Download Our Mobile App :</value>
+  </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
+  </data>
+  <data name="CopyrightPolicy" xml:space="preserve">
+    <value>Copyright Policy</value>
+  </data>
+  <data name="CopyrightsDescription" xml:space="preserve">
+    <value>©2024 Department of Tourism, Ayodhya, Uttar Pradesh, India | All rights reserved.</value>
+  </data>
+  <data name="DepartmentofTourism" xml:space="preserve">
+    <value>Department of Tourism, Ayodhya, Uttar Pradesh</value>
+  </data>
+  <data name="Developedandhostedby" xml:space="preserve">
+    <value>Developed and hosted by</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Directory</value>
   </data>
+  <data name="DOsAndDont" xml:space="preserve">
+    <value>DOs &amp; Don’ts</value>
+  </data>
   <data name="EducationalInstitutions" xml:space="preserve">
     <value>Educational Institutions</value>
   </data>
+  <data name="EmergencyServices" xml:space="preserve">
+    <value>Emergency Services</value>
+  </data>
   <data name="EntertainmentShoppingPlaces" xml:space="preserve">
     <value>Entertainment &amp;amp; Shopping Places</value>
+  </data>
+  <data name="FAQs" xml:space="preserve">
+    <value>FAQs</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>Feedback</value>
@@ -165,6 +195,12 @@
   <data name="Industries" xml:space="preserve">
     <value>Industries</value>
   </data>
+  <data name="KeyFacts" xml:space="preserve">
+    <value>Key Facts</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
   <data name="NewsEvents" xml:space="preserve">
     <value>News &amp;amp; Events</value>
   </data>
@@ -183,11 +219,29 @@
   <data name="PhotoGallery" xml:space="preserve">
     <value>Photo Gallery</value>
   </data>
+  <data name="Policies" xml:space="preserve">
+    <value>Policies</value>
+  </data>
+  <data name="PressAndMedia" xml:space="preserve">
+    <value>Press &amp; Media</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
   <data name="PublicUtilities" xml:space="preserve">
     <value>Public Utilities</value>
   </data>
+  <data name="QuickLinks" xml:space="preserve">
+    <value>Quick Links</value>
+  </data>
   <data name="RailwayTransport" xml:space="preserve">
     <value>Railway &amp;amp; Transport</value>
+  </data>
+  <data name="SPIT" xml:space="preserve">
+    <value>SPIT</value>
+  </data>
+  <data name="TermsAndConditions" xml:space="preserve">
+    <value>Terms &amp; Conditions</value>
   </data>
   <data name="ThreeSixtydegreeGallery" xml:space="preserve">
     <value>360 degree Gallery</value>
@@ -197,6 +251,9 @@
   </data>
   <data name="TouristGuidebyMap" xml:space="preserve">
     <value>Tourist Guide by Map</value>
+  </data>
+  <data name="UPSTDCPortal" xml:space="preserve">
+    <value>UPSTDC Portal</value>
   </data>
   <data name="VideoGallery" xml:space="preserve">
     <value>Video Gallery</value>

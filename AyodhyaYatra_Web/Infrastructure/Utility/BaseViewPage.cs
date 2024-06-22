@@ -12,6 +12,7 @@ using AyodhyaYatra_Web.BAL.Masters;
 using AyodhyaYatra_Web.Models.Masters;
 using System.Configuration;
 using log4net.Util;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 
 namespace AyodhyaYatra_Web.Infrastructure.Utility
 {
@@ -72,15 +73,22 @@ namespace AyodhyaYatra_Web.Infrastructure.Utility
 
         public static List<MasterYatraModel> GetYatra()
         {
-            return HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("get/yatras", "");
+            var data = HttpClientHelper<List<MasterYatraModel>>.GetAPIResponse("get/yatras", "");
+            var cookieValue = HttpContext.Current.Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+                data.ForEach(x => x.EnName = x.hiName);
+            return data;
         }
 
         public static MasterDataTypeModel GetMasterDataType()
         {
-            var allMasterData = HttpClientHelper<MasterDataTypeModel>.GetAPIResponse("master/attraction/type", "");
-            var templedataIndex = allMasterData.data.FindIndex(x => x.name == "Temple");
+            var allMasterData = HttpClientHelper<MasterDataTypeModel>.GetAPIResponse("master/attraction/type?PageNo=1&PageSize=100", "");
+            var templedataIndex = allMasterData.data.FindIndex(x => x.Name == "Temple");
             if (templedataIndex != -1)
                 allMasterData.data.RemoveAt(templedataIndex);
+            var cookieValue = HttpContext.Current.Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+                allMasterData.data.ForEach(x => x.Name = x.HiName);
             return allMasterData;
         }
         //public virtual AppointmentModel GetAppointmentDetail()

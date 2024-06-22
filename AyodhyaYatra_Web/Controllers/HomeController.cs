@@ -4,6 +4,7 @@ using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Masters;
 using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -31,6 +32,29 @@ namespace AyodhyaYatra_Web.Controllers
             var templedataIndex = allMasterData.data.FindIndex(x => x.Name == "Temple");
             if (templedataIndex != -1)
                 allMasterData.data.RemoveAt(templedataIndex);
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                allMasterData.data.ForEach(x => x.Name = x.HiName);
+
+                famousTemple.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+                newsUpdate.ForEach(x =>
+                {
+                    x.EnTitle = x.HiTitle;
+                    x.EnDescription = x.HiDescription;
+                });
+                specificAttractionDetail.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
 
             ViewData["specificAttractionDetail"] = specificAttractionDetail;
             ViewData["newsUpdateList"] = newsUpdate;
@@ -63,12 +87,35 @@ namespace AyodhyaYatra_Web.Controllers
                 return RedirectToAction("index");
             var data = HttpClientHelper<YatraAttractionModel>.GetAPIResponse("master/attraction/get/yatra/" + Id, "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.Yatra.EnName = data.Yatra.HiName;
+                data.Yatra.EnDescription = data.Yatra.HiDescription;
+
+                data.attractions.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
             ViewData["getAttractionByYatraId"] = data;
             return View();
         }
         public ActionResult AttractionDetail([FromUri] int Id)
         {
             var data = HttpClientHelper<AttractionModel>.GetAPIResponse("master/attraction/get/" + Id, "");
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.EnName = data.HiName;
+                data.EnDescription = data.HiDescription;
+            }
             ViewData["getAttractionById"] = data;
             return View();
         }
@@ -76,12 +123,30 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult MasterDetail([FromUri] int Id)
         {
             var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/" + Id, "");
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
             ViewData["getAttractionByTypeId"] = data;
             return View();
         }
         public ActionResult Master_DetailPage([FromUri] int Id)
         {
             var data = HttpClientHelper<AttractionModel>.GetAPIResponse("master/attraction/get/" + Id, "");
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.EnName = data.HiName;
+                data.EnDescription = data.HiDescription;
+            }
             ViewData["getAttractionById"] = data;
             return View();
         }
@@ -95,6 +160,18 @@ namespace AyodhyaYatra_Web.Controllers
             }
             queryParameter = queryParameter.Remove(0, 1);
             var data = HttpClientHelper<List<MasterResponse>>.GetAPIResponse("master/data/types?" + queryParameter, "");
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
             ViewData["MasterAttraction"] = data;
             ViewData["Heading"] = heading;
             return View();
@@ -103,6 +180,13 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult TouristAtraction_Detail([FromUri] int Id)
         {
             var data = HttpClientHelper<MasterResponse>.GetAPIResponse("master/data/" + Id, "");
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.EnName = data.HiName;
+                data.EnDescription = data.HiDescription;
+            }
             ViewData["getAttractionById"] = data;
             return View();
         }
@@ -126,6 +210,7 @@ namespace AyodhyaYatra_Web.Controllers
         {
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=0", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+
             ViewData["PhotoGalleryImage"] = data;
             return View();
         }
@@ -173,6 +258,17 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult VideoGallery()
         {
             var data = HttpClientHelper<List<VideoGalaryModel>>.GetAPIResponse("Gallery/get/videogallery", "");
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.ForEach(x =>
+                {
+                    x.enName = x.hiName;
+                });
+            }
+
             ViewData["VideoGallery"] = data;
             return View();
         }
@@ -184,16 +280,26 @@ namespace AyodhyaYatra_Web.Controllers
             {
                 var data = HttpClientHelper<AttractionModel>.GetAPIResponse("master/attraction/get/" + attractionId, "");
                 response.Add(data);
-                ViewData["360Video"] = response;
             }
             else
             {
                 //get all temple
                 var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/1", "");
                 response.AddRange(data.Where(x => x.Video360URL != null).Take(9));
-                ViewData["360Video"] = response;
             }
 
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                response.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
+            ViewData["360Video"] = response;
             return View();
         }
 
@@ -203,6 +309,18 @@ namespace AyodhyaYatra_Web.Controllers
             //get all temple
             var data = HttpClientHelper<List<AttractionModel>>.GetAPIResponse("master/attraction/get/type/1", "");
             response.AddRange(data.Where(x => x.Video360URL != null).ToList());
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                response.ForEach(x =>
+                {
+                    x.EnName = x.HiName;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
             ViewData["360Video"] = response;
             return View();
         }
@@ -215,6 +333,18 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult NewsAndEvents()
         {
             var data = HttpClientHelper<List<NewsUpdateModel>>.GetAPIResponse("NewsUpdate/get/newsupdate", "");
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.ForEach(x =>
+                {
+                    x.EnTitle = x.HiTitle;
+                    x.EnDescription = x.HiDescription;
+                });
+            }
+
             ViewData["newsUpdateList"] = data;
             return View();
         }
@@ -222,6 +352,15 @@ namespace AyodhyaYatra_Web.Controllers
         public ActionResult NewsEventsDetailPage(int eventId)
         {
             var data = HttpClientHelper<NewsUpdateModel>.GetAPIResponse("NewsUpdate/newsupdate/get/" + eventId, "");
+
+            //change text to Hindi 
+            var cookieValue = Request.Cookies["Language"]?.Value;
+            if (cookieValue != null && cookieValue == "hi-IN")
+            {
+                data.EnTitle = data.HiTitle;
+                data.EnDescription = data.HiDescription;
+            }
+
             ViewData["newsUpdateData"] = data;
             return View();
         }
@@ -251,6 +390,7 @@ namespace AyodhyaYatra_Web.Controllers
                 return RedirectToAction("index");
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname/id?moduleName=0&moduleId=" + attractionId + "&imageType=image", "");
             //var result = JsonConvert.DeserializeObject<DashboardCountModel>(data);
+
             ViewData["PhotoGalleryImage"] = data;
             return View();
         }

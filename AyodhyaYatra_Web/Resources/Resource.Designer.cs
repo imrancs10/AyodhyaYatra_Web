@@ -88,6 +88,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Airways Booking.
+        /// </summary>
+        public static string AirwaysBooking {
+            get {
+                return ResourceManager.GetString("AirwaysBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ATM.
         /// </summary>
         public static string ATM {
@@ -147,6 +156,33 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Bhawan {
             get {
                 return ResourceManager.GetString("Bhawan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boat Riding Booking.
+        /// </summary>
+        public static string BoatRidingBooking {
+            get {
+                return ResourceManager.GetString("BoatRidingBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Book Services.
+        /// </summary>
+        public static string BookServices {
+            get {
+                return ResourceManager.GetString("BookServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bus Ticket Booking.
+        /// </summary>
+        public static string BusTicketBooking {
+            get {
+                return ResourceManager.GetString("BusTicketBooking", resourceCulture);
             }
         }
         
@@ -214,6 +250,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Documents.
+        /// </summary>
+        public static string Documents {
+            get {
+                return ResourceManager.GetString("Documents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DOs &amp; Don’ts.
         /// </summary>
         public static string DOsAndDont {
@@ -277,6 +322,33 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Festival and Events.
+        /// </summary>
+        public static string FestivalEvents {
+            get {
+                return ResourceManager.GetString("FestivalEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find Services.
+        /// </summary>
+        public static string FindServices {
+            get {
+                return ResourceManager.GetString("FindServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Tourism.
+        /// </summary>
+        public static string ForTourism {
+            get {
+                return ResourceManager.GetString("ForTourism", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gallery.
         /// </summary>
         public static string Gallery {
@@ -291,6 +363,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Ghat {
             get {
                 return ResourceManager.GetString("Ghat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go To Donate for Charity.
+        /// </summary>
+        public static string GoToDonateforCharity {
+            get {
+                return ResourceManager.GetString("GoToDonateforCharity", resourceCulture);
             }
         }
         
@@ -354,6 +435,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Hospitals {
             get {
                 return ResourceManager.GetString("Hospitals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel Booking.
+        /// </summary>
+        public static string HotelBooking {
+            get {
+                return ResourceManager.GetString("HotelBooking", resourceCulture);
             }
         }
         
@@ -430,11 +520,38 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Near by Places.
+        /// </summary>
+        public static string NearbyPlaces {
+            get {
+                return ResourceManager.GetString("NearbyPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News.
+        /// </summary>
+        public static string News {
+            get {
+                return ResourceManager.GetString("News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to News &amp;amp; Events.
         /// </summary>
         public static string NewsEvents {
             get {
                 return ResourceManager.GetString("NewsEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        public static string Notification {
+            get {
+                return ResourceManager.GetString("Notification", resourceCulture);
             }
         }
         
@@ -453,6 +570,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string OtherAttraction {
             get {
                 return ResourceManager.GetString("OtherAttraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Attraction.
+        /// </summary>
+        public static string OurAttraction {
+            get {
+                return ResourceManager.GetString("OurAttraction", resourceCulture);
             }
         }
         
@@ -565,6 +691,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Railway Booking.
+        /// </summary>
+        public static string RailwayBooking {
+            get {
+                return ResourceManager.GetString("RailwayBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Railway &amp;amp; Transport.
         /// </summary>
         public static string RailwayTransport {
@@ -601,6 +736,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Services.
+        /// </summary>
+        public static string Services {
+            get {
+                return ResourceManager.GetString("Services", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shri Narendra Modi.
         /// </summary>
         public static string ShriNarendraModi {
@@ -619,11 +763,38 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Special Attraction.
+        /// </summary>
+        public static string SpecialAttraction {
+            get {
+                return ResourceManager.GetString("SpecialAttraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SPIT.
         /// </summary>
         public static string SPIT {
             get {
                 return ResourceManager.GetString("SPIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support us, we need your help..
+        /// </summary>
+        public static string Support1 {
+            get {
+                return ResourceManager.GetString("Support1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to May ram bless you! Thank you. Those who (in charity) spend of their goods by night and by day.
+        /// </summary>
+        public static string Support2 {
+            get {
+                return ResourceManager.GetString("Support2", resourceCulture);
             }
         }
         
@@ -655,6 +826,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tourist Attractions.
+        /// </summary>
+        public static string TouristAttractions {
+            get {
+                return ResourceManager.GetString("TouristAttractions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tourist Guide.
         /// </summary>
         public static string TouristGuide {
@@ -669,6 +849,24 @@ namespace AyodhyaYatra_Web.Resources {
         public static string TouristGuidebyMap {
             get {
                 return ResourceManager.GetString("TouristGuidebyMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tour Package Booking.
+        /// </summary>
+        public static string TourPackageBooking {
+            get {
+                return ResourceManager.GetString("TourPackageBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upcoming.
+        /// </summary>
+        public static string Upcoming {
+            get {
+                return ResourceManager.GetString("Upcoming", resourceCulture);
             }
         }
         
@@ -705,6 +903,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string WelcomeAyodhyaDham {
             get {
                 return ResourceManager.GetString("WelcomeAyodhyaDham", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What We Offer.
+        /// </summary>
+        public static string WhatWeOffer {
+            get {
+                return ResourceManager.GetString("WhatWeOffer", resourceCulture);
             }
         }
         

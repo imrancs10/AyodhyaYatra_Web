@@ -126,6 +126,9 @@
   <data name="AboutAyodhya" xml:space="preserve">
     <value>About Ayodhya</value>
   </data>
+  <data name="AirwaysBooking" xml:space="preserve">
+    <value>Airways Booking</value>
+  </data>
   <data name="ATM" xml:space="preserve">
     <value>ATM</value>
   </data>
@@ -146,6 +149,15 @@
   </data>
   <data name="Bhawan" xml:space="preserve">
     <value>Bhawan</value>
+  </data>
+  <data name="BoatRidingBooking" xml:space="preserve">
+    <value>Boat Riding Booking</value>
+  </data>
+  <data name="BookServices" xml:space="preserve">
+    <value>Book Services</value>
+  </data>
+  <data name="BusTicketBooking" xml:space="preserve">
+    <value>Bus Ticket Booking</value>
   </data>
   <data name="CM" xml:space="preserve">
     <value>Hon'ble Chief Minister, Uttar Pradesh</value>
@@ -168,6 +180,9 @@
   <data name="Directory" xml:space="preserve">
     <value>Directory</value>
   </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
   <data name="DOsAndDont" xml:space="preserve">
     <value>DOs &amp; Don’ts</value>
   </data>
@@ -189,11 +204,23 @@
   <data name="Feedback" xml:space="preserve">
     <value>Feedback</value>
   </data>
+  <data name="FestivalEvents" xml:space="preserve">
+    <value>Festival and Events</value>
+  </data>
+  <data name="FindServices" xml:space="preserve">
+    <value>Find Services</value>
+  </data>
+  <data name="ForTourism" xml:space="preserve">
+    <value>For Tourism</value>
+  </data>
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
   <data name="Ghat" xml:space="preserve">
     <value>Ghat</value>
+  </data>
+  <data name="GoToDonateforCharity" xml:space="preserve">
+    <value>Go To Donate for Charity</value>
   </data>
   <data name="GovernmentofUttarPradesh" xml:space="preserve">
     <value>Government of Uttar Pradesh</value>
@@ -215,6 +242,9 @@
   </data>
   <data name="Hospitals" xml:space="preserve">
     <value>Hospitals</value>
+  </data>
+  <data name="HotelBooking" xml:space="preserve">
+    <value>Hotel Booking</value>
   </data>
   <data name="HotelsResortsandRestaurants" xml:space="preserve">
     <value>Hotels, Resorts and Restaurants</value>
@@ -240,14 +270,26 @@
   <data name="Map" xml:space="preserve">
     <value>Map</value>
   </data>
+  <data name="NearbyPlaces" xml:space="preserve">
+    <value>Near by Places</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>News</value>
+  </data>
   <data name="NewsEvents" xml:space="preserve">
     <value>News &amp;amp; Events</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
   </data>
   <data name="OnlineBooking" xml:space="preserve">
     <value>Online Booking</value>
   </data>
   <data name="OtherAttraction" xml:space="preserve">
     <value>Other Attraction</value>
+  </data>
+  <data name="OurAttraction" xml:space="preserve">
+    <value>Our Attraction</value>
   </data>
   <data name="OverviewandConcept" xml:space="preserve">
     <value>Overview and Concept</value>
@@ -285,6 +327,9 @@
   <data name="QuickLinks" xml:space="preserve">
     <value>Quick Links</value>
   </data>
+  <data name="RailwayBooking" xml:space="preserve">
+    <value>Railway Booking</value>
+  </data>
   <data name="RailwayTransport" xml:space="preserve">
     <value>Railway &amp;amp; Transport</value>
   </data>
@@ -297,14 +342,26 @@
   <data name="SaryuArti" xml:space="preserve">
     <value>Saryu-Arti</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
   <data name="ShriNarendraModi" xml:space="preserve">
     <value>Shri Narendra Modi</value>
   </data>
   <data name="ShriYogiAdityanath" xml:space="preserve">
     <value>Shri Yogi Adityanath</value>
   </data>
+  <data name="SpecialAttraction" xml:space="preserve">
+    <value>Special Attraction</value>
+  </data>
   <data name="SPIT" xml:space="preserve">
     <value>SPIT</value>
+  </data>
+  <data name="Support1" xml:space="preserve">
+    <value>Support us, we need your help.</value>
+  </data>
+  <data name="Support2" xml:space="preserve">
+    <value>May ram bless you! Thank you. Those who (in charity) spend of their goods by night and by day</value>
   </data>
   <data name="Temples" xml:space="preserve">
     <value>Temples</value>
@@ -315,11 +372,20 @@
   <data name="ThreeSixtydegreeGallery" xml:space="preserve">
     <value>360 degree Gallery</value>
   </data>
+  <data name="TouristAttractions" xml:space="preserve">
+    <value>Tourist Attractions</value>
+  </data>
   <data name="TouristGuide" xml:space="preserve">
     <value>Tourist Guide</value>
   </data>
   <data name="TouristGuidebyMap" xml:space="preserve">
     <value>Tourist Guide by Map</value>
+  </data>
+  <data name="TourPackageBooking" xml:space="preserve">
+    <value>Tour Package Booking</value>
+  </data>
+  <data name="Upcoming" xml:space="preserve">
+    <value>Upcoming</value>
   </data>
   <data name="UPSTDCPortal" xml:space="preserve">
     <value>UPSTDC Portal</value>
@@ -332,6 +398,9 @@
   </data>
   <data name="WelcomeAyodhyaDham" xml:space="preserve">
     <value>Welcome to Ayodhya Dham</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>What We Offer</value>
   </data>
   <data name="YatrainAyodhya" xml:space="preserve">
     <value>Yatra in Ayodhya</value>

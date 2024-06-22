@@ -15,9 +15,12 @@ namespace AyodhyaYatra_Web.Models.Masters
 
     public class MasterData
     {
-        public int id { get; set; }
-        public string code { get; set; }
-        public string name { get; set; }
+        public int Id { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string HiName { get; set; }
+        public string TaName { get; set; }
+        public string TeName { get; set; }
     }
 
 }

@@ -61,6 +61,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aashram.
+        /// </summary>
+        public static string Aashram {
+            get {
+                return ResourceManager.GetString("Aashram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About us.
         /// </summary>
         public static string About {
@@ -129,6 +138,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string AyodhyaOverviewDescription {
             get {
                 return ResourceManager.GetString("AyodhyaOverviewDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bhawan.
+        /// </summary>
+        public static string Bhawan {
+            get {
+                return ResourceManager.GetString("Bhawan", resourceCulture);
             }
         }
         
@@ -232,6 +250,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Famous-Temple.
+        /// </summary>
+        public static string FamousTemple {
+            get {
+                return ResourceManager.GetString("FamousTemple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FAQs.
         /// </summary>
         public static string FAQs {
@@ -277,11 +304,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gurdwara.
+        /// </summary>
+        public static string Gurdwara {
+            get {
+                return ResourceManager.GetString("Gurdwara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Helpline.
         /// </summary>
         public static string Helpline {
             get {
                 return ResourceManager.GetString("Helpline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Heritage.
+        /// </summary>
+        public static string Heritage {
+            get {
+                return ResourceManager.GetString("Heritage", resourceCulture);
             }
         }
         
@@ -349,11 +394,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kila.
+        /// </summary>
+        public static string Kila {
+            get {
+                return ResourceManager.GetString("Kila", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kund.
         /// </summary>
         public static string Kund {
             get {
                 return ResourceManager.GetString("Kund", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mahal.
+        /// </summary>
+        public static string Mahal {
+            get {
+                return ResourceManager.GetString("Mahal", resourceCulture);
             }
         }
         
@@ -408,6 +471,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string OverviewAyodhyaDham {
             get {
                 return ResourceManager.GetString("OverviewAyodhyaDham", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Park.
+        /// </summary>
+        public static string Park {
+            get {
+                return ResourceManager.GetString("Park", resourceCulture);
             }
         }
         
@@ -516,6 +588,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string RegistrationForm {
             get {
                 return ResourceManager.GetString("RegistrationForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saryu-Arti.
+        /// </summary>
+        public static string SaryuArti {
+            get {
+                return ResourceManager.GetString("SaryuArti", resourceCulture);
             }
         }
         

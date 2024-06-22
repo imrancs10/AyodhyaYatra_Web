@@ -1,6 +1,7 @@
 ﻿@using AyodhyaYatra_Web.Models;
 @using AyodhyaYatra_Web.Models.Masters;
 @using System.Linq;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,14 +58,14 @@
                                                                                         <h3 class="mb-0 text-light">Shri Ram Mandir, Ayodhya</h3>
                                                                                         <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openCustomPopup()">लाइव दर्शन | Live Darshan</a>
                                                                                     </div>
-                                                                                    <h2 class="mb-0">Welcome to Ayodhya Dham</h2>
-                                                                                    <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">Visitor Registration</a>
+                                                                                    <h2 class="mb-0">@Resource.WelcomeAyodhyaDham</h2>
+                                                                                    <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">@Resource.VisitorRegistration</a>
                                                                                 </div><!-- Featured Cap -->
                                                                             </div>
                                                                         </div>
                                                                     </div><!-- Featured Item -->
                                                                     <!-- The overlay and popup container -->
-                                                                    
+
                                                                     <div id="myOverlay" class="overlay" style="z-index: 99999;">
                                                                         <div class="popup">
                                                                             <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -72,7 +73,7 @@
                                                                                 <div class="gap">
                                                                                     <div class="container">
                                                                                         <div class="sec-tl text-center">
-                                                                                            <h2 itemprop="headline">Registration Form</h2>
+                                                                                            <h2 itemprop="headline">@Resource.RegistrationForm</h2>
                                                                                         </div>
                                                                                         <div style="color:forestgreen;font-size:30px" class="message" id="message"></div>
                                                                                         <div class="row cnt-frm cnt-mp " id="visitor-reg-container">
@@ -155,8 +156,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="container">
-                                                                                            <button class="btn btn-primary" id="printButton">Print Pass</button>
-                                                                                            <div class="row align-items-center"  id="visitor-pass"vocab="                   ">
+                                                                                            <button class="btn btn-primary" id="printButton">@Resource.PrintPass</button>
+                                                                                            <div class="row align-items-center" id="visitor-pass" vocab="                   ">
                                                                                                 <div class="col-md-12 col-sm-12 col-lg-12 tq-package-box d-flex flex-wrap align-items-center w-60 " style="background-color: cornsilk; background-image: url(wp-content/uploads/bglotus.png);">
                                                                                                     <div class="container">
                                                                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100 mt-4">
@@ -193,7 +194,7 @@
 
 
                                                                                                                             <div class="tq-post-cap d-flex flex-column">
-                                                                                                                                <h3 class="mb-0">नाम / Name : <b  id="visitorName"></b></h3>
+                                                                                                                                <h3 class="mb-0">नाम / Name : <b id="visitorName"></b></h3>
                                                                                                                                 <br>
                                                                                                                                 <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
                                                                                                                                 <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
@@ -215,7 +216,7 @@
                                                                                             </div><!-- Package Wrapper -->
                                                                                         </div>
                                                                                     </div>
-                                                                                  
+
 
                                                                                 </div><!-- Post Box -->
                                                                             </section>
@@ -276,7 +277,7 @@
                                                                                     contentType: 'application/json',
                                                                                     data: JSON.stringify(visitorData),
                                                                                     success: function (response) {
-                                                                                        $("#visitorId").text('Registration ID : '+response?.id);
+                                                                                        $("#visitorId").text('Registration ID : ' + response?.id);
                                                                                         $("#visitorName").text(response?.name);
                                                                                         $("#visitorMobile").text(response?.mobile);
                                                                                         $("#visitorDocId").text(response?.documentNumber);
@@ -318,14 +319,16 @@
                                                                             padding: 14px;
                                                                             height: 300px;
                                                                         }
+
                                                                             .visitor-pass .header {
                                                                                 display: flex;
                                                                                 width: 100%;
                                                                             }
-                                                                            .visitor-pass-logo{
-                                                                                width:75px !important;
-                                                                                height:75px !important;
-                                                                            }
+
+                                                                        .visitor-pass-logo {
+                                                                            width: 75px !important;
+                                                                            height: 75px !important;
+                                                                        }
                                                                     </style>
 
                                                                     <!-- The overlay and popup container -->
@@ -360,8 +363,8 @@
 
 
 
-                                                                                        <h2 class="mb-0">Welcome to Ayodhya Dham</h2>
-                                                                                        <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">Visitor Registration</a>
+                                                                                        <h2 class="mb-0">@Resource.WelcomeAyodhyaDham</h2>
+                                                                                        <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">@Resource.VisitorRegistration</a>
                                                                                 </div><!-- Featured Cap -->
                                                                             </div>
                                                                         </div>
@@ -390,8 +393,8 @@
 
 
 
-                                                                                        <h2 class="mb-0">Welcome to Ayodhya Dham</h2>
-                                                                                        <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">Visitor Registration</a>
+                                                                                        <h2 class="mb-0">@Resource.WelcomeAyodhyaDham</h2>
+                                                                                        <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">@Resource.VisitorRegistration</a>
                                                                                 </div><!-- Featured Cap -->
                                                                             </div>
                                                                         </div>
@@ -432,16 +435,16 @@
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
                                                                 <img decoding="async" class="img-fluid" src="../Content/wp-content/uploads/icontilak.png" style="height: auto; width: 15%;" alt="">
-                                                                <span>About Us</span>
-                                                                <h2 class="mb-0">Overview of Ayodhya Dham</h2>
+                                                                <span>@Resource.About</span>
+                                                                <h2 class="mb-0">@Resource.OverviewAyodhyaDham</h2>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-about-wrapper position-relative w-100">
                                                             <div class="row">
                                                                 <div class="col-md-6 col-sm-12 col-lg-6">
                                                                     <div class="tq-about-cap d-flex flex-column align-items-start w-100">
-                                                                        <p style="text-align: justify;">Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region. Ayodhya holds a place of pride among the devotees of Lord Rama, who was a descendant of the Surya Vansh which is believed to have been founded by Manu, the lawgiver of the Hindus.....</p>
-                                                                        <a class="tq-theme-btn bg-white rounded-pill" href="aboutus.html">Read More</a>
+                                                                        <p style="text-align: justify;">@Resource.AyodhyaOverviewDescription</p>
+                                                                        <a class="tq-theme-btn bg-white rounded-pill" href="aboutus.html">@Resource.ReadMore</a>
                                                                     </div><!-- About Cap -->
                                                                 </div>
                                                                 <div class="col-md-6 col-sm-12 col-lg-6">
@@ -451,7 +454,7 @@
                                                                             <div class="tq-post-icon position-relative rounded-circle" style="overflow: hidden;"><img decoding="async" class="img-fluid" src="../Content/wp-content/uploads/pm-removebg-preview.png" alt=""></div><!-- Post Icon -->
 
                                                                             <div class="tq-post-cap d-flex flex-column">
-                                                                                <h3 class="mb-0">Shri Narendra Modi</h3> 											 <p class="mb-0">Hon'ble Prime Minister, India</p>
+                                                                                <h3 class="mb-0">@Resource.ShriNarendraModi</h3> 											 <p class="mb-0">@Resource.PM</p>
                                                                             </div>
                                                                         </div><!-- Post Box -->
 
@@ -461,7 +464,7 @@
                                                                             <div class="tq-post-icon position-relative rounded-circle" style="overflow: hidden;"><img decoding="async" class="img-fluid" src="../Content/wp-content/uploads/cm-removebg-preview.png" alt=""></div><!-- Post Icon -->
 
                                                                             <div class="tq-post-cap d-flex flex-column">
-                                                                                <h3 class="mb-0">Shri Yogi Adityanath </h3> 											 <p class="mb-0">Hon'ble Chief Minister, Uttar Pradesh</p>
+                                                                                <h3 class="mb-0">@Resource.ShriYogiAdityanath </h3> 											 <p class="mb-0">@Resource.CM</p>
                                                                             </div>
                                                                         </div><!-- Post Box -->
 
@@ -530,8 +533,8 @@
                                                                 <div class="col-md-12 col-sm-12 col-lg-4">
                                                                     <div class="tq-sec-title-wrapper d-flex flex-column mb-0 position-relative w-100">
                                                                         <div class="tq-sec-title d-flex flex-column">
-                                                                            <span>Availability</span>
-                                                                            <h2 class="mb-0">in Ayodhya</h2>
+                                                                            <span>@Resource.Availability</span>
+                                                                            <h2 class="mb-0">@Resource.inAyodhya</h2>
                                                                         </div><!-- Section Title -->
                                                                     </div><!-- Section Title Wrapper -->
                                                                 </div>
@@ -635,7 +638,7 @@
 
                                                                                     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
                                                                                         <h4 class="mb-0">@dashboardCountData.attractionCounts.FirstOrDefault(x => x.attractionType == "Temple").count</h4>
-                                                                                        <p class="mb-0">Temples</p>
+                                                                                        <p class="mb-0">@Resource.Temples</p>
                                                                                     </div><!-- arti -->
                                                                                 </div><!-- aarti -->
                                                                             </div>
@@ -734,7 +737,7 @@
 
                                                                                     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
                                                                                         <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Ghat").count</h4>
-                                                                                        <p class="mb-0">Ghat</p>
+                                                                                        <p class="mb-0">@Resource.Ghat</p>
 
                                                                                     </div><!-- arti -->
                                                                                 </div><!-- aarti -->
@@ -836,7 +839,7 @@
  </g>
 </svg>     <div class="tq-namaz-timing-cap d-flex flex-column position-absolute">
                                                                             <h4 class="mb-0">@dashboardCountData.attractionCounts.Find(x => x.attractionType == "Kund").count</h4>
-                                                                            <p class="mb-0">Kund</p>
+                                                                            <p class="mb-0">@Resource.Kund</p>
                                                                         </div>
                                                                     </div><!-- aarti -->
                                                                 </div>

@@ -129,11 +129,20 @@
   <data name="AudioGallery" xml:space="preserve">
     <value>Audio Gallery</value>
   </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
   <data name="AyodhyacountedDescription1" xml:space="preserve">
     <value>Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region</value>
   </data>
   <data name="AyodhyacountedDescription2" xml:space="preserve">
     <value>Download Our Mobile App :</value>
+  </data>
+  <data name="AyodhyaOverviewDescription" xml:space="preserve">
+    <value>Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region. Ayodhya holds a place of pride among the devotees of Lord Rama, who was a descendant of the Surya Vansh which is believed to have been founded by Manu, the lawgiver of the Hindus.....</value>
+  </data>
+  <data name="CM" xml:space="preserve">
+    <value>Hon'ble Chief Minister, Uttar Pradesh</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
@@ -174,6 +183,9 @@
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="Ghat" xml:space="preserve">
+    <value>Ghat</value>
+  </data>
   <data name="GovernmentofUttarPradesh" xml:space="preserve">
     <value>Government of Uttar Pradesh</value>
   </data>
@@ -192,11 +204,17 @@
   <data name="HotelsResortsandRestaurants" xml:space="preserve">
     <value>Hotels, Resorts and Restaurants</value>
   </data>
+  <data name="inAyodhya" xml:space="preserve">
+    <value>in Ayodhya</value>
+  </data>
   <data name="Industries" xml:space="preserve">
     <value>Industries</value>
   </data>
   <data name="KeyFacts" xml:space="preserve">
     <value>Key Facts</value>
+  </data>
+  <data name="Kund" xml:space="preserve">
+    <value>Kund</value>
   </data>
   <data name="Map" xml:space="preserve">
     <value>Map</value>
@@ -213,17 +231,26 @@
   <data name="OverviewandConcept" xml:space="preserve">
     <value>Overview and Concept</value>
   </data>
+  <data name="OverviewAyodhyaDham" xml:space="preserve">
+    <value>Overview of Ayodhya Dham</value>
+  </data>
   <data name="PersonalityofAyodhya" xml:space="preserve">
     <value>Personality of Ayodhya</value>
   </data>
   <data name="PhotoGallery" xml:space="preserve">
     <value>Photo Gallery</value>
   </data>
+  <data name="PM" xml:space="preserve">
+    <value>Hon'ble Prime Minister, India</value>
+  </data>
   <data name="Policies" xml:space="preserve">
     <value>Policies</value>
   </data>
   <data name="PressAndMedia" xml:space="preserve">
     <value>Press &amp; Media</value>
+  </data>
+  <data name="PrintPass" xml:space="preserve">
+    <value>Print Pass</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy Policy</value>
@@ -237,8 +264,23 @@
   <data name="RailwayTransport" xml:space="preserve">
     <value>Railway &amp;amp; Transport</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
+  <data name="RegistrationForm" xml:space="preserve">
+    <value>Registration Form</value>
+  </data>
+  <data name="ShriNarendraModi" xml:space="preserve">
+    <value>Shri Narendra Modi</value>
+  </data>
+  <data name="ShriYogiAdityanath" xml:space="preserve">
+    <value>Shri Yogi Adityanath</value>
+  </data>
   <data name="SPIT" xml:space="preserve">
     <value>SPIT</value>
+  </data>
+  <data name="Temples" xml:space="preserve">
+    <value>Temples</value>
   </data>
   <data name="TermsAndConditions" xml:space="preserve">
     <value>Terms &amp; Conditions</value>
@@ -257,6 +299,12 @@
   </data>
   <data name="VideoGallery" xml:space="preserve">
     <value>Video Gallery</value>
+  </data>
+  <data name="VisitorRegistration" xml:space="preserve">
+    <value>Visitor Registration</value>
+  </data>
+  <data name="WelcomeAyodhyaDham" xml:space="preserve">
+    <value>Welcome to Ayodhya Dham</value>
   </data>
   <data name="YatrainAyodhya" xml:space="preserve">
     <value>Yatra in Ayodhya</value>

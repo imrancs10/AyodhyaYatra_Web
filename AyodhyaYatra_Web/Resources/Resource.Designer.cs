@@ -61,6 +61,33 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 14 Kosi Yatra.
+        /// </summary>
+        public static string _14KosiYatra {
+            get {
+                return ResourceManager.GetString("14KosiYatra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5 Kosi Parikrama.
+        /// </summary>
+        public static string _5KosiParikrama {
+            get {
+                return ResourceManager.GetString("5KosiParikrama", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 84 Kosi Parikrama.
+        /// </summary>
+        public static string _84KosiParikrama {
+            get {
+                return ResourceManager.GetString("84KosiParikrama", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aashram.
         /// </summary>
         public static string Aashram {
@@ -88,11 +115,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ayodhya, the former capital of the Avadh area, holds a particular place in the hearts of Lord Rama&apos;s followers because Rama, the descendant of Manu&apos;s Surya Vansh, is closely linked to its history. According to the Atharvaveda, the gods created this holy place, which was as prosperous as paradise. According to scripture, numerous great kings ruled the capital city of Kosaldesh, including Ikshvaku, Prithu, Mandhata, Harishchandra, Sagar, Bhagirath, Raghu, Dileep, Dashrath, and Ram. During their reign, the kin [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AboutDescription {
+            get {
+                return ResourceManager.GetString("AboutDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Airways Booking.
         /// </summary>
         public static string AirwaysBooking {
             get {
                 return ResourceManager.GetString("AirwaysBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ambulance.
+        /// </summary>
+        public static string Ambulance {
+            get {
+                return ResourceManager.GetString("Ambulance", resourceCulture);
             }
         }
         
@@ -178,6 +223,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buddhist.
+        /// </summary>
+        public static string Buddhist {
+            get {
+                return ResourceManager.GetString("Buddhist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bus Ticket Booking.
         /// </summary>
         public static string BusTicketBooking {
@@ -187,11 +241,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Child Helpline.
+        /// </summary>
+        public static string ChildHelpline {
+            get {
+                return ResourceManager.GetString("ChildHelpline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hon&apos;ble Chief Minister, Uttar Pradesh.
         /// </summary>
         public static string CM {
             get {
                 return ResourceManager.GetString("CM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CM Helpline.
+        /// </summary>
+        public static string CMHelpline {
+            get {
+                return ResourceManager.GetString("CMHelpline", resourceCulture);
             }
         }
         
@@ -219,6 +291,24 @@ namespace AyodhyaYatra_Web.Resources {
         public static string CopyrightsDescription {
             get {
                 return ResourceManager.GetString("CopyrightsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Covid-19 Helpline No..
+        /// </summary>
+        public static string Covid19HelplineNo {
+            get {
+                return ResourceManager.GetString("Covid19HelplineNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Visitors.
+        /// </summary>
+        public static string DailyVisitors {
+            get {
+                return ResourceManager.GetString("DailyVisitors", resourceCulture);
             }
         }
         
@@ -367,6 +457,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ayodhya have over 62 different Ghat..
+        /// </summary>
+        public static string Ghatcount {
+            get {
+                return ResourceManager.GetString("Ghatcount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go To Donate for Charity.
         /// </summary>
         public static string GoToDonateforCharity {
@@ -385,6 +484,24 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Growing.
+        /// </summary>
+        public static string Growing {
+            get {
+                return ResourceManager.GetString("Growing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over 12,0000 men and women visit daliy ayodhya..
+        /// </summary>
+        public static string Growingcount {
+            get {
+                return ResourceManager.GetString("Growingcount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gurdwara.
         /// </summary>
         public static string Gurdwara {
@@ -399,6 +516,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Helpline {
             get {
                 return ResourceManager.GetString("Helpline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Helpline Numbers.
+        /// </summary>
+        public static string HelplineNumbers {
+            get {
+                return ResourceManager.GetString("HelplineNumbers", resourceCulture);
             }
         }
         
@@ -430,11 +556,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hospital.
+        /// </summary>
+        public static string Hospital {
+            get {
+                return ResourceManager.GetString("Hospital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hospitals.
         /// </summary>
         public static string Hospitals {
             get {
                 return ResourceManager.GetString("Hospitals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel.
+        /// </summary>
+        public static string Hotel {
+            get {
+                return ResourceManager.GetString("Hotel", resourceCulture);
             }
         }
         
@@ -457,6 +601,24 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Important.
+        /// </summary>
+        public static string Important {
+            get {
+                return ResourceManager.GetString("Important", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Important Links.
+        /// </summary>
+        public static string ImportantLinks {
+            get {
+                return ResourceManager.GetString("ImportantLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in Ayodhya.
         /// </summary>
         public static string inAyodhya {
@@ -466,11 +628,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incredible India.
+        /// </summary>
+        public static string IncredibleIndia {
+            get {
+                return ResourceManager.GetString("IncredibleIndia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Industries.
         /// </summary>
         public static string Industries {
             get {
                 return ResourceManager.GetString("Industries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
             }
         }
         
@@ -516,6 +696,24 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Map {
             get {
                 return ResourceManager.GetString("Map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MH Toll Free No..
+        /// </summary>
+        public static string MHTollFreeNo {
+            get {
+                return ResourceManager.GetString("MHTollFreeNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ministry of Tourism.
+        /// </summary>
+        public static string MinistryofTourism {
+            get {
+                return ResourceManager.GetString("MinistryofTourism", resourceCulture);
             }
         }
         
@@ -781,6 +979,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Star Classification.
+        /// </summary>
+        public static string StarClassification {
+            get {
+                return ResourceManager.GetString("StarClassification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Support us, we need your help..
         /// </summary>
         public static string Support1 {
@@ -795,6 +1002,24 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Support2 {
             get {
                 return ResourceManager.GetString("Support2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taj Mahal.
+        /// </summary>
+        public static string TajMahal {
+            get {
+                return ResourceManager.GetString("TajMahal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 100+ Temples in Ayodhya.
+        /// </summary>
+        public static string Templecount {
+            get {
+                return ResourceManager.GetString("Templecount", resourceCulture);
             }
         }
         
@@ -871,11 +1096,29 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UPSRTC.
+        /// </summary>
+        public static string UPSRTC {
+            get {
+                return ResourceManager.GetString("UPSRTC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPSTDC Portal.
         /// </summary>
         public static string UPSTDCPortal {
             get {
                 return ResourceManager.GetString("UPSTDCPortal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UP Tourism No..
+        /// </summary>
+        public static string UPTourismNo {
+            get {
+                return ResourceManager.GetString("UPTourismNo", resourceCulture);
             }
         }
         
@@ -912,6 +1155,24 @@ namespace AyodhyaYatra_Web.Resources {
         public static string WhatWeOffer {
             get {
                 return ResourceManager.GetString("WhatWeOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Women Comm. No..
+        /// </summary>
+        public static string WomenCommNo {
+            get {
+                return ResourceManager.GetString("WomenCommNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Women Helpline.
+        /// </summary>
+        public static string WomenHelpline {
+            get {
+                return ResourceManager.GetString("WomenHelpline", resourceCulture);
             }
         }
         

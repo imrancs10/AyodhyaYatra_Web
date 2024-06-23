@@ -1,7 +1,9 @@
 ﻿@using AyodhyaYatra_Web.Resources;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var masterYatraList = GetYatra();
 }
 
 <section>
@@ -37,20 +39,23 @@
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
                                                                 <img decoding="async" class="img-fluid" src="../wp-content/plugins/ingeniofy-plus/assets/images/shape2.png" alt="">
-                                                                <span> Welcome to Ayodhya</span>
-                                                                <h3 class="mb-0">Overview and Concept </h3>
+                                                                <span> @Resource.WelcomeAyodhyaDham</span>
+                                                                <h3 class="mb-0">@Resource.OverviewandConcept </h3>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-about-wrapper position-relative w-100">
                                                             <div class="row">
                                                                 <div class="col-md-12 col-sm-12">
 
-                                                                    <p style="text-align: justify">Ayodhya, the former capital of the Avadh area, holds a particular place in the hearts of Lord Rama's followers because Rama, the descendant of Manu's Surya Vansh, is closely linked to its history. According to the Atharvaveda, the gods created this holy place, which was as prosperous as paradise. According to scripture, numerous great kings ruled the capital city of Kosaldesh, including Ikshvaku, Prithu, Mandhata, Harishchandra, Sagar, Bhagirath, Raghu, Dileep, Dashrath, and Ram. During their reign, the kingdom's magnificence peaked and exemplified Ram Rajya. The famous epics, Ramayan and ShriRamcharitmanas exhibit the splendour of Ayodhya.</p>
+                                                                    <p style="text-align: justify">@Resource.AboutDescription</p>
                                                                     <ul class="list">
-                                                                        <li>14 Kosi Yatra</li>
-                                                                        <li>5 Kosi Parikrama</li>
-                                                                        <li>84 Kosi Parikrama</li>
-
+                                                                        @*<li>@Resource.14KosiYatra</li>
+                                                                        <li>@Resource.5KosiParikrama</li>
+                                                                        <li>@Resource.84KosiParikrama</li>*@
+                                                                        @foreach (var yatra in masterYatraList)
+                                                                        {
+                                                                            <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
+                                                                        }
                                                                     </ul>
 
                                                                     <!-- About Cap -->
@@ -90,9 +95,9 @@
                                                                             <span class="tq-text-theme">
                                                                                 <span class="counter">62</span>
                                                                             </span>
-                                                                            Ghat
+                                                                            @Resource.Ghat
                                                                         </h4>
-                                                                        <p class="mb-0">Ayodhya have over 62 different Ghat.</p>
+                                                                        <p class="mb-0">@Resource.Ghatcount</p>
                                                                     </div><!-- Fun Fact Box -->
                                                                 </div>
 
@@ -104,9 +109,9 @@
                                                                                 <span class="counter">120</span>
                                                                                 K
                                                                             </span>
-                                                                            Growing
+                                                                            @Resource.Growing
                                                                         </h4>
-                                                                        <p class="mb-0">Over 12,0000 men and women visit daliy ayodhya.</p>
+                                                                        <p class="mb-0">@Resource.Growingcount</p>
                                                                     </div><!-- Fun Fact Box -->
                                                                 </div>
 
@@ -118,9 +123,9 @@
                                                                                 <span class="counter">100</span>
                                                                                 +
                                                                             </span>
-                                                                            Temple
+                                                                            @Resource.Temples
                                                                         </h4>
-                                                                        <p class="mb-0">100+ Temples in Ayodhya</p>
+                                                                        <p class="mb-0">@Resource.Templecount</p>
                                                                     </div><!-- Fun Fact Box -->
                                                                 </div>
 

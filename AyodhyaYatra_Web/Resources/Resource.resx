@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="14KosiYatra" xml:space="preserve">
+    <value>14 Kosi Yatra</value>
+  </data>
+  <data name="5KosiParikrama" xml:space="preserve">
+    <value>5 Kosi Parikrama</value>
+  </data>
+  <data name="84KosiParikrama" xml:space="preserve">
+    <value>84 Kosi Parikrama</value>
+  </data>
   <data name="Aashram" xml:space="preserve">
     <value>Aashram</value>
   </data>
@@ -126,8 +135,14 @@
   <data name="AboutAyodhya" xml:space="preserve">
     <value>About Ayodhya</value>
   </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Ayodhya, the former capital of the Avadh area, holds a particular place in the hearts of Lord Rama's followers because Rama, the descendant of Manu's Surya Vansh, is closely linked to its history. According to the Atharvaveda, the gods created this holy place, which was as prosperous as paradise. According to scripture, numerous great kings ruled the capital city of Kosaldesh, including Ikshvaku, Prithu, Mandhata, Harishchandra, Sagar, Bhagirath, Raghu, Dileep, Dashrath, and Ram. During their reign, the kingdom's magnificence peaked and exemplified Ram Rajya. The famous epics, Ramayan and ShriRamcharitmanas exhibit the splendour of Ayodhya.</value>
+  </data>
   <data name="AirwaysBooking" xml:space="preserve">
     <value>Airways Booking</value>
+  </data>
+  <data name="Ambulance" xml:space="preserve">
+    <value>Ambulance</value>
   </data>
   <data name="ATM" xml:space="preserve">
     <value>ATM</value>
@@ -156,11 +171,20 @@
   <data name="BookServices" xml:space="preserve">
     <value>Book Services</value>
   </data>
+  <data name="Buddhist" xml:space="preserve">
+    <value>Buddhist</value>
+  </data>
   <data name="BusTicketBooking" xml:space="preserve">
     <value>Bus Ticket Booking</value>
   </data>
+  <data name="ChildHelpline" xml:space="preserve">
+    <value>Child Helpline</value>
+  </data>
   <data name="CM" xml:space="preserve">
     <value>Hon'ble Chief Minister, Uttar Pradesh</value>
+  </data>
+  <data name="CMHelpline" xml:space="preserve">
+    <value>CM Helpline</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
@@ -170,6 +194,12 @@
   </data>
   <data name="CopyrightsDescription" xml:space="preserve">
     <value>©2024 Department of Tourism, Ayodhya, Uttar Pradesh, India | All rights reserved.</value>
+  </data>
+  <data name="Covid19HelplineNo" xml:space="preserve">
+    <value>Covid-19 Helpline No.</value>
+  </data>
+  <data name="DailyVisitors" xml:space="preserve">
+    <value>Daily Visitors</value>
   </data>
   <data name="DepartmentofTourism" xml:space="preserve">
     <value>Department of Tourism, Ayodhya, Uttar Pradesh</value>
@@ -219,17 +249,29 @@
   <data name="Ghat" xml:space="preserve">
     <value>Ghat</value>
   </data>
+  <data name="Ghatcount" xml:space="preserve">
+    <value>Ayodhya have over 62 different Ghat.</value>
+  </data>
   <data name="GoToDonateforCharity" xml:space="preserve">
     <value>Go To Donate for Charity</value>
   </data>
   <data name="GovernmentofUttarPradesh" xml:space="preserve">
     <value>Government of Uttar Pradesh</value>
   </data>
+  <data name="Growing" xml:space="preserve">
+    <value>Growing</value>
+  </data>
+  <data name="Growingcount" xml:space="preserve">
+    <value>Over 12,0000 men and women visit daliy ayodhya.</value>
+  </data>
   <data name="Gurdwara" xml:space="preserve">
     <value>Gurdwara</value>
   </data>
   <data name="Helpline" xml:space="preserve">
     <value>Helpline</value>
+  </data>
+  <data name="HelplineNumbers" xml:space="preserve">
+    <value>Helpline Numbers</value>
   </data>
   <data name="Heritage" xml:space="preserve">
     <value>Heritage</value>
@@ -240,8 +282,14 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Hospital" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
   <data name="Hospitals" xml:space="preserve">
     <value>Hospitals</value>
+  </data>
+  <data name="Hotel" xml:space="preserve">
+    <value>Hotel</value>
   </data>
   <data name="HotelBooking" xml:space="preserve">
     <value>Hotel Booking</value>
@@ -249,11 +297,23 @@
   <data name="HotelsResortsandRestaurants" xml:space="preserve">
     <value>Hotels, Resorts and Restaurants</value>
   </data>
+  <data name="Important" xml:space="preserve">
+    <value>Important</value>
+  </data>
+  <data name="ImportantLinks" xml:space="preserve">
+    <value>Important Links</value>
+  </data>
   <data name="inAyodhya" xml:space="preserve">
     <value>in Ayodhya</value>
   </data>
+  <data name="IncredibleIndia" xml:space="preserve">
+    <value>Incredible India</value>
+  </data>
   <data name="Industries" xml:space="preserve">
     <value>Industries</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
   </data>
   <data name="KeyFacts" xml:space="preserve">
     <value>Key Facts</value>
@@ -269,6 +329,12 @@
   </data>
   <data name="Map" xml:space="preserve">
     <value>Map</value>
+  </data>
+  <data name="MHTollFreeNo" xml:space="preserve">
+    <value>MH Toll Free No.</value>
+  </data>
+  <data name="MinistryofTourism" xml:space="preserve">
+    <value>Ministry of Tourism</value>
   </data>
   <data name="NearbyPlaces" xml:space="preserve">
     <value>Near by Places</value>
@@ -357,11 +423,20 @@
   <data name="SPIT" xml:space="preserve">
     <value>SPIT</value>
   </data>
+  <data name="StarClassification" xml:space="preserve">
+    <value>Star Classification</value>
+  </data>
   <data name="Support1" xml:space="preserve">
     <value>Support us, we need your help.</value>
   </data>
   <data name="Support2" xml:space="preserve">
     <value>May ram bless you! Thank you. Those who (in charity) spend of their goods by night and by day</value>
+  </data>
+  <data name="TajMahal" xml:space="preserve">
+    <value>Taj Mahal</value>
+  </data>
+  <data name="Templecount" xml:space="preserve">
+    <value>100+ Temples in Ayodhya</value>
   </data>
   <data name="Temples" xml:space="preserve">
     <value>Temples</value>
@@ -387,8 +462,14 @@
   <data name="Upcoming" xml:space="preserve">
     <value>Upcoming</value>
   </data>
+  <data name="UPSRTC" xml:space="preserve">
+    <value>UPSRTC</value>
+  </data>
   <data name="UPSTDCPortal" xml:space="preserve">
     <value>UPSTDC Portal</value>
+  </data>
+  <data name="UPTourismNo" xml:space="preserve">
+    <value>UP Tourism No.</value>
   </data>
   <data name="VideoGallery" xml:space="preserve">
     <value>Video Gallery</value>
@@ -401,6 +482,12 @@
   </data>
   <data name="WhatWeOffer" xml:space="preserve">
     <value>What We Offer</value>
+  </data>
+  <data name="WomenCommNo" xml:space="preserve">
+    <value>Women Comm. No.</value>
+  </data>
+  <data name="WomenHelpline" xml:space="preserve">
+    <value>Women Helpline</value>
   </data>
   <data name="YatrainAyodhya" xml:space="preserve">
     <value>Yatra in Ayodhya</value>

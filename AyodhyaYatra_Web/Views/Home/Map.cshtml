@@ -1,4 +1,5 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Key Facts";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,8 +13,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Ayodhya Maps</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Footer >> </a> </li> <li class="active">Ayodhya Maps</li></ol>
+                    <h1 itemprop="headline">@Resource.AyodhyaMaps</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.Footer >> </a> </li> <li class="active">@Resource.AyodhyaMaps</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -48,9 +49,9 @@
                                                                             </a>
                                                                         </div>
                                                                         <div class="cause-inf">
-                                                                            <div class="image-count" style="font-size:20px !important">5 Kosi Yatra</div>
+                                                                            <div class="image-count" style="font-size:20px !important">@Resource._5KosiParikrama</div>
                                                                             <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="#">
-                                                                                View Gallery
+                                                                                @Resource.Gallery
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -64,9 +65,9 @@
                                                                             </a>
                                                                         </div>
                                                                         <div class="cause-inf">
-                                                                            <div class="image-count" style="font-size:20px !important">14 Kosi Parikrama</div>
+                                                                            <div class="image-count" style="font-size:20px !important">@Resource._5KosiParikrama</div>
                                                                             <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="#">
-                                                                                View Gallery
+                                                                                @Resource.Gallery
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -81,14 +82,13 @@
                                                                             </a>
                                                                         </div>
                                                                         <div class="cause-inf">
-                                                                            <div class="image-count" style="font-size:20px !important">84 Kosi Parikrama</div>
+                                                                            <div class="image-count" style="font-size:20px !important">@Resource._84KosiParikrama</div>
                                                                             <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="#">
-                                                                                View Gallery
+                                                                                @Resource.Gallery
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>

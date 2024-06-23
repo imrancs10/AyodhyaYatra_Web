@@ -1,4 +1,4 @@
-﻿
+﻿@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Feedback";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,8 +10,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Feedback</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Home >></a> </li> <li class="active">Feedback</li></ol>
+                    <h1 itemprop="headline">@Resource.Feedback</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.Home >></a> </li> <li class="active">@Resource.Feedback</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -36,12 +36,12 @@
                                                 <div class="gap">
                                                     <div class="container">
                                                         <div class="sec-tl text-center">
-                                                            <h2 itemprop="headline">Submit your Feedback Form</h2> <span class="theme-clr">Send your feedback on the website by filling the form given below. Your opinion, suggestions and feedback will be valuable to us.</span>
+                                                            <h2 itemprop="headline">@Resource.SubmityourFeedbackForm</h2> <span class="theme-clr">@Resource.FeedbackH1</span>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
                                                                 <div class="mrg10">
-                                                                    <span>Fill your contact information, so that we will be able to answer your queries.</span>
+                                                                    <span>@Resource.FeedbackH2</span>
                                                                     <br>
                                                                     <br>
                                                                     <p>

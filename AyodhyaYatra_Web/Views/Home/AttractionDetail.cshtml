@@ -12,10 +12,10 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Yatra in Ayodhya</h1>
+                    <h1 itemprop="headline">@Resource.YatrainAyodhya</h1>
                     <ol class="breadcrumb brd-rd30">
                         <li class="breadcrumb-item">
-                            <a href="../index.html">Yatra in Ayodhya >></a>
+                            <a href="../index.html">@Resource.YatrainAyodhya >></a>
                         </li>
                         <li class="active">@(attractionById.EnName !=null ? attractionById.EnName:"")</li>
                     </ol>
@@ -45,7 +45,7 @@
                                                     <div class="container">
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
-                                                                <span>Welcome to Ayodhya</span>
+                                                                <span>@Resource.WelcomeAyodhyaDham</span>
                                                                 <h2 class="mb-0">@(attractionById.EnName != null ? attractionById.EnName : "") </h2>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
@@ -68,14 +68,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <h5 class="heading3 text-dark">Contact Details</h5>
-                                                                <p><strong>Address: </strong> Regional Tourist Office, Ayodhya </p>
+                                                                <h5 class="heading3 text-dark">@Resource.ContactDetails</h5>
+                                                                <p><strong>@Resource.Address : </strong> @Resource.AddressDescription</p>
                                                                 <p>
-                                                                    <strong>Website: </strong>
+                                                                    <strong>@Resource.Website : </strong>
                                                                     <a class="word-break" href="https://ayodhya-dham.in/home/attractionDetail?id=@attractionById.Id">https://ayodhya-dham.in/home/attractionDetail?id=@attractionById.Id</a>
                                                                 </p>
                                                                 <p>
-                                                                    <strong>Location: </strong>
+                                                                    <strong>@Resource.Location : </strong>
                                                                     <a href="https://www.google.com/maps/dir/@attractionById.Latitude N,@attractionById.Longitude E" target="_blank">
                                                                         <i class="fa fa-location-arrow"></i> MAP
                                                                     </a>
@@ -84,11 +84,11 @@
                                                                 <div class="row py-4">
                                                                     <div class="col-12">
                                                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                                            <a class="btn btn-warning" href="/Home/TouristGuideByMap?showFull=1">Tourist Guide by Map</a>
+                                                                            <a class="btn btn-warning" href="/Home/TouristGuideByMap?showFull=1">@Resource.TouristGuidebyMap</a>
                                                                             @*<a class="btn btn-success" href="#/Temple360Gallery?id=226">Photo Gallery</a>*@
-                                                                            <a class="btn btn-primary" href="/Home/ThreeSixtyDegreeGallery?attractionId=@attractionById.Id">360° Video Gallery</a>
+                                                                            <a class="btn btn-primary" href="/Home/ThreeSixtyDegreeGallery?attractionId=@attractionById.Id">@Resource.ThreeSixtydegreeVideoGallery</a>
                                                                             <a class="btn btn-danger" href="https://www.google.com/maps/dir/?api=1&amp;origin=Ayodhya Junction&amp;destination=@attractionById.Latitude,@attractionById.Longitude" target="_blank">
-                                                                                <i class="fa fa-location-arrow"></i> Navigate
+                                                                                <i class="fa fa-location-arrow"></i> @Resource.Navigate
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -118,7 +118,7 @@
                                                     <div class="container">
                                                         <div class="tq-sec-title-wrapper d-flex align-items-center justify-content-between position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column">
-                                                                <span>Ayodhya Dham</span>
+                                                                <span>@Resource.AyodhyaDham</span>
                                                                 <h2 class="mb-0">@attractionById.Images.Count Images of @(attractionById.EnName!=null?attractionById.EnName:"")</h2>
                                                             </div><!-- Section Title -->
                                                             <div class="tq-swiper-buttons d-inline-flex align-items-center">

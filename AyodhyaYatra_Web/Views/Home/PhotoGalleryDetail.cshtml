@@ -1,4 +1,5 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Photo Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -39,12 +40,12 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Gallery</h1>
+                    <h1 itemprop="headline">@Resource.Gallery</h1>
                     <ol class="breadcrumb brd-rd30">
                         <li class="breadcrumb-item">
-                            <a href="#">Gallery >> </a>
+                            <a href="#">@Resource.Gallery >> </a>
                         </li>
-                        <li class="active">Photo Gallery Detail</li>
+                        <li class="active">@Resource.PhotoGallery</li>
                     </ol>
                 </div>
             </div><!-- Page Top Wrap -->
@@ -174,7 +175,7 @@
             max-width: 200px;
             margin: 5px;
             cursor: pointer;
-            border-radius:18px;
+            border-radius: 18px;
         }
 
     .popup {

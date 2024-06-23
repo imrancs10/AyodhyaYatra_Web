@@ -1,4 +1,5 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Resources;
+@{
     ViewBag.Title = "TicketBooking";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,8 +10,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Online Booking</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="../index.html">Online Booking >></a> </li> <li class=" active">Bus Tickting for Tourist</li></ol>
+                    <h1 itemprop="headline">@Resource.OnlineBooking</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="../index.html">@Resource.OnlineBooking >></a> </li> <li class=" active">@Resource.BusTicketBooking</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -40,8 +41,8 @@
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
 
-                                                                <span>Online Booking</span>
-                                                                <h2 class="mb-0">Bus Tickting for Tourist</h2>
+                                                                <span>@Resource.OnlineBooking</span>
+                                                                <h2 class="mb-0">@Resource.BusTicketBooking</h2>
                                                             </div>
                                                         </div>
                                                         <div class="tq-team-boxes position-relative w-100">
@@ -58,7 +59,7 @@
                                                                             </div>
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
-                                                                                <h5 class="mb-2"><a href="#">Make My Trip</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.MakeMyTrip</a></h5>
 
 
                                                                             </div><!-- Team Cap -->
@@ -78,7 +79,7 @@
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
 
-                                                                                <h5 class="mb-2"><a href="#">UPSRTC</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.UPSRTC</a></h5>
 
                                                                             </div><!-- Team Cap -->
                                                                         </div><!-- Team Box -->
@@ -96,7 +97,7 @@
                                                                             </div>
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
-                                                                                <h5 class="mb-2"><a href="#">Red Bus</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.RedBus</a></h5>
 
 
                                                                             </div><!-- Team Cap -->
@@ -116,7 +117,7 @@
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
 
-                                                                                <h5 class="mb-2"><a href="#">OYO Rooms</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.OYORooms</a></h5>
 
                                                                             </div><!-- Team Cap -->
                                                                         </div><!-- Team Box -->
@@ -134,7 +135,7 @@
                                                                             </div>
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
-                                                                                <h5 class="mb-2"><a href="#">Trivago</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.Trivago</a></h5>
 
 
                                                                             </div><!-- Team Cap -->
@@ -154,7 +155,7 @@
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
 
-                                                                                <h5 class="mb-2"><a href="#">Agoda</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.Agoda</a></h5>
 
                                                                             </div><!-- Team Cap -->
                                                                         </div><!-- Team Box -->
@@ -172,7 +173,7 @@
                                                                             </div>
                                                                             <!-- Team Image -->
                                                                             <div class="tq-team-cap d-flex flex-column align-items-center position-relative w-100">
-                                                                                <h5 class="mb-2"><a href="#">Easy my Trip</a></h5>
+                                                                                <h5 class="mb-2"><a href="#">@Resource.EasymyTrip</a></h5>
 
 
                                                                             </div><!-- Team Cap -->

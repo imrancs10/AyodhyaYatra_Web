@@ -1,4 +1,5 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Resources;
+@{
     ViewBag.Title = "Helpline";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,8 +10,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Helpline</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Home >></a> </li> <li class="active">Helpline</li></ol>
+                    <h1 itemprop="headline">@Resource.Helpline</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.Home >></a> </li> <li class="active">@Resource.Helpline</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -35,7 +36,7 @@
                                                 <div class="gap">
                                                     <div class="container">
                                                         <div class="sec-tl text-center">
-                                                            <h2 itemprop="headline">Helpline</h2>
+                                                            <h2 itemprop="headline">@Resource.Helpline</h2>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
@@ -43,15 +44,15 @@
                                                                     <table class="border" style="text-align: center;">
                                                                         <thead>
                                                                             <tr class="border">
-                                                                                <th scope="col">SR.No. </th>
-                                                                                <th scope="col">Name </th>
-                                                                                <th scope="col">Number</th>
+                                                                                <th scope="col">@Resource.SRNo </th>
+                                                                                <th scope="col">@Resource.Name </th>
+                                                                                <th scope="col">@Resource.Number</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr class="border">
                                                                                 <td>1.</td>
-                                                                                <td>Police</td>
+                                                                                <td>@Resource.Police</td>
                                                                                 <td>  112     </td>
 
                                                                             </tr>

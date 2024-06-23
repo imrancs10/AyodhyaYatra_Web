@@ -1,6 +1,6 @@
 ﻿@using AyodhyaYatra_Web.Models;
 @using System.Linq;
-
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "NewsAndEvents";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,8 +13,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">News & Events</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Home >></a> </li> <li><a>News & Events</a>  </li></ol>
+                    <h1 itemprop="headline">@Resource.NewsEvents</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.Home >></a> </li> <li><a>@Resource.NewsEvents</a>  </li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -49,11 +49,11 @@
                                         <li><i class="far fa-calendar-alt theme-clr"></i> <a href="" itemprop="url">@newsUpdateData.EventDate.Value.ToString("dd/MMM/yyyy")</a></li>
                                         <li>
                                             <a href="/Home/Index">
-                                                <i class="far fa-user theme-clr"></i>Ayodhya Dham
+                                                <i class="far fa-user theme-clr"></i>@Resource.AyodhyaDham
                                             </a>
                                         </li>
 
-                                        <li><i class="fas fa-map-marker-alt theme-clr"></i>Ayodhya, Uttar Pradesh</li>
+                                        <li><i class="fas fa-map-marker-alt theme-clr"></i>@Resource.AyodhyaUttarPradesh</li>
                                     </ul>
 
                                 </div>
@@ -66,7 +66,7 @@
 
                             <div class="pst-shr-tgs">
                                 <div class="scl1 float-left">
-                                    <span>Share This: </span>
+                                    <span>@Resource.ShareThis: </span>
                                     <a href="#" title="Facebook" data-toggle="tooltip" data-placement="top" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a><a href="#" title="Twitter" data-toggle="tooltip" data-placement="top" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a><a href="#" title="Google Plus" data-toggle="tooltip" data-placement="top" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a><a href="#" title="Linkedin" data-toggle="tooltip" data-placement="top" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 </div>
 

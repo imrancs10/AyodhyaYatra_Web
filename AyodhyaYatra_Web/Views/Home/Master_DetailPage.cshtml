@@ -1,4 +1,5 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Other Attraction Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +12,7 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Other Attraction</h1>
+                    <h1 itemprop="headline">@Resource.OtherAttraction</h1>
                     <ol class="breadcrumb brd-rd30">
                         <li class="breadcrumb-item">
                             <a href="">@attractionById.AttractionType | </a>
@@ -45,7 +46,7 @@
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
 
-                                                                <span>Welcome to Ayodhya</span>
+                                                                <span>@Resource.WelcomeAyodhyaDham</span>
                                                                 <h2 class="mb-0">@(attractionById.EnName != null ? attractionById.EnName : "") </h2>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
@@ -106,7 +107,7 @@
                                                     <div class="container">
                                                         <div class="tq-sec-title-wrapper d-flex align-items-center justify-content-between position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column">
-                                                                <span>Ayodhya Dham</span>
+                                                                <span>@Resource.AyodhyaDham</span>
                                                                 <h2 class="mb-0">@attractionById.Images.Count Images of @(attractionById.EnName!=null?attractionById.EnName:"")</h2>
                                                             </div><!-- Section Title -->
                                                             <div class="tq-swiper-buttons d-inline-flex align-items-center">
@@ -123,9 +124,9 @@
                                                                         <div class="tq-course-item swiper-slide position-relative">
                                                                             <div class="tq-course-box tq-bg-color2 d-flex flex-column position-relative w-100">
                                                                                 <div class="tq-course-img overflow-hidden position-relative w-100">
-                                                                                        <img class="img-fluid w-100"
-                                                                                             src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt="Image"
-                                                                                             loading="lazy">
+                                                                                    <img class="img-fluid w-100"
+                                                                                         src="@(item!=null? "https://api.ayodhya-dham.in/"+item.FilePath:"")" alt="Image"
+                                                                                         loading="lazy">
                                                                                 </div><!-- Course Image -->
                                                                             </div><!-- Course Box -->
                                                                         </div><!-- Course Item -->

@@ -1,4 +1,4 @@
-﻿
+﻿@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "FAQ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,8 +10,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">FAQs</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Quick Link >> </a> </li> <li class="active">FAQs</li></ol>
+                    <h1 itemprop="headline">@Resource.FAQs</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.QuickLinks >> </a> </li> <li class="active">@Resource.FAQs</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -38,7 +38,7 @@
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
                                                                 <img decoding="async" class="img-fluid" src="../wp-content/plugins/ingeniofy-plus/assets/images/shape2.png" alt="">
 
-                                                                <h3 class="mb-0">FAQs </h3>
+                                                                <h3 class="mb-0">@Resource.FAQs </h3>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-about-wrapper position-relative w-100">
@@ -48,17 +48,17 @@
                                                                     <div>
                                                                         <div>
 
-                                                                            <h5>Links to external websites/portals</h5>
+                                                                            <h5>@Resource.FAQsH1</h5>
                                                                             <hr />
                                                                             <p style="text-align:justify">
-                                                                                At many places in this website, you shall find links to other websites/portals. These links have been placed on the website for your convenience. UP Tourism is not responsible for the contents and reliability of the linked websites and does not necessarily endorse the views expressed in them. Mere presence of the link or its listing on this website should not be assumed as endorsement of any kind. We cannot guarantee that these links will work all the time and we have no control over availability of linked pages.
+                                                                                @Resource.FAQsP1
                                                                             </p>
-                                                                            <h5>Links to Department of UP Tourism Website by other websites/portals</h5>
+                                                                            <h5>@Resource.FAQsH2</h5>
                                                                             <hr />
                                                                             <p style="text-align:justify">
-                                                                                Prior permission is required before hyperlinks are directed from any website/portal to this site. Permission for the same, stating the nature of the content on the pages from where the link has to be given and the exact language of the Hyperlink has to be obtained by sending a request to UP Tourism.
+                                                                                @Resource.FAQsP2
 
-                                                                            </p>                                                                            
+                                                                            </p>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12">

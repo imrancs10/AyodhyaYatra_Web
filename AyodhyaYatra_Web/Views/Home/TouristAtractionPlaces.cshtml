@@ -1,5 +1,6 @@
 ﻿@using AyodhyaYatra_Web.Models;
 @using System.Linq;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Tourist Atraction Places";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,9 +14,9 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Tourist Guide</h1>
+                    <h1 itemprop="headline">@Resource.TouristGuide</h1>
                     <ol class="breadcrumb brd-rd30">
-                        <li class="breadcrumb-item"><a href="../index.html">Tourist Guide >> </a> </li>
+                        <li class="breadcrumb-item"><a href="../index.html">@Resource.TouristGuide >> </a> </li>
                         <li class=" active">@headingText</li>
                     </ol>
                 </div>

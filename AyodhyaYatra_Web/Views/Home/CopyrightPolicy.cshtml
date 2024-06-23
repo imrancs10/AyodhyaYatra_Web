@@ -1,4 +1,4 @@
-﻿
+﻿@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Copy Right Policy";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,8 +10,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Copyright Policy</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">Policy >> </a> </li> <li class="active">Copyright Policy</li></ol>
+                    <h1 itemprop="headline">@Resource.CopyrightPolicy</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.Policies >> </a> </li> <li class="active">@Resource.CopyrightPolicy</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -38,7 +38,7 @@
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
                                                                 <img decoding="async" class="img-fluid" src="../wp-content/plugins/ingeniofy-plus/assets/images/shape2.png" alt="">
 
-                                                                <h3 class="mb-0">Copyright Policy </h3>
+                                                                <h3 class="mb-0">@Resource.CopyrightPolicy </h3>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-about-wrapper position-relative w-100">
@@ -47,7 +47,7 @@
                                                                     <!--==================Paragraph with image start here=======================-->
                                                                     <div>
                                                                         <p style="text-align:justify">
-                                                                            All copyrights are reserved with the Department of UP Tourism, Ayodhya. The material posted on the website may be reproduced without formal permission for the purposes of non-commercial research, private study, review and news reporting provided that the material is appropriately attributed. However, the material has to be reproduced accurately and not to be used in a derogatory manner or in a misleading context. The permissions to reproduce this material shall not extend to any material which is identified as being copyright of a third party. Authorization to reproduce such material must be obtained from the concerned copyright holders.
+                                                                            @Resource.CopyrightPolicyDesc
                                                                         </p>
                                                                     </div>
                                                                     <div class="col-12">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                   
+                    </section>
                 </div>
             </div><!-- #post-## -->
 

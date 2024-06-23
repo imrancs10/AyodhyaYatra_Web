@@ -1,4 +1,5 @@
-﻿@{
+﻿@using AyodhyaYatra_Web.Resources;
+@{
     ViewBag.Title = "TouristGuideByMap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,8 +11,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Tourist Guide by Map</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="../../index.html">Home >></a> </li> <li><a href="../index.html">Tourist Guide by Map</a></li></ol>
+                    <h1 itemprop="headline">@Resource.TouristGuidebyMap</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="../../index.html">@Resource.Home >></a> </li> <li><a href="../index.html">@Resource.TouristGuidebyMap</a></li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -27,29 +28,29 @@
 
                         <div class="cnt-frm cmt-frm">
                             <div id="respond" class="comment-respond">
-                                <h4 itemprop="headline">Tourist Guide By Map</h4><form action="#" method="post" id="commentform" class="row mrg10" novalidate>
-                                    <p class="comment-notes"><span id="email-notes">Search by Place Name</span></p>
+                                <h4 itemprop="headline">@Resource.TouristGuidebyMap</h4><form action="#" method="post" id="commentform" class="row mrg10" novalidate>
+                                    <p class="comment-notes"><span id="email-notes">@Resource.SearchbyPlaceName</span></p>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <select class="input" id="service_category" style="padding: 15px; width: 100%;border:1px solid;border-radius:10px">
-                                            <option value="0">Select Category</option>
-                                            <option value="1">Yatra</option>
-                                            <option value="2">Attraction</option>
+                                            <option value="0">@Resource.SelectCategory</option>
+                                            <option value="1">@Resource.Yatra</option>
+                                            <option value="2">@Resource.Attraction</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <select class="input" id="service_subcategory" style="padding: 15px; width: 100%; border: 1px solid; border-radius: 10px">
-                                            <option value="1">Yatra</option>
-                                            <option value="2">Temple</option>
-                                            <option value="3">Ghat</option>
-                                            <option value="4">Transportation</option>
-                                            <option value="5">Hotels</option>
+                                            <option value="1">@Resource.Yatra</option>
+                                            <option value="2">@Resource.Temple</option>
+                                            <option value="3">@Resource.Ghat</option>
+                                            <option value="4">@Resource.Transportation</option>
+                                            <option value="5">@Resource.Hotel</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="#">
-                                            Search
+                                            @Resource.Search
                                         </a>
                                     </div>
 
@@ -75,7 +76,7 @@
         </div>
     </div>
     <script>
-     
+
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -187,7 +188,7 @@
             });
         });
 
-        function populateSelect(data,selectType,selectAll) {
+        function populateSelect(data, selectType, selectAll) {
             var $select = $('#service_subcategory');
             $select.empty(); // Clear any existing options
             $select.append('<option value="">Select an ' + selectType + '</option>'); // Default option
@@ -205,7 +206,7 @@
                 return { lat: yatra.latitude, lng: yatra.longitude };
             });
         }
-        const createMarker = (latlng, data,map, url, index, user_Current_Lat, user_Current_Lng) => {
+        const createMarker = (latlng, data, map, url, index, user_Current_Lat, user_Current_Lng) => {
             var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
@@ -221,7 +222,7 @@
                 addInfoWindow(marker, data)
             }
         }
-        function initMap(coordinates,data,catId) {
+        function initMap(coordinates, data, catId) {
             debugger;
             // Center the map at some coordinate (e.g., the first marker)
             var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
@@ -232,7 +233,7 @@
             });
 
             // List of coordinates to place markers
-            var coordinates = coordinates?.length > 0 ? coordinates: [
+            var coordinates = coordinates?.length > 0 ? coordinates : [
                 { lat: 26.7749, lng: 82.1998 },
                 { lat: 34.0522, lng: -118.2437 },
                 { lat: 40.7128, lng: -74.0060 }
@@ -245,7 +246,7 @@
             });
         }
         // Initialize the map
-      //  google.maps.event.addDomListener(window, 'load', initMap);
+        //  google.maps.event.addDomListener(window, 'load', initMap);
 
         function initMapWithRoute(yatraArray) {
 
@@ -288,8 +289,8 @@
                             var markerEnd = new google.maps.Marker({
                                 position: leg.end_location,
                                 map: map,
-                                title: yatraArray[segmentIndex * 25 + legIndex+1].enName,
-                                label: yatraArray[segmentIndex * 25 + legIndex+1].enName
+                                title: yatraArray[segmentIndex * 25 + legIndex + 1].enName,
+                                label: yatraArray[segmentIndex * 25 + legIndex + 1].enName
                             });
 
 
@@ -363,7 +364,7 @@
             }
 
             // Function to add info window to a marker
-           
+
 
             // Split the yatraArray into segments and process them
             var segments = splitWaypoints(yatraArray);
@@ -375,17 +376,17 @@
             }).join('');
 
             var contentString = `
-                   <div>
-                       <h3>${yatra.enName}</h3>
-                       <p>Description: ${yatra.enDescription}</p>
-                       <p>Sequence No.: ${yatra.sequenceNo}</p>
-                       <div style="display:flex;flex-direction: row;flex-wrap: wrap;">
-                       ${imagesHtml}
+                       <div>
+                           <h3>${yatra.enName}</h3>
+                           <p>Description: ${yatra.enDescription}</p>
+                           <p>Sequence No.: ${yatra.sequenceNo}</p>
+                           <div style="display:flex;flex-direction: row;flex-wrap: wrap;">
+                           ${imagesHtml}
+                           </div>
+                          ${yatra.website === undefined ? '' : ' <p><a href="${yatra.website}" target="_blank">Website</a></p>'}
+                           <p><a href="https://www.google.com/maps/dir/?api=1&destination=${yatra.latitude},${yatra.longitude}" target="_blank">Navigate</a></p>
                        </div>
-                      ${yatra.website === undefined ? '' :' <p><a href="${yatra.website}" target="_blank">Website</a></p>'}
-                       <p><a href="https://www.google.com/maps/dir/?api=1&destination=${yatra.latitude},${yatra.longitude}" target="_blank">Navigate</a></p>
-                   </div>
-               `;
+                   `;
 
             var infowindow = new google.maps.InfoWindow({
                 content: contentString

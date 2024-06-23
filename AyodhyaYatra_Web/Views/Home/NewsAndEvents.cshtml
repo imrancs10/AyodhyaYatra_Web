@@ -1,5 +1,6 @@
 ﻿@using AyodhyaYatra_Web.Models;
 @using System.Linq;
+@using AyodhyaYatra_Web.Resources;
 
 @{
     ViewBag.Title = "NewsAndEvents";
@@ -13,10 +14,10 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">News And Events</h1>
+                    <h1 itemprop="headline">@Resource.NewsEvents</h1>
                     <ol class="breadcrumb brd-rd30">
-                        <li class="breadcrumb"><a href="/Home/Index">Home /</a> </li>
-                        <li class="breadcrumb active">News And Events</li>
+                        <li class="breadcrumb"><a href="/Home/Index">@Resource.Home /</a> </li>
+                        <li class="breadcrumb active">@Resource.NewsEvents</li>
                     </ol>
                 </div>
             </div><!-- Page Top Wrap -->
@@ -75,7 +76,7 @@
                                                                                 <p itemprop="description">@news.EnDescription</p>
                                                                                 <div class="prg-wrp">
                                                                                     <a class="tq-theme-btn tq-bg-theme rounded-pill" href="/Home/NewsEventsDetailPage?eventId=@news.Id">
-                                                                                        Read More
+                                                                                        @Resource.ReadMore
                                                                                     </a>
                                                                                 </div>
                                                                             </div>

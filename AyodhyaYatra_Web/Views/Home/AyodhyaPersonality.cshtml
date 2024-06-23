@@ -1,4 +1,5 @@
 ﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Resources;
 @{
     ViewBag.Title = "Personality of Ayodhya";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,8 +12,8 @@
         <div class="container">
             <div class="pg-tp-wrp text-center" style="padding-top:50px">
                 <div class="pg-tp-inr">
-                    <h1 itemprop="headline">Personality of Ayodhya</h1>
-                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">About us >> </a> </li> <li class="active">Personality of Ayodhya</li></ol>
+                    <h1 itemprop="headline">@Resource.PersonalityofAyodhya</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.About >> </a> </li> <li class="active">@Resource.PersonalityofAyodhya</li></ol>
                 </div>
             </div><!-- Page Top Wrap -->
         </div>
@@ -39,8 +40,8 @@
                                                     <div class="container">
                                                         <div class="tq-sec-title-wrapper d-flex flex-column align-items-center text-center position-relative w-100">
                                                             <div class="tq-sec-title d-flex flex-column align-items-center text-center">
-                                                                <span> Welcome to Ayodhya</span>
-                                                                <h3 class="mb-0"> Personality of Ayodhya</h3>
+                                                                <span>@Resource.WelcomeAyodhyaDham</span>
+                                                                <h3 class="mb-0">@Resource.PersonalityofAyodhya</h3>
                                                             </div><!-- Section Title -->
                                                         </div><!-- Section Title Wrapper -->
                                                         <div class="tq-about-wrapper position-relative w-100">
@@ -57,7 +58,7 @@
                                                                 </div>
                                                                 <div class="col-md-12 col-sm-12 col-lg-7">
                                                                     <div class="tq-about-cap tq-mt-30 d-flex flex-column align-items-start w-100">
-                                                                        <p> The return of Lord Rama from 14 years of exile and vanquishing the demon-king Ravana marks the triumph of good over evil. In joyous celebration of Lord Rama’s homecoming, the people of Ayodhya illuminated the kingdom and welcomed him in grandeur. Since then, every year the Festival of Lights, known as Diwali, is celebrated. In Ayodhya, Uttar Pradesh, the Department of Tourism.</p>
+                                                                        <p>@Resource.PersonalityDescription</p>
                                                                         @*<ul class="d-flex flex-column  mb-0">
 
                                                                                 <li>Shailputri Durga</li>
@@ -86,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                
+                    </section>
 
                 </div>
             </div><!-- #post-## -->

@@ -808,6 +808,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The return of Lord Rama from 14 years of exile and vanquishing the demon-king Ravana marks the triumph of good over evil. In joyous celebration of Lord Rama’s homecoming, the people of Ayodhya illuminated the kingdom and welcomed him in grandeur. Since then, every year the Festival of Lights, known as Diwali, is celebrated. In Ayodhya, Uttar Pradesh, the Department of Tourism..
+        /// </summary>
+        public static string PersonalityDescription {
+            get {
+                return ResourceManager.GetString("PersonalityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personality of Ayodhya.
         /// </summary>
         public static string PersonalityofAyodhya {

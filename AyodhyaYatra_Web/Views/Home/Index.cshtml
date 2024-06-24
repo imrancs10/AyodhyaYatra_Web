@@ -68,7 +68,7 @@
 
                                                                     <div id="myOverlay" class="overlay" style="z-index: 99999;">
                                                                         <div class="popup">
-                                                                            <span class="close-btn" onclick="closePopup()">&times;</span>
+                                                                            <span class="close-btn" onclick="closePopup()" style="left:25px !important;right:25px !important;color:red;">&times;</span>
                                                                             <section class="contact-sec">
                                                                                 <div class="gap">
                                                                                     <div class="container">
@@ -269,7 +269,7 @@
                                                                                 } else {
                                                                                     $('#addressError').text("");
                                                                                 }
-                                                                                var apiBaseUrl = 'https://localhost:7216/v1/';// $('#hdnAPIURL').val();
+                                                                                var apiBaseUrl =  $('#hdnAPIURL').val();
                                                                                 $.ajax({
                                                                                     url: apiBaseUrl + 'visitors/add',
                                                                                     //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint

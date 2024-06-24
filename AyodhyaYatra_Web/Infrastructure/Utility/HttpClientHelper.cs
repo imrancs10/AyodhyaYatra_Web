@@ -1,24 +1,8 @@
-﻿using DataLayer;
-using AyodhyaYatra_Web.Global;
-using AyodhyaYatra_Web.Infrastructure.Authentication;
-using AyodhyaYatra_Web.Models;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using static AyodhyaYatra_Web.Global.Enums;
-using AyodhyaYatra_Web.BAL.Masters;
-using AyodhyaYatra_Web.Models.Masters;
 using System.Configuration;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
-using System.Net.Http.Headers;
 using System.Net.Http;
-using System.Security.Cryptography.Xml;
-using System.Security.Policy;
-using Newtonsoft.Json;
-using System.Runtime.InteropServices.ComTypes;
-using System.Net;
+using System.Net.Http.Headers;
 
 namespace AyodhyaYatra_Web.Infrastructure.Utility
 {

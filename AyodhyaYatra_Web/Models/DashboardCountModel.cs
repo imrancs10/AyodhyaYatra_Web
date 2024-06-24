@@ -9,6 +9,7 @@ namespace AyodhyaYatra_Web.Models
     {
         public int id { get; set; }
         public int yatraCount { get; set; }
+        public int CharityCount { get; set; }
         public int registrationCount { get; set; }
         public List<MonthlyVisitorCountModel> monthlyVisitorCounts { get; set; }
         public List<attractionCountsModel> attractionCounts { get; set; }

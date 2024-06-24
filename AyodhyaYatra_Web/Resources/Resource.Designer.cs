@@ -340,6 +340,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Charity.
+        /// </summary>
+        public static string Charity {
+            get {
+                return ResourceManager.GetString("Charity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Child Helpline.
         /// </summary>
         public static string ChildHelpline {

@@ -210,6 +210,9 @@
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="Charity" xml:space="preserve">
+    <value>दान</value>
+  </data>
   <data name="ChildHelpline" xml:space="preserve">
     <value>Child Helpline</value>
   </data>

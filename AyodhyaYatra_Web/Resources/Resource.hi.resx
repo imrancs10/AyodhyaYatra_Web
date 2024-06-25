@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="14KosiYatra" xml:space="preserve">
-    <value>14 Kosi Yatra</value>
+    <value>14 कोसी यात्रा</value>
   </data>
   <data name="5KosiParikrama" xml:space="preserve">
-    <value>5 Kosi Parikrama</value>
+    <value>5 कोसी परिक्रमा</value>
   </data>
   <data name="84KosiParikrama" xml:space="preserve">
-    <value>84 Kosi Parikrama</value>
+    <value>84 कोसी परिक्रमा</value>
   </data>
   <data name="Aashram" xml:space="preserve">
     <value>आश्रम</value>
@@ -133,28 +133,28 @@
     <value>के बारे में</value>
   </data>
   <data name="AboutAyodhya" xml:space="preserve">
-    <value>About Ayodhya</value>
+    <value>अयोध्या के बारे में</value>
   </data>
   <data name="AboutDescription" xml:space="preserve">
     <value>Ayodhya, the former capital of the Avadh area, holds a particular place in the hearts of Lord Rama's followers because Rama, the descendant of Manu's Surya Vansh, is closely linked to its history. According to the Atharvaveda, the gods created this holy place, which was as prosperous as paradise. According to scripture, numerous great kings ruled the capital city of Kosaldesh, including Ikshvaku, Prithu, Mandhata, Harishchandra, Sagar, Bhagirath, Raghu, Dileep, Dashrath, and Ram. During their reign, the kingdom's magnificence peaked and exemplified Ram Rajya. The famous epics, Ramayan and ShriRamcharitmanas exhibit the splendour of Ayodhya.</value>
   </data>
   <data name="AddresDesc" xml:space="preserve">
-    <value>Saanskratik Sankul, Ayodhya</value>
+    <value>सांस्कृतिक संकुल, अयोध्या</value>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Address</value>
+    <value>पता</value>
   </data>
   <data name="AddressDescription" xml:space="preserve">
-    <value>Regional Tourist Office, Ayodhya</value>
+    <value>क्षेत्रीय पर्यटक कार्यालय, अयोध्या</value>
   </data>
   <data name="Agoda" xml:space="preserve">
     <value>Agoda</value>
   </data>
   <data name="AirwaysBooking" xml:space="preserve">
-    <value>Airways Booking</value>
+    <value>एयरवेज बुकिंग</value>
   </data>
   <data name="Ambulance" xml:space="preserve">
-    <value>Ambulance</value>
+    <value>एम्बुलेंस</value>
   </data>
   <data name="ATM" xml:space="preserve">
     <value>एटीएम</value>
@@ -166,97 +166,97 @@
     <value>ऑडियो गैलरी</value>
   </data>
   <data name="Availability" xml:space="preserve">
-    <value>Availability</value>
+    <value>उपलब्धता</value>
   </data>
   <data name="AyodhyacountedDescription1" xml:space="preserve">
-    <value>Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region</value>
+    <value>अयोध्या को प्राचीन भारत के सात सबसे पवित्र शहरों में गिना जाता है, यह सरयू नदी के दाहिने तट पर स्थित है, जो कभी अवध क्षेत्र की राजधानी थी</value>
   </data>
   <data name="AyodhyacountedDescription2" xml:space="preserve">
     <value>Download Our Mobile App :</value>
   </data>
   <data name="AyodhyaDham" xml:space="preserve">
-    <value>Ayodhya Dham</value>
+    <value>अयोध्या धाम</value>
   </data>
   <data name="AyodhyaMaps" xml:space="preserve">
-    <value>Ayodhya Maps</value>
+    <value>अयोध्या मैप</value>
   </data>
   <data name="AyodhyaOverviewDescription" xml:space="preserve">
-    <value>Ayodhya counted among the seven most sacred cities of ancient India, is situated on the right bank of the river Saryu, once the capital of Avadh region. Ayodhya holds a place of pride among the devotees of Lord Rama, who was a descendant of the Surya Vansh which is believed to have been founded by Manu, the lawgiver of the Hindus.....</value>
+    <value>अयोध्या को प्राचीन भारत के सात सबसे पवित्र शहरों में गिना जाता है, यह सरयू नदी के दाहिने तट पर स्थित है, जो कभी अवध क्षेत्र की राजधानी थी। अयोध्या भगवान राम के भक्तों के बीच गौरव का स्थान रखती है, जो सूर्य वंश के वंशज थे, जिसके बारे में माना जाता है कि इसकी स्थापना हिंदुओं के विधिनिर्माता मनु ने की थी.....</value>
   </data>
   <data name="AyodhyaTitle" xml:space="preserve">
-    <value>Ayodhya Dham | A pilgrimage to Ayodhya</value>
+    <value>अयोध्या धाम | अयोध्या की तीर्थ यात्रा</value>
   </data>
   <data name="AyodhyaUttarPradesh" xml:space="preserve">
-    <value>Ayodhya, Uttar Pradesh</value>
+    <value>अयोध्या, उत्तर प्रदेश</value>
   </data>
   <data name="BackToHompage" xml:space="preserve">
-    <value>Back To Hompage</value>
+    <value>मुखपृष्ठ पर वापस जाएँ</value>
   </data>
   <data name="Bhawan" xml:space="preserve">
-    <value>Bhawan</value>
+    <value>भवन</value>
   </data>
   <data name="BoatRidingBooking" xml:space="preserve">
-    <value>Boat Riding Booking</value>
+    <value>नाव की सवारी की बुकिंग</value>
   </data>
   <data name="BookServices" xml:space="preserve">
-    <value>Book Services</value>
+    <value>बुक सेवाएँ</value>
   </data>
   <data name="Buddhist" xml:space="preserve">
-    <value>Buddhist</value>
+    <value>बौद्ध</value>
   </data>
   <data name="BusTicketBooking" xml:space="preserve">
-    <value>Bus Ticket Booking</value>
+    <value>बस टिकट बुकिंग</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Category</value>
+    <value>केटेगरी</value>
   </data>
   <data name="Charity" xml:space="preserve">
     <value>दान</value>
   </data>
   <data name="ChildHelpline" xml:space="preserve">
-    <value>Child Helpline</value>
+    <value>चाइल्ड हेल्पलाइन</value>
   </data>
   <data name="CM" xml:space="preserve">
-    <value>Hon'ble Chief Minister, Uttar Pradesh</value>
+    <value>माननीय मुख्यमंत्री, उत्तर प्रदेश</value>
   </data>
   <data name="CMHelpline" xml:space="preserve">
-    <value>CM Helpline</value>
+    <value>सीएम हेल्पलाइन</value>
   </data>
   <data name="ContactDetails" xml:space="preserve">
-    <value>Contact Details</value>
+    <value>सम्पर्क  विवरण</value>
   </data>
   <data name="ContactP1" xml:space="preserve">
-    <value>For Tourism Policy Related Query Contact on this Email id : info@ayodhya-dham.in</value>
+    <value>पर्यटन नीति से संबंधित प्रश्नों के लिए इस ईमेल आईडी पर संपर्क करें: info@ayodhya-dham.in</value>
   </data>
   <data name="ContactP2" xml:space="preserve">
-    <value>In case you have any query regarding this website, you may write to the Web Information Manager at info@ayodhyayatra.com</value>
+    <value>यदि आपके पास इस वेबसाइट के बारे में कोई प्रश्न है, तो आप info@ayodhyayatra.com पर वेब सूचना प्रबंधक को लिख सकते हैं।</value>
   </data>
   <data name="ContactP3" xml:space="preserve">
-    <value>Any feedback, related to content, design, or technology may be submitted at Feedback section.</value>
+    <value>सामग्री, डिजाइन या प्रौद्योगिकी से संबंधित कोई भी फीडबैक, फीडबैक अनुभाग में प्रस्तुत किया जा सकता है।</value>
   </data>
   <data name="ContactP4" xml:space="preserve">
-    <value>You can also contact us at the following address:</value>
+    <value>आप हमसे निम्नलिखित पते पर भी संपर्क कर सकते हैं:</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>संपर्क करें</value>
   </data>
   <data name="CopyrightPolicy" xml:space="preserve">
-    <value>Copyright Policy</value>
+    <value>कॉपीराइट पालिसी</value>
   </data>
   <data name="CopyrightPolicyDesc" xml:space="preserve">
-    <value>All copyrights are reserved with the Department of UP Tourism, Ayodhya. The material posted on the website may be reproduced without formal permission for the purposes of non-commercial research, private study, review and news reporting provided that the material is appropriately attributed. However, the material has to be reproduced accurately and not to be used in a derogatory manner or in a misleading context. The permissions to reproduce this material shall not extend to any material which is identified as being copyright of a third party. Authorization to reproduce such material must be obtained from the concerned copyright holders.</value>
+    <value>सभी कॉपीराइट उत्तर प्रदेश पर्यटन विभाग, अयोध्या के पास सुरक्षित हैं। वेबसाइट पर पोस्ट की गई सामग्री को गैर-व्यावसायिक शोध, निजी अध्ययन, समीक्षा और समाचार रिपोर्टिंग के प्रयोजनों के लिए औपचारिक अनुमति के बिना पुन: प्रस्तुत किया जा सकता है, बशर्ते कि सामग्री का उचित रूप से उल्लेख किया गया हो। हालाँकि, सामग्री को सटीक रूप से पुन: प्रस्तुत किया जाना चाहिए और अपमानजनक तरीके से या भ्रामक संदर्भ में उपयोग नहीं किया जाना चाहिए। इस सामग्री को पुन: प्रस्तुत करने की अनुमति किसी भी ऐसी सामग्री तक नहीं बढ़ेगी जिसे किसी तीसरे पक्ष के कॉपीराइट के रूप में पहचाना जाता है। ऐसी सामग्री को पुन: प्रस्तुत करने के लिए संबंधित कॉपीराइट धारकों से प्राधिकरण प्राप्त किया जाना चाहिए।</value>
   </data>
   <data name="CopyrightsDescription" xml:space="preserve">
-    <value>©2024 Department of Tourism, Ayodhya, Uttar Pradesh, India | All rights reserved.</value>
+    <value>©2024 पर्यटन विभाग, अयोध्या, उत्तर प्रदेश, भारत | सर्वाधिकार सुरक्षित।</value>
   </data>
   <data name="Covid19HelplineNo" xml:space="preserve">
-    <value>Covid-19 Helpline No.</value>
+    <value>कोविड-19 हेल्पलाइन नंबर</value>
   </data>
   <data name="DailyVisitors" xml:space="preserve">
-    <value>Daily Visitors</value>
+    <value>दैनिक आगंतुक</value>
   </data>
   <data name="DepartmentofTourism" xml:space="preserve">
-    <value>Department of Tourism, Ayodhya, Uttar Pradesh</value>
+    <value>पर्यटन विभाग, अयोध्या, उत्तर प्रदेश</value>
   </data>
   <data name="Developedandhostedby" xml:space="preserve">
     <value>Developed and hosted by</value>
@@ -268,61 +268,61 @@
     <value>Documents</value>
   </data>
   <data name="Donts" xml:space="preserve">
-    <value>Don’ts</value>
+    <value>क्या न करें</value>
   </data>
   <data name="DontsL1" xml:space="preserve">
-    <value>Do not litter, help us in maintaining our cities clean and green.</value>
+    <value>कूड़ा-कचरा न फैलाएं, हमारे शहरों को स्वच्छ और हरा-भरा बनाए रखने में हमारी मदद करें।</value>
   </data>
   <data name="DontsL2" xml:space="preserve">
-    <value>Do not take any photographs that may make people embarrassed.</value>
+    <value>ऐसी कोई भी तस्वीर न लें जिससे लोगों को शर्मिंदगी महसूस हो।</value>
   </data>
   <data name="DontsL3" xml:space="preserve">
-    <value>Don’t smoke, don't drink alcohol or don't use drugs at public places and religious spots.</value>
+    <value>सार्वजनिक स्थानों और धार्मिक स्थलों पर धूम्रपान न करें, शराब न पीएं या नशीले पदार्थों का प्रयोग न करें।</value>
   </data>
   <data name="DontsL4" xml:space="preserve">
-    <value>Don’t touch or harass animals and support conservation of animals by paying entrance fees to parks and conserved sites.</value>
+    <value>जानवरों को न छुएं या परेशान न करें तथा पार्कों और संरक्षित स्थलों में प्रवेश शुल्क का भुगतान करके जानवरों के संरक्षण में सहयोग करें।</value>
   </data>
   <data name="DontsL5" xml:space="preserve">
-    <value>Don’t buy crafts or products made from skin of endangered animals.</value>
+    <value>लुप्तप्राय जानवरों की खाल से बने शिल्प या उत्पाद न खरीदें।</value>
   </data>
   <data name="DontsL6" xml:space="preserve">
-    <value>Do not drive on Indian roads unless you are well-aware about Indian roads and drive to the left of the road.</value>
+    <value>जब तक आप भारतीय सड़कों के बारे में अच्छी तरह से अवगत न हों, तब तक भारतीय सड़कों पर वाहन न चलाएं और सड़क के बाईं ओर वाहन चलाएं।</value>
   </data>
   <data name="DontsL7" xml:space="preserve">
-    <value>Do not give any offensive comment about any religion; it could be controversial.</value>
+    <value>किसी भी धर्म के बारे में कोई आपत्तिजनक टिप्पणी न करें; यह विवादास्पद हो सकता है।</value>
   </data>
   <data name="DontsL8" xml:space="preserve">
-    <value>Do not buy or book hotels/bus/air/railway tickets through strangers or unauthorized agents.</value>
+    <value>अजनबियों या अनधिकृत एजेंटों के माध्यम से होटल/बस/हवाई/रेलवे टिकट न खरीदें या बुक न करें।</value>
   </data>
   <data name="DontsL9" xml:space="preserve">
-    <value>Do not hire transportation from unlicensed operators.</value>
+    <value>बिना लाइसेंस वाले ऑपरेटरों से परिवहन किराये पर न लें।</value>
   </data>
   <data name="DOs" xml:space="preserve">
-    <value>DO's</value>
+    <value>करने योग्य</value>
   </data>
   <data name="DOsAndDont" xml:space="preserve">
-    <value>DOs &amp; Don’ts</value>
+    <value>क्या करें और क्या न करें</value>
   </data>
   <data name="DOsL1" xml:space="preserve">
-    <value>Respect the traditions and culture of Uttar Pradesh and its people.</value>
+    <value>उत्तर प्रदेश और उसके लोगों की परंपराओं और संस्कृति का सम्मान करें।</value>
   </data>
   <data name="DOsL2" xml:space="preserve">
-    <value>Wear descent dresses while visiting religious places.</value>
+    <value>धार्मिक स्थानों पर जाते समय सभ्य कपड़े पहनें।</value>
   </data>
   <data name="DOsL3" xml:space="preserve">
-    <value>Exchange money only at official exchange counters and banks.</value>
+    <value>केवल आधिकारिक विनिमय काउंटरों और बैंकों में ही मुद्रा विनिमय करें।</value>
   </data>
   <data name="DOsL4" xml:space="preserve">
-    <value>Only hire guides that are approved by the government and have license.</value>
+    <value>केवल उन गाइडों को ही नियुक्त करें जो सरकार द्वारा अनुमोदित हों और जिनके पास लाइसेंस हो।</value>
   </data>
   <data name="DOsL5" xml:space="preserve">
-    <value>Spend your money wisely.</value>
+    <value>अपना पैसा बुद्धिमानी से खर्च करें.</value>
   </data>
   <data name="DOsL6" xml:space="preserve">
-    <value>Learn few words of local language that are commonly used here.</value>
+    <value>स्थानीय भाषा के कुछ शब्द सीखें जो यहां आमतौर पर उपयोग किए जाते हैं।</value>
   </data>
   <data name="DOsL7" xml:space="preserve">
-    <value>Buy items that depict the true essence of Uttar Pradesh and are not available elsewhere.</value>
+    <value>ऐसी वस्तुएं खरीदें जो उत्तर प्रदेश का वास्तविक सार दर्शाती हों और अन्यत्र उपलब्ध न हों।</value>
   </data>
   <data name="EasymyTrip" xml:space="preserve">
     <value>Easy my Trip</value>
@@ -334,7 +334,7 @@
     <value>Email</value>
   </data>
   <data name="EmergencyServices" xml:space="preserve">
-    <value>Emergency Services</value>
+    <value>आपातकालीन सेवाएं</value>
   </data>
   <data name="EntertainmentShoppingPlaces" xml:space="preserve">
     <value>मनोरंजन और खरीदारी स्थान</value>
@@ -346,61 +346,61 @@
     <value>Error 404</value>
   </data>
   <data name="ErrorDesc" xml:space="preserve">
-    <value>It seems we cant find what you are looking for. Perhaps searching can help or go</value>
+    <value>ऐसा लगता है कि हम वह नहीं ढूँढ़ पा रहे हैं जिसे आप ढूँढ़ रहे हैं। शायद खोजने से मदद मिल सकती है या जाएँ</value>
   </data>
   <data name="ErrorHeader" xml:space="preserve">
-    <value>Web Page is in Under Construction</value>
+    <value>वेब पेज निर्माणाधीन है</value>
   </data>
   <data name="FamousTemple" xml:space="preserve">
-    <value>Famous-Temple</value>
+    <value>प्रसिद्ध मंदिर</value>
   </data>
   <data name="FAQs" xml:space="preserve">
     <value>FAQs</value>
   </data>
   <data name="FAQsH1" xml:space="preserve">
-    <value>Links to external websites/portals</value>
+    <value>बाहरी वेबसाइटों/पोर्टलों के लिए लिंक</value>
   </data>
   <data name="FAQsH2" xml:space="preserve">
-    <value>Links to Department of UP Tourism Website by other websites/portals</value>
+    <value>अन्य वेबसाइटों/पोर्टलों द्वारा उत्तर प्रदेश पर्यटन विभाग की वेबसाइट से लिंक</value>
   </data>
   <data name="FAQsP1" xml:space="preserve">
-    <value>At many places in this website, you shall find links to other websites/portals. These links have been placed on the website for your convenience. UP Tourism is not responsible for the contents and reliability of the linked websites and does not necessarily endorse the views expressed in them. Mere presence of the link or its listing on this website should not be assumed as endorsement of any kind. We cannot guarantee that these links will work all the time and we have no control over availability of linked pages.</value>
+    <value>इस वेबसाइट में कई जगहों पर आपको अन्य वेबसाइट/पोर्टल के लिंक मिलेंगे। ये लिंक आपकी सुविधा के लिए वेबसाइट पर रखे गए हैं। यूपी टूरिज्म लिंक की गई वेबसाइटों की सामग्री और विश्वसनीयता के लिए ज़िम्मेदार नहीं है और ज़रूरी नहीं कि उनमें व्यक्त किए गए विचारों का समर्थन करता हो। इस वेबसाइट पर लिंक की मौजूदगी या इसकी लिस्टिंग को किसी भी तरह का समर्थन नहीं माना जाना चाहिए। हम गारंटी नहीं दे सकते कि ये लिंक हर समय काम करेंगे और लिंक किए गए पृष्ठों की उपलब्धता पर हमारा कोई नियंत्रण नहीं है।</value>
   </data>
   <data name="FAQsP2" xml:space="preserve">
-    <value>Prior permission is required before hyperlinks are directed from any website/portal to this site. Permission for the same, stating the nature of the content on the pages from where the link has to be given and the exact language of the Hyperlink has to be obtained by sending a request to UP Tourism.</value>
+    <value>किसी भी वेबसाइट/पोर्टल से इस साइट पर हाइपरलिंक निर्देशित करने से पहले पूर्व अनुमति की आवश्यकता होती है। इसके लिए अनुमति, उन पृष्ठों की सामग्री की प्रकृति, जहाँ से लिंक दिया जाना है और हाइपरलिंक की सटीक भाषा, उत्तर प्रदेश पर्यटन को अनुरोध भेजकर प्राप्त की जानी चाहिए।</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>प्रतिक्रिया</value>
   </data>
   <data name="FeedbackH1" xml:space="preserve">
-    <value>Send your feedback on the website by filling the form given below. Your opinion, suggestions and feedback will be valuable to us.</value>
+    <value>कृपया नीचे दिए गए फॉर्म को भरकर वेबसाइट पर अपनी प्रतिक्रिया भेजें। आपकी राय, सुझाव और प्रतिक्रिया हमारे लिए मूल्यवान होगी।</value>
   </data>
   <data name="FeedbackH2" xml:space="preserve">
-    <value>Fill your contact information, so that we will be able to answer your queries.</value>
+    <value>अपनी संपर्क जानकारी भरें, ताकि हम आपके प्रश्नों का उत्तर दे सकें।</value>
   </data>
   <data name="FestivalEvents" xml:space="preserve">
-    <value>Festival and Events</value>
+    <value>त्यौहार और कार्यक्रम</value>
   </data>
   <data name="FindServices" xml:space="preserve">
-    <value>Find Services</value>
+    <value>सेवाएँ खोजें</value>
   </data>
   <data name="Footer" xml:space="preserve">
     <value>Footer</value>
   </data>
   <data name="ForTourism" xml:space="preserve">
-    <value>For Tourism</value>
+    <value>पर्यटन के लिए</value>
   </data>
   <data name="Gallery" xml:space="preserve">
     <value>गैलरी</value>
   </data>
   <data name="Ghat" xml:space="preserve">
-    <value>Ghat</value>
+    <value>घाट</value>
   </data>
   <data name="Ghatcount" xml:space="preserve">
-    <value>Ayodhya have over 62 different Ghat.</value>
+    <value>अयोध्या में 62 से अधिक विभिन्न घाट हैं।</value>
   </data>
   <data name="GoToDonateforCharity" xml:space="preserve">
-    <value>Go To Donate for Charity</value>
+    <value>दान के लिए जाएं</value>
   </data>
   <data name="GovernmentofUttarPradesh" xml:space="preserve">
     <value>उत्तर प्रदेश सरकार</value>
@@ -409,19 +409,19 @@
     <value>Growing</value>
   </data>
   <data name="Growingcount" xml:space="preserve">
-    <value>Over 12,0000 men and women visit daliy ayodhya.</value>
+    <value>प्रतिदिन 12,0000 से अधिक पुरुष और महिलाएं अयोध्या आते हैं।</value>
   </data>
   <data name="Gurdwara" xml:space="preserve">
-    <value>Gurdwara</value>
+    <value>गुरुद्वारा</value>
   </data>
   <data name="Helpline" xml:space="preserve">
     <value>हेल्पलाइन</value>
   </data>
   <data name="HelplineNumbers" xml:space="preserve">
-    <value>Helpline Numbers</value>
+    <value>हेल्पलाइन नंबर</value>
   </data>
   <data name="Heritage" xml:space="preserve">
-    <value>Heritage</value>
+    <value>विरासत</value>
   </data>
   <data name="HistoricalReligiousPlaces" xml:space="preserve">
     <value>ऐतिहासिक एवं धार्मिक स्थल</value>
@@ -451,7 +451,7 @@
     <value>Important Links</value>
   </data>
   <data name="inAyodhya" xml:space="preserve">
-    <value>in Ayodhya</value>
+    <value>अयोध्या में</value>
   </data>
   <data name="IncredibleIndia" xml:space="preserve">
     <value>Incredible India</value>
@@ -463,28 +463,28 @@
     <value>Information</value>
   </data>
   <data name="JaiShreeRam" xml:space="preserve">
-    <value>Jai Shree Ram</value>
+    <value>जय श्री राम</value>
   </data>
   <data name="KeyFacts" xml:space="preserve">
-    <value>Key Facts</value>
+    <value>महत्वपूर्ण तथ्यों</value>
   </data>
   <data name="KeyFactsH1" xml:space="preserve">
-    <value>Facts About Ram Mandir</value>
+    <value>राम मंदिर के बारे में तथ्य</value>
   </data>
   <data name="KeyFactsL1" xml:space="preserve">
-    <value>Biggest Temple in India: Ram Mandir is going to be the largest temple in India. The Sompura family, famous for crafting temples, designed it 30 years ago. It’s expected to be around 161 ft tall and cover a massive area of 28,000 sq ft.</value>
+    <value>भारत का सबसे बड़ा मंदिर: राम मंदिर भारत का सबसे बड़ा मंदिर बनने जा रहा है। मंदिरों को बनाने के लिए मशहूर सोमपुरा परिवार ने इसे 30 साल पहले डिज़ाइन किया था। इसकी ऊंचाई करीब 161 फीट और क्षेत्रफल 28,000 वर्ग फीट होने की उम्मीद है।</value>
   </data>
   <data name="KeyFactsL10" xml:space="preserve">
     <value>Nagar Style Architecture: With 360 pillars in the Nagar style, the temple is a visual masterpiece.</value>
   </data>
   <data name="KeyFactsL2" xml:space="preserve">
-    <value>Sacred Foundation: The temple’s foundation is special, made with sacred soil from 2587 places, including Jhansi, Haldighati, Golden Temple, and more. It adds a deep spiritual touch to the temple.</value>
+    <value>पवित्र नींव: मंदिर की नींव विशेष है, जो झांसी, हल्दीघाटी, स्वर्ण मंदिर और अन्य स्थानों सहित 2587 स्थानों की पवित्र मिट्टी से बनाई गई है। यह मंदिर को एक गहरा आध्यात्मिक स्पर्श देता है।</value>
   </data>
   <data name="KeyFactsL3" xml:space="preserve">
-    <value>The Architects: The Sompura family, led by chief architect Chandrakant Sompura and his sons Ashish and Nikhil, has crafted over 100 temples worldwide, including the famous Somnath Temple</value>
+    <value>वास्तुकार: मुख्य वास्तुकार चंद्रकांत सोमपुरा और उनके बेटों आशीष और निखिल के नेतृत्व में सोमपुरा परिवार ने दुनिया भर में 100 से अधिक मंदिरों का निर्माण किया है, जिनमें प्रसिद्ध सोमनाथ मंदिर भी शामिल है।</value>
   </data>
   <data name="KeyFactsL4" xml:space="preserve">
-    <value>No Iron or Steel: Unlike many buildings, Ram Mandir doesn’t use any iron or steel. It’s entirely constructed with stones.</value>
+    <value>लोहा या स्टील नहीं: कई इमारतों के विपरीत, राम मंदिर में किसी भी लोहे या स्टील का उपयोग नहीं किया गया है। यह पूरी तरह से पत्थरों से बना है।</value>
   </data>
   <data name="KeyFactsL5" xml:space="preserve">
     <value>‘Shri Ram’ Bricks: The bricks used in the temple have ‘Shri Ram’ inscribed on them. This tradition goes back to the construction of Ram Setu and is believed to make the bricks stronger.</value>
@@ -740,19 +740,19 @@ We do collect some technical information when you visit our website, to make you
     <value>May ram bless you! Thank you. Those who (in charity) spend of their goods by night and by day</value>
   </data>
   <data name="TajMahal" xml:space="preserve">
-    <value>Taj Mahal</value>
+    <value>ताजमहल</value>
   </data>
   <data name="Temple" xml:space="preserve">
-    <value>Temple</value>
+    <value>मंदिर</value>
   </data>
   <data name="Templecount" xml:space="preserve">
     <value>100+ Temples in Ayodhya</value>
   </data>
   <data name="Temples" xml:space="preserve">
-    <value>Temples</value>
+    <value>मंदिर</value>
   </data>
   <data name="TermsAndConditions" xml:space="preserve">
-    <value>Terms &amp; Conditions</value>
+    <value>नियम एवं शर्तें</value>
   </data>
   <data name="TermsAndConditionsP1" xml:space="preserve">
     <value>This website is designed, developed and maintained for Department of Tourism, Ayodhya, Government of Uttar Pradesh.</value>
@@ -773,28 +773,28 @@ We do collect some technical information when you visit our website, to make you
     <value>Department of Tourism, Ayodhya, Uttar Pradesh, does not guarantee that linked websites comply with Guidelines for Indian Government Websites.</value>
   </data>
   <data name="ThreeSixtydegree" xml:space="preserve">
-    <value>360° Gallery</value>
+    <value>360° गैलरी</value>
   </data>
   <data name="ThreeSixtydegreeGallery" xml:space="preserve">
     <value>360 डिग्री गैलरी</value>
   </data>
   <data name="ThreeSixtydegreeVideoGallery" xml:space="preserve">
-    <value>360° Video Gallery</value>
+    <value>360° वीडियो गैलरी</value>
   </data>
   <data name="TouristAttractions" xml:space="preserve">
-    <value>Tourist Attractions</value>
+    <value>पर्यटकों के आकर्षण</value>
   </data>
   <data name="TouristGuide" xml:space="preserve">
     <value>पर्यटक गाइड</value>
   </data>
   <data name="TouristGuidebyMap" xml:space="preserve">
-    <value>Tourist Guide by Map</value>
+    <value>मानचित्र द्वारा पर्यटक गाइड</value>
   </data>
   <data name="TourPackageBooking" xml:space="preserve">
-    <value>Tour Package Booking</value>
+    <value>टूर पैकेज बुकिंग</value>
   </data>
   <data name="Transportation" xml:space="preserve">
-    <value>Transportation</value>
+    <value>परिवहन</value>
   </data>
   <data name="Trivago" xml:space="preserve">
     <value>Trivago</value>
@@ -803,7 +803,7 @@ We do collect some technical information when you visit our website, to make you
     <value>Under Construction</value>
   </data>
   <data name="Upcoming" xml:space="preserve">
-    <value>Upcoming</value>
+    <value>आगामी</value>
   </data>
   <data name="UPSRTC" xml:space="preserve">
     <value>UPSRTC</value>
@@ -818,19 +818,19 @@ We do collect some technical information when you visit our website, to make you
     <value>वीडियो गैलरी</value>
   </data>
   <data name="ViewAll" xml:space="preserve">
-    <value>View All</value>
+    <value>सभी को देखें</value>
   </data>
   <data name="VisitorRegistration" xml:space="preserve">
-    <value>Visitor Registration</value>
+    <value>आगंतुक पंजीकरण</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>Website</value>
+    <value>वेबसाइट</value>
   </data>
   <data name="WelcomeAyodhyaDham" xml:space="preserve">
     <value>Welcome to Ayodhya Dham</value>
   </data>
   <data name="WhatWeOffer" xml:space="preserve">
-    <value>What We Offer</value>
+    <value>हमारी पेशकश</value>
   </data>
   <data name="WomenCommNo" xml:space="preserve">
     <value>Women Comm. No.</value>
@@ -839,7 +839,7 @@ We do collect some technical information when you visit our website, to make you
     <value>Women Helpline</value>
   </data>
   <data name="Yatra" xml:space="preserve">
-    <value>Yatra</value>
+    <value>यात्रा</value>
   </data>
   <data name="YatrainAyodhya" xml:space="preserve">
     <value>अयोध्या में यात्रा</value>

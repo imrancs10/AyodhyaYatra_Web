@@ -123,3 +123,28 @@
         </div>
     </div>
 </div>	
+<script>
+    $(document).ready(function () {
+        function getQueryParams() {
+            let params = {};
+            window.location.search.substr(1).split("&").forEach(function (item) {
+                let pair = item.split("=");
+                params[pair[0]] = decodeURIComponent(pair[1]);
+            });
+            return params;
+        }
+
+        // Get the query parameters
+        const queryParams = getQueryParams();
+
+        // Check if the specific parameter is present and its value
+        if (queryParams['hideHeader'] === 'true') {
+            $('#header').hide();
+            $('#page-footer').hide();
+        }
+        else {
+            $('#header').show();
+            $('#page-footer').show();
+        }
+    });
+</script>

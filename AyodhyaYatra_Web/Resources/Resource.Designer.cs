@@ -2042,6 +2042,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 360° Image Gallery.
+        /// </summary>
+        public static string ThreeSixtydegreeImageGallery {
+            get {
+                return ResourceManager.GetString("ThreeSixtydegreeImageGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 360° Video Gallery.
         /// </summary>
         public static string ThreeSixtydegreeVideoGallery {

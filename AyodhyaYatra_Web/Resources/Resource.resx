@@ -778,6 +778,9 @@ We do collect some technical information when you visit our website, to make you
   <data name="ThreeSixtydegreeGallery" xml:space="preserve">
     <value>360 degree Gallery</value>
   </data>
+  <data name="ThreeSixtydegreeImageGallery" xml:space="preserve">
+    <value>360° Image Gallery</value>
+  </data>
   <data name="ThreeSixtydegreeVideoGallery" xml:space="preserve">
     <value>360° Video Gallery</value>
   </data>

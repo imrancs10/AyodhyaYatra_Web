@@ -778,6 +778,9 @@
   <data name="ThreeSixtydegreeGallery" xml:space="preserve">
     <value>360 डिग्री गैलरी</value>
   </data>
+  <data name="ThreeSixtydegreeImageGallery" xml:space="preserve">
+    <value>360° फोटो गैलरी</value>
+  </data>
   <data name="ThreeSixtydegreeVideoGallery" xml:space="preserve">
     <value>360° वीडियो गैलरी</value>
   </data>

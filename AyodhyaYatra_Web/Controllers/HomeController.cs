@@ -1,4 +1,5 @@
-﻿using AyodhyaYatra_Web.Global;
+﻿using AyodhyaYatra_Web.BAL.Masters;
+using AyodhyaYatra_Web.Global;
 using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Masters;
@@ -301,6 +302,27 @@ namespace AyodhyaYatra_Web.Controllers
 
             ViewData["360Video"] = response;
             return View();
+        }
+
+        public ActionResult ThreeSixtyDegreeImageGallery()
+        {  
+           // ViewData["PhotoGallery"] = data;
+            return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public JsonResult FillThreeSixtyDegreeImage()
+        {
+            //MasterDetails _details = new MasterDetails();
+            //if (lookupTypeId == 0)
+            //{
+            //    lookupTypeId = null;
+            //}
+
+            var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=" + Convert.ToInt32(ModuleNameEnum.MasterAttraction), "");
+            data = data.Where(x => x.FileType == "360degreeimage").Take(9).ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ThreeSixtyDegreeGalleryDetail()

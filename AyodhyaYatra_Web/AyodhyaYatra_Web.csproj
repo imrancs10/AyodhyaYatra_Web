@@ -342,6 +342,7 @@
     <Compile Include="Infrastructure\Utility\MultipleButtonAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\5-202406221221365411.jpg" />
     <Content Include="Content\jquery.cookie.js" />
     <Content Include="Content\wp-admin\css\forms.min1e39.css" />
     <Content Include="Content\wp-admin\css\l10n.min1e39.css" />
@@ -555,6 +556,7 @@
     <Content Include="images\prev.png" />
     <Content Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
     <Content Include="logs\test.log" />
+    <Content Include="Scripts\App\ThreeSixtyDegreeImage.js" />
     <Content Include="Scripts\App\Global\App.js" />
     <Content Include="Scripts\App\Global\Utility.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -1083,6 +1085,7 @@
     <Content Include="Views\Home\KeyFacts.cshtml" />
     <Content Include="Views\Home\ThreeSixtyDegreeGalleryDetail.cshtml" />
     <Content Include="Views\Home\PhotoGalleryDetails.cshtml" />
+    <Content Include="Views\Home\ThreeSixtyDegreeImageGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

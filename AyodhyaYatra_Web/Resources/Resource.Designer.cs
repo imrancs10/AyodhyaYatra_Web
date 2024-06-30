@@ -61,7 +61,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 14 Kosi Yatra.
+        ///   Looks up a localized string similar to 14 Kosi Parikrama.
         /// </summary>
         public static string _14KosiYatra {
             get {

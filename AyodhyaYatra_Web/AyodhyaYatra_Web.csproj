@@ -259,6 +259,7 @@
     <Compile Include="BAL\Masters\GeneralDetails.cs" />
     <Compile Include="BAL\Masters\AdminDetails.cs" />
     <Compile Include="BAL\Masters\MasterDetails.cs" />
+    <Compile Include="Controllers\ProxyController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -557,6 +558,7 @@
     <Content Include="images\prev.png" />
     <Content Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
     <Content Include="logs\test.log" />
+    <Content Include="Scripts\App\ThreeSixtyDegreeImageDetail.js" />
     <Content Include="Scripts\App\ThreeSixtyDegreeImage.js" />
     <Content Include="Scripts\App\Global\App.js" />
     <Content Include="Scripts\App\Global\Utility.js" />
@@ -1087,6 +1089,7 @@
     <Content Include="Views\Home\ThreeSixtyDegreeGalleryDetail.cshtml" />
     <Content Include="Views\Home\PhotoGalleryDetails.cshtml" />
     <Content Include="Views\Home\ThreeSixtyDegreeImageGallery.cshtml" />
+    <Content Include="Views\Home\ThreeSixtyDegreeImageGalleryDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

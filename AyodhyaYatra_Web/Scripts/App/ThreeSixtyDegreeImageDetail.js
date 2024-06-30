@@ -11,7 +11,7 @@ $(document).ready(function () {
             dataType: 'json',
             type: 'POST',
             data: '',
-            url: '/Home/FillThreeSixtyDegreeImage',
+            url: '/Home/FillThreeSixtyDegreeImageDetail',
             success: function (data) {
                 $.each(data, function (key, entry) {
                     $('#panormaDiv').append('<div id="panorama' + key + '" style="width: 550px; height: 370px;margin-left: 20px;margin-bottom:20px;"></div>')

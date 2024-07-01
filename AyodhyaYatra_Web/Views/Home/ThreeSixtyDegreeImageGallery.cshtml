@@ -1,0 +1,99 @@
+﻿@using AyodhyaYatra_Web.Models;
+@using AyodhyaYatra_Web.Resources;
+@{
+    ViewBag.Title = "PhotoGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var photoGalleryImage = ViewData["PhotoGallery"] as List<AttractionImageModel>;
+    //var imageGroup = photoGalleryImage.Where(x => x.FileType.ToLower() == "image").GroupBy(x => x.ModuleId).ToList();
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<script src="~/Scripts/App/ThreeSixtyDegreeImage.js"></script>
+<section>
+    <div class="gap black-layer opc8 inner-banner">
+        <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center" style="padding-top:50px">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">@Resource.Gallery</h1>
+                    <ol class="breadcrumb brd-rd30">
+                        <li class="breadcrumb-item"><a href="#">@Resource.Gallery </a> </li>
+                        <li class="active">@Resource.ThreeSixtydegreeImageGallery</li>
+                    </ol>
+                </div>
+            </div><!-- Page Top Wrap -->
+        </div>
+    </div>
+</section>
+
+<!-- Page Content Starts -->
+<div id="main" class="page-content">
+    <div class="container">
+        <div class="row">
+            <div id="post-103" class="post-103 page type-page status-publish hentry">
+                <div data-elementor-type="wp-page" data-elementor-id="103" class="elementor elementor-103">
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-bcfca24 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="bcfca24" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                        <div class="elementor-container elementor-column-gap-no">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a8ca888" data-id="a8ca888" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div class="elementor-element elementor-element-26a22e6 elementor-widget elementor-widget-campaign_grid" data-id="26a22e6" data-element_type="widget" data-widget_type="campaign_grid.default">
+                                        <div class="elementor-widget-container">
+                                            <section>
+                                                <div class="gap excerpt_style">
+                                                    <div class="container">
+                                                        <div class="cause-sec remove-ext5">
+                                                            <div class="row" id="panormaDiv">
+                                                                @*<div id="panorama" style="width: 550px; height: 370px;"></div>*@
+                                                                @*<div id="panorama" style="width: 550px; height: 370px;"></div>*@
+                                                                @*@foreach (var item in photoGalleryImage)
+                                                                    {
+                                                                        <div id="panorama" style="width: 600px; height: 400px;"></div>
+                                                                    }*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div><!-- #post-## -->
+
+        </div>
+        <div class="row">
+            <div class="tq-view-all d-inline-block tq-mt-55 text-center w-100">
+                <a class="tq-theme-btn tq-bg-theme rounded-pill" href="/Home/ThreeSixtyDegreeImageGalleryDetail">@Resource.ReadMore</a>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+<style>
+    .image-count {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+    }
+</style>
+
+@*<script type="text/javascript">
+        fetch('/proxy/getimage?url=https://api.ayodhya-dham.in/AppImages/73-202405212330226463.jpg')
+        .then(response => response.blob())
+        .then(blob => {
+            // Handle the image blob
+            // Create a URL for the blob
+            var imageUrl = URL.createObjectURL(blob);
+             pannellum.viewer('panorama', {
+         "type": "equirectangular",
+         "panorama": imageUrl,
+         "autoLoad": true
+     });
+        })
+        .catch(error => console.error('Error:', error));
+
+    </script>*@

@@ -61,7 +61,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 14 Kosi Yatra.
+        ///   Looks up a localized string similar to 14 Kosi Parikrama.
         /// </summary>
         public static string _14KosiYatra {
             get {
@@ -2038,6 +2038,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string ThreeSixtydegreeGallery {
             get {
                 return ResourceManager.GetString("ThreeSixtydegreeGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 360° Image Gallery.
+        /// </summary>
+        public static string ThreeSixtydegreeImageGallery {
+            get {
+                return ResourceManager.GetString("ThreeSixtydegreeImageGallery", resourceCulture);
             }
         }
         

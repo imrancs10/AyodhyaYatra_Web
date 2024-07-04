@@ -444,6 +444,9 @@
   <data name="HotelsResortsandRestaurants" xml:space="preserve">
     <value>होटल, रिसॉर्ट और रेस्तरां</value>
   </data>
+  <data name="Imagesof" xml:space="preserve">
+    <value>छवियाँ: </value>
+  </data>
   <data name="Important" xml:space="preserve">
     <value>महत्वपूर्ण</value>
   </data>
@@ -750,6 +753,9 @@
   </data>
   <data name="Temples" xml:space="preserve">
     <value>मंदिर</value>
+  </data>
+  <data name="Templesof" xml:space="preserve">
+    <value>मंदिर: </value>
   </data>
   <data name="TermsAndConditions" xml:space="preserve">
     <value>नियम एवं शर्तें</value>

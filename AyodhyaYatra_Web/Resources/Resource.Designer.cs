@@ -1042,6 +1042,15 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Images of.
+        /// </summary>
+        public static string Imagesof {
+            get {
+                return ResourceManager.GetString("Imagesof", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Important.
         /// </summary>
         public static string Important {
@@ -1957,6 +1966,15 @@ namespace AyodhyaYatra_Web.Resources {
         public static string Temples {
             get {
                 return ResourceManager.GetString("Temples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temple&apos;s of.
+        /// </summary>
+        public static string Templesof {
+            get {
+                return ResourceManager.GetString("Templesof", resourceCulture);
             }
         }
         

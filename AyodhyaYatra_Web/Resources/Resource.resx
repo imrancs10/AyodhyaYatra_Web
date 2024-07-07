@@ -444,6 +444,9 @@
   <data name="HotelsResortsandRestaurants" xml:space="preserve">
     <value>Hotels, Resorts and Restaurants</value>
   </data>
+  <data name="Imagesof" xml:space="preserve">
+    <value>Images of</value>
+  </data>
   <data name="Important" xml:space="preserve">
     <value>Important</value>
   </data>
@@ -750,6 +753,9 @@ We do collect some technical information when you visit our website, to make you
   </data>
   <data name="Temples" xml:space="preserve">
     <value>Temples</value>
+  </data>
+  <data name="Templesof" xml:space="preserve">
+    <value>Temple's of</value>
   </data>
   <data name="TermsAndConditions" xml:space="preserve">
     <value>Terms &amp; Conditions</value>

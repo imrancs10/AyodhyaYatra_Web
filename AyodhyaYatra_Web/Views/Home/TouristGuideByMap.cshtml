@@ -226,6 +226,10 @@
             debugger;
             // Center the map at some coordinate (e.g., the first marker)
             var centerCoord = { lat: 26.7922, lng: 82.1998 }; // Example coordinates for San Francisco
+            if (coordinates?.length === 1) {
+                centerCoord.lat = parseFloat(coordinates[0].lat);
+                centerCoord.lng = parseFloat(coordinates[0].lng);
+            }
             document.getElementById('map')
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,

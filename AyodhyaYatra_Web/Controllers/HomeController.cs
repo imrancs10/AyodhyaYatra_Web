@@ -1,11 +1,9 @@
-﻿using AyodhyaYatra_Web.BAL.Masters;
-using AyodhyaYatra_Web.Global;
+﻿using AyodhyaYatra_Web.Global;
 using AyodhyaYatra_Web.Infrastructure.Utility;
 using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Masters;
 using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -408,6 +406,8 @@ namespace AyodhyaYatra_Web.Controllers
         }
         public ActionResult Feedback()
         {
+            
+            ViewData["APIUrl"] = BaseURL;
             return View();
         }
 

@@ -106,7 +106,7 @@
                                                                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                     <p>
                                                                                                                         <span class="wpcf7-form-control-wrap" data-name="text-427">
-                                                                                                                            <input size="40" asp-for="Visitor.Mobile" id="mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" name="text-427" />
+                                                                                                                            <input size="40" asp-for="Visitor.Mobile" id="mobile" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Mobile Number(मोबाइल नंबर)" value="" type="text" />
                                                                                                                         </span>
                                                                                                                         <div style="color:red" id="mobileError"></div>
                                                                                                                     </p>
@@ -125,7 +125,17 @@
                                                                                                                 <div class="col-md-6 col-sm-6 col-lg-6">
                                                                                                                     <p>
                                                                                                                         <span class="wpcf7-form-control-wrap" data-name="text-487">
-                                                                                                                            <input size="40" asp-for="Visitor.documentNumber" id="documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" name="text-487" />
+                                                                                                                            <input size="40" asp-for="Visitor.documentNumber" id="documentNumber" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Govt. Id No.  (सरकारी आईडी)" value="" type="text" />
+                                                                                                                        </span>
+                                                                                                                        <div style="color:red" id="docNoError"></div>
+
+                                                                                                                    </p>
+
+                                                                                                                </div>
+                                                                                                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                                                                    <p>
+                                                                                                                        <span class="wpcf7-form-control-wrap" data-name="text-487">
+                                                                                                                            <input size="40" asp-for="Visitor.VisitDate" id="visitDate" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visit Date" value="" type="date" />
                                                                                                                         </span>
                                                                                                                         <div style="color:red" id="docNoError"></div>
 
@@ -135,7 +145,7 @@
                                                                                                                 <div class="col-md-12 col-sm-12 col-lg-12">
                                                                                                                     <p>
                                                                                                                         <span class="wpcf7-form-control-wrap" data-name="textarea-678">
-                                                                                                                            <textarea asp-for="Visitor.Address" cols="40" rows="10" id="address" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)" name="textarea-678"></textarea>
+                                                                                                                            <textarea asp-for="Visitor.Address" cols="40" rows="10" id="address" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Address(पता)"></textarea>
                                                                                                                         </span>
                                                                                                                     </p>
                                                                                                                     <div style="color:red" id="addressError"></div>
@@ -225,6 +235,11 @@
 
                                                                     <script>
                                                                         $(document).ready(function () {
+                                                                            $(function () {
+                                                                                $('[type="date"]').prop('min', function () {
+                                                                                    return new Date().toJSON().split('T')[0];
+                                                                                });
+                                                                            });
                                                                             $('#visitor-pass').hide();
                                                                             $('#printButton').hide();
                                                                             $('#visitorForm').on('submit', function (event) {
@@ -235,7 +250,8 @@
                                                                                     mobile: $('#mobile').val(),
                                                                                     documentNumber: $('#documentNumber').val(),
                                                                                     documentTypeId: parseInt($('#documentTypeId').val()),
-                                                                                    address: $('#address').val()
+                                                                                    address: $('#address').val(),
+                                                                                    visitDate: $('#visitDate').val()
                                                                                 };
                                                                                 if (visitorData.name.length <= 3) {
                                                                                     $('#nameError').text("Please enter name");
@@ -283,7 +299,7 @@
                                                                                         $("#visitorDocId").text(response?.documentNumber);
                                                                                         $("#visitorDocType").text(response?.documentType);
                                                                                         $('#visitor-pass').show();
-                                                                                        $('#visitorPassQrImage').attr('src', 'data:image/png;base64,' + response.qrImage)
+                                                                                        $('#visitorPassQrImage').attr('src',apiBaseUrl.replace('v1/','')+response.qrImage)
                                                                                         $('#message').html('Visitor information saved successfully!').css('color', 'green');
                                                                                         $('#visitor-reg-container').hide();
                                                                                         $('#printButton').show()

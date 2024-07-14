@@ -4045,3 +4045,6 @@ Error Number:53,State:0,Class:20
 2024-06-24 10:46:15,209 [9] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
 2024-06-24 10:46:26,710 [8] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
 2024-06-24 10:46:33,688 [13] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-07-10 11:27:09,200 [8] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-07-13 12:00:07,123 [9] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-07-15 00:43:57,962 [20] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 

@@ -69,21 +69,6 @@
                                                                 <div class="col-md-12 col-sm-12 col-lg-7">
                                                                     <div class="tq-about-cap tq-mt-30 d-flex flex-column align-items-start w-100">
                                                                         <p>@(attractionByYatra.Yatra!=null ? attractionByYatra.Yatra.EnDescription:"") </p>
-                                                                        @*<ul class="d-flex flex-column  mb-0">
-
-                                                                                <li>Shailputri Durga</li>
-
-
-                                                                                <li>Brahmacharini Durga</li>
-
-
-                                                                                <li>Chandraghanta Durga</li>
-
-
-                                                                                <li>Kushmanda Durga</li>
-
-                                                                            </ul>*@
-
                                                                     </div><!-- About Cap -->
                                                                 </div>
                                                             </div>
@@ -140,8 +125,11 @@
                                                                                     <a class="tq-theme-btn bg-white rounded-pill" href="#">
                                                                                         @Resource.TouristGuidebyMap
                                                                                     </a>
+                                                                                    <a class="tq-theme-btn bg-white rounded-pill" href="/home/ThreeSixtyDegreeImageGalleryDetail?attractionId=@item.Id">
+                                                                                        @Resource.ThreeSixtydegreeImageGallery
+                                                                                    </a>
                                                                                     <a class="tq-theme-btn bg-white rounded-pill" href="/home/ThreeSixtyDegreeGallery?attractionId=@item.Id">
-                                                                                        @Resource.ThreeSixtydegree
+                                                                                        @Resource.ThreeSixtydegreeVideoGallery
                                                                                     </a>
                                                                                 </div><!-- Course Cap -->
                                                                             </div><!-- Course Box -->

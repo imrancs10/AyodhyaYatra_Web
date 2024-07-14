@@ -307,7 +307,7 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
-        public ActionResult ThreeSixtyDegreeImageGalleryDetail()
+        public ActionResult ThreeSixtyDegreeImageGalleryDetail([FromUri] int? attractionId)
         {
             return View();
         }
@@ -321,10 +321,12 @@ namespace AyodhyaYatra_Web.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public JsonResult FillThreeSixtyDegreeImageDetail()
+        public JsonResult FillThreeSixtyDegreeImageDetail([FromUri] int? attractionId)
         {
             var data = HttpClientHelper<List<AttractionImageModel>>.GetAPIResponse("ImageUpload/image/get/modname?moduleName=" + Convert.ToInt32(ModuleNameEnum.MasterAttraction), "");
             data = data.Where(x => x.FileType == "360degreeimage").ToList();
+            if (attractionId != null && attractionId > 0)
+                data = data.Where(x => x.ModuleId == attractionId).ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 

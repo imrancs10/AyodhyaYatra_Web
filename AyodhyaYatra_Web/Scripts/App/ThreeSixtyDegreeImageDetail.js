@@ -6,12 +6,13 @@ $(document).ready(function () {
         //dropdown.empty();
         //dropdown.append('<option value="">Select</option>');
         //dropdown.prop('selectedIndex', 0);
+        var id = getUrlVars()["attractionId"];
         $.ajax({
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             type: 'POST',
             data: '',
-            url: '/Home/FillThreeSixtyDegreeImageDetail',
+            url: '/Home/FillThreeSixtyDegreeImageDetail?attractionId=' + id,
             success: function (data) {
                 $.each(data, function (key, entry) {
                     $('#panormaDiv').append('<div id="panorama' + key + '" style="width: 550px; height: 370px;margin-left: 20px;margin-bottom:20px;"></div>')
@@ -44,5 +45,16 @@ $(document).ready(function () {
                 console.log(response.responseText);
             }
         });
+    }
+
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
     }
 });

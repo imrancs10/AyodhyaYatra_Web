@@ -1090,6 +1090,7 @@
     <Content Include="Views\Home\PhotoGalleryDetails.cshtml" />
     <Content Include="Views\Home\ThreeSixtyDegreeImageGallery.cshtml" />
     <Content Include="Views\Home\ThreeSixtyDegreeImageGalleryDetail.cshtml" />
+    <Content Include="Views\Home\VisitorPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,9 +58,13 @@
                                                                             <img decoding="async" class="img-fluid w-100" style="max-height:100% !important" loading="lazy"
                                                                                  src=@(attractionByYatra.Yatra!=null? attractionByYatra.Yatra.Images!=null&& attractionByYatra.Yatra.Images.Count>0?"https://api.ayodhya-dham.in/"+attractionByYatra.Yatra.Images[0].FilePath:"" :"") alt=@(attractionByYatra.Yatra!=null ? attractionByYatra.Yatra.EnName:"")>
                                                                         </div>
-                                                                        <!-- About Image -->
-
-                                                                    </div><!-- About Image Wrap -->
+                                                                    </div>
+                                                                    <div style="margin-top:10px;text-align:center;">
+                                                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                                            <a class="btn btn-warning" href="/Home/ThreeSixtyDegreeImageGallery">@Resource.ThreeSixtydegreeImageGallery</a>
+                                                                            <a class="btn btn-primary" href="/Home/ThreeSixtyDegreeGallery?yatraId=@attractionByYatra.Yatra.Id">@Resource.ThreeSixtydegreeVideoGallery</a>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-md-12 col-sm-12 col-lg-7">
                                                                     <div class="tq-about-cap tq-mt-30 d-flex flex-column align-items-start w-100">

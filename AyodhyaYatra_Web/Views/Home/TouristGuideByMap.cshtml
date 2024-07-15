@@ -30,7 +30,7 @@
                             <div id="respond" class="comment-respond">
                                 <h4 itemprop="headline">@Resource.TouristGuidebyMap</h4><form action="#" method="post" id="commentform" class="row mrg10" novalidate>
                                     <p class="comment-notes"><span id="email-notes">@Resource.SearchbyPlaceName</span></p>
-                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
                                         <select class="input" id="service_category" style="padding: 15px; width: 100%;border:1px solid;border-radius:10px">
                                             <option value="0">@Resource.SelectCategory</option>
                                             <option value="1">@Resource.Yatra</option>
@@ -38,7 +38,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                    <div class="col-md-6 col-sm-6 col-lg-6">
                                         <select class="input" id="service_subcategory" style="padding: 15px; width: 100%; border: 1px solid; border-radius: 10px">
                                             <option value="1">@Resource.Yatra</option>
                                             <option value="2">@Resource.Temple</option>
@@ -47,15 +47,6 @@
                                             <option value="5">@Resource.Hotel</option>
                                         </select>
                                     </div>
-
-                                    <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <a style="width: 100%;" class="tq-theme-btn tq-bg-theme rounded-pill" href="#">
-                                            @Resource.Search
-                                        </a>
-                                    </div>
-
-
-
                                 </form>
                             </div><!-- #respond -->
                         </div>
@@ -210,7 +201,14 @@
             var marker = new google.maps.Marker({
                 position: latlng,
                 map: map,
-                icon: "https://maps.gstatic.com/mapfiles/ms2/micons/blue-pushpin.png",
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 10,
+                    fillOpacity: 1,
+                    strokeWeight: 2,
+                    fillColor: '#5384ED',
+                    strokeColor: '#ffffff',
+                },
                 title: data?.enName ?? '',
                 label: {
                     text: data?.enName == "" || data?.enName === null ? data?.sequenceNo : `${data?.enName}`,
@@ -286,6 +284,14 @@
                             var markerStart = new google.maps.Marker({
                                 position: leg.start_location,
                                 map: map,
+                                icon: {
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    scale: 10,
+                                    fillOpacity: 1,
+                                    strokeWeight: 2,
+                                    fillColor: '#5384ED',
+                                    strokeColor: '#ffffff',
+                                },
                                 title: yatraArray[segmentIndex * 25 + legIndex].enName,
                                 label: yatraArray[segmentIndex * 25 + legIndex].enName
                             });
@@ -293,6 +299,14 @@
                             var markerEnd = new google.maps.Marker({
                                 position: leg.end_location,
                                 map: map,
+                                icon: {
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    scale: 10,
+                                    fillOpacity: 1,
+                                    strokeWeight: 2,
+                                    fillColor: '#5384ED',
+                                    strokeColor: '#ffffff',
+                                },
                                 title: yatraArray[segmentIndex * 25 + legIndex + 1].enName,
                                 label: yatraArray[segmentIndex * 25 + legIndex + 1].enName
                             });

@@ -431,5 +431,12 @@ namespace AyodhyaYatra_Web.Controllers
                 return Redirect(Url.Action("attractionDetail", "Home") + "?id=" + id);
             return View();
         }
+
+        public ActionResult VisitorPass()
+        {
+
+            ViewData["APIUrl"] = BaseURL;
+            return View();
+        }
     }
 }

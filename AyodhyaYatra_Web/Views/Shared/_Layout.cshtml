@@ -864,7 +864,7 @@
                                             </li>
                                             <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
                                                 <a><b>@Resource.Gallery</b></a>
-                                                <ul class="sub-menu">
+                                                <ul class="sub-menu" style="left:-67px;width:max-content;">
                                                     <li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="/Home/PhotoGallery">@Resource.PhotoGallery</a></li>
                                                     <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/AudioGallery">@Resource.AudioGallery</a></li>
                                                     <li id="menu-item-3366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3366"><a href="/Home/VideoGallery">@Resource.VideoGallery</a></li>
@@ -1475,6 +1475,36 @@
                 //}
             }
         }
+
+
+        // font size increase,decrease and reset.
+        $(document).ready(function () {
+            // Store original font sizes
+            $('*').each(function () {
+                $(this).data('original-font-size', $(this).css('font-size'));
+            });
+
+            $('#font-lg').click(function () {
+                $('*').each(function () {
+                    var currentSize = parseFloat($(this).css('font-size'));
+                    $(this).css('font-size', (currentSize * 1.1) + 'px');
+                });
+            });
+
+            $('#font-sm').click(function () {
+                $('*').each(function () {
+                    var currentSize = parseFloat($(this).css('font-size'));
+                    $(this).css('font-size', (currentSize * 0.9) + 'px');
+                });
+            });
+
+            $('#font-default').click(function () {
+                $('*').each(function () {
+                    $(this).css('font-size', $(this).data('original-font-size'));
+                });
+            });
+        });
+
     </script>
 
 

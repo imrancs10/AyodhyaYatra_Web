@@ -4,10 +4,12 @@ using AyodhyaYatra_Web.Models;
 using AyodhyaYatra_Web.Models.Masters;
 using AyodhyaYatra_Web.Models.Visitor;
 using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -432,11 +434,23 @@ namespace AyodhyaYatra_Web.Controllers
             return View();
         }
 
+        [System.Web.Mvc.HttpGet]
         public ActionResult VisitorPass()
         {
 
             ViewData["APIUrl"] = BaseURL;
             return View();
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult VisitorPass(string mobileNumber)
+        {
+            var response = HttpClientHelper<List<VisitorResponse>>.GetAPIResponse($"visitors/get/by/mobile?mobileNo={mobileNumber}", "");
+            if (response==null || response.Count()==0)
+            {
+                return View("VisitorPass", new List<VisitorResponse>());
+            }
+            return View("VisitorPass", response);
         }
     }
 }

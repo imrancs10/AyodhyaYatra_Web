@@ -752,7 +752,9 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-
+                                                    <li>
+                                                        @Html.ActionLink("Visitor Pass", "Visitorpass", "home", new { lang = "en-US" }, null)
+                                                    </li>
 
                                                 </ul>
 
@@ -1437,10 +1439,14 @@
     <script>
         function openPopup() {
             document.getElementById("myOverlay").style.display = "flex";
+            document.getElementById("visitor-pass").style.display = "none";
+            document.getElementById("printVisitorPassButton").style.display = "none";
         }
 
         function closePopup() {
             document.getElementById("myOverlay").style.display = "none";
+            document.getElementById("visitor-pass").style.display = "none";
+            document.getElementById("printVisitorPassButton").style.display = "none";
         }
 
         function openCustomPopup() {

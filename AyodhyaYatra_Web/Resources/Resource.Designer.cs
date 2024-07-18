@@ -2195,6 +2195,24 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visitor Pass.
+        /// </summary>
+        public static string VisitorPass {
+            get {
+                return ResourceManager.GetString("VisitorPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Visitor Pass.
+        /// </summary>
+        public static string VisitorPassSearch {
+            get {
+                return ResourceManager.GetString("VisitorPassSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visitor Registration.
         /// </summary>
         public static string VisitorRegistration {

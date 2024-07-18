@@ -829,6 +829,12 @@ We do collect some technical information when you visit our website, to make you
   <data name="ViewAll" xml:space="preserve">
     <value>View All</value>
   </data>
+  <data name="VisitorPass" xml:space="preserve">
+    <value>Visitor Pass</value>
+  </data>
+  <data name="VisitorPassSearch" xml:space="preserve">
+    <value>Search Visitor Pass</value>
+  </data>
   <data name="VisitorRegistration" xml:space="preserve">
     <value>Visitor Registration</value>
   </data>

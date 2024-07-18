@@ -829,6 +829,12 @@
   <data name="ViewAll" xml:space="preserve">
     <value>सभी को देखें</value>
   </data>
+  <data name="VisitorPass" xml:space="preserve">
+    <value>आगंतुक पास</value>
+  </data>
+  <data name="VisitorPassSearch" xml:space="preserve">
+    <value>विज़िटर पास खोजें</value>
+  </data>
   <data name="VisitorRegistration" xml:space="preserve">
     <value>आगंतुक पंजीकरण</value>
   </data>

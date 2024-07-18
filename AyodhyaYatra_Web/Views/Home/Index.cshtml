@@ -183,7 +183,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="container">
-                                                                                            <button class="btn btn-primary" id="printButton">@Resource.PrintPass</button>
+                                                                                            <button class="btn btn-primary" id="printVisitorPassButton">@Resource.PrintPass</button>
                                                                                             <div id="visitor-pass" style="margin-top:1%;background-color: cornsilk; background-image: url(wp-content/uploads/bglotus.png);">
                                                                                                 <table>
                                                                                                     <tr>
@@ -262,12 +262,9 @@
                                                                                     <a class="text-light" target="_blank" href="https://www.youtube.com/watch?v=GK5n2e1pocs&t=1489s">
                                                                                         <div class="tq-post-cap d-flex flex-column p-3">
                                                                                             <h3 class="mb-0 text-light">श्रीराम मंदिर, अयोध्या</h3>
-                                                                                            <h3 class="mb-0 text-light">Shri Ram Mandir, Ayodhya</h3> 											  <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openCustomPopup()">लाइव दर्शन | Live Darshan</a>
+                                                                                            <h3 class="mb-0 text-light">Shri Ram Mandir, Ayodhya</h3> 											 
+                                                                                            <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openCustomPopup()">लाइव दर्शन | Live Darshan</a>
                                                                                         </div>
-
-
-
-
                                                                                         <h2 class="mb-0">@Resource.WelcomeAyodhyaDham</h2>
                                                                                         <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openPopup()">@Resource.VisitorRegistration</a>
                                                                                 </div><!-- Featured Cap -->
@@ -2159,8 +2156,9 @@
                 return new Date().toJSON().split('T')[0];
             });
         });
+
         $('#visitor-pass').hide();
-        $('#printButton').hide();
+        $('#printVisitorPassButton').hide();
         $('#visitorForm').on('submit', function (event) {
             event.preventDefault(); // Prevent the form from submitting the default way
 
@@ -2221,14 +2219,14 @@
                     $('#visitorPassQrImage').attr('src', apiBaseUrl.replace('v1/', '') + response.qrImage)
                     $('#message').html('Visitor information saved successfully!').css('color', 'green');
                     $('#visitor-reg-container').hide();
-                    $('#printButton').show()
+                    $('#printVisitorPassButton').show()
                 },
                 error: function (error) {
                     $('#message').text('Error saving visitor information.').css('color', 'red');
                 }
             });
 
-            $('#printButton').click(function () {
+                $('#printVisitorPassButton').click(function () {
                 // Create a new window for printing
                 var printWindow = window.open('', '', 'height=600,width=800');
                 printWindow.document.write('<html><head><title>Visitor Pass</title>');

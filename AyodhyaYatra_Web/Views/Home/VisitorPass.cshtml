@@ -1,58 +1,85 @@
-﻿@model IEnumerable<DataLayer.Visitor_Detail>
-
+﻿@model  List<AyodhyaYatra_Web.Models.Visitor.VisitorResponse>
+@using AyodhyaYatra_Web.Resources;
 @{
-    ViewBag.Title = "VisitorPass";
+    ViewData["Title"] = "VisitorPass";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>VisitorPass</h2>
+<section>
+    <div class="gap black-layer opc8 inner-banner">
+        <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center" style="padding-top:50px">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">@Resource.VisitorPassSearch</h1>
+                    <ol class="breadcrumb brd-rd30"><li class="breadcrumb-item"><a href="#">@Resource.VisitorPassSearch >> </a> </li></ol>
+                </div>
+            </div><!-- Page Top Wrap -->
+        </div>
+    </div>
+</section>
+<div id="main" class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" style="text-align:center">
+                <h2>@Resource.VisitorPass</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Client_IP_Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Session_Start_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Browser_Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Device_Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Operating_System)
-        </th>
-        <th></th>
-    </tr>
+                <form asp-action="VisitorPassSearch" method="post">
+                    <div class="form-group-inline">
+                        <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required />
+                        <button type="submit" class="btn btn-primary">@Resource.Search</button>
+                    </div>
+                    
+                </form>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Client_IP_Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Session_Start_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Browser_Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Device_Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Operating_System)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+                @if (Model != null && Model.Count > 0)
+                {
+                    <h3>Results:</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Unique ID</th>
+                                <th>@Resource.Name</th>
+                                <th>Mobile Number</th>
+                                <th>Document Type</th>
+                                <th>Document Number</th>
+                                <th>Address</th>
+                                <th>Registration Date</th>
+                                <th>Visiting Date</th>
+                                <th>@Resource.PrintPass</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var pass in Model)
+                            {
+                                <tr>
+                                    <td>@pass.Id</td>
+                                    <td>@pass.Name</td>
+                                    <td>@pass.Mobile</td>
+                                    <td>@pass.DocumentType</td>
+                                    <td>@pass.DocumentNumber.Substring(0, 2)****@pass.DocumentNumber.Substring(pass.DocumentNumber.Length-4)</td>
+                                    <td>@pass.Address</td>
+                                    <td>@pass.RegistrationDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@pass.VisitDate.ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="window.print();">Print</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
 
-</table>
+
+                <script>
+                    function MaskDocumentNumber(docNumber) {
+                        if (docNumber.length > 4) {
+                            return docNumber.substring(0, 2) + "****" + docNumber.substring(docNumber.length - 2);
+                        }
+                        return docNumber;
+                    }</script>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -211,12 +211,13 @@
                                                                                                                     </td>
                                                                                                                 </tr>
                                                                                                                 <tr>
-                                                                                                                    <td style="text-align:left">
-                                                                                                                        <h5 class="mb-0">नाम / Name : <b id="visitorName"></b></h5>
-                                                                                                                        <h5 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h5>
-                                                                                                                        <h5 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h5>
-                                                                                                                        <h5 class="mb-0">वर्ग / Category : <b>General</b> </h5>
-                                                                                                                    </td>
+                                                                                                                    <div class="tq-post-cap d-flex flex-column">
+                                                                                                                        <h3 class="mb-0">नाम / Name : <b id="visitorName"></b></h3>
+                                                                                                                        <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
+                                                                                                                        <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
+                                                                                                                        <h4 class="mb-0">यात्रा की तारीख / Visit Date : <b id="visitDate"></b> </h4>
+                                                                                                                        <h4 class="mb-0">पता / Address : <b id="address"></b> </h4>
+                                                                                                                    </div>
                                                                                                                 </tr>
                                                                                                             </table>
 
@@ -2170,39 +2171,39 @@
                 documentTypeId: parseInt($('#documentTypeId').val()),
                 address: $('#address').val(),
                 visitDate: $('#visitDate').val()
-            };
-            if (visitorData.name.length <= 3) {
-                $('#nameError').text("Please enter name");
-                return;
-            }
-            else {
-                $('#nameError').text("");
-            }
-            if (visitorData.mobile.length <= 9) {
-                $('#mobileError').text("Please enter mobile number");
-                return;
-            }
-            else {
-                $('#mobileError').text("");
-            }
-            if (visitorData.documentTypeId <= 0) {
-                $('#docError').text("Please select Document Type");
-                return;
-            } else {
-                $('#docError').text("");
-            }
-            if (visitorData.documentNumber.length <= 9) {
-                $('#docNoError').text("Please enter valid Document number");
-                return;
-            } else {
-                $('#docNoError').text("");
-            }
-            if (visitorData.address.length <= 9) {
-                $('#addressError').text("Please enter valid address");
-                return;
-            } else {
-                $('#addressError').text("");
-            }
+            //};
+            //if (visitorData.name.length <= 3) {
+            //    $('#nameError').text("Please enter name");
+            //    return;
+            //}
+            //else {
+            //    $('#nameError').text("");
+            //}
+            //if (visitorData.mobile.length <= 9) {
+            //    $('#mobileError').text("Please enter mobile number");
+            //    return;
+            //}
+            //else {
+            //    $('#mobileError').text("");
+            //}
+            //if (visitorData.documentTypeId <= 0) {
+            //    $('#docError').text("Please select Document Type");
+            //    return;
+            //} else {
+            //    $('#docError').text("");
+            //}
+            //if (visitorData.documentNumber.length <= 9) {
+            //    $('#docNoError').text("Please enter valid Document number");
+            //    return;
+            //} else {
+            //    $('#docNoError').text("");
+            //}
+            //if (visitorData.address.length <= 9) {
+            //    $('#addressError').text("Please enter valid address");
+            //    return;
+            //} else {
+            //    $('#addressError').text("");
+            //}
             var apiBaseUrl = $('#hdnAPIURL').val();
             $.ajax({
                 url: apiBaseUrl + 'visitors/add',

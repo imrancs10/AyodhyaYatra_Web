@@ -154,7 +154,7 @@
                                                                                                                         <span class="wpcf7-form-control-wrap" data-name="text-487">
                                                                                                                             <input size="40" asp-for="Visitor.VisitDate" id="visitDate" title="यात्रा की तारीख / Visit Date" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required brd-rd5" aria-required="true" aria-invalid="false" placeholder="Visit Date" value="" type="date" />
                                                                                                                         </span>
-                                                                                                                        <div style="color:red" id="docNoError"></div>
+                                                                                                                        <div style="color:red" id="visitDateError"></div>
 
                                                                                                                     </p>
 
@@ -184,6 +184,7 @@
                                                                                         </div>
                                                                                         <div class="container">
                                                                                             <button class="btn btn-primary" id="printVisitorPassButton">@Resource.PrintPass</button>
+                                                                                            <button class="btn btn-danger" id="closeVisitorPassButton">@Resource.Close</button>
                                                                                             <div id="visitor-pass" style="margin-top:1%;background-color: cornsilk; background-image: url(wp-content/uploads/bglotus.png);">
                                                                                                 <table>
                                                                                                     <tr>
@@ -262,7 +263,7 @@
                                                                                     <a class="text-light" target="_blank" href="https://www.youtube.com/watch?v=GK5n2e1pocs&t=1489s">
                                                                                         <div class="tq-post-cap d-flex flex-column p-3">
                                                                                             <h3 class="mb-0 text-light">श्रीराम मंदिर, अयोध्या</h3>
-                                                                                            <h3 class="mb-0 text-light">Shri Ram Mandir, Ayodhya</h3> 											 
+                                                                                            <h3 class="mb-0 text-light">Shri Ram Mandir, Ayodhya</h3>
                                                                                             <a class="tq-theme-btn bg-white rounded-pill mt-2" style="cursor: pointer;" onclick="openCustomPopup()">लाइव दर्शन | Live Darshan</a>
                                                                                         </div>
                                                                                         <h2 class="mb-0">@Resource.WelcomeAyodhyaDham</h2>
@@ -2159,6 +2160,7 @@
 
         $('#visitor-pass').hide();
         $('#printVisitorPassButton').hide();
+        $('#closeVisitorPassButton').hide();
         $('#visitorForm').on('submit', function (event) {
             event.preventDefault(); // Prevent the form from submitting the default way
 
@@ -2169,14 +2171,21 @@
                 documentTypeId: parseInt($('#documentTypeId').val()),
                 address: $('#address').val(),
                 visitDate: $('#visitDate').val()
-            //};
-            //if (visitorData.name.length <= 3) {
-            //    $('#nameError').text("Please enter name");
-            //    return;
-            //}
-            //else {
-            //    $('#nameError').text("");
-            //}
+            };
+            if (visitorData.name.length <= 3) {
+                $('#nameError').text("Please enter name");
+                return;
+            }
+            else {
+                $('#nameError').text("");
+            }
+            if (visitorData.visitDate === '') {
+                $('#visitDateError').text("Please select visit date.");
+                return;
+            }
+            else {
+                $('#visitDateError').text("");
+            }
             //if (visitorData.mobile.length <= 9) {
             //    $('#mobileError').text("Please enter mobile number");
             //    return;
@@ -2202,10 +2211,11 @@
             //} else {
             //    $('#addressError').text("");
             //}
+            debugger;
             var apiBaseUrl = $('#hdnAPIURL').val();
             $.ajax({
-                url: apiBaseUrl + 'visitors/add',
-                //'https://localhost:7216/v1/visitors/add' Adjust the URL to your API endpoint
+                url: 'https://localhost:7216/v1/visitors/add',//apiBaseUrl + 'visitors/add',
+                //' Adjust the URL to your API endpoint
                 type: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(visitorData),
@@ -2220,13 +2230,19 @@
                     $('#message').html('Visitor information saved successfully!').css('color', 'green');
                     $('#visitor-reg-container').hide();
                     $('#printVisitorPassButton').show()
+                    $('#closeVisitorPassButton').show();
                 },
                 error: function (error) {
                     $('#message').text('Error saving visitor information.').css('color', 'red');
                 }
             });
 
-                $('#printVisitorPassButton').click(function () {
+            $('#closeVisitorPassButton').click(function () {
+                $('#visitor-pass').hide();
+                closePopup();
+            });
+
+            $('#printVisitorPassButton').click(function () {
                 // Create a new window for printing
                 var printWindow = window.open('', '', 'height=600,width=800');
                 printWindow.document.write('<html><head><title>Visitor Pass</title>');

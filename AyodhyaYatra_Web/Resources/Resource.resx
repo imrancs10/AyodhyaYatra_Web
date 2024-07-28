@@ -216,6 +216,9 @@
   <data name="ChildHelpline" xml:space="preserve">
     <value>Child Helpline</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="CM" xml:space="preserve">
     <value>Hon'ble Chief Minister, Uttar Pradesh</value>
   </data>

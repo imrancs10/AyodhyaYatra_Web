@@ -200,18 +200,20 @@
         }
 
         // Get the query parameters
-       /* const queryParams = getQueryParams();*/
+        const queryParams = getQueryParams();
 
         // Check if the specific parameter is present and its value
         if (queryParams['hideHeader'] === 'true') {
             $('#header').hide();
             $('#page-footer').hide();
+            $('.tq-sticky-menu').hide();
         }
         else {
             $('#header').show();
-           $('#page-footer').show();
-       }
-   });
+            $('#page-footer').show();
+            $('.tq-sticky-menu').show();
+        }
+    });
 </script>
 <script type="text/javascript">
     $(document).ready(function () {

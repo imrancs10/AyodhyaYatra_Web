@@ -216,6 +216,9 @@
   <data name="ChildHelpline" xml:space="preserve">
     <value>चाइल्ड हेल्पलाइन</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
   <data name="CM" xml:space="preserve">
     <value>माननीय मुख्यमंत्री, उत्तर प्रदेश</value>
   </data>

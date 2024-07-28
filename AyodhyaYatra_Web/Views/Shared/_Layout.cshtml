@@ -910,7 +910,7 @@
         <div class="tq-side-menu d-flex flex-column align-items-start position-fixed w-100">
             <a class="tq-side-menu-close" href="javascript:void(0);"><i class="fas fa-times"></i></a>
             <ul id="menu-main-menu" class="">
-                <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628">
+                <li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-628">
                     <a href="/Home/TicketBooking"><b>@Resource.OnlineBooking</b></a>
 
                 </li>
@@ -990,7 +990,7 @@
                                 <a>@Resource.About</a>
                                 <ul class="sub-menu">
                                     <li id="menu-item-707" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">@Resource.OverviewandConcept</a></li>
-                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">@Resource.PersonalityofAyodhya</a></li>
+                                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/AyodhyaPersonality">@Resource.PersonalityofAyodhya</a></li>
                                 </ul>
                             </li>
                             <li id="menu-item-724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
@@ -1074,6 +1074,63 @@
         <!-- Sticky Header -->
         <div class="tq-res-header position-relative w-100">
             <div class="tq-res-topbar w-100">
+
+                <div class="tq-res-topbar-inner d-flex flex-wrap align-items-center justify-content-between">
+
+
+      
+
+
+                    <div class="d-inline-flex align-items-center" style="line-height: 1; gap:5px; background-color: #91280d; width: 100em; padding: 3px;">
+
+                        <a style="font-size: 12px; font-weight: 500; width: 15em; color: antiquewhite;">
+
+                            @Resource.GovernmentofUttarPradesh
+                            @*Government of Uttar Pradesh*@
+                        </a>
+
+                        <input style="width: 5em;" type="text" class="searchTerm" placeholder="Search">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+
+                        <div class="tq-header-menu d-flex align-items-center justify-content-between position-relative w-100">
+                            <nav>
+
+                                <ul class="sub-menu">
+                                    <li id="menu-item-635" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-635">
+                                        <a id="selectedLanguage">English</a>
+                                        <ul class="sub-menu">
+                                            <li class="tq-social-links text-white d-inline-flex align-items-center">
+                                                @*<a href="https://twitter.com/" title="" itemprop="url" target="_blank">English </a>*@
+                                                @Html.ActionLink("English", "Change", "Language", new { lang = "en-US" }, null)
+                                            </li>
+                                            <li class="tq-social-links text-white d-inline-flex align-items-center">
+                                                @*<a href="https://twitter.com/" title="" itemprop="url" target="_blank">Hindi</a>*@
+                                                @Html.ActionLink("हिंदी", "Change", "Language", new { lang = "hi-IN" }, null)
+                                            </li>
+                                        </ul>
+
+                                    </li>
+
+                                    <li style="font-size: 12px; font-weight: 500; width: 15em; color: antiquewhite; margin-left:-2em;">
+                                        @Html.ActionLink("Visitor Pass", "Visitorpass", "home", new { lang = "en-US" }, null)
+                                    </li>
+
+                                </ul>
+
+
+
+
+                            </nav>
+                        </div>
+                    </div>
+
+
+                </div><!-- Social Links -->
+                         
+
+
                 <div class="container">
                     <div class="tq-res-topbar-inner d-flex flex-wrap align-items-center justify-content-between w-100">
                         <div class="tq-logo position-relative w-100">
@@ -1158,7 +1215,7 @@
                         <a>@Resource.About</a>
                         <ul class="sub-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="/Home/About">@Resource.OverviewandConcept</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/UnderConstruction">@Resource.PersonalityofAyodhya</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-campaign menu-item-783"><a href="/Home/AyodhyaPersonality">@Resource.PersonalityofAyodhya</a></li>
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-724">
@@ -1169,8 +1226,8 @@
                                 <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/YatraDetail?id=@yatra.Id">@yatra.EnName</a></li>
                             }
                             @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/FifthKosiYatra">5 Kosi Yatra</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
+                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/ForteenKosiYatra">14 Kosi Yatra</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-event menu-item-2038"><a href="/Home/EightyFourKosiYatra">84 Kosi Yatra</a></li>*@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
@@ -1181,8 +1238,8 @@
                                 <li id="menu-item-723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-723"><a href="/Home/MasterDetail?id=@data.Id">@data.Name</a></li>
                             }
                             @*<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/TouristGhats">Ghats</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
+                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristHeritage">Heritage</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/TouristGangaAarti">Ganga Aarti</a></li>*@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
@@ -1213,18 +1270,18 @@
                                 <a href="/Home/TouristAtractionPlaces?masterDataType=9&heading=ATM">@Resource.ATM</a>
                             </li>
                             @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                    <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
-                                </li>*@
+                    <a href="/Home/TouristAtractionPlaces?masterDataType=18&heading=Saryu Arti">Saryu Arti</a>
+                </li>*@
                             @*<li id="menu-item-3375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3375">
-                                    <a href="/Home/TouristAtractionPlaces">Park</a>
-                                </li>*@
+                    <a href="/Home/TouristAtractionPlaces">Park</a>
+                </li>*@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
                         <a href="/Home/TouristGuideByMap">@Resource.TouristGuidebyMap</a>
                     </li>
 
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-630">
                         <a href="/Home/TicketBooking">@Resource.OnlineBooking</a>
 
                     </li>
@@ -1240,14 +1297,18 @@
                         </ul>
                     </li>
                     @*<li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
-                            <a href="/Home/UnderConstruction">@Resource.PublicUtilities</a>
-                        </li>*@
+            <a href="/Home/UnderConstruction">@Resource.PublicUtilities</a>
+        </li>*@
                     <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
                         <a href="/Home/NewsAndEvents">@Resource.NewsEvents</a>
                     </li>
 
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-630">
                         <a href="/Home/ContactUs">@Resource.ContactUs</a>
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-630">
+                        <a href="/Home/ContactUs">Other Contact Options</a>
                         <ul class="sub-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="/Home/Directory">@Resource.Directory</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-796"><a href="/Home/Helpline">@Resource.Helpline</a></li>

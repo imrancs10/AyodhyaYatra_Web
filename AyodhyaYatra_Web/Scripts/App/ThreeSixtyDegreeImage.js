@@ -14,7 +14,7 @@ $(document).ready(function () {
             url: '/Home/FillThreeSixtyDegreeImage',
             success: function (data) {
                 $.each(data, function (key, entry) {
-                    $('#panormaDiv').append('<div id="panorama' + key + '" style="width: 550px; height: 370px;margin-left: 20px;margin-bottom:20px;"></div>')
+                    $('#panormaDiv').append('<div class="col-md-6" id="panorama' + key + '" style="width: 550px; height: 370px;margin:3px;"></div>')
                     //dropdown.append($('<option></option>').attr('value', entry.Id).text(entry.Subject));
                     var fileURL = 'https://api.ayodhya-dham.in/' + entry.FilePath
                     //pannellum.viewer('panorama' + key, {

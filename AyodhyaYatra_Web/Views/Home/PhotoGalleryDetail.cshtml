@@ -18,14 +18,16 @@
     }
 
     .gallery {
-        margin: 10px 40px;
+       
+      
     }
 
         .gallery img {
-            width: 220px;
-            height: 120px;
+            width: 95%;
+            height: 210px;
             transition: 1s;
-            padding: 5px;
+            margin:5px;
+        
         }
 
             .gallery img:hover {
@@ -61,7 +63,7 @@
                 <div class="pr-15 pl-15">
                     <div class="row">
                         @*@Html.Partial("_Galary_SideMenu", noticeType)*@
-                        <div class="col w_content pt-20 mt-0">
+                        <div class="col w_content mt-0">
                             <hr>
                             <div class="clr"></div>
                             <div class="gallery">
@@ -69,7 +71,10 @@
                                 {
                                     if (!string.IsNullOrEmpty(item.FilePath))
                                     {
-                                        <img src="@("https://api.ayodhya-dham.in/"+item.ThumbPath)" title="@item.FileType" loading="lazy" style="min-width:300px;max-height:100%;max-width:100%;min-height:200px;border:1px solid;">
+                                        <div class="col-md-4">
+                                            <img src="@("https://api.ayodhya-dham.in/"+item.ThumbPath)" title="@item.FileType" loading="lazy" style="min-width:300px;max-height:100%;max-width:100%;min-height:200px;border:1px solid;">
+
+                                        </div>
                                     }
                                     else
                                     {
@@ -165,6 +170,15 @@
     }
 </script>
 <style>
+
+/*@@media screen and (max-width: 400px) {
+   .gallery
+    {
+        
+        flex-wrap: wrap;
+    }
+    }*/
+
     /* Add custom styles here */
     .gallery {
         display: flex;

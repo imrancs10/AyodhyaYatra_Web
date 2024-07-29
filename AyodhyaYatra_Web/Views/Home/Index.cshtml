@@ -2214,7 +2214,7 @@
             debugger;
             var apiBaseUrl = $('#hdnAPIURL').val();
             $.ajax({
-                url: 'https://localhost:7216/v1/visitors/add',//apiBaseUrl + 'visitors/add',
+                url: apiBaseUrl + 'visitors/add',
                 //' Adjust the URL to your API endpoint
                 type: 'PUT',
                 contentType: 'application/json',

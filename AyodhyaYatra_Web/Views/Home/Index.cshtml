@@ -216,8 +216,8 @@
                                                                                                                         <h3 class="mb-0">नाम / Name : <b id="visitorName"></b></h3>
                                                                                                                         <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
                                                                                                                         <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
-                                                                                                                        <h4 class="mb-0">यात्रा की तारीख / Visit Date : <b id="visitDate"></b> </h4>
-                                                                                                                        <h4 class="mb-0">पता / Address : <b id="address"></b> </h4>
+                                                                                                                        <h4 class="mb-0">यात्रा की तारीख / Visit Date : <b id="visitDatePass"></b> </h4>
+                                                                                                                        <h4 class="mb-0">पता / Address : <b id="addressPass"></b> </h4>
                                                                                                                     </div>
                                                                                                                 </tr>
                                                                                                             </table>
@@ -2211,7 +2211,6 @@
             //} else {
             //    $('#addressError').text("");
             //}
-            debugger;
             var apiBaseUrl = $('#hdnAPIURL').val();
             $.ajax({
                 url: apiBaseUrl + 'visitors/add',
@@ -2222,6 +2221,8 @@
                 success: function (response) {
                     $("#visitorId").text('Registration ID : ' + response?.id);
                     $("#visitorName").text(response?.name);
+                    $("#addressPass").text(response?.address);
+                    $("#visitDatePass").text(response?.visitDate?.substr(0,10));
                     $("#visitorMobile").text(response?.mobile);
                     $("#visitorDocId").text(response?.documentNumber);
                     $("#visitorDocType").text(response?.documentType);

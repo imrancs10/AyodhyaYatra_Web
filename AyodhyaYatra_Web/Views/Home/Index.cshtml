@@ -207,18 +207,17 @@
                                                                                                             <table>
                                                                                                                 <tr style="background-color: #ffd580;">
                                                                                                                     <td>
-                                                                                                                        <h4 style="margin-left:-18%;" class="mb-0">Visitor Pass / आगंतुक पास</h4>
                                                                                                                         <h4 style="margin-left:-30%;" class="mb-0" id="visitorId">Visitor Pass / आगंतुक पास</h4>
                                                                                                                     </td>
                                                                                                                 </tr>
                                                                                                                 <tr>
-                                                                                                                    <div class="tq-post-cap d-flex flex-column">
+                                                                                                                    <td class="tq-post-cap d-flex flex-column">
                                                                                                                         <h3 class="mb-0">नाम / Name : <b id="visitorName"></b></h3>
                                                                                                                         <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
                                                                                                                         <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
                                                                                                                         <h4 class="mb-0">यात्रा की तारीख / Visit Date : <b id="visitDatePass"></b> </h4>
                                                                                                                         <h4 class="mb-0">पता / Address : <b id="addressPass"></b> </h4>
-                                                                                                                    </div>
+                                                                                                                    </td>
                                                                                                                 </tr>
                                                                                                             </table>
 
@@ -1480,7 +1479,9 @@
                                                             <div class="row justify-content-center">
                                                                 @foreach (var data in specificAttractionDetail)
                                                                 {
-                                                                    <div class="col">
+
+
+<div class="col">
                                                                         <div class="tq-pillar-box-wrap d-flex position-relative w-100">
                                                                             <div class="tq-pillar-box d-flex flex-column align-items-center tq-bg-color2 text-center position-relative w-100" style="border-radius: 20%;">
                                                                                 <div class="tq-pillar-head d-flex flex-column align-items-center w-100">
@@ -1493,7 +1494,7 @@
                                                                                 <div class="tq-pillar-body d-flex flex-column align-items-center w-100">
                                                                                     <span class="rounded-circle">
                                                                                         <img class="img-fluid rounded-circle"
-                                                                                             src="../Content/wp-content/uploads/temple.jpg" alt="Shahadah"
+                                                                                             src=" @(data.Images.Count > 0 ? "https://api.ayodhya-dham.in/"+data.Images[0].Fi : "../Content/wp-content/uploads/attractionicon1.png")" alt="Shahadah"
                                                                                              loading="lazy">
                                                                                     </span>
                                                                                     @if (data.EnDescription.Length > 100)
@@ -2252,7 +2253,7 @@
                 printWindow.document.write($('#visitor-pass').html());
                 printWindow.document.write('</body></html>');
 
-                printWindow.document.close();
+                //printWindow.document.close();
                 printWindow.focus();
 
                 // Trigger the print dialog

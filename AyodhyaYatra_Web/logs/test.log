@@ -4052,3 +4052,16 @@ Error Number:53,State:0,Class:20
 2024-07-18 23:24:44,701 [7] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
 2024-07-18 23:30:04,501 [7] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
 2024-07-18 23:49:03,104 [9] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-07 11:35:15,385 [34] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-07 11:40:30,311 [48] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-07 11:41:14,368 [6] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-07 11:43:12,793 [6] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:11:32,811 [9] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:12:24,598 [10] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:16:19,954 [7] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:16:31,111 [7] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:17:10,868 [7] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:21:51,200 [59] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:21:57,996 [59] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:22:06,128 [10] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 
+2024-08-13 08:22:13,275 [22] ERROR AyodhyaYatra_Web.Infrastructure.Utility.CustomExceptionFilter 

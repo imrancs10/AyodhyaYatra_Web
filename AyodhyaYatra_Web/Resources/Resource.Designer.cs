@@ -727,7 +727,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entertainment &amp;amp; Shopping Places.
+        ///   Looks up a localized string similar to Entertainment &amp; Shopping Places.
         /// </summary>
         public static string EntertainmentShoppingPlaces {
             get {
@@ -988,7 +988,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Historical &amp;amp; Religious Places.
+        ///   Looks up a localized string similar to Historical &amp; Religious Places.
         /// </summary>
         public static string HistoricalReligiousPlaces {
             get {
@@ -1754,7 +1754,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Railway &amp;amp; Transport.
+        ///   Looks up a localized string similar to Railway &amp; Transport.
         /// </summary>
         public static string RailwayTransport {
             get {

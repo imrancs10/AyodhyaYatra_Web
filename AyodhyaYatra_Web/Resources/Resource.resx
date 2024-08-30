@@ -340,7 +340,7 @@
     <value>Emergency Services</value>
   </data>
   <data name="EntertainmentShoppingPlaces" xml:space="preserve">
-    <value>Entertainment &amp;amp; Shopping Places</value>
+    <value>Entertainment &amp; Shopping Places</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error!</value>
@@ -427,7 +427,7 @@
     <value>Heritage</value>
   </data>
   <data name="HistoricalReligiousPlaces" xml:space="preserve">
-    <value>Historical &amp;amp; Religious Places</value>
+    <value>Historical &amp; Religious Places</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -683,7 +683,7 @@ We do collect some technical information when you visit our website, to make you
     <value>Railway Booking</value>
   </data>
   <data name="RailwayTransport" xml:space="preserve">
-    <value>Railway &amp;amp; Transport</value>
+    <value>Railway &amp; Transport</value>
   </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read More</value>

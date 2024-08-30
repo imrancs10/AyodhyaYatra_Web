@@ -1339,7 +1339,7 @@ namespace AyodhyaYatra_Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to News &amp;amp; Events.
+        ///   Looks up a localized string similar to News &amp; Events.
         /// </summary>
         public static string NewsEvents {
             get {

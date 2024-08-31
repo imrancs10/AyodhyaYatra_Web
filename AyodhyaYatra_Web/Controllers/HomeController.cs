@@ -450,6 +450,7 @@ namespace AyodhyaYatra_Web.Controllers
             {
                 return View("VisitorPass", new List<VisitorResponse>());
             }
+            ViewData["APIUrl"] = BaseURL;
             return View("VisitorPass", response);
         }
     }

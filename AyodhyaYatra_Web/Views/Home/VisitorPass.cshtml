@@ -1,10 +1,12 @@
 ﻿@model  List<AyodhyaYatra_Web.Models.Visitor.VisitorResponse>
+@using Newtonsoft.Json;
 @using AyodhyaYatra_Web.Resources;
 @{
     ViewData["Title"] = "VisitorPass";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var apiURL = Convert.ToString(ViewData["APIUrl"]);
 }
-
+<input type="hidden" value="@apiURL" id="hdnAPIURL" />
 <section>
     <div class="gap black-layer opc8 inner-banner">
         <div class="fixed-bg set-imagebloc" style="background-image: url(../Content/wp-content/uploads/photo.webp);"></div>
@@ -29,7 +31,7 @@
                         <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" required />
                         <button type="submit" class="btn btn-primary">@Resource.Search</button>
                     </div>
-                    
+
                 </form>
 
                 @if (Model != null && Model.Count > 0)
@@ -62,7 +64,7 @@
                                     <td>@pass.RegistrationDate.ToString("yyyy-MM-dd")</td>
                                     <td>@pass.VisitDate.ToString("yyyy-MM-dd")</td>
                                     <td>
-                                        <button class="btn btn-secondary" onclick="window.print();">Print</button>
+                                        <button class="btn btn-secondary" data-qrimage="@pass.QrImage"  data-bs-toggle="modal" data-bs-target="#myModal" onclick="printPass( @(JsonConvert.SerializeObject(pass)));">Print</button>
                                     </td>
                                 </tr>
                             }
@@ -81,5 +83,107 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="myModal" data-bs-backdrop="static" style="z-index:100000">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Print Visitor Pass</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <button class="btn btn-primary" id="printVisitorPassButton">@Resource.PrintPass</button>
+                       
+                        <div id="visitor-pass" style="margin-top:1%;background-color: cornsilk; background-image: url(wp-content/uploads/bglotus.png);">
+                            <table>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <img decoding="async" class="img-fluid" src="../content/wp-content/uploads/logoAyodhya.png" style=" width: 100px; height: 100px;" alt="">
+                                    </td>
+                                    <td>
+                                        <h3 class="mb-0">अयोध्या धाम यात्रा</h3>
+                                        <h4 class="mb-0">Ayodhya Dham Yatra</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="vertical-align:bottom;">
+                                        <img id="visitorPassQrImage" src="wp-content/uploads/qr.png" style="width: 144px;height: auto;">
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr style="background-color: #ffd580;">
+                                                <td>
+                                                    <h4 style="margin-left:-30%;" class="mb-0" id="visitorId">Visitor Pass / आगंतुक पास</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tq-post-cap d-flex flex-column">
+                                                    <h3 class="mb-0">नाम / Name : <b id="visitorName"></b></h3>
+                                                    <h4 class="mb-0">मोबाइल / Mobile : <b id="visitorMobile"></b> </h4>
+                                                    <h4 class="mb-0">आधार / <b id="visitorDocType"></b> : <b id="visitorDocId"></b> </h4>
+                                                    <h4 class="mb-0">यात्रा की तारीख / Visit Date : <b id="visitDatePass"></b> </h4>
+                                                    <h4 class="mb-0">पता / Address : <b id="addressPass"></b> </h4>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-danger" id="closeVisitorPassButton" data-bs-dismiss="modal">@Resource.Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
 </div>
+<script>
+    const printPass = (response) => {
+        debugger;
+        var apiBaseUrl = $('#hdnAPIURL').val();
+        $("#visitorId").text('Registration ID : ' + response?.Id);
+        $("#visitorName").text(response?.Name);
+        $("#addressPass").text(response?.Address);
+        $("#visitDatePass").text(response?.VisitDate?.substr(0, 10));
+        $("#visitorMobile").text(response?.Mobile);
+        $("#visitorDocId").text(response?.DocumentNumber);
+        $("#visitorDocType").text(response?.DocumentType);
+        $('#visitor-pass').show();
+        $('#visitorPassQrImage').attr('src', apiBaseUrl.replace('v1/', '') + response.QrImage)
+        $('#message').html('Visitor information saved successfully!').css('color', 'green');
+        $('#visitor-reg-container').hide();
+    }
+
+    $('#printVisitorPassButton').click(function () {
+        // Create a new window for printing
+        var printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Visitor Pass</title>');
+        printWindow.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write($('#visitor-pass').html());
+        printWindow.document.write('</body></html>');
+
+        //printWindow.document.close();
+        printWindow.focus();
+
+        // Trigger the print dialog
+        printWindow.print();
+        printWindow.onafterprint = function () {
+            printWindow.close();
+        };
+    });
+</script>

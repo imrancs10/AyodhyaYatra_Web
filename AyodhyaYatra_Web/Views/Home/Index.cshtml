@@ -2187,13 +2187,17 @@
             else {
                 $('#visitDateError').text("");
             }
-            //if (visitorData.mobile.length <= 9) {
-            //    $('#mobileError').text("Please enter mobile number");
-            //    return;
-            //}
-            //else {
-            //    $('#mobileError').text("");
-            //}
+            if (visitorData.mobile.length  ===0) {
+                $('#mobileError').text("Please enter mobile number");
+                return;
+            }
+            else if (visitorData.mobile.length >0 && visitorData.mobile.length !== 10) {
+                $('#mobileError').text("Please enter valid mobile number");
+                return;
+            }
+            else {
+                $('#mobileError').text("");
+            }
             //if (visitorData.documentTypeId <= 0) {
             //    $('#docError').text("Please select Document Type");
             //    return;
@@ -2258,7 +2262,9 @@
 
                 // Trigger the print dialog
                 printWindow.print();
-                printWindow.close();
+                printWindow.onafterprint = function () {
+                    printWindow.close();
+                };
             });
         });
     });

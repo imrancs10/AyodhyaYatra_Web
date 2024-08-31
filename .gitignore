@@ -24,3 +24,5 @@ packages/*
 /UPPRB_Web/Reports/Bill/2018/November
 /UPPRB_Web/Reports
 /AyodhyaYatra_Web/obj/Release/Package/PackageTmp
+/AyodhyaYatra_Web/obj/Release
+/AyodhyaYatra_Web/Properties/PublishProfiles
